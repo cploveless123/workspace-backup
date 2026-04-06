@@ -1,43 +1,70 @@
-# Wilson's Progress Report — April 6, 2026
+# Wilson Progress Report — April 6, 2026
 
-## 1) Skills & Knowledge Built Recently
-
-- **Signal integration** — Connected both GMGN Telegram (via session) and DexScreener API
-- **Token safety analysis** — NoMint, Blacklist, Burnt checks, Top10 holder %, holder count, DEV status
-- **Paper trading engine** — Sim trades with 5% cost model (2% slippage + 3% tax)
-- **Pattern recognition** — Tracking which signal combinations trigger wins vs losses
-
-## 2) Currently Researching
-
-- **KOL (Key Opinion Leader) flow** — Which wallets to copy, smart money patterns
-- **Signal quality scoring** — What separates a +50% pump from a -30% dump
-- **DexScreener-only signals** — Testing scanner without GMGN to compare accuracy
-
-## 3) Tested & Simulated
-
-**April 5:** 6 trades → all wins → +71.77% (1.0 → 1.7177 SOL)
-**April 6:** 127 signals scanned → 1 trade (714 on BSC) → +32% (+0.032 SOL)
-
-**Key finding:** Very conservative filtering (127 signals → 1 trade) means I'm likely missing opportunities. Combined signals (KOL + PUMP) > single signal alone.
-
-## 4) Adapting Based on Learnings
-
-- Relaxed filters today — let more signals through to learn
-- Pre-pump entries are risky — need to catch earlier
-- Combined signals = higher conviction (KOL + PUMP outperformed either alone)
-- Liquidity threshold: avoiding sub-$20K pairs
-
-## 5) Next Steps for Automation/Income
-
-1. **Fix Telegram symbol parsing** — "NEW" showing instead of actual token symbols
-2. **Test relaxed filters** — Compare trigger rate vs win rate
-3. **Build KOL watchlist** — Identify top wallets to copy
-4. **Live trading prep** — Ready when you approve (sim performance solid)
-5. **Launch sniping research** — pump.fun pre-launch opportunities
+## Summary
+Trading bot operational. Sim wallet: 1.0 → 1.7177 SOL (+71.77%). 6 trades, 0 losses.
 
 ---
 
-**Current sim state:** 3 positions, 0.7 SOL reserve, scanning every 90s
-**Overall sim performance:** +80%+ since Apr 5
+## 1) Skills/Knowledge Built
 
-Awaiting your green light for live trading when ready 🤖
+- **DexScreener data analysis** — Reading pair metrics (mcap, FDV, liquidity, price change, age)
+- **GMGN signal integration** — Telegram monitoring @gmgnsignals, parsing buy/sell/call signals
+- **Token safety checks** — NoMint, Blacklist, Burnt status, Top10 holder %, holder count, dev behavior
+- **Trading simulator** — Paper trading with realistic costs (2% slippage + 3% tax)
+- **Risk management rules** — TP1 +50% (sell 50%), TP2 +100% (sell remaining), SL -30%
+- **Signal quality scoring** — Filtering signals by volume, mcap, liquidity, DEX source
+
+---
+
+## 2) Currently Researching
+
+- **KOL (smart money) flow analysis** — Tracking which wallets to copy
+- **Coin lifecycle patterns** — What separates pumps from dumps
+- **Entry timing** — Pre-pump vs post-pump entry optimization
+- **Dual-signal testing** — GMGN-only vs DexScreener-only accuracy comparison
+
+---
+
+## 3) Tested/Simulated
+
+- **6 trades executed** — All wins, total +71.77% return
+- **PUMP signals** — Highest win rate (100%)
+- **Fast exits** — 2-5 min holds captured TP1 efficiently
+- **Signal combo: KOL + PUMP** — Best performer (BALT: +50% in minutes)
+- **Conservative filters** — 127 signals → 1 trade (0.8% trigger rate)
+
+---
+
+## 4) Adapting Based on Learnings
+
+- **Combined signals > single** — KOL + PUMP outperformed either alone
+- **Pre-pump entries risky** — We entered BALT at +35% (too late), need earlier entry
+- **Liquidity threshold** — Avoiding sub-$20K liquidity (BALT $24.9K was tight)
+- **Telegram symbol parsing** — Fixing bug showing "NEW" instead of token symbols
+- **Relaxed filters slightly** — Too conservative filtering missed good trades
+
+---
+
+## 5) Next Steps for Automation/Income
+
+1. **Fix symbol parsing bug** — Regex update for GMGN message parsing
+2. **Test DexScreener-only signals** — Compare to GMGN performance
+3. **GitHub push** — Ready when Chris provides remote URL
+4. **Pre-launch sniping** — Research pump.fun launch timing (faster than post-launch)
+5. **Live trading preparation** — Waiting for Chris signal to go live with real funds
+
+---
+
+## Performance Snapshot
+
+| Metric | Value |
+|--------|-------|
+| Sim P&L | +71.77% |
+| Trades | 6 |
+| Win rate | 100% |
+| Best hold time | 2-5 min |
+| Signals scanned | 127+ |
+
+---
+
+*Report generated: 2026-04-06 20:04 UTC*
