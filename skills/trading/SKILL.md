@@ -5,7 +5,7 @@ Primary focus: Pump.fun tokens, $6K-$50K mcap, just before bonding
 
 ### Entry Filters (ALL must pass)
 1. **MCap**: $6,000 - $50,000 (sweet spot for fast gains)
-2. **Liquidity**: >$10,000 (exit safety)
+2. **Liquidity**: >$5,000 (exit safety)
 3. **Dex**: Pump.fun (priority)
 4. **Momentum**: Positive price change % (m5/h1)
 5. **Buys**: Active 24h volume
