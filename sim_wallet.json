@@ -1,13 +1,1 @@
-{
-  "balances": {
-    "solana": 1.17,
-    "ethereum": 1.0,
-    "base": 1.0
-  },
-  "positions": [],
-  "stats": {
-    "total_trades": 4,
-    "wins": 0,
-    "losses": 5
-  }
-}
+{"balances": {"solana": 1.2934, "ethereum": 1.0, "base": 1.0}, "positions": [], "stats": {"total_trades": 4, "wins": 1, "losses": 5}}
