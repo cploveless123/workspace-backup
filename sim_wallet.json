@@ -1,6 +1,6 @@
 {
   "balances": {
-    "solana": 1.12,
+    "solana": 1.27,
     "ethereum": 1.0,
     "base": 1.0
   },
@@ -8,6 +8,6 @@
   "stats": {
     "total_trades": 3,
     "wins": 0,
-    "losses": 4
+    "losses": 5
   }
 }
