@@ -38,3 +38,18 @@ Skills are shared. Your setup is yours. Keeping them apart means you can update 
 ---
 
 Add whatever helps you do your job. This is your cheat sheet.
+
+## Trading Report Format (Chris's Rule)
+
+ALL coin info must have CLICKABLE links:
+
+```
+💰 SYMBOL
+📊 Mcap: $XX | Vol: $XX | Liq: $XX
+
+🔗 DexScreener: https://dexscreener.com/solana/PAIRADDRESS
+🥧 PumpFun: https://pump.fun/TOKENADDRESS
+💵 Buy: /buy TOKENADDRESS 0.1
+```
+
+Links must be plain URLs - Telegram auto-detects and makes them clickable.
