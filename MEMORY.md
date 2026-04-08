@@ -10,8 +10,8 @@
 
 ### Exit Rules (UPDATED - trailing stop):
 ```
-+35% → Sell 70%
-Remaining 30%: TRAILING STOP — sell if 20% drop from peak
++35% → Sell initial investment (~74% of position — recovers 0.05 SOL)
+Remaining ~26%: TRAILING STOP — sell if 20% drop from peak
 ⚠️ Stop: -25%
 ```
 
