@@ -5,9 +5,10 @@
 2. Check signals: `ls -lt signals/ | head -5`
 3. Check trades: `tail -3 trades/sim_trades.jsonl`
 
-## New Strategy Status
-- NEW EXIT PLAN: TP1 +100% (sell 50%), TP2 +200% (sell 25%), TP3 +500% (sell 25%), Trailing 30%
-- FILTERS: Mcap $30K-$75K | BS Ratio 2.0+ | Holders 50+ | Max 2 positions
+## Current Strategy (AGGRESSIVE - 1 SOL to 100 SOL)
+- EXIT PLAN: TP1 +100% (sell 50%), TP2 +200% (sell 25%), TP3 +500% (sell 25%), Trailing 30%
+- FILTERS: Mcap $8.5K-$75K | BS 1.5+ | Holders 30+ | Max 5 positions
+- EARLY MOMENTUM TIER: $8.5K-$12K mcap + 1x+ 5min vol/mcap ratio = buy signal
 - SIM RESET: 1.0 SOL starting balance
 
 ## Format for Chris (15-min update):
@@ -16,8 +17,8 @@
 📊 15-MINUTE UPDATE | HH:MM UTC
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 💰 Balance: X.XXXX SOL (+XX.XX%)
-📈 Record: XW/0L | WR: XX%
-🔒 Open: X positions (max 2)
+📈 Record: XW/XL | WR: XX%
+🔒 Open: X positions (max 5)
 
 📋 OPEN POSITIONS:
 • TOKEN | entry $XX,XXX | +XX%
@@ -49,4 +50,9 @@ git -C /root/.openclaw/workspace add -A && git -C /root/.openclaw/workspace comm
 ## Whale Database
 - 16 whales analyzed
 - Avg WR: 55.4% | Avg hold: 118h
-- Strategy: Quality over quantity, max 2 positions, hold for 2-5x wins
+- Strategy: Quality over quantity, hold for 2-5x wins
+
+## Chris Market Insights
+- 1:1 mcap/vol ratio in first 5min = early momentum signal (good entry point)
+- Usually evolves to 1:3 mcap/vol ratio as pump develops = hold longer confirmation
+- Sweet spot: $8.5K-$12K mcap range for early entries
