@@ -73,7 +73,8 @@
 - 4 others tracked in wallet_analysis/whale_wallets.jsonl
 
 ## HOURLY BACKUP (CRITICAL - DO NOT SKIP)
-Hourly cron job backs up to GitHub:
+Chris explicitly said: "Don't ever forget to do this."
+Hourly cron job backs up to GitHub — runs every :30 at :30 UTC:
 - Workspace files: *.md, BOOTSTRAP.md
 - Cron jobs: /root/.openclaw/cron/jobs.json
 - Workspace skills: skills/
