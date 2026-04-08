@@ -8,10 +8,10 @@
 
 ## Trading Strategy (CORRECTED - 2026-04-08)
 
-### Exit Rules:
+### Exit Rules (UPDATED - trailing stop):
 ```
 +35% → Sell 70%
-+95% → Sell 30%
+Remaining 30%: TRAILING STOP — sell if 20% drop from peak
 ⚠️ Stop: -25%
 ```
 
