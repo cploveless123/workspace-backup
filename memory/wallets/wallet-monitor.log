@@ -1,0 +1,17 @@
+# Wallet Monitor Log
+
+## Check: 2026-04-08 19:38 UTC
+
+### suqh5sHt... (Accumulating)
+- Balance: 0.16 SOL (was 1.22 SOL)
+- Change: **-1.06 SOL** (87% decrease)
+- Pattern: Reducing positions, taking profits
+- Status: **SELLING** - Significant balance drop
+
+### CyaE1Vxv... (Idle)
+- Balance: 279.07 SOL (was 250.35 SOL)
+- Change: **+28.72 SOL** (11% increase)
+- Pattern: Large SOL balance, received transfer
+- Status: IDLE - Incoming SOL transfer
+
+---
