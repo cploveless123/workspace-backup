@@ -79,12 +79,12 @@ See `/root/.openclaw/workspace/trading-patterns.md` for full analysis
 - GMGN signals are mostly noise — PUMP signals dominate but rarely translate to wins
 - Need: better entry confirmation, not just MOMENTUM scan
 
-## Entry Criteria (UPDATED - tightened based on data)
-- Mcap: $5K-$50K (winners: $5,206-$52,976)
-- Volume: $20K+ (winners had $20K+)
+## Entry Criteria (UPDATED per Chris)
+- Mcap: $5K-$100K
+- 24h volume: $15K+
+- 5min volume: $2K+
 - Buy/sell ratio: 1.5+
-- 24h change: 15%+
-- Holders: 50+ (if available)
+- Holders: 15+
 - Pump.fun only
 - 30 min re-entry lockout after any close
 - NODES bought 6 times in one day, stopped out 4x → ~0.15 SOL lost to repeat chasing
