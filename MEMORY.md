@@ -97,6 +97,11 @@ See `/root/.openclaw/workspace/trading-patterns.md` for full analysis
 - GH9yk8vgFvHnAD8JZqXxr3hBN1Lr1mJ9NPzrP5mVqiJe (Chris-added 2026-04-08)
 - 4 others tracked in wallet_analysis/whale_wallets.jsonl
 
+## Dual Scanner System (2026-04-08)
+1. `auto_scanner.py` - DexScreener native scan, 90s, scans 30 newest tokens
+2. `gmgn_buyer.py` - GMGN signal native, 60s, acts on high-quality signals (score 50+)
+Both run simultaneously. GMGN buyer is smarter - uses LP burn, holder concentration, age data.
+
 ## GMGN Signal Scorer (built 2026-04-08)
 Scores signals 0-100 based on:
 - Liquidity (0-25 pts): higher = better
