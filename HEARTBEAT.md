@@ -6,10 +6,19 @@
 3. Check trades: `tail -3 trades/sim_trades.jsonl`
 
 ## Current Strategy (AGGRESSIVE - 1 SOL to 100 SOL)
-- EXIT PLAN: TP1 +100% (sell 50%), TP2 +200% (sell 25%), TP3 +500% (sell 25%), Trailing 30%
-- FILTERS: Mcap $8.5K-$75K | BS 1.5+ | Holders 30+ | Max 5 positions
-- EARLY MOMENTUM TIER: $8.5K-$12K mcap + 1x+ 5min vol/mcap ratio = buy signal
-- SIM RESET: 1.0 SOL starting balance
+### NEW EXIT PLAN (Chris's strategy):
+- **TP1:** +50% minimum gain → then 10% trailing from peak → Sell 50%
+- **TP2:** +200% → Sell 25% more
+- **TP3:** +500% → Sell remaining 25%
+- **Trailing:** 20% from peak on remaining 25%
+- **Stop:** -20%
+
+### FILTERS:
+- Mcap: $8.5K-$75K
+- BS Ratio: 1.5+
+- Holders: 30+
+- Max open: 5 positions
+- **Early Momentum Tier:** $8.5K-$12K mcap + 1x+ 5min vol/mcap ratio
 
 ## Format for Chris (15-min update):
 
@@ -21,7 +30,7 @@
 🔒 Open: X positions (max 5)
 
 📋 OPEN POSITIONS:
-• TOKEN | entry $XX,XXX | +XX%
+• TOKEN | entry $XX,XXX | current +XX%
 
 📋 RECENT CLOSES:
 • TOKEN | WIN/LOSS | +X.XXXX SOL
