@@ -72,6 +72,15 @@
 - GH9yk8vgFvHnAD8JZqXxr3hBN1Lr1mJ9NPzrP5mVqiJe (Chris-added 2026-04-08)
 - 4 others tracked in wallet_analysis/whale_wallets.jsonl
 
+## GMGN Channels Watched (7 total)
+- @gmgnai — 💎GMGN Degen Group - Official
+- @gmgnsignals — GMGN Featured Signals (Lv2) - SOL
+- @gmgn_trading — Solana Trading
+- @pump_sol_alert — Portal for Pump Alert Channel - GMGN
+- @solnewlp — Portal for Solana New Pool Channel - GMGN
+- @sollpburnt — Portal for Sol LP Burn - GMGN
+- @gmgn_degencalls — 💎Portal for Degen Calls - GMGN
+
 ## HOURLY BACKUP (CRITICAL - DO NOT SKIP)
 Chris explicitly said: "Don't ever forget to do this."
 Hourly cron job backs up to GitHub — runs every :30 at :30 UTC:
