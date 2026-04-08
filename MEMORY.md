@@ -97,6 +97,19 @@ See `/root/.openclaw/workspace/trading-patterns.md` for full analysis
 - GH9yk8vgFvHnAD8JZqXxr3hBN1Lr1mJ9NPzrP5mVqiJe (Chris-added 2026-04-08)
 - 4 others tracked in wallet_analysis/whale_wallets.jsonl
 
+## GMGN Signal Scorer (built 2026-04-08)
+Scores signals 0-100 based on:
+- Liquidity (0-25 pts): higher = better
+- Holders (0-20 pts): more decentralized = better
+- Top 10% concentration (0-15 pts): lower = better
+- LP burnt (10 pts): yes = safer
+- Safety flags (10 pts): no_mint + no_blacklist
+- Age (0-10 pts): 5-30min sweet spot
+- Volume ratio (0-10 pts): vol/mcap high = strong interest
+- Action multiplier: KOL_BUY (1.5x), KOTH (1.3x), PUMP (1.0x)
+Saved to: gmgn_signal_scorer.py
+Top recent scores: MOCUS 76, GURU 73, GATSBY 72
+
 ## GMGN Channels Watched (7 total)
 - @gmgnai — 💎GMGN Degen Group - Official
 - @gmgnsignals — GMGN Featured Signals (Lv2) - SOL
