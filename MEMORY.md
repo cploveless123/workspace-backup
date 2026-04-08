@@ -75,9 +75,18 @@ See `/root/.openclaw/workspace/trading-patterns.md` for full analysis
 
 ## Win Rate Problem
 - Current WR: 18% (20W/90L)
-- Scanner filters are too loose — MOMENTUM signal fires on both winners and losers
+- Scanner filters were too loose — MOMENTUM signal fires on both winners and losers
 - GMGN signals are mostly noise — PUMP signals dominate but rarely translate to wins
 - Need: better entry confirmation, not just MOMENTUM scan
+
+## Entry Criteria (UPDATED - tightened based on data)
+- Mcap: $5K-$50K (winners: $5,206-$52,976)
+- Volume: $20K+ (winners had $20K+)
+- Buy/sell ratio: 1.5+
+- 24h change: 15%+
+- Holders: 50+ (if available)
+- Pump.fun only
+- 30 min re-entry lockout after any close
 - NODES bought 6 times in one day, stopped out 4x → ~0.15 SOL lost to repeat chasing
 - Re-entry lockout added: no re-buy of stopped tokens within 30 min unless strong momentum (bs 2.5+, chg 50%+)
 - Markdown mode in Telegram fails with certain emoji → use HTML mode
