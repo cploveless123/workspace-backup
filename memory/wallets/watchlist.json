@@ -11,7 +11,10 @@
       ],
       "pattern": "Reducing positions, taking profits",
       "notes": "Very active trader, checking multiple txs",
-      "recent_activity": [],
+      "recent_activity": [
+        "dWZcrzbMEuUxCVUxpPVU16kz2Wmc22DW6AJehkm4qrtH9BQqWidPSSCn32jwFbLkR7bsKuX4tbXWmC6gHYDPRaY",
+        "4fYuZZosz3AhYmES5meuXzyFGzSWBad86EJip3XAF4gmAaqwkTGQ5v3yoVkuT4z9kXAuEeK5ecjj9hH7ZexQRb2v"
+      ],
       "last_check": 1775714295.9017177
     },
     {
@@ -22,7 +25,10 @@
       "recent_tokens": [],
       "pattern": "Large SOL balance, received +5.79 SOL",
       "notes": "Whale wallet - 234 SOL, received SOL transfer",
-      "recent_activity": [],
+      "recent_activity": [
+        "5etemkwU5d2brTjcEiUHE4NrKrLs7JtqnS3SdKtYq6igyPSPNmStvX7W13AqpxsC3Hxi1P27dbhRLBzFK28zuktU",
+        "2P84S6N2yAfsg6oxuDPFA3hh8RWcTHCXY8Lpbc5bdRwLxkz6WPAvYXm63QvmoCGuwxt9ybrj41PuioMKmoLH7QRD"
+      ],
       "last_check": 1775717596.430179
     }
   ]
