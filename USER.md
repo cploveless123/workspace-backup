@@ -9,11 +9,11 @@ _Learn about the person you're helping. Update this as you go._
 - **Notes:** Building a DEX screener + gmgn signal tracker + auto buyer on Solana
 
 ## Active Project
-- **DEX Trading Bot** — Simulation running
-  - 3 positions, 0.7 SOL reserve
-  - Telegram alerts on buys
-  - Scanning every 90s
-  - Tracking: entry signal accuracy, time to TP1, loss cutting behavior
+- **DEX Trading Bot** — GOAL: Turn 0.5050 SOL → 100 SOL via compounding pump.fun trades
+- Current: 0.2465 SOL | 4W/18L (18% WR) | 2 open positions
+- Telegram alerts on all buys/sells/TP/stops
+- Scanning every 90s | Monitoring every 5s
+- Exit Strategy: TP1 +50%→10% trailing | TP2 +200% | TP3 +500% | Stop -20%
 
 ## Trading Learning Approach
 - Analyzing which signals fire before big moves
