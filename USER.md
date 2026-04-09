@@ -30,3 +30,16 @@ _(What do they care about? What projects are they working on? What annoys them? 
 ---
 
 The more you know, the better you can help. But remember — you're learning about a person, not building a dossier. Respect the difference.
+
+## Pattern Recognition (Always On)
+When Chris sends contract addresses, I MUST:
+1. Analyze current state + work backwards
+2. Document early characteristics (mcap, vol/mcap, liquidity, BS ratio)
+3. Identify what made it pump from our buy range
+4. Build pattern library for finding similar setups early
+5. Never forget: GOAL is to find pumps while still in $8.5K-$75K range
+
+## Key Patterns Learned
+- NEU: Whales' #1 token, $500K-$1M+ mcap, 3.4x vol/mcap, 1.20 BS
+- Iroha: Whale common, $1.4M mcap, 1.4x vol/mcap, 1.15 BS
+- JellyBean: 170x vol/mcap at $74K entry = rug risk (liquidity only $3.5K)
