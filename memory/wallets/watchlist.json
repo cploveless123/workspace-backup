@@ -3,33 +3,34 @@
     {
       "address": "suqh5sHtr8HyJ7q8scBimULPkPpA557prMG47xCHQfK",
       "added": "2026-04-06T16:38:00Z",
-      "balance_sol": 2.799853952,
-      "prev_balance_sol": 3.87,
+      "balance_sol": 1.216924336,
+      "prev_balance_sol": 2.47,
       "status": "ACCUMULATING",
       "recent_tokens": [
         "7kr5sdADJUzYWDgXPnHMTFaRQm3zTm"
       ],
       "pattern": "Reducing positions, taking profits",
-      "notes": "Very active trader, checking multiple txs",
+      "notes": "Very active trader - sold ~1.25 SOL",
       "recent_activity": [
-        "3Bbs68yBe5XD4rt4jT1MAo1UTbEnwAqJmuFo4DDKkUpkodwVs3UtDa3ZdnQRaPPDNBZ9Dsr95k6WyZBUKzzKVHG5",
-        "4HyFB2BECU8BjTfcWnvcWbnWLqENY9xE1WjQhNsWt4TfQtXPnq4VAs6RYhMMVdnFfDR47KPFZCPMt83Rg6YULxsx"
+        "grD1AYy4GuAp6hboqFnFF2p7tGVxpda8gGUXFvWGfcNmkpBV91SojUoSmEtZwSXWFTtQdFnffovvZyVbvwEwahR",
+        "3SbmofVUij7aUBguaanSZarSZdf2LZHLMGCdnEtmkymASCcbtJteBjDc38gGDbXZX46nxVSMqqdtkA9aN5fZrvWW"
       ],
-      "last_check": 1775714295.9017177
+      "last_check": 1775755133.0447116
     },
     {
       "address": "CyaE1VxvBrahnPWkqm5VsdCvyS2QmNht2UFrKJHga54o",
       "added": "2026-04-06T16:45:00Z",
-      "balance_sol": 402.870952374,
+      "balance_sol": 406.464825565,
+      "prev_balance_sol": 405.88,
       "status": "IDLE",
       "recent_tokens": [],
-      "pattern": "Large SOL balance, received +5.79 SOL",
-      "notes": "Whale wallet - 234 SOL, received SOL transfer",
+      "pattern": "Large SOL whale, received +0.58 SOL",
+      "notes": "Whale wallet - 406 SOL, minor SOL received",
       "recent_activity": [
-        "mrdYxg536sQpwGc1XPAmqVj4ag2E3GsFjRFW36xhzMDr98tzMcxEHYBzRBZZ2SifTF333PM2JwQqpFFRhRjRVMs",
-        "4einFgVt43gVkxEvJCkUPJVyUvhLYyzdUx94mLpGu7za4cefKAD773bCvwaMhf9NujMAbbeB12vZuzhRjzJpsDjx"
+        "2eJqJxnLHUnAw94YUDLiSGuUNNfhAvADvP8epqBdoyJTgPDUC2sPZL7xCWX36KnuCHzAswooJxPufUrgP3T2T1vn",
+        "B9SCuTB712NDtj9cMBGcKiUb1VKfMsDEhQbTnnJbJkUkb7aAT4Uwx89vW2r92tv7V7duEsVZ2JgWQEfBJ92vKTA"
       ],
-      "last_check": 1775750033.8043916
+      "last_check": 1775755133.2312016
     }
   ]
 }
