@@ -3,7 +3,7 @@
     {
       "address": "suqh5sHtr8HyJ7q8scBimULPkPpA557prMG47xCHQfK",
       "added": "2026-04-06T16:38:00Z",
-      "balance_sol": 1.269034515,
+      "balance_sol": 1.615642726,
       "prev_balance_sol": 3.43,
       "status": "ACCUMULATING",
       "recent_tokens": [
@@ -12,25 +12,25 @@
       "pattern": "Reducing positions, taking profits",
       "notes": "Very active trader - accumulating",
       "recent_activity": [
-        "3LBjVthZBq3VEuLBPVT75kTRvWDkyyDiYWSA2E4h5Unq9iNHYfFnmsPsNDgaSzuJBquJiPysXdYqiUCicwgTwfho",
-        "3Ec28kroJjQFow5z81TK1NZBSWVdSjv2uhgdf622p7NQcLXN43EmToHvcEZY88hMjaiXyQNjbY1WGMUcmbBA9XKo"
+        "5drJ1k2wHLXP1pW9niYQ6zkprpH135Qbk6krS11Lhb6LTgTokuuySW71t3Q42QLxQrJ1GMuQZdF3uV3arJsi4oj2",
+        "3yvCBUtkGhB8ezj85nvDCN3mYkFZf78xycEZgcpzSiP7b8zd8TfijzokutmygWkYZyCjrXKBBpSCrKiGqsNnvAJv"
       ],
-      "last_check": 1775858336.933798
+      "last_check": 1775860437.6510885
     },
     {
       "address": "CyaE1VxvBrahnPWkqm5VsdCvyS2QmNht2UFrKJHga54o",
       "added": "2026-04-06T16:45:00Z",
-      "balance_sol": 710.54160373,
+      "balance_sol": 725.945467525,
       "prev_balance_sol": 560.29,
       "status": "IDLE",
       "recent_tokens": [],
       "pattern": "Large SOL whale",
       "notes": "Whale wallet - 501 SOL, sent -9.36 SOL",
       "recent_activity": [
-        "2NQXLEDgR1UCq6VEE7MkiktmA7WQsZsUV9T6dJVGAk7x9aJDP8t52mVBNzjeMseWuodJZcNmNjjN1bRGEXyZNN4b",
-        "S1g8ei5Aek7b6MovrwJkforHW3yb8DbcYDRGBr39iFLK3jNVbPnmizbDqfoZmG1E763CsVJTab811mxzDZxu2kF"
+        "3GiBAxTHCUr94HXMzGJRUnAnxBseZRcx7fHLDGaY2bzsADM7WKbT6ozTYHiosf3YayV4gK6PCeJdzQ1Tvk9WFnLX",
+        "229Lf1Sq6TDiDBejHS75gSpc7wL6ootQt2ACiUpd65UUyo4acrpV9hc9gjGgyW8zfxfNBCeC4gMFiLUi1mtJ8nCi"
       ],
-      "last_check": 1775858337.1409807
+      "last_check": 1775860437.8928728
     }
   ]
 }
