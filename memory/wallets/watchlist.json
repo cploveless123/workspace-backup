@@ -11,10 +11,7 @@
       ],
       "pattern": "Reducing positions, taking profits",
       "notes": "Very active trader - accumulating",
-      "recent_activity": [
-        "4iyGLjP7LmMwzmHK5rJhgYXrN17XTMkN6Gh4NBzEGEUHAbDnCp1ocrLYkn9vRg7AiThvZdp3FegB31AMtaxnJXrX",
-        "SCxcRbMiiMoS7kt3Zs3yzkwXGBuHGfVq8cZbnE3VMV89hf6C8SUuTZHNctd4UgeaWrz8XEaFE8gGJk8T8kJXFjt"
-      ],
+      "recent_activity": [],
       "last_check": 1775784233.7846382
     },
     {
@@ -26,10 +23,7 @@
       "recent_tokens": [],
       "pattern": "Large SOL whale",
       "notes": "Whale wallet - 436 SOL, received +9 SOL",
-      "recent_activity": [
-        "417djFCZCd7eZ78tTipYcXKzCiXNaP7ESjGTe8YtpYw3PC9ukgYJhhr4bB39v4xVZYmNxNKk65FmTTvorPgddLKB",
-        "5UD7oe4NvtTgdSMPuTWGCVu3wsKCP8H1WttUXw3jNtfvnCWgnTobiqLxAyfDYziCLsFH7j4P61r33JqZDxQztLpN"
-      ],
+      "recent_activity": [],
       "last_check": 1775787547.7216585
     }
   ]
