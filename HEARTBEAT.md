@@ -65,3 +65,8 @@ git -C /root/.openclaw/workspace add -A && git -C /root/.openclaw/workspace comm
 - 1:1 mcap/vol ratio in first 5min = early momentum signal (good entry point)
 - Usually evolves to 1:3 mcap/vol ratio as pump develops = hold longer confirmation
 - Sweet spot: $8.5K-$12K mcap range for early entries
+
+## Integrity Check
+```
+cd /root/Dex-trading-bot && python3 integrity_monitor.py
+```
