@@ -1,5 +1,23 @@
 # Wallet Monitor Log
 
+## Check: 2026-04-11 04:34 UTC
+
+### suqh5sHt... (Accumulating)
+- Balance: 4.65 SOL (was 3.43 SOL)
+- Change: **+1.22 SOL** (36% increase)
+- Pattern: Reducing positions, taking profits
+- Status: **ACCUMULATING** - Building positions
+
+### CyaE1Vxv... (Idle)
+- Balance: 730.41 SOL (was 560.29 SOL)
+- Change: **+170.12 SOL** (30% increase)
+- Pattern: Large SOL whale
+- Status: **IDLE** - Major inflow detected
+
+**Summary:** Both wallets showing net inflows. Active trader accumulating, whale with large unexplained inflow.
+
+---
+
 ## Check: 2026-04-08 19:38 UTC
 
 ### suqh5sHt... (Accumulating)
@@ -13,5 +31,3 @@
 - Change: **+28.72 SOL** (11% increase)
 - Pattern: Large SOL balance, received transfer
 - Status: IDLE - Incoming SOL transfer
-
----
