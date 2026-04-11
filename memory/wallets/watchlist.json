@@ -3,7 +3,7 @@
     {
       "address": "suqh5sHtr8HyJ7q8scBimULPkPpA557prMG47xCHQfK",
       "added": "2026-04-06T16:38:00Z",
-      "balance_sol": 0.73013023,
+      "balance_sol": 0.897401827,
       "prev_balance_sol": 3.43,
       "status": "ACCUMULATING",
       "recent_tokens": [
@@ -12,10 +12,10 @@
       "pattern": "Reducing positions, taking profits",
       "notes": "Very active trader - accumulating",
       "recent_activity": [
-        "28EkV8PxqCg8GejJJ2Xn9ZYmmoDm1xvLN1eiPnrcvpGQst4m6i4gt6F2XBdSDCCGvLgH35sAX1gPCeC2AP1BLdQc",
-        "3XZFWJLbeWGoAPXq2zLRAs8oeJaaumPqXYoe7xPQNoPeKompHFr89mxRRQeKE7jhB4Tq425TeD5BQcmYiC9HzY3N"
+        "3oK6wC59cufrrXdt4PYG6gUigGK3YodUyqR6EYFXPboP3Zbn13pTn1QMBScpiTgpvnmFJah83Bmat1kvzhMMJLwu",
+        "2YteYLWrUUGGk3x6mdLUoQPdUF5q9nmRwuT3V4xevHzMQrnijXHxEzSJHZeSviDNENhRKkmkvBFnir4A1wiWGxcH"
       ],
-      "last_check": 1775872454.2596376
+      "last_check": 1775873654.0650628
     },
     {
       "address": "CyaE1VxvBrahnPWkqm5VsdCvyS2QmNht2UFrKJHga54o",
