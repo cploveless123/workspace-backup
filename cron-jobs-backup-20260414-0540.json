@@ -1,0 +1,213 @@
+{
+  "version": 1,
+  "jobs": [
+    {
+      "id": "13ed03a1-b2b7-4b78-8739-0d0b909b0147",
+      "agentId": "main",
+      "sessionKey": "agent:main:main",
+      "name": "git-backup",
+      "enabled": false,
+      "createdAtMs": 1775432221771,
+      "updatedAtMs": 1775520523647,
+      "schedule": {
+        "expr": "*/30 * * * *",
+        "kind": "cron"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "Git add and commit all changes. Run: cd /root/.openclaw/workspace && git add -A && git commit -m \"Auto-backup $(date)\"",
+        "timeoutSeconds": 30
+      },
+      "delivery": {
+        "mode": "none"
+      },
+      "state": {
+        "lastRunAtMs": 1775518265113,
+        "lastRunStatus": "error",
+        "lastStatus": "error",
+        "lastDurationMs": 30005,
+        "lastDeliveryStatus": "not-requested",
+        "consecutiveErrors": 7,
+        "lastErrorReason": "timeout",
+        "lastError": "cron: job execution timed out"
+      }
+    },
+    {
+      "id": "e6239808-e4a1-450d-b034-0b8eaf099dfd",
+      "agentId": "main",
+      "sessionKey": "agent:main:main",
+      "name": "wallet-monitor",
+      "enabled": true,
+      "createdAtMs": 1775494068269,
+      "updatedAtMs": 1776145189388,
+      "schedule": {
+        "everyMs": 300000,
+        "kind": "every",
+        "anchorMs": 1775494068269
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "Run wallet monitor: cd /root/Dex-trading-bot && python3 wallet_watcher.py && echo '---' && cat /root/.openclaw/workspace/memory/wallets/watchlist.json",
+        "model": "minimax/MiniMax-M2.5",
+        "thinking": "off",
+        "timeoutSeconds": 60
+      },
+      "delivery": {
+        "mode": "none"
+      },
+      "state": {
+        "nextRunAtMs": 1776145484396,
+        "lastRunAtMs": 1776145184396,
+        "lastRunStatus": "ok",
+        "lastStatus": "ok",
+        "lastDurationMs": 4992,
+        "lastDeliveryStatus": "not-delivered",
+        "consecutiveErrors": 0,
+        "lastDelivered": false
+      }
+    },
+    {
+      "id": "649e19f9-ade8-4fdd-9c11-63f8bd7ca434",
+      "agentId": "main",
+      "sessionKey": "agent:main:main",
+      "name": "hourly-bot-backup",
+      "enabled": true,
+      "createdAtMs": 1775622987081,
+      "updatedAtMs": 1776144610537,
+      "schedule": {
+        "expr": "30 * * * *",
+        "kind": "cron"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "Run hourly status:\n\n```bash\ncd /root/Dex-trading-bot && bash backup.sh && python3 -c \"from alert_sender import get_status; print(get_status())\"\n```\n\nSend Chris balance, record, and systems status.",
+        "timeoutSeconds": 90
+      },
+      "delivery": {
+        "mode": "announce",
+        "channel": "telegram",
+        "to": "6402511249"
+      },
+      "state": {
+        "nextRunAtMs": 1776148200000,
+        "lastRunAtMs": 1776144600003,
+        "lastRunStatus": "ok",
+        "lastStatus": "ok",
+        "lastDurationMs": 10534,
+        "lastDeliveryStatus": "delivered",
+        "consecutiveErrors": 0,
+        "lastDelivered": true
+      }
+    },
+    {
+      "id": "3d16c86d-53f5-44ca-ae3e-cc78cccb4590",
+      "agentId": "main",
+      "sessionKey": "agent:main:main",
+      "name": "auto-backup",
+      "enabled": true,
+      "createdAtMs": 1775961659798,
+      "updatedAtMs": 1776143475484,
+      "schedule": {
+        "everyMs": 1800000,
+        "kind": "every",
+        "anchorMs": 1775961659798
+      },
+      "sessionTarget": "main",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "systemEvent",
+        "text": "Hourly backup triggered"
+      },
+      "delivery": {
+        "mode": "none"
+      },
+      "state": {
+        "nextRunAtMs": 1776145263975,
+        "lastRunAtMs": 1776143463975,
+        "lastRunStatus": "ok",
+        "lastStatus": "ok",
+        "lastDurationMs": 11509,
+        "lastDeliveryStatus": "not-requested",
+        "consecutiveErrors": 0
+      }
+    },
+    {
+      "id": "cb0115d8-5a88-403f-a0b4-14dac5ec3582",
+      "agentId": "main",
+      "sessionKey": "agent:main:main",
+      "name": "scan-report-30min",
+      "enabled": true,
+      "createdAtMs": 1776039173255,
+      "updatedAtMs": 1776144282378,
+      "schedule": {
+        "kind": "every",
+        "everyMs": 1800000,
+        "anchorMs": 1776039173255
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "Run scan report and send to Telegram:\n\n```bash\ncd /root/Dex-trading-bot && bash scan_report.sh 2>&1\n```\n\nThen send the full output to Chris via Telegram.",
+        "timeoutSeconds": 60
+      },
+      "delivery": {
+        "channel": "telegram",
+        "mode": "announce",
+        "to": "6402511249"
+      },
+      "state": {
+        "nextRunAtMs": 1776147882378,
+        "lastRunAtMs": 1776144237121,
+        "lastRunStatus": "error",
+        "lastStatus": "error",
+        "lastDurationMs": 45257,
+        "lastDeliveryStatus": "delivered",
+        "consecutiveErrors": 22,
+        "lastDelivered": true,
+        "lastError": "⚠️ ✉️ Message failed"
+      }
+    },
+    {
+      "id": "d5a59055-fb4e-4085-b782-9f5876fc1b3d",
+      "agentId": "main",
+      "sessionKey": "agent:main:main",
+      "name": "hourly-health-check",
+      "enabled": true,
+      "createdAtMs": 1776039249850,
+      "updatedAtMs": 1776143712368,
+      "schedule": {
+        "kind": "cron",
+        "expr": "15 * * * *"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "Run system health check:\n\n```bash\ncd /root/Dex-trading-bot && python3 integrity_monitor.py 2>&1 | grep -v ALERTS\nps aux | grep -E \"gmgn_scanner|position_monitor|alert_sender\" | grep python | grep -v grep | wc -l\n```\n\nSend Chris: system health status and running process count.",
+        "timeoutSeconds": 60
+      },
+      "delivery": {
+        "channel": "telegram",
+        "mode": "announce",
+        "to": "6402511249"
+      },
+      "state": {
+        "nextRunAtMs": 1776147300000,
+        "lastRunAtMs": 1776143700002,
+        "lastRunStatus": "ok",
+        "lastStatus": "ok",
+        "lastDurationMs": 12366,
+        "lastDelivered": true,
+        "lastDeliveryStatus": "delivered",
+        "consecutiveErrors": 0
+      }
+    }
+  ]
+}
