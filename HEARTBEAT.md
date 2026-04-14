@@ -1,24 +1,36 @@
 # Heartbeat Checklist - Run every 15 minutes
 
 ## Check Systems
-1. `ps aux | grep -E "auto_scanner|gmgn_buyer|position_monitor|alert_sender" | grep -v grep`
+1. `ps aux | grep -E "gmgn_scanner|position_monitor|alert_sender" | grep -v grep`
 2. Check signals: `ls -lt signals/ | head -5`
 3. Check trades: `tail -3 trades/sim_trades.jsonl`
+4. Check wallet: `cat sim_wallet.json`
 
-## Current Strategy (AGGRESSIVE - 1 SOL to 100 SOL)
-### NEW EXIT PLAN (Chris's strategy):
-- **TP1:** +50% minimum gain → then 10% trailing from peak → Sell 50%
-- **TP2:** +200% → Sell 25% more
-- **TP3:** +500% → Sell remaining 25%
-- **Trailing:** 20% from peak on remaining 25%
-- **Stop:** -20%
+## v6.7 Strategy
+### Entry Filters:
+- Mcap: $3.5K-$60K
+- Age: 2-90 min
+- Holders: 15+
+- h1 or 24h > +5%
+- Dip: 0-50% from ATH
+- BS ratio: >0.15 (<15min) / >0.8 (≥15min)
 
-### FILTERS:
-- Mcap: $8.5K-$75K
-- BS Ratio: 1.5+
-- Holders: 30+
-- Max open: 5 positions
-- **Early Momentum Tier:** $8.5K-$12K mcap + 1x+ 5min vol/mcap ratio
+### Cooldown (v6.7):
+- m5 > -5% → cooldown triggered
+- YOUNG (age < 15min): 45s, chg1 trigger +3%
+- OLD: 30s, chg1 trigger +1%
+- chg1 must be > +2% from baseline
+- 2 consecutive rechecks in verify
+- deterioration >3% = reject
+- price: 3 consec drops >3% = reject
+
+### Exit Plan (v6.7):
+- TP1 (+50%): HOLD, 40% trailing
+- TP2 (+100%): Sell 40%, 35% trail
+- TP3 (+200%): Sell 30%, 35% trail
+- TP4 (+300%): Sell 20%, 35% trail
+- TP5 (+1000%): Sell 10%, 30% trail
+- Stop: -20%
 
 ## Format for Chris (15-min update):
 
@@ -27,7 +39,7 @@
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 💰 Balance: X.XXXX SOL (+XX.XX%)
 📈 Record: XW/XL | WR: XX%
-🔒 Open: X positions (max 5)
+🔒 Open: X positions (max 9)
 
 📋 OPEN POSITIONS:
 • TOKEN | entry $XX,XXX | current +XX%
@@ -42,11 +54,10 @@
 ## If systems down
 ```bash
 cd /root/Dex-trading-bot
-kill $(ps aux | grep -E "auto_scanner|gmgn_buyer|position_monitor|alert_sender" | grep -v grep | awk '{print $2}') 2>/dev/null
-nohup python3 -u auto_scanner.py >> auto_scanner.log 2>&1 &
-nohup python3 -u gmgn_buyer.py >> gmgn_buyer.log 2>&1 &
-nohup python3 -u position_monitor.py >> position_monitor.log 2>&1 &
-nohup python3 -u alert_sender.py >> alert_sender.log 2>&1 &
+kill $(ps aux | grep -E "gmgn_scanner|position_monitor|alert_sender" | grep -v grep | awk '{print $2}') 2>/dev/null
+nohup /root/Dex-trading-bot/venv/bin/python -u gmgn_scanner.py >> gmgn_scanner.log 2>&1 &
+nohup /root/Dex-trading-bot/venv/bin/python -u position_monitor.py >> position_monitor.log 2>&1 &
+nohup /root/Dex-trading-bot/venv/bin/python -u alert_sender.py >> alert_sender.log 2>&1 &
 echo "All restarted"
 ```
 
@@ -64,7 +75,7 @@ git -C /root/.openclaw/workspace add -A && git -C /root/.openclaw/workspace comm
 ## Chris Market Insights
 - 1:1 mcap/vol ratio in first 5min = early momentum signal (good entry point)
 - Usually evolves to 1:3 mcap/vol ratio as pump develops = hold longer confirmation
-- Sweet spot: $8.5K-$12K mcap range for early entries
+- Sweet spot: $3.5K-$12K mcap range for early entries (v6.7 lowered from $8.5K)
 
 ## Integrity Check
 ```
