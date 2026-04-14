@@ -12,13 +12,14 @@
 - h1 or 24h > +5% | Dip: 0-50% from ATH | ATH <55% below
 - BS ratio: >0.05 (<15min) / >0.8 (≥15min)
 
-### Cooldown (v6.8 - UNIFIED 45s):
+### Cooldown (v6.8e - UNIFIED 45s + PUMP RULE):
 - m5 > -5% → 45s cooldown for ALL tokens
 - After cooldown: chg1 must improve > +3% from last check to enter verify
 - In verify: 2 consecutive rechecks with +3% improvement = BUY
 - deterioration >3% from prev = REJECT (any state)
 - 3 consecutive price drops >3% = REJECT
 - Max 15 rechecks, then 2min circle-back
+- 🚀 PUMP RULE: chg1 > +5% → 45s wait → chg1>+5%? → 30s → verify → BUY if sustained
 
 ### Exit Plan (v6.8):
 - TP1 (+50%): HOLD, 40% trailing
