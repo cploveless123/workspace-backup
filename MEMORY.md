@@ -69,6 +69,10 @@ Remaining ~26%: TRAILING STOP — sell if 20% drop from peak
 - Position monitor and sim_trader had hardcoded wrong thresholds → must use trading_constants
 - TP2 threshold of +95% is too high — only 3 trades hit it in 110. Winners avg +54% but we only capture +35% at TP1
 - Scanner is catching dumps (both winners and losers use MOMENTUM) — same signal, different outcome = timing/luck
+- WORTHLESS incident: Stale GMGN signal (6 days old) bought wrong token = -31%. Signal age check is MANDATORY
+- Liquidity $0 on DexScreener means rugged — need liquidity minimum check BEFORE buying
+- GMGN signal `ca` field can be null — code must fall back to `token_address` field
+- Scanner buys into late-stage momentum ($5K-$13K mcap with high 5-min % gains) — tokens dump immediately after entry
 
 ## Trading Patterns
 See `/root/.openclaw/workspace/trading-patterns.md` for full analysis
@@ -87,11 +91,9 @@ See `/root/.openclaw/workspace/trading-patterns.md` for full analysis
 - Holders: 15+
 - Pump.fun only
 - 30 min re-entry lockout after any close
-- NODES bought 6 times in one day, stopped out 4x → ~0.15 SOL lost to repeat chasing
-- Re-entry lockout added: no re-buy of stopped tokens within 30 min unless strong momentum (bs 2.5+, chg 50%+)
-- Markdown mode in Telegram fails with certain emoji → use HTML mode
-- .last_alert_index can go stale and cause missed alerts → must sync to actual trade count
-- Position monitor and sim_trader had hardcoded wrong thresholds → must use trading_constants
+- Liquidity minimum: $1,000 (reject if less — rugged/illiquid)
+- Signal age: Max 5 minutes (reject stale signals)
+- Contract address validation: Signal CA must match DexScreener response
 
 ## Whales Tracked
 - GH9yk8vgFvHnAD8JZqXxr3hBN1Lr1mJ9NPzrP5mVqiJe (Chris-added 2026-04-08)
@@ -133,3 +135,39 @@ Hourly cron job backs up to GitHub — runs every :30 at :30 UTC:
 - System skills: /opt/node22/lib/node_modules/openclaw/skills/
 Job ID: 16429a40-b0b6-470e-8c3e-8c154b57862a (hourly-bot-backup)
 Runs at :30 every hour
+
+## GMGN Buyer Critical Fixes (2026-04-14)
+
+### Stale Signal Bug - WORTHLESS Incident
+- gmgn signal file `gmgn_WORTH_4414872.json` was 6 DAYS old (parsed_at: 2026-04-08)
+- gmgn_buyer processed ALL signal files with no age check
+- Signal had `ca`=null, fell back to `token_address` correctly
+- WORTH token CA was 8tKWk9... but DexScreener lookup returned WORTHLESS at 27VDTV... (different contract!)
+- gmgn_buyer bought WORTHLESS at $10,391 → stopped at $7,120 (-31%)
+- **Root cause**: No signal age check + no CA validation + stale signal sat in signals/ for 6 days
+
+### Fixes Applied (2026-04-14):
+1. **Signal age check**: gmgn_buyer now skips signals with `parsed_at` > 5 minutes old
+2. **Contract address validation**: Before buying, verify signal CA matches DexScreener `baseToken.address`
+3. **MIN_GMGN_API_SCORE → MIN_GMGN_SCORE** (was undefined, would crash or use wrong threshold)
+4. **Liquidity minimum $1K**: Both scanners reject tokens with <$1K liquidity (rugged/illiquid)
+5. **Deleted stale signals**: Removed 6-day-old WORTH signal file
+
+### Scanner Crashes - Missing Constants
+- auto_scanner.py crashed repeatedly with ImportError
+- Missing from trading_constants.py: `MIN_VOLUME`, `MIN_BS_RATIO`, `ATH_DIVERGENCE_REJECT`, `NEW_PUMP_HS1_THRESHOLD`, `MIN_GMGN_SCORE`, `GMGN_VOL_MCAP_MIN`
+- All added and scanners restarted
+
+## Strategy Updates (2026-04-14)
+- MIN_CHG1_FOR_BUY: 3.0 → 5.0 (need stronger hourly momentum)
+- Cooldown thresholds already at v6.1 levels (NEW_PUMP_5M=50%, OLD_PUMP_5M=1%)
+
+## Fresh Reset (2026-04-14 05:30 UTC)
+Chris reset everything after bad run:
+- sim_wallet.json → 1.0 SOL
+- stats → 0 trades / 0W / 0L
+- position_peak_cache.json → {}
+- integrity_state.json → reset
+- SIM_RESET_TIMESTAMP → 2026-04-14T05:31:26
+- MARS manually closed at -100% (open position)
+- All scanners stopped
