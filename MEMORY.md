@@ -77,8 +77,8 @@ Remaining ~26%: TRAILING STOP — sell if 20% drop from peak
 ## Trading Patterns
 See `/root/.openclaw/workspace/trading-patterns.md` for full analysis
 
-## Win Rate Problem
-- Current WR: 18% (20W/90L)
+## Win Rate
+- Current WR: 22% (40W/126L) - improving
 - Scanner filters were too loose — MOMENTUM signal fires on both winners and losers
 - GMGN signals are mostly noise — PUMP signals dominate but rarely translate to wins
 - Need: better entry confirmation, not just MOMENTUM scan
