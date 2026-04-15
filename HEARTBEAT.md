@@ -21,12 +21,13 @@
 - Symbol blacklist: no repeat buys of same symbol
 - Only pump.fun / raydium / pumpswap
 
-### Exit Rules:
-- TP1 +50%: Sell 40% → 10% trailing
-- TP2 +100%: Sell 30% → 35% trailing
-- TP3 +200%: Sell 20%
-- TP4 +300%: Sell 10%
-- Stop: -25%
+### Exit Rules (v7.2 Chris Update):
+- TP1 +30%: HOLD (watch only, 40% trailing stop from peak)
+- TP2 +100%: Sell 40% (35% trailing on remaining 60%)
+- TP3 +200%: Sell 30% (40% trailing on remaining 30%)
+- TP4 +300%: Sell 20% (40% trailing on remaining 10%)
+- TP5 +1000%: Sell remaining 10%
+- Stop: -30%
 
 ### Fresh Data Rule:
 - ALWAYS fetch fresh data before any decision
