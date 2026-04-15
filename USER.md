@@ -1,45 +1,38 @@
 # USER.md - About Your Human
 
-_Learn about the person you're helping. Update this as you go._
-
 - **Name:** Chris
 - **What to call them:** Chris
-- **Pronouns:** 
-- **Timezone:** 
-- **Notes:** Building a DEX screener + gmgn signal tracker + auto buyer on Solana
+- **Telegram:** @pleasegrowgoodweed (6402511249)
+- **Trading goal:** Turn 1.0 SOL → 100 SOL via compounding TP5 winners on pump.fun
 
-## Active Project
-- **DEX Trading Bot** — GOAL: Turn 0.5050 SOL → 100 SOL via compounding pump.fun trades
-- Current: 0.2465 SOL | 4W/18L (18% WR) | 2 open positions
-- Telegram alerts on all buys/sells/TP/stops
-- Scanning every 90s | Monitoring every 5s
-- Exit Strategy: TP1 +50%→10% trailing | TP2 +200% | TP3 +500% | Stop -20%
+## Active Project: DEX Trading Bot (v7.2)
+- **Location:** /root/Dex-trading-bot/
+- **Status:** FRESH RESET 2026-04-15 | 1.0 SOL | 0W/0L
+- **Strategy:** v7.2 - Dip 20-45%, h1 ≤250%, holders ≥20, Fallen Giant filter
 
-## Trading Learning Approach
-- Analyzing which signals fire before big moves
-- Tracking what separates winners from losers
-- Volume patterns that predict pumps vs dumps
-- When to cut losses fast vs hold
-- Will analyze exits for pattern recognition
+## Trading Style
+- **Aggressive** — wants action not analysis
+- Rule: "Either buy or pass - no presenting signals"
+- Continuous scanning and trading
+- Fast decisions over perfect analysis
+- Very detail-oriented on alert/report format
 
-- **Risk tolerance:** Higher risk/reward but calculated
-- **Focus:** Pattern recognition, frequency analysis
+## Key Preferences
+- All Telegram alerts → chat_id 6402511249 (his Telegram, NOT "Chris")
+- HTML mode for Telegram (not Markdown)
+- Clickable links on all reports
+- Green/red emoji for win/loss
+- Only BUY/SELL alerts — no signal spam
 
-_(What do they care about? What projects are they working on? What annoys them? What makes them laugh? Build this over time.)_
+## System Rules (NEVER BREAK)
+1. Any token bought = permanent blacklist (no re-buy ever)
+2. Max 9 open positions
+3. 0.1 SOL per trade
+4. Only pump.fun / raydium / pumpswap
+5. Always fresh data before decisions
 
----
-
-The more you know, the better you can help. But remember — you're learning about a person, not building a dossier. Respect the difference.
-
-## Pattern Recognition (Always On)
-When Chris sends contract addresses, I MUST:
-1. Analyze current state + work backwards
-2. Document early characteristics (mcap, vol/mcap, liquidity, BS ratio)
-3. Identify what made it pump from our buy range
-4. Build pattern library for finding similar setups early
-5. Never forget: GOAL is to find pumps while still in $8.5K-$75K range
-
-## Key Patterns Learned
-- NEU: Whales' #1 token, $500K-$1M+ mcap, 3.4x vol/mcap, 1.20 BS
-- Iroha: Whale common, $1.4M mcap, 1.4x vol/mcap, 1.15 BS
-- JellyBean: 170x vol/mcap at $74K entry = rug risk (liquidity only $3.5K)
+## Current State
+- **Balance:** 1.0 SOL (fresh reset)
+- **Record:** 0W / 0L
+- **Open positions:** 0
+- **Sim:** STOPPED (awaiting Chris go-ahead)

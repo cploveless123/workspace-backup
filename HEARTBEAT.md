@@ -4,48 +4,52 @@
 1. `ps aux | grep -E "gmgn_scanner|position_monitor|alert_sender" | grep -v grep`
 2. Check signals: `ls -lt signals/ | head -5`
 3. Check trades: `tail -3 trades/sim_trades.jsonl`
-4. Check wallet: `cat sim_wallet.json`
 
-## v6.8 Strategy
-### Entry Filters:
-- Mcap: $3.5K-$60K | Age: 2-90 min | Holders: 15+
-- h1 or 24h > +5% | Dip: 0-50% from ATH | ATH <55% below
-- BS ratio: >0.05 (<15min) / >0.8 (≥15min)
+## Current Strategy: v7.2 (RESET 2026-04-15)
+### RESET - Fresh Start
+- sim_trades.jsonl: EMPTY
+- sim_wallet.json: 1.0 SOL
+- Starting balance: 1.0 SOL
+- Record: 0W / 0L
 
-### Cooldown (v6.8e - UNIFIED 45s + PUMP RULE):
-- m5 > -5% → 45s cooldown for ALL tokens
-- After cooldown: chg1 must improve > +3% from last check to enter verify
-- In verify: 2 consecutive rechecks with +3% improvement = BUY
-- deterioration >3% from prev = REJECT (any state)
-- 3 consecutive price drops >3% = REJECT
-- Max 15 rechecks, then 2min circle-back
-- 🚀 PUMP RULE: chg1 > +5% → 45s wait → chg1>+5%? → 30s → verify → BUY if sustained
+### v7.2 Entry Filters:
+- Mcap: $6K-$25K
+- Holders: ≥20
+- Dip: 20-45% from ATH
+- h1: ≤250% (avoid late entries)
+- Fallen Giant: h1 >400% + mcap <$20K → REJECT
+- Symbol blacklist: no repeat buys of same symbol
+- Only pump.fun / raydium / pumpswap
 
-### Exit Plan (v6.8):
-- TP1 (+50%): HOLD, 40% trailing
-- TP2 (+100%): Sell 40%, 35% trail
-- TP3 (+200%): Sell 30%, 35% trail
-- TP4 (+300%): Sell 20%, 35% trail
-- TP5 (+1000%): Sell 10%, 30% trail
+### Exit Rules:
+- TP1 +50%: Sell 40% → 10% trailing
+- TP2 +100%: Sell 30% → 35% trailing
+- TP3 +200%: Sell 20%
+- TP4 +300%: Sell 10%
 - Stop: -25%
 
-## Format for Chris (15-min update):
+### Fresh Data Rule:
+- ALWAYS fetch fresh data before any decision
+- GMGN primary, DexScreener backup
+- If GMGN unavailable → alert + pause
+- If DexScreener throttled (5+ fails) → skip until recovers
+
+### Throttle Alerts:
+- If GMGN or DexScreener throttled → Telegram alert immediately
+
+## Format for Chris:
 
 ```
-📊 15-MINUTE UPDATE | HH:MM UTC
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-💰 Balance: X.XXXX SOL (+XX.XX%)
+📊 STATUS | HH:MM UTC
+━━━━━━━━━━━━━━━━━━━━━
+💰 Balance: X.XXXX SOL
 📈 Record: XW/XL | WR: XX%
-🔒 Open: X positions (max 9)
+🔒 Open: X positions
 
-📋 OPEN POSITIONS:
-• TOKEN | entry $XX,XXX | current +XX%
-
-📋 RECENT CLOSES:
+Recent CLOSES:
 • TOKEN | WIN/LOSS | +X.XXXX SOL
 
-🧠 WHAT I'M LEARNING:
-- Pattern insight
+🧠 Notes:
 ```
 
 ## If systems down

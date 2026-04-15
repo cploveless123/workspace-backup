@@ -3,171 +3,110 @@
 ## Trading Bot Setup
 - Location: `/root/Dex-trading-bot/`
 - Git remote: https://github.com/cploveless123/Dex-trading-bot.git
+- Workspace backup: https://github.com/cploveless123/workspace-backup.git
 - Telegram alerts via @WilsonVultrBot (token: 8767746012:AAEAUg-yCC8uZ-U2y-VBiuKS7qGm58XYQeg)
 - Chat ID: 6402511249 (Chris - "please grow good weed")
 
-## Trading Strategy (CORRECTED - 2026-04-08)
+## System Status (2026-04-15 05:50 UTC) - FRESH RESET
+- sim_trades.jsonl: EMPTY
+- sim_wallet.json: 1.0 SOL
+- Starting balance: 1.0 SOL
+- Record: 0W / 0L
+- Position peak cache: cleared
+- All scanners STOPPED
 
-### Exit Rules (UPDATED - trailing stop):
-```
-+35% → Sell initial investment (~74% of position — recovers 0.05 SOL)
-Remaining ~26%: TRAILING STOP — sell if 20% drop from peak
-⚠️ Stop: -25%
-```
+## v7.2 Strategy (Current - Deployed 2026-04-15)
+Chris reset after analyzing poor v7.0/v7.1 performance:
+- 155 trades, 17.6% WR, -2.9 SOL closed PnL
+- Root cause: buying Fallen Giants (h1>500% + small mcap), chasing high h1, not enough dip
 
-### Alert Format:
-- Telegram uses HTML mode (Markdown fails on emoji → HTTP 400)
+### Entry Filters:
+- Mcap: $6K-$25K
+- Holders: ≥20
+- Dip: 20-45% from ATH (winners avg 23.6% dip)
+- h1: ≤250% max (losers avg h1=404% at entry - too late)
+- Fallen Giant: h1 >400% + mcap <$20K → REJECT
+- No ATH data + mcap >$20K → REJECT
+- Symbol blacklist: prevent repeat buys of same symbol name
+
+### Exit Rules:
+- TP1 +50%: Sell 40% → 10% trailing stop
+- TP2 +100%: Sell 30% → 35% trailing stop
+- TP3 +200%: Sell 20%
+- TP4 +300%: Sell 10%
+- Stop: -25%
+
+### Fresh Data Rule (IRONCLAD):
+- ALWAYS fetch fresh data before any decision
+- GMGN primary source
+- DexScreener backup (circuit breaker: skip if 5+ consecutive failures)
+- If GMGN unavailable → Telegram alert + PAUSE trading
+- If DexScreener throttled → skip until recovers + alert
+
+### System Rules (NEVER BREAK):
+1. Permanent Blacklist: Any token ever bought = NEVER buy again
+2. Max Open Positions: 9 concurrent
+3. Position Size: 0.1 SOL per trade
+4. Never Re-buy: Even if dropped 90% after selling — NO
+5. Only pump.fun / raydium / pumpswap: Reject all other exchanges
+
+## Alert Format (IRONCLAD):
+- Telegram uses HTML mode (Markdown fails with emoji → HTTP 400)
 - Entry/Exit mcap on all sells
 - PnL with green/red emoji
 - Clickable links (plain URLs)
 - No signal alerts - only BUY/SELL executed
+- Chat ID: 6402511249 (Chris's Telegram, not "Chris")
 
-### Trade Report Format (Chris approved):
-- Last 5 trades (NOT 10)
+## Trade Report Format:
+- Last 5 trades
 - Open positions with live mcap + link
 - Balance + record
 - Buy mcap + sell mcap + timestamps
 - Green/red emoji
 - All links clickable
 
-### Auto Monitor:
-`position_monitor.py` runs every 60s checking TP/stop hits
-`auto_scanner.py` runs every 90s scanning for buys
-`alert_sender.py` runs every 30s sending Telegram alerts
+## What Killed v7.0/v7.1:
+1. **Fallen Giants**: 27 trades h1>500%+mc<$20K = -1.02 SOL (tokens already pumped then crashed)
+2. **Too high h1 entry**: Losers avg h1=404% at entry (bought the top)
+3. **Too low dip**: Winners avg dip=23.6%, losers=18.4% (not buying enough pullback)
+4. **Repeat buys**: BOAR 6x, XVIDEOS 5x, FatCat 4x = all losers
+5. **DexScreener spam**: 374 throttle failures from over-calling
 
-## Today's Trades (2026-04-07)
+## v7.2 Expected Improvement:
+- Historical analysis: h1≤200% filters keep 54 quality trades, removes 94 bad
+- Expected WR: 17% → 35%+
+- Expected: Break even at 31.6% WR, profitable above that
 
-### Wins:
-- POW: +48% (first win)
-- BABEPSTEIN: +77% partial (stop final)
-- MOON: +50% partial (sold 50%)
-- MJG: +355% full exit 🚀
+## Systems Running:
+- `gmgn_scanner.py`: GMGN primary scanner, v7.2
+- `position_monitor.py`: TP/stop monitoring every 60s
+- `alert_sender.py`: Telegram delivery every 30s
 
-### Losses:
-- TRUMPLER: -25% stop
-- BABEPSTEIN: -83% final stop
-- Solana: +0% (user exit)
-- conviction: -5%
-- Various: small losses
-
-## Current Positions:
-- MOON: 50% held, entry $32.4K
-- CHAIN: entry $78.8K, +19%
-
-## Chris (@please grow good weed):
-- Trading style: Aggressive, wants action not analysis
-- Rule: "Either buy or pass - no presenting signals"
-- Wants continuous scanning and trading
-- Prefers fast decisions over perfect analysis
-- Very detail-oriented on alert/report format
-
-## Trading Lessons Learned
-- NODES bought 6 times in one day, stopped out 4x → ~0.15 SOL lost to repeat chasing
-- Re-entry lockout added: no re-buy of stopped tokens within 30 min unless strong momentum (bs 3.0+, chg 60%+)
-- Markdown mode in Telegram fails with certain emoji → use HTML mode
-- .last_alert_index can go stale and cause missed alerts → must sync to actual trade count
-- Position monitor and sim_trader had hardcoded wrong thresholds → must use trading_constants
-- TP2 threshold of +95% is too high — only 3 trades hit it in 110. Winners avg +54% but we only capture +35% at TP1
-- Scanner is catching dumps (both winners and losers use MOMENTUM) — same signal, different outcome = timing/luck
-- WORTHLESS incident: Stale GMGN signal (6 days old) bought wrong token = -31%. Signal age check is MANDATORY
-- Liquidity $0 on DexScreener means rugged — need liquidity minimum check BEFORE buying
-- GMGN signal `ca` field can be null — code must fall back to `token_address` field
-- Scanner buys into late-stage momentum ($5K-$13K mcap with high 5-min % gains) — tokens dump immediately after entry
-
-## Trading Patterns
-See `/root/.openclaw/workspace/trading-patterns.md` for full analysis
-
-## Win Rate
-- Current WR: 22% (40W/126L) - improving
-- Scanner filters were too loose — MOMENTUM signal fires on both winners and losers
-- GMGN signals are mostly noise — PUMP signals dominate but rarely translate to wins
-- Need: better entry confirmation, not just MOMENTUM scan
-
-## Entry Criteria (UPDATED per Chris)
-- Mcap: $5K-$100K
-- 24h volume: $10K+
-- 5min volume: $1K+
-- Buy/sell ratio: 1.5+
-- Holders: 15+
-- Pump.fun only
-- 30 min re-entry lockout after any close
-- Liquidity minimum: $1,000 (reject if less — rugged/illiquid)
-- Signal age: Max 5 minutes (reject stale signals)
-- Contract address validation: Signal CA must match DexScreener response
-
-## Whales Tracked
-- GH9yk8vgFvHnAD8JZqXxr3hBN1Lr1mJ9NPzrP5mVqiJe (Chris-added 2026-04-08)
-- 4 others tracked in wallet_analysis/whale_wallets.jsonl
-
-## Dual Scanner System (2026-04-08)
-1. `auto_scanner.py` - DexScreener native scan, 90s, scans 30 newest tokens
-2. `gmgn_buyer.py` - GMGN signal native, 60s, acts on high-quality signals (score 50+)
-Both run simultaneously. GMGN buyer is smarter - uses LP burn, holder concentration, age data.
-
-## GMGN Signal Scorer (built 2026-04-08)
-Scores signals 0-100 based on:
-- Liquidity (0-25 pts): higher = better
-- Holders (0-20 pts): more decentralized = better
-- Top 10% concentration (0-15 pts): lower = better
-- LP burnt (10 pts): yes = safer
-- Safety flags (10 pts): no_mint + no_blacklist
-- Age (0-10 pts): 5-30min sweet spot
-- Volume ratio (0-10 pts): vol/mcap high = strong interest
-- Action multiplier: KOL_BUY (1.5x), KOTH (1.3x), PUMP (1.0x)
-Saved to: gmgn_signal_scorer.py
-Top recent scores: MOCUS 76, GURU 73, GATSBY 72
-
-## GMGN Channels Watched (7 total)
-- @gmgnai — 💎GMGN Degen Group - Official
-- @gmgnsignals — GMGN Featured Signals (Lv2) - SOL
-- @gmgn_trading — Solana Trading
-- @pump_sol_alert — Portal for Pump Alert Channel - GMGN
-- @solnewlp — Portal for Solana New Pool Channel - GMGN
-- @sollpburnt — Portal for Sol LP Burn - GMGN
-- @gmgn_degencalls — 💎Portal for Degen Calls - GMGN
+## GMGN Throttle Alerts:
+- GMGN throttled → immediate Telegram alert
+- DexScreener throttled → immediate Telegram alert
+- Both have circuit breakers to prevent spam
 
 ## HOURLY BACKUP (CRITICAL - DO NOT SKIP)
-Chris explicitly said: "Don't ever forget to do this."
 Hourly cron job backs up to GitHub — runs every :30 at :30 UTC:
-- Workspace files: *.md, BOOTSTRAP.md
+- Workspace files: *.md, skills/
 - Cron jobs: /root/.openclaw/cron/jobs.json
-- Workspace skills: skills/
 - System skills: /opt/node22/lib/node_modules/openclaw/skills/
 Job ID: 16429a40-b0b6-470e-8c3e-8c154b57862a (hourly-bot-backup)
 Runs at :30 every hour
 
-## GMGN Buyer Critical Fixes (2026-04-14)
+## Key Lessons (v7.0/v7.1 failures):
+- pump.fun allows DUPLICATE SYMBOL NAMES with different addresses → symbol blacklist needed
+- Stale data kills → always fetch fresh before decisions
+- DexScreener rate limits fast → need circuit breaker
+- Position count in scanner vs actual open can differ → always use fresh count
+- Python subprocess buffering → use `nohup python -u` for unbuffered output
+- `.last_alert_index` can go stale → reset with trades file
 
-### Stale Signal Bug - WORTHLESS Incident
-- gmgn signal file `gmgn_WORTH_4414872.json` was 6 DAYS old (parsed_at: 2026-04-08)
-- gmgn_buyer processed ALL signal files with no age check
-- Signal had `ca`=null, fell back to `token_address` correctly
-- WORTH token CA was 8tKWk9... but DexScreener lookup returned WORTHLESS at 27VDTV... (different contract!)
-- gmgn_buyer bought WORTHLESS at $10,391 → stopped at $7,120 (-31%)
-- **Root cause**: No signal age check + no CA validation + stale signal sat in signals/ for 6 days
-
-### Fixes Applied (2026-04-14):
-1. **Signal age check**: gmgn_buyer now skips signals with `parsed_at` > 5 minutes old
-2. **Contract address validation**: Before buying, verify signal CA matches DexScreener `baseToken.address`
-3. **MIN_GMGN_API_SCORE → MIN_GMGN_SCORE** (was undefined, would crash or use wrong threshold)
-4. **Liquidity minimum $1K**: Both scanners reject tokens with <$1K liquidity (rugged/illiquid)
-5. **Deleted stale signals**: Removed 6-day-old WORTH signal file
-
-### Scanner Crashes - Missing Constants
-- auto_scanner.py crashed repeatedly with ImportError
-- Missing from trading_constants.py: `MIN_VOLUME`, `MIN_BS_RATIO`, `ATH_DIVERGENCE_REJECT`, `NEW_PUMP_HS1_THRESHOLD`, `MIN_GMGN_SCORE`, `GMGN_VOL_MCAP_MIN`
-- All added and scanners restarted
-
-## Strategy Updates (2026-04-14)
-- MIN_CHG1_FOR_BUY: 3.0 → 5.0 (need stronger hourly momentum)
-- Cooldown thresholds already at v6.1 levels (NEW_PUMP_5M=50%, OLD_PUMP_5M=1%)
-
-## Fresh Reset (2026-04-14 05:30 UTC)
-Chris reset everything after bad run:
-- sim_wallet.json → 1.0 SOL
-- stats → 0 trades / 0W / 0L
-- position_peak_cache.json → {}
-- integrity_state.json → reset
-- SIM_RESET_TIMESTAMP → 2026-04-14T05:31:26
-- MARS manually closed at -100% (open position)
-- All scanners stopped
+## Chris Preferences:
+- "Either buy or pass - no presenting signals"
+- Wants continuous scanning and trading
+- Prefers fast decisions over perfect analysis
+- Very detail-oriented on alert/report format
+- All Telegram must go to chat_id 6402511249 (his Telegram, not "Chris")
