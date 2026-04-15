@@ -17,23 +17,19 @@
 - chg5: ≥+2% (base entry) OR ≥+20% (pump path)
 - Exchange: pump.fun (pair ends "pump") / raydium / pumpswap
 
-### TP5 Exit Plan:
+### TP5 Exit Plan (v7.4 - Current):
 | Level | Trigger | Sell % | Stop |
 |-------|---------|--------|------|
-| TP1 | +50% | 10% | -25% |
-| TP2 | +100% | 15% | -25% |
-| TP3 | +200% | 20% | -20% |
-| TP4 | +400% | 25% | -15% |
-| TP5 | +1000% | 30% | EXIT ALL |
-| **Compound** | After TP5 | REMAINING 10% | 20% trailing |
-
-### Compound Mode (positions hitting TP5):
-- Remaining 10% monitored with 20% trailing stop
-- Let winners run 2-5x additional
-- Exit when price drops 20% from peak
+| TP1 | +50% | HOLD | -30% trailing 40% |
+| TP2 | +100% | 40% | -30% trailing 30% |
+| TP3 | +200% | 30% | -30% trailing 30% |
+| TP4 | +300% | 20% | -30% trailing 30% |
+| TP5 | +1000% | ALL | EXIT |
+| Stop | -30% | ALL | EXIT |
 
 ### Cooldown System:
-- pump (chg5>+20%): 45s→30s→15s→BUY
+- **PUMP PATH** (chg1 >= +20%): 45s→30s→15s→BUY
+  - Uses chg1 NOT chg5
 - Young (<15min) + h1>+5% + chg5>-5%: 45s cooldown
 - Older (>=15min) + h1>+5% + chg5>-5%: 45s cooldown
 - Base: 30s → chg1 > chg5_prev + 3% → BUY

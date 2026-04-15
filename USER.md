@@ -12,17 +12,17 @@ _Learn about the person you're helping. Update this as you go._
 - **PRIMARY OBJECTIVE:** Turn 1 SOL → 100 SOL via compound TP5 winners
 - **Strategy:** Identify winners early, let them run to +1000%, compound the remaining 10%
 
-## TP5 Exit Strategy
-- TP1 (+50%): Sell 10% of position
-- TP2 (+100%): Sell 15% of position  
-- TP3 (+200%): Sell 20% of position
-- TP4 (+400%): Sell 25% of position
-- TP5 (+1000%): Sell 30% of position → REMAINING 10% enters COMPOUND MODE
+## TP5 Exit Strategy (v7.4 - Current)
+| Level | Trigger | Sell % | Trail |
+|-------|---------|--------|-------|
+| TP1 | +50% | **HOLD** | 40% from peak |
+| TP2 | +100% | 40% | 30% from peak |
+| TP3 | +200% | 30% | 30% from peak |
+| TP4 | +300% | 20% | 30% from peak |
+| TP5 | +1000% | **ALL** | 20% from peak |
+| Stop | -30% | ALL | — |
 
-## Compound Mode (for positions hitting TP5)
-- Remaining 10% monitored with 20% trailing stop from peak
-- Goal: let winners run 2-5x additional after TP5
-- If price drops 20% from peak → exit remaining 10%
+**Key:** TP1 is HOLD only — let winners ride with 40% trailing stop.
 
 ## Key Trading Rules
 - Max 5 open positions at a time
@@ -47,7 +47,8 @@ _Learn about the person you're helping. Update this as you go._
 ❌ meteora ❌ orinoco ❌ lifinity ❌ saber → REJECTED
 
 ## Cooldown System
-- pump (chg5>+20%): 45s→30s→15s→BUY
+- **PUMP PATH** (chg1 >= +20%): 45s→30s→15s→BUY
+  - Uses chg1 NOT chg5
 - Young (<15min) + h1>+5% + chg5>-5%: 45s→BUY if chg5>=+2%
 - Older (>=15min) + h1>+5% + chg5>-5%: 45s→BUY if chg5>=+2%
 - Base (30s): chg1 > chg5_prev + 3% → BUY
