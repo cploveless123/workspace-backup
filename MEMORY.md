@@ -7,7 +7,7 @@
 - Telegram alerts via @WilsonVultrBot (token: 8767746012:AAEAUg-yCC8uZ-U2y-VBiuKS7qGm58XYQeg)
 - Chat ID: 6402511249 (Chris - "please grow good weed")
 
-## System Status (2026-04-15 05:50 UTC) - FRESH RESET
+## System Status (2026-04-15 06:30 UTC) - LIVE TRADING
 - sim_trades.jsonl: EMPTY
 - sim_wallet.json: 1.0 SOL
 - Starting balance: 1.0 SOL
@@ -43,12 +43,19 @@ Chris reset after analyzing poor v7.0/v7.1 performance:
 - If GMGN unavailable → Telegram alert + PAUSE trading
 - If DexScreener throttled → skip until recovers + alert
 
-### System Rules (NEVER BREAK):
+### System Rules (NEVER BREAK) - LIVE TRADING:
 1. Permanent Blacklist: Any token ever bought = NEVER buy again
-2. Max Open Positions: 9 concurrent
+2. Max Open Positions: 5 concurrent
 3. Position Size: 0.1 SOL per trade
 4. Never Re-buy: Even if dropped 90% after selling — NO
 5. Only pump.fun / raydium / pumpswap: Reject all other exchanges
+
+## API Safety Rules (CRITICAL):
+- GMGN primary source - use for all token data
+- DexScreener backup only - if GMGN unavailable
+- ALWAYS fresh data before any decision - never stale
+- DexScreener circuit breaker: stop calls after 5 consecutive failures
+- If GMGN + DexScreener BOTH fail → 🚨 STOP ALL BUYS immediately + Telegram alert
 
 ## Alert Format (IRONCLAD):
 - Telegram uses HTML mode (Markdown fails with emoji → HTTP 400)
