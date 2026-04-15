@@ -1,48 +1,71 @@
 # USER.md - About Your Human
 
+_Learn about the person you're helping. Update this as you go._
+
 - **Name:** Chris
 - **What to call them:** Chris
-- **Telegram:** @pleasegrowgoodweed (6402511249)
-- **Trading goal:** Turn 1.0 SOL → 100 SOL via compounding TP5 winners on pump.fun
+- **Pronouns:** 
+- **Timezone:** UTC
+- **Notes:** Building a DEX trading bot on Solana
 
-## Active Project: DEX Trading Bot (v7.2 LIVE)
-- **Location:** /root/Dex-trading-bot/
-- **Status:** LIVE TRADING | 1.0 SOL | 0W/0L
-- **Strategy:** v7.2 - Dip 20-45%, h1 ≤250%, holders ≥20, Fallen Giant filter
+## Active Project: TP5 COMPOUND STRATEGY
+- **PRIMARY OBJECTIVE:** Turn 1 SOL → 100 SOL via compound TP5 winners
+- **Strategy:** Identify winners early, let them run to +1000%, compound the remaining 10%
 
-## 🛡️ IRONCLAD RULES (NEVER BREAK)
-1. **Permanent Blacklist** — Any token ever bought = NEVER buy again
-2. **Max 5 open positions** (reduced from 9)
-3. **0.1 SOL per trade** — Never size up
-4. **Never Re-buy** — Even if dropped 90% after selling — NO
-5. **Only pump.fun / raydium / pumpswap** — Reject all other exchanges
+## TP5 Exit Strategy
+- TP1 (+50%): Sell 10% of position
+- TP2 (+100%): Sell 15% of position  
+- TP3 (+200%): Sell 20% of position
+- TP4 (+400%): Sell 25% of position
+- TP5 (+1000%): Sell 30% of position → REMAINING 10% enters COMPOUND MODE
 
-## 📡 DATA RULES
-- **GMGN primary** — use for all token data
-- **DexScreener backup** — only if GMGN unavailable
-- **ALWAYS fresh data** before any decision — never stale
-- **DexScreener circuit breaker** — stop calls after 5 consecutive failures
-- **If BOTH GMGN + DexScreener fail** → STOP ALL BUYS immediately, alert Chris
+## Compound Mode (for positions hitting TP5)
+- Remaining 10% monitored with 20% trailing stop from peak
+- Goal: let winners run 2-5x additional after TP5
+- If price drops 20% from peak → exit remaining 10%
 
-## Alert Rules:
-- GMGN throttled → immediate Telegram alert
-- DexScreener throttled → immediate Telegram alert
-- BOTH throttled → 🚨🚨 STOP ALL BUYS alert
+## Key Trading Rules
+- Max 5 open positions at a time
+- Position size: 0.1 SOL per trade
+- Stop loss: -25% default, -15% for large winners (TP4+)
+- Max daily loss: 0.3 SOL (stop if hit)
+- Only pump.fun / raydium / pumpswap exchanges
+- Pair address must end in "pump" for pump.fun/pumpswap
+- Fresh data only (GMGN primary, DexScreener backup)
+- IRONCLAD rules always enforced
 
-## Trade Report Format:
-- Last 5 trades | Balance | Record | Open positions
-- Buy/Sell with MC + timestamps | Green/red emoji
-- All links clickable
+## Current Status (2026-04-15)
+- Balance: 1.0 SOL (reset)
+- Record: 0W/0L (reset)
+- Open: 0 positions (reset)
+- Scanner: v7.4 CLEAN running with 15s cycle
 
-## Chris Preferences:
-- "Either buy or pass - no presenting signals"
-- Continuous scanning and trading
-- Fast decisions over perfect analysis
-- Very detail-oriented on format
-- All Telegram → chat_id 6402511249 (HTML mode)
+## Exchange Rules
+✅ pump.fun → pair_address must end in "pump"
+✅ pumpswap → pair_address must end in "pump"  
+✅ raydium → launchpad check only
+❌ meteora ❌ orinoco ❌ lifinity ❌ saber → REJECTED
 
-## Current State (LIVE)
-- **Balance:** 1.0 SOL
-- **Record:** 0W / 0L
-- **Open positions:** 0
-- **Max open:** 5 concurrent
+## Cooldown System
+- pump (chg5>+20%): 45s→30s→15s→BUY
+- Young (<15min) + h1>+5% + chg5>-5%: 45s→BUY if chg5>=+2%
+- Older (>=15min) + h1>+5% + chg5>-5%: 45s→BUY if chg5>=+2%
+- Base (30s): chg1 > chg5_prev + 3% → BUY
+- chg1<-5%: 15s rechecks until mcap>+5% from low→15s verify→BUY
+
+## Alert System
+- Throttle alerts: once per event (not per cycle)
+- Same alert dedup: 5 minutes
+- API failure alerts when GMGN or DexScreener fails
+- Buy/Sell notifications with clickable links
+
+## Backup System
+- 30-minute cron job auto-restarts systems if down
+- Backs up Dex-trading-bot and workspace every 30 min
+- Telegram status every 30 min confirming all systems running
+
+_(What do they care about? What projects are they working on? What annoys them? What makes them laugh? Build this over time.)_
+
+---
+
+The more you know, the better you can help. But remember — you're learning about a person, not building a dossier. Respect the difference.

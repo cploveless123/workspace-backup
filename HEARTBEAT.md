@@ -1,74 +1,80 @@
 # Heartbeat Checklist - Run every 15 minutes
 
 ## Check Systems
-1. `ps aux | grep -E "gmgn_scanner|position_monitor|alert_sender" | grep -v grep`
-2. Check signals: `ls -lt signals/ | head -5`
+1. `ps aux | grep -E "gmgn_scanner|position_monitor" | grep -v grep | wc -l` (should be 2)
+2. Check scanner log: `tail -20 /root/Dex-trading-bot/gmgn_scanner.log`
 3. Check trades: `tail -3 trades/sim_trades.jsonl`
 
-## LIVE TRADING STATUS (v7.2)
-- Balance: 1.0 SOL | Record: 0W/0L | Open: 0
-- sim_trades.jsonl: EMPTY (fresh start)
-- Starting balance: 1.0 SOL
+## Primary Objective: Trade to 100 SOL via compound TP5 winners
 
-## 🛡️ IRONCLAD RULES (NEVER BREAK)
-1. Permanent Blacklist: Any token ever bought = NEVER buy again
-2. Max Open Positions: 5 concurrent
-3. Position Size: 0.1 SOL per trade
-4. Never Re-buy: Even if dropped 90% after selling — NO
-5. Only pump.fun / raydium / pumpswap: Reject all other exchanges
+## Current Strategy: TP5 COMPOUND
 
-## API Safety (CRITICAL):
-- GMGN primary | DexScreener backup
-- ALWAYS fresh data before decisions
-- DexScreener: stop calls after 5 consecutive failures
-- GMGN + DexScreener BOTH fail → 🚨 STOP ALL BUYS + alert Chris
+### Entry Criteria:
+- Mcap: $6K-$55K
+- Holders: ≥15
+- H1: ≥+5% (momentum)
+- chg5: ≥+2% (base entry) OR ≥+20% (pump path)
+- Exchange: pump.fun (pair ends "pump") / raydium / pumpswap
 
-## v7.2 Entry Filters:
-- Mcap: $6K-$25K
-- Holders: ≥20
-- Dip: 20-45% from ATH
-- h1: ≤250% (avoid late entries)
-- Fallen Giant: h1 >400% + mcap <$20K → REJECT
-- Symbol blacklist: no repeat buys
+### TP5 Exit Plan:
+| Level | Trigger | Sell % | Stop |
+|-------|---------|--------|------|
+| TP1 | +50% | 10% | -25% |
+| TP2 | +100% | 15% | -25% |
+| TP3 | +200% | 20% | -20% |
+| TP4 | +400% | 25% | -15% |
+| TP5 | +1000% | 30% | EXIT ALL |
+| **Compound** | After TP5 | REMAINING 10% | 20% trailing |
 
-## v7.2 Exit Rules:
-- TP1 +30%: HOLD (watch only, 40% trailing)
-- TP2 +100%: Sell 40% (40% trail)
-- TP3 +200%: Sell 30% (40% trail)
-- TP4 +300%: Sell 20% (40% trail)
-- TP5 +1000%: Sell remaining 10% (35% trail)
-- Stop: -30%
+### Compound Mode (positions hitting TP5):
+- Remaining 10% monitored with 20% trailing stop
+- Let winners run 2-5x additional
+- Exit when price drops 20% from peak
 
-## If systems down - RESTART COMMAND:
-```bash
-cd /root/Dex-trading-bot
-kill $(ps aux | grep -E "gmgn_scanner|position_monitor|alert_sender" | grep -v grep | awk '{print $2}') 2>/dev/null
-rm -rf __pycache__
-nohup /root/Dex-trading-bot/venv/bin/python -u /root/Dex-trading-bot/gmgn_scanner.py >> gmgn_scanner.log 2>&1 &
-nohup /root/Dex-trading-bot/venv/bin/python -u /root/Dex-trading-bot/position_monitor.py >> position_monitor.log 2>&1 &
-nohup /root/Dex-trading-bot/venv/bin/python -u /root/Dex-trading-bot/alert_sender.py >> alert_sender.log 2>&1 &
-echo "All restarted at $(date)"
+### Cooldown System:
+- pump (chg5>+20%): 45s→30s→15s→BUY
+- Young (<15min) + h1>+5% + chg5>-5%: 45s cooldown
+- Older (>=15min) + h1>+5% + chg5>-5%: 45s cooldown
+- Base: 30s → chg1 > chg5_prev + 3% → BUY
+- chg1<-5%: 15s rechecks until mcap>+5% from low → 15s verify → BUY
+
+### IRONCLAD Rules:
+- PERM_BLACKLIST: never buy again
+- Max 5 open positions
+- 0.1 SOL per trade
+- Fresh data only (GMGN primary, DexScreener backup)
+- Alert dedup: 5 min
+
+## Format for Chris (15-min update):
+
 ```
+📊 15-MIN UPDATE | HH:MM UTC
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+💰 Balance: X.XXXX SOL | 📈 XW/XL | 🔒 X open
 
-## Format for Chris:
-```
-📊 STATUS | HH:MM UTC
-━━━━━━━━━━━━━━━━━━━━━
-💰 Balance: X.XXXX SOL
-📈 Record: XW/XL | WR: XX%
-🔒 Open: X positions (max 5)
+📋 OPEN POSITIONS:
+• TOKEN | entry $XX,XXX | current +XX%
 
-Recent CLOSES:
+📋 RECENT CLOSES:
 • TOKEN | WIN/LOSS | +X.XXXX SOL
+
+🎯 PROGRESS TO 100 SOL:
+• Current: X.XX SOL
+• Target: 100 SOL
+• Progress: X.X%
+```
+
+## If systems down:
+```bash
+pkill -f gmgn_scanner 2>/dev/null; pkill -f position_monitor 2>/dev/null
+cd /root/Dex-trading-bot && rm -f gmgn_scanner.log
+(stdbuf -oL -eL /root/Dex-trading-bot/venv/bin/python -u gmgn_scanner.py 2>&1 | tee gmgn_scanner.log) &
+(stdbuf -oL -eL /root/Dex-trading-bot/venv/bin/python -u position_monitor.py 2>&1 | tee position_monitor.log) &
+echo "Restarted"
 ```
 
 ## Git push (hourly):
 ```bash
-git -C /root/Dex-trading-bot add -A && git -C /root/Dex-trading-bot commit -m "Update $(date)" && git -C /root/Dex-trading-bot push origin master
-git -C /root/.openclaw/workspace add -A && git -C /root/.openclaw/workspace commit -m "Update $(date)" && git -C /root/.openclaw/workspace push origin master
-```
-
-## Integrity Check:
-```
-cd /root/Dex-trading-bot && python3 integrity_monitor.py
+cd /root/Dex-trading-bot && git add -A && git commit -m "Update $(date)" && git push origin master
+cd /root/.openclaw/workspace && git add -A && git commit -m "Update $(date)" && git push origin master
 ```
