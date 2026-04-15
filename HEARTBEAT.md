@@ -27,13 +27,12 @@
 | TP5 | +1000% | ALL | EXIT |
 | Stop | -30% | ALL | EXIT |
 
-### Cooldown System:
-- **PUMP PATH** (chg1 >= +20%): 45s→30s→15s→BUY
-  - Uses chg1 NOT chg5
-- Young (<15min) + h1>+5% + chg5>-5%: 45s cooldown
-- Older (>=15min) + h1>+5% + chg5>-5%: 45s cooldown
-- Base: 30s → chg1 > chg5_prev + 3% → BUY
-- chg1<-5%: 15s rechecks until mcap>+5% from low → 15s verify → BUY
+### Cooldown System (CORRECTED):
+- **PUMP PATH** (chg1 >= +20%): 45s→30s→15s→BUY (uses chg1 NOT chg5)
+- **YOUNG** (<15min) + h1>+5% + chg1>-5%: 45s cooldown → BUY if chg1 > chg1_prev + 3%
+- **OLDER** (>=15min) + h1>+5% + chg1>-5%: 45s cooldown → BUY if chg1 >= +2%
+- **BASE** (30s): chg1 > chg1_prev + 3% → BUY
+- **Recovery** (chg1<-5%): 15s rechecks until mcap>+5% from low → 15s verify → BUY
 
 ### IRONCLAD Rules:
 - PERM_BLACKLIST: never buy again

@@ -46,13 +46,13 @@ _Learn about the person you're helping. Update this as you go._
 ✅ raydium → launchpad check only
 ❌ meteora ❌ orinoco ❌ lifinity ❌ saber → REJECTED
 
-## Cooldown System
+## Cooldown System (CORRECTED)
 - **PUMP PATH** (chg1 >= +20%): 45s→30s→15s→BUY
   - Uses chg1 NOT chg5
-- Young (<15min) + h1>+5% + chg5>-5%: 45s→BUY if chg5>=+2%
-- Older (>=15min) + h1>+5% + chg5>-5%: 45s→BUY if chg5>=+2%
-- Base (30s): chg1 > chg5_prev + 3% → BUY
-- chg1<-5%: 15s rechecks until mcap>+5% from low→15s verify→BUY
+- **YOUNG** (<15min) + h1>+5% + chg1>-5%: 45s cooldown → BUY if chg1 > chg1_prev + 3%
+- **OLDER** (>=15min) + h1>+5% + chg1>-5%: 45s cooldown → BUY if chg1 >= +2%
+- **BASE** (30s): chg1 > chg1_prev + 3% → BUY
+- **Recovery** (chg1<-5%): 15s rechecks until mcap>+5% from low → 15s verify → BUY
 
 ## Alert System
 - Throttle alerts: once per event (not per cycle)
