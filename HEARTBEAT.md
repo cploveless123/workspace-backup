@@ -54,7 +54,8 @@
 💰 Balance: X.XXXX SOL | 📈 XW/XL | 🔒 X open
 
 📋 SCANNER STATUS:
-• Cooldown: X tokens | Blacklist: X | DexScreener fails: X
+• Cooldown: X | Blacklist: X | Rejected: X
+• DexScreener Fails: X | GMGN fails: X/X/X
 
 📋 OPEN POSITIONS:
 • TOKEN | entry $XX,XXX | current +XX%
