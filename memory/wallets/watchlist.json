@@ -20,17 +20,17 @@
     {
       "address": "CyaE1VxvBrahnPWkqm5VsdCvyS2QmNht2UFrKJHga54o",
       "added": "2026-04-06T16:45:00Z",
-      "balance_sol": 649.017075436,
+      "balance_sol": 654.340353967,
       "prev_balance_sol": 615.63,
       "status": "IDLE",
       "recent_tokens": [],
       "pattern": "Large SOL whale",
       "notes": "Whale wallet - 758 SOL, withdrew -4.10 SOL",
       "recent_activity": [
-        "39s2ecWiVBUua28D6XjUPtrzf8Nd75JdUm1fQ8mND4AZib3S9ADj4foZ7qgQShyD3q8WuAswai4iNBs8Z6wmXw9h",
-        "5xQDLotwQo5o5QJbFPfxDYhB4XSciLn8KiXU2dgncZi86yH6njb1sL6SZa1rNZR3oRLgMMK9b7uvXNmNmn9jCTDA"
+        "3uv4vpntwZXCiSZiwSrXvQFTNW9yw4SnfJVUBF7PJQjc1B7XHNsiGiwwAdP3UQ6R6QJn2ZYkwPK4c3tsnMokVQVe",
+        "4ZaGSpDgzMm5ZWFy13enSY3s2hmvz1HNhCf57eGsCv8ighoPPrVQJ92LNkb3pG7EaizX2ZR2gXpVhadR1dTo8FX5"
       ],
-      "last_check": 1776376495.6585863
+      "last_check": 1776378295.3543713
     }
   ]
 }
