@@ -3,34 +3,34 @@
     {
       "address": "suqh5sHtr8HyJ7q8scBimULPkPpA557prMG47xCHQfK",
       "added": "2026-04-06T16:38:00Z",
-      "balance_sol": 2.006147276,
-      "prev_balance_sol": 2.18,
-      "status": "ACCUMULATING",
+      "balance_sol": 0.996307212,
+      "prev_balance_sol": 0.71,
+      "status": "BUYING",
       "recent_tokens": [
         "7kr5sdADJUzYWDgXPnHMTFaRQm3zTm"
       ],
-      "pattern": "Reducing positions, taking profits",
-      "notes": "Very active trader - accumulating",
+      "pattern": "Active accumulation",
+      "notes": "Bought +1.47 SOL today",
       "recent_activity": [
-        "4kcJfsFAxm2gfcYntUm7D964zcAT49JbtnHend39FrMzqDGxCAoARhU1opqdiBxqjuD3LZKYhVEiHjMPeEvGNuCa",
-        "5dcRdYeP3pTECQYnqsRqNdwV3opJotnMtN3oBbWF321yNuMM1KAQADUUZ9vzxFkAZgkyqvZdR1J6MeaBvRYRGPhd"
+        "3du6U9fo5Q8zPte3wkhkKH53PKSRMsq3L49jjSgQ7GJFfv6pd4HXj3frsFWFgQzPnWeLjMeVaKZZnuXTcTXfJGEm",
+        "4zc7dY5w2regxNhcCQq3evVCozCTumxtojdDnvx8ju9xXBXu27fo6H3epi3AZRYP8vge8Vkp7M54Nw3woqiA3GLV"
       ],
-      "last_check": 1776801862.9139435
+      "last_check": 1776803663.9423585
     },
     {
       "address": "CyaE1VxvBrahnPWkqm5VsdCvyS2QmNht2UFrKJHga54o",
       "added": "2026-04-06T16:45:00Z",
-      "balance_sol": 248.401261093,
-      "prev_balance_sol": 559.29,
+      "balance_sol": 253.021477717,
+      "prev_balance_sol": 247.08,
       "status": "SELLING",
       "recent_tokens": [],
       "pattern": "Large SOL whale",
-      "notes": "Whale wallet - selling down (-3.02 SOL today)",
+      "notes": "Slow sell-off (-0.27 SOL today)",
       "recent_activity": [
-        "2qG19ijFtSo9pKY3mKyHJ596JKkAxejGqVdSXEonNmFyMboTKC4o9w1CDzz5RGwrQsw56d8Az1kBC4mhM2maeMjQ",
-        "3tgdiyDZTz4NAX5iLC63YbJsfq1RsBxGNJkPTDxpeDtU3Pq5gWtJP8e4ZMHjgzM6RkK6PMrCxUZQbtN9kBEhmDSf"
+        "5wkwRDpo3G1n62wvA9Nf8EnVQ3tgths7GB8HSpdGctJzm4s8Hvnc7cMSwLqSG4p7349KWRjAWSAXFtt6SZ9zXmmU",
+        "3nyq2kdf74qVKGNTYDzALxvwDeknYYb75Tb8iPRTTa6RYdYRtQyqPDV5CHJuTJ8oCWJFbY7vW8xmy8JSwaPbDFqi"
       ],
-      "last_check": 1776801863.115393
+      "last_check": 1776803364.7460492
     }
   ]
 }
