@@ -20,17 +20,17 @@
     {
       "address": "CyaE1VxvBrahnPWkqm5VsdCvyS2QmNht2UFrKJHga54o",
       "added": "2026-04-06T16:45:00Z",
-      "balance_sol": 264.003952574,
+      "balance_sol": 297.013981063,
       "prev_balance_sol": 247.08,
       "status": "SELLING",
       "recent_tokens": [],
       "pattern": "Large SOL whale",
       "notes": "Slow sell-off (-0.27 SOL today)",
       "recent_activity": [
-        "23oBXhxeMMgntpKifwVFSfX3vEy9Wc3Bb3FzNa4AUrhtfvNoR1fPr3hnULJBgCPo8nrdJakU8zSQcMwvrsG4titn",
-        "26Cc5rsMtbNtZWrs8oCE4GYeV4UE3miviiSWpGzwp1d9XDXp63ZKpu6e9gfqsxdEd4XzZQYXs7yqHsG5W21aghse"
+        "gzfMeAZPckjKZn6nU5Vfc5MtoU33q9nYqrwaX6gUtnje8Fg9r1LTFQLgNWC2iuU6b4GoL35akEtPmi8FYp9A5wx",
+        "UfS8sFUAkFhA9tCz65EMWY6cK1ZZxAEzYBk99RJgutHkP53a2xHGDUr6isB3vpfx7MXuFh33HwAJDy4XXsY5Uby"
       ],
-      "last_check": 1776807295.593358
+      "last_check": 1776809106.0929723
     }
   ]
 }
