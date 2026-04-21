@@ -12,25 +12,25 @@
       "pattern": "Active accumulation",
       "notes": "Bought +1.47 SOL today",
       "recent_activity": [
-        "5wMvxRT7aMMWdXLEKCms9jvfuXhMR7zMQ3q2gFGcCqc5qFxYZtVTxu7qUTDzQdhxpsooQfo8tVaRjx6NB4hVrr5R",
-        "3he9qbupzFc3r7gykPGxDHZbor4P2wTVJMiQirAEwAVVp2b1uhG9A3YghSSMMdNmL5fSmgYUX39d5NzS6DCD5CD2"
+        "4GM5tqueZat8BsBhQcLQhcTpWQga4kRnvUcHudkjBvoyGzjYh3mCgzXknCRZ72daoxVV96T18wjNKe2zHwqdM9gz",
+        "5wMvxRT7aMMWdXLEKCms9jvfuXhMR7zMQ3q2gFGcCqc5qFxYZtVTxu7qUTDzQdhxpsooQfo8tVaRjx6NB4hVrr5R"
       ],
       "last_check": 1776805787.328363
     },
     {
       "address": "CyaE1VxvBrahnPWkqm5VsdCvyS2QmNht2UFrKJHga54o",
       "added": "2026-04-06T16:45:00Z",
-      "balance_sol": 296.968145793,
+      "balance_sol": 302.292814203,
       "prev_balance_sol": 247.08,
       "status": "SELLING",
       "recent_tokens": [],
       "pattern": "Large SOL whale",
-      "notes": "Slow sell-off (-0.27 SOL today)",
+      "notes": "Large SOL whale - ACCUMULATING (+55.2 SOL from 247.08)",
       "recent_activity": [
-        "9zjqJ1WdyR3NJ5oRzyhTHmxkE6UiB5yvxnMK5UUXHjfHBarpWeQGzfe25cUhSmW3FPXC5urCBSuJK5darEjWBMN",
-        "wPieESkncKebCCPVeiv951jpUfDYdKMCArr1KZdWDY7GUAZyVzengSZ8EhU7oJpfnrs3jhjE8Chto9AnGPiB8Dt"
+        "5KCqS1KgSyHUdtQT1v5skXxxr9fvNPRETXP8UpE8sKGcEtfaygnaiscoXNn3r4pRbDQJyq4jVEBwNzot58KqJSJ5",
+        "28gH4k5JhVNABaSxh4sDWvHH4hVwkobmrqegpa5zEsbe2a9Jt7BtXqLVeF9SpvZid3YvbyM3vbdGeLGcDN7mvxFU"
       ],
-      "last_check": 1776810013.194607
+      "last_check": 1776811888.3359516
     }
   ]
 }
