@@ -20,17 +20,17 @@
     {
       "address": "CyaE1VxvBrahnPWkqm5VsdCvyS2QmNht2UFrKJHga54o",
       "added": "2026-04-06T16:45:00Z",
-      "balance_sol": 213.478688516,
+      "balance_sol": 216.397097728,
       "prev_balance_sol": 559.29,
       "status": "SELLING",
       "recent_tokens": [],
       "pattern": "Large SOL whale",
       "notes": "Whale wallet - selling down (-3.02 SOL today)",
       "recent_activity": [
-        "fbtsiRZLPxPu153Ps4jvzDfysFZxdQiR1wPrfDUUipycwxuRLpfayiVtxzcdbYGz6u6qcTq2jaCk7rc3VYZBXq4",
-        "zmxkCxQYoB5JiDuzSFuz7kyWNEsepCJ2zURqc5SQosG6ZjN8vcJdquTSgxRgwJh2t8QTNjgVsyp3CkpMJHPRdt5"
+        "5cRDNb6BJ7abg9WyvFHHn3VQgQMKdvmkeBDpDHVSFNnx8iiv48vCHTgwXsUhKfkkwDf8JNmPUmwez71A2CbbnEoT",
+        "3DwPCMAVU7EGPamBiErGNhjhXpdAQ9YpLwJ6N2u23ppGP5VLQN7ULd1fPiYpXBVAuRVqf2gVPRWKv6bVNBrZ5ahF"
       ],
-      "last_check": 1776781800.6566713
+      "last_check": 1776783626.8987536
     }
   ]
 }
