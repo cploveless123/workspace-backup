@@ -3,7 +3,7 @@
     {
       "address": "suqh5sHtr8HyJ7q8scBimULPkPpA557prMG47xCHQfK",
       "added": "2026-04-06T16:38:00Z",
-      "balance_sol": 0.802096092,
+      "balance_sol": 0.030088305,
       "prev_balance_sol": 0.71,
       "status": "BUYING",
       "recent_tokens": [
@@ -12,25 +12,25 @@
       "pattern": "Active accumulation",
       "notes": "Bought +1.47 SOL today",
       "recent_activity": [
-        "5f2TA45sV7But6Mugq23qK9dDaq9BPNReqXpeSy6d72Z3vfeKamQTqbcXrsKRm9wryMtXEqQocCsprXUfeVkGqaC",
-        "PijkEaMAkPtjxHBGhcgm6p48eBczjTUfYYeXNHXpDBCcudre95dZvPtLdjweNNFnFoFdBZfwkrv4RNY8w3CantA"
+        "33uS4p4XhszebAp6SbeVfs9xw7uDZQ8zsa5dpVQUHa9qtZ6aaURKmyehqqe5bmBjbvDZW4R3rfg9j5mhe6khapPk",
+        "5PZbTynjn7XA1EW7ofvstnKYaH3WpUYZHbM37tdB9CC2bkJxtU6HfafTbpcJUK3wWiKXCfMJ2TUDLHvpyhYHfAir"
       ],
-      "last_check": 1776897503.3506563
+      "last_check": 1776899602.9672742
     },
     {
       "address": "CyaE1VxvBrahnPWkqm5VsdCvyS2QmNht2UFrKJHga54o",
       "added": "2026-04-06T16:45:00Z",
-      "balance_sol": 144.30447819,
+      "balance_sol": 158.78496882,
       "prev_balance_sol": 247.08,
       "status": "SELLING",
       "recent_tokens": [],
       "pattern": "Large SOL whale",
       "notes": "Large SOL whale - ACCUMULATING (+55.2 SOL from 247.08)",
       "recent_activity": [
-        "3YiHH1R97aAyeDYajUbaSaXVCpwvxUkiTJQXmeHF8uRNrQDzspoZiExiQoRQwiVn1ZqigutA3LfC1LZfe4jofRFn",
-        "BA4drfvzGRyfhphf3vAfpwn4A5c96KJLveJXX1GMbSGjNgDiQTKGocFeg7ur58RNmW8ZiCQDmWvdeTDbmw57zck"
+        "emgJ1MxR2yzQrnmdSEtMU5eV7x2v9ijTBKMXyA1iwp5GdQSk6tmijEnbHpcTeizE6BhXzAS1XUTDFsdu6fB8FQU",
+        "4NfMHT1GfggNDJygJhX5ww82HxrQ3y2v8sR6Q2WnzTQFjQWfcGDA2PXMkC43BX8Cigt8qgrXNuCwXsNK2QG4nyna"
       ],
-      "last_check": 1776897503.5326602
+      "last_check": 1776899306.4239893
     }
   ]
 }
