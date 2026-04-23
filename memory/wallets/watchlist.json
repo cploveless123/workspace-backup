@@ -26,7 +26,10 @@
       "recent_tokens": [],
       "pattern": "Large SOL whale",
       "notes": "Large SOL whale - ACCUMULATING (+55.2 SOL from 247.08)",
-      "recent_activity": [],
+      "recent_activity": [
+        "emgJ1MxR2yzQrnmdSEtMU5eV7x2v9ijTBKMXyA1iwp5GdQSk6tmijEnbHpcTeizE6BhXzAS1XUTDFsdu6fB8FQU",
+        "4NfMHT1GfggNDJygJhX5ww82HxrQ3y2v8sR6Q2WnzTQFjQWfcGDA2PXMkC43BX8Cigt8qgrXNuCwXsNK2QG4nyna"
+      ],
       "last_check": 1776899306.4239893
     }
   ]
