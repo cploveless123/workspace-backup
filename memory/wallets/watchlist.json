@@ -3,7 +3,7 @@
     {
       "address": "suqh5sHtr8HyJ7q8scBimULPkPpA557prMG47xCHQfK",
       "added": "2026-04-06T16:38:00Z",
-      "balance_sol": 2.274893538,
+      "balance_sol": 4.488414522,
       "prev_balance_sol": 1.38,
       "status": "BUYING",
       "recent_tokens": [
@@ -12,10 +12,10 @@
       "pattern": "Active accumulation",
       "notes": "Bought +1.93 SOL today (now 3.31 SOL)",
       "recent_activity": [
-        "4vrRXCNNgf8Uv3tonyQPQh18dbvbZDZ8xxaR4jojwJm7t78X2vsTrsRRnLpLsHSvGjYaC2SoLX3D942eCMQKB2dj",
-        "3nZCEFTarRPXT5R5s8pq629rkMn78WV8Ks4YyrGA8QtVtBjHZYPoGRxiGijrTCBht3fDFqV8kxoGjv6DtUiHZFrM"
+        "4EghjdfXycH9CE2unNYqsGYjpPLJfWgTRn3Cn3mZG38F2VaKK6iQkezjsx5gtmRd5SBmdSWY937FYAW9Mk9uvKn9",
+        "3yqTT9RHFCtimPXgEtfAM58KLWEHKo7en8QStJxq2CCXvqb6YQNCQ7hZ3WtJpX9Ym8RqZ2NaebGkXm3UV8ut2i3z"
       ],
-      "last_check": 1776987498.3567674
+      "last_check": 1776992686.3761585
     },
     {
       "address": "CyaE1VxvBrahnPWkqm5VsdCvyS2QmNht2UFrKJHga54o",
