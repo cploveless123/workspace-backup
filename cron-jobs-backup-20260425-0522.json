@@ -1,0 +1,45 @@
+[
+  {
+    "id": "e6239808-e4a1-450d-b034-0b8eaf099dfd",
+    "name": "wallet-monitor",
+    "schedule": {"kind": "every", "everyMs": 300000},
+    "payload": {"kind": "agentTurn", "message": "Run wallet monitor: cd /root/Dex-trading-bot && python3 wallet_watcher.py && echo '---' && cat /root/.openclaw/workspace/memory/wallets/watchlist.json", "model": "minimax/MiniMax-M2.5", "timeoutSeconds": 60},
+    "sessionTarget": "isolated",
+    "enabled": true
+  },
+  {
+    "id": "649e19f9-ade8-4fdd-9c11-63f8bd7ca434",
+    "name": "hourly-bot-backup",
+    "schedule": {"kind": "cron", "expr": "30 * * * *"},
+    "payload": {"kind": "agentTurn", "message": "Run hourly status:\n\n```bash\ncd /root/Dex-trading-bot && bash backup.sh && python3 -c \"from alert_sender import get_status; print(get_status())\"\n```\n\nSend Chris balance, record, and systems status.", "timeoutSeconds": 90},
+    "sessionTarget": "isolated",
+    "delivery": {"mode": "announce", "channel": "telegram", "to": "6402511249"},
+    "enabled": true
+  },
+  {
+    "id": "3d16c86d-53f5-44ca-ae3e-cc78cccb4590",
+    "name": "auto-backup",
+    "schedule": {"kind": "every", "everyMs": 1800000},
+    "payload": {"kind": "systemEvent", "text": "Hourly backup triggered"},
+    "sessionTarget": "main",
+    "enabled": true
+  },
+  {
+    "id": "d5a59055-fb4e-4085-b782-9f5876fc1b3d",
+    "name": "hourly-health-check",
+    "schedule": {"kind": "cron", "expr": "15 * * * *"},
+    "payload": {"kind": "agentTurn", "message": "Run system health check:\n\n```bash\ncd /root/Dex-trading-bot && python3 integrity_monitor.py 2>&1 | grep -v ALERTS\nps aux | grep -E \"gmgn_scanner|position_monitor|alert_sender\" | grep python | grep -v grep | wc -l\n```\n\nSend Chris: system health status and running process count.", "timeoutSeconds": 60},
+    "sessionTarget": "isolated",
+    "delivery": {"mode": "announce", "channel": "telegram", "to": "6402511249"},
+    "enabled": true
+  },
+  {
+    "id": "cb0115d8-5a88-403f-a0b4-14dac5ec3582",
+    "name": "scan-report-30min",
+    "schedule": {"kind": "every", "everyMs": 1800000},
+    "payload": {"kind": "agentTurn", "message": "Run scan report and send to Telegram:\n\n```bash\ncd /root/Dex-trading-bot && bash scan_report.sh 2>&1\n```\n\nThen send the full output to Chris via Telegram.", "timeoutSeconds": 60},
+    "sessionTarget": "isolated",
+    "delivery": {"mode": "announce", "channel": "telegram", "to": "6402511249"},
+    "enabled": true
+  }
+]
