@@ -132,19 +132,27 @@ Runs at :30 every hour
 - New scoring: ≥10 → +2pts | 6-9.9 → +1.5 | 3-5.9 → +1 | 1-2.9 → +0.5 | 0 → +0
 - Score max now 18 (was 16)
 
-## Additional GMGN Fields Available for Pattern Discovery
-| Field | Signal | Status |
+## Additional GMGN Fields Now Logged (2026-04-25)
+| Field | Signal | Logged |
 |-------|--------|--------|
-| top10holderpercent | Holder concentration (rug risk) | Not yet logged |
-| liquidity | Pool depth | Not yet logged |
-| initial_liquidity | Compare vs current for drain | Not yet logged |
-| creator_close | Dev sold out (big red flag) | Not yet logged |
-| rug_ratio | Rug risk score (0.3+ = dangerous) | Not yet logged |
-| hot_level | Trending intensity | Not yet logged |
-| sniper_count | Snipers at launch | Not yet logged |
-| bundler_rate | Bot buys (manipulation signal) | Not yet logged |
-| is_wash_trading | Fake volume | Not yet logged |
-| bluechip_owner_pct | Smart money presence | Not yet logged |
+| top10holderpercent | Holder concentration | ✅ entry_top10_pct |
+| liquidity | Pool depth | ✅ entry_liquidity |
+| initial_liquidity | Compare vs current for drain | ✅ entry_initial_liq |
+| creator_close | Dev sold out (big red flag) | ✅ entry_creator_close |
+| rug_ratio | Rug risk score (0.3+ = dangerous) | ✅ entry_rug_ratio |
+| hot_level | Trending intensity | ✅ entry_hot_level |
+| sniper_count | Snipers at launch | ✅ entry_sniper_count |
+| bundler_rate | Bot buys (manipulation signal) | ✅ entry_bundler_rate |
+| is_wash_trading | Fake volume | ✅ entry_wash_trading |
+| bluechip_owner_pct | Smart money presence | ✅ entry_bluechip_pct |
+
+## Safety Scoring in signal_scorer (v7.5)
+- Clean safety profile: +0.5 bonus points
+- Creator close (dev sold): zone=danger, no points
+- rug_ratio ≥ 0.3: zone=high_risk, no points
+- rug_ratio ≥ 0.2: zone=warn, -0.5 points
+- top10_pct ≥ 50%: zone=concentration, -0.5 points
+- bundler_rate ≥ 50%: zone=bot_heavy, -0.5 points
 
 ## Chris Preferences:
 - "Either buy or pass - no presenting signals"
