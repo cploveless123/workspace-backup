@@ -111,6 +111,41 @@ Runs at :30 every hour
 - Python subprocess buffering → use `nohup python -u` for unbuffered output
 - `.last_alert_index` can go stale → reset with trades file
 
+## GMGN Skills Installed (2026-04-25)
+- Location: `~/.openclaw/workspace/.agents/skills/`
+- 6 skills: gmgn-token, gmgn-market, gmgn-portfolio, gmgn-swap, gmgn-cooking, gmgn-track
+- All use `gmgn-cli` command interface (not raw API)
+- Skills available via: `npx skills add GMGNAI/gmgn-skills`
+
+## H1 Scoring FIXED (2026-04-25)
+- WAS: Lower H1 = higher score (inverted logic)
+- NOW: Higher H1 = higher score (matches actual data)
+- Data: TP2+ winners avg H1=260% vs losers avg H1=238%
+- Win rates by H1: ≤50%=0%, 51-100%=22.4%, 101-200%=17.6%, 201-400%=22.3%, >400%=25.5%
+- New scoring: >400% → +2pts | 251-400% → +1.5 | 151-250% → +1 | 51-150% → +0.5 | ≤50% → +0
+
+## Whale Signals Added to Scanner (2026-04-25)
+- `entry_smart_degen`: Smart money wallets (proven profitable traders)
+- `entry_renowned`: KOL/influencer wallets
+- `entry_bot_degen`: Bot degen count
+- Whale score = smart_degen + (renowned × 1.5)
+- New scoring: ≥10 → +2pts | 6-9.9 → +1.5 | 3-5.9 → +1 | 1-2.9 → +0.5 | 0 → +0
+- Score max now 18 (was 16)
+
+## Additional GMGN Fields Available for Pattern Discovery
+| Field | Signal | Status |
+|-------|--------|--------|
+| top10holderpercent | Holder concentration (rug risk) | Not yet logged |
+| liquidity | Pool depth | Not yet logged |
+| initial_liquidity | Compare vs current for drain | Not yet logged |
+| creator_close | Dev sold out (big red flag) | Not yet logged |
+| rug_ratio | Rug risk score (0.3+ = dangerous) | Not yet logged |
+| hot_level | Trending intensity | Not yet logged |
+| sniper_count | Snipers at launch | Not yet logged |
+| bundler_rate | Bot buys (manipulation signal) | Not yet logged |
+| is_wash_trading | Fake volume | Not yet logged |
+| bluechip_owner_pct | Smart money presence | Not yet logged |
+
 ## Chris Preferences:
 - "Either buy or pass - no presenting signals"
 - Wants continuous scanning and trading
