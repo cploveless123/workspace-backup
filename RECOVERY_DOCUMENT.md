@@ -1,307 +1,467 @@
 ════════════════════════════════════════════════════════════════
   WILSON TRADING SYSTEM — COMPLETE RECOVERY DOCUMENT
-  Last Updated: 2026-04-19 02:21 UTC
+  Last Updated: 2026-04-25 00:33 UTC
+  Version: v7.9 WINNING FILTER+ (deployed 2026-04-24 22:25)
 ════════════════════════════════════════════════════════════════
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-1. SYSTEM OVERVIEW
+SECTION 1: SYSTEM OVERVIEW
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-Trading Bot: Solana DEX sniper (pump.fun / pumpswap / raydium)
-Primary Goal: Turn 1 SOL → 100 SOL via compound TP5 winners
-Mode: LIVE TRADING (real money at risk)
-Location: /root/Dex-trading-bot/
-Git: https://github.com/cploveless123/Dex-trading-bot
-
-Backup Workspace: /root/.openclaw/workspace/
-Git: https://github.com/cploveless123/workspace-backup.git
-
-Telegram Bot: @WilsonVultrBot
-Telegram Token: 8767746012:AAEAUg-yCC8uZ-U2y-VBiuKS7qGm58XYQeg
-Chat ID: 6402511249 (Chris)
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-2. TRADING STRATEGY — BABA PLAN (Current)
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-ENTRY: Pump Path
-  • h1 > +100% AND chg5 >= +10% AND chg1 > -20%
-  • All pre-filters must pass first
-
-PRE-FILTERS:
-  • Mcap: $8,000 – $30,000
-  • Holders: ≥15
-  • Volume 24h: >$5,000
-  • BS ratio: <80%
-  • H1: ≤600% (above = rejected "too parabolic")
-  • Exchange: pump.fun / pumpswap / raydium only
-  • Min age: 210 seconds before pump path can trigger
-  • ATH distance: must be within 55% below ATH
-
-PUMP PATH STAGES:
-  1. PUMP_WAIT_1 (30s): verify h1>100 + chg5>=10 + chg1>-20 → advance
-  2. PUMP_WAIT_2 (15s): verify same conditions → advance
-  3. PUMP_VERIFY (15s): verify same conditions → BUY 0.1 SOL
-  4. On any fail: enter RECOVERY
-
-RECOVERY:
-  • 600 seconds (10 minutes) after failing pump checks
-  • Token is re-evaluated after recovery period
-  • Keeps cycling through pump stages until it buys or is blacklisted
-
-EXIT PLAN:
-  ┌──────┬──────────┬─────────┬────────────────┐
-  │ TP   │ Trigger  │ Sell %  │ Trail Stop     │
-  ├──────┼──────────┼─────────┼────────────────┤
-  │ TP1  │ +50%     │ HOLD    │ 40% from peak  │
-  │ TP2  │ +100%    │ 30%     │ 35% from peak  │
-  │ TP3  │ +200%    │ 35%     │ 35% from peak  │
-  │ TP4  │ +300%    │ 25%     │ 35% from peak  │
-  │ TP5  │ +1000%   │ ALL     │ 20% from peak  │
-  │ STOP │ -35%     │ ALL     │ EXIT           │
-  └──────┴──────────┴─────────┴────────────────┘
-  • TP1 is HOLD only — let winners ride with 40% trailing stop
-
-IRONCLAD RULES:
-  1. PERM_BLACKLIST: Never re-buy a token that was bought
-  2. Max 5 open positions at once
-  3. Position size: 0.1 SOL per trade
-  4. Fresh data only (GMGN primary, DexScreener backup)
-  5. Stop loss: -35% (tighter than before)
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-3. SCANNER SETUP — gmgn_scanner.py
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-SOURCES (cycling every 15s):
-  1. GMGN trending (50 tokens)
-  2. GMGN trenches (50 tokens)
-  3. GMGN trenches (50 tokens)
-  4. DexScreener pump.fun new pairs (20 tokens)
-
-gmgn-cli LOCATION (CRITICAL FIX):
-  • Binary: /opt/node22/bin/gmgn-cli
-  • Symlink: /usr/local/bin/gmgn-cli → /opt/node22/bin/gmgn-cli
-  • Access via: /opt/node22/bin/gmgn-cli OR /usr/local/bin/gmgn-cli
-  • RUN WITH: node /opt/node22/lib/node_modules/gmgn-cli/dist/index.js (fallback)
-
-SCANNER START COMMAND:
-  cd /root/Dex-trading-bot && python3 -u gmgn_scanner.py >> gmgn_scanner.log 2>&1 &
-
-SCANNER LOG:
-  /root/Dex-trading-bot/gmgn_scanner.log
-
-PUMP PATH CODE LOCATION (line ~567):
-  pump_triggered = (h1 > 100 and chg5 >= 10.0 and chg1 > -20.0)
-
-TO UPDATE PUMP PATH PARAMETERS:
-  Edit these constants in gmgn_scanner.py:
-  • PUMP_ENTRY_CHG5 = 10.0
-  • PUMP_WAIT_1 = 30
-  • PUMP_WAIT_2 = 15
-  • PUMP_VERIFY_DELAY = 15
-  • RECOVERY_WAIT = 600
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-4. POSITION MONITOR — position_monitor.py
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-PURPOSE: Track open positions, execute TP levels, trail stops, stop loss
-
-START COMMAND:
-  cd /root/Dex-trading-bot && python3 -u position_monitor.py >> position_monitor.log 2>&1 &
-
-LOG:
-  /root/Dex-trading-bot/position_monitor.log
-
-KEY FILES:
-  • Trades: /root/Dex-trading-bot/trades/sim_trades.jsonl
-  • Wallet: /root/Dex-trading-bot/sim_wallet.json
-  • Perm blacklist: /root/Dex-trading-bot/.perm_blacklist.json
-  • Stop loss cooldown: /root/Dex-trading-bot/.stop_loss_cooldown
-  • Position peak cache: /root/Dex-trading-bot/.position_peak_cache.json
-
-TP EXIT PARAMETERS (in trading_constants.py):
-  TP1_PCT = 50, TP1_TRAIL = 40, TP1_SELL_PCT = 0
-  TP2_PCT = 100, TP2_TRAIL = 35, TP2_SELL_PCT = 0.30
-  TP3_PCT = 200, TP3_TRAIL = 35, TP3_SELL_PCT = 0.35
-  TP4_PCT = 300, TP4_TRAIL = 35, TP4_SELL_PCT = 0.25
-  TP5_PCT = 1000, TP5_TRAIL = 20, TP5_SELL_PCT = 1.0
-  STOP_LOSS_PCT = 35
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-5. TRADING DATA FILES
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-ACTIVE FILES:
-  /root/Dex-trading-bot/trades/sim_trades.jsonl
-    → Live trade log (BUY/SELL records)
-  /root/Dex-trading-bot/sim_wallet.json
-    → Current balance (JSON: {"balance": X.XX, "last_updated": "..."})
-  /root/Dex-trading-bot/.perm_blacklist.json
-    → Tokens we bought (NEVER buy again)
-  /root/Dex-trading-bot/.stop_loss_cooldown.json
-    → Tokens on 30-min stop loss cooldown
-
-ARCHIVE FILES (old trade logs):
-  /root/Dex-trading-bot/trades/archive_*.jsonl
-    → Older archived trades
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-6. ALERT SYSTEM — Telegram
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-Bot: @WilsonVultrBot
-Token: 8767746012:AAEAUg-yCC8uZ-U2y-VBiuKS7qGm58XYQeg
-Chat ID: 6402511249
-
-Alert Format Rules:
-  • Telegram uses HTML mode (NOT Markdown)
-  • Entry/Exit mcap on all sells
-  • PnL with green/red emoji
-  • Clickable links (plain URLs)
-  • No signal alerts — only BUY/SELL executed
-  • Alert dedup: 5 minutes between same alerts
-
-Alert Types:
-  • BUY executed (entry price, mcap, token name)
-  • SELL executed (exit price, mcap, PnL, reason)
-  • TP hit (which TP level)
-  • STOP_LOSS hit
-  • GMGN throttled
-  • DexScreener throttled
-  • API failures
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-7. VPS RECOVERY — Vultr Console
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-ACCESS: https://my.vultr.com → Select Server → Server Console
-
-IF SERVER IS FROZEN/HUNG:
-  1. Vultr control panel → Server → Stop → wait 10s → Start
-  2. Wait for boot → console shows root@vultr:~#
-
-IF gmgn-cli NOT FOUND:
-  1. Check if symlink exists: ls -la /usr/local/bin/gmgn-cli
-  2. If broken: ln -sf /opt/node22/bin/gmgn-cli /usr/local/bin/gmgn-cli
-  3. Verify: /usr/local/bin/gmgn-cli market trending --chain sol --interval 5m --limit 1
-
-IF SCANNER DIES WITH "NO SUCH FILE":
-  → gmgn-cli symlink is broken → fix symlink (see above)
-  → Then restart scanner
-
-FULL RESTART SEQUENCE:
-  # Fix gmgn-cli symlink
-  ln -sf /opt/node22/bin/gmgn-cli /usr/local/bin/gmgn-cli
-  
-  # Restart scanner (if not running)
-  cd /root/Dex-trading-bot && pkill -f gmgn_scanner
-  cd /root/Dex-trading-bot && python3 -u gmgn_scanner.py >> gmgn_scanner.log 2>&1 &
-  
-  # Restart position monitor
-  cd /root/Dex-trading-bot && pkill -f position_monitor
-  cd /root/Dex-trading-bot && python3 -u position_monitor.py >> position_monitor.log 2>&1 &
-
-CHECK STATUS:
-  ps aux | grep -E "gmgn_scanner|position_monitor" | grep -v grep
-  tail -10 /root/Dex-trading-bot/gmgn_scanner.log
-  tail -10 /root/Dex-trading-bot/position_monitor.log
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-8. BACKUP SYSTEM
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SYSTEM PURPOSE: Turn 1 SOL → 100 SOL via compound TP5 winners
+MODE: LIVE TRADING (real money at risk)
+PRIMARY BOT: /root/Dex-trading-bot/
+WORKSPACE: /root/.openclaw/workspace/
 
 GIT REPOS:
-  Dex-trading-bot: https://github.com/cploveless123/Dex-trading-bot
-  Workspace: https://github.com/cploveless123/workspace-backup.git
+  • Bot:     https://github.com/cploveless123/Dex-trading-bot.git
+  • Workspace: https://github.com/cploveless123/workspace-backup.git
 
-HOURLY BACKUP (cron job ID: 16429a40-b0b6-470e-8c3e-8c154b57862a):
-  Runs at :30 every hour UTC
-  Backs up: workspace files (*.md, skills/), cron jobs, system skills
-  Also backs up Dex-trading-bot via separate hourly cron
+TELEGRAM:
+  • Bot username: @WilsonVultrBot
+  • Bot token: 8767746012:AAEAUg-yCC8uZ-U2y-VBiuKS7qGm58XYQeg
+  • Chat ID: 6402511249 (Chris)
+  • Always use HTML mode for Telegram messages (Markdown fails with emoji)
 
-MANUAL BACKUP:
-  cd /root/Dex-trading-bot && git add -A && git commit -m "Update $(date)" && git push origin master
-  cd /root/.openclaw/workspace && git add -A && git commit -m "Update $(date)" && git push origin master
-
-BACKUP STATUS:
-  Last checked: working as of 01:54 UTC
+CRITICAL FIX (2026-04-24): gmgn_scanner.py now imports ALL constants from
+trading_constants.py — single source of truth. Previously had 50+
+hardcoded duplicates that drifted. This prevents parameter drift.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-9. MEMORY / CONTEXT FILES
+SECTION 2: CURRENT VERSIONS & DEPLOYMENT
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-Location: /root/.openclaw/workspace/
+SCANNER: v7.7 OPTIMAL EXIT (gmgn_scanner.py)
+  • GMGN_SCANNER_VERSION = "v7.7 OPTIMAL EXIT"
+  • ALL constants imported from trading_constants.py
+  • No local duplicates — param drift eliminated
 
-Key Files:
-  MEMORY.md
-    → Long-term memory (loaded in main session only)
-    → Contains: trading bot setup, system status, key lessons
-  
-  HEARTBEAT.md
-    → 15-minute heartbeat checklist
-    → System checks, scanner status, open positions
-    → Recovery commands if systems down
-  
-  memory/2026-04-19.md
-    → Daily memory log (created 2026-04-19)
-    → Contains: system issues, scanner config, positions
-  
-  USER.md
-    → Chris's profile, trading rules, TP5 strategy
-  
-  SOUL.md / AGENTS.md / TOOLS.md
-    → System configuration and agent behavior
+POSITION MONITOR: position_monitor.py (TP5 exit strategy)
+  • Uses TP1-TP5 from trading_constants.py
+  • TP5 Progressive Selling Strategy
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-10. CRON JOBS
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SIGNAL SCORER: signal_scorer.py (logging only, no filtering)
+  • Computes winner-metric score for every buy
+  • USE_SCORE_GATE = False (disabled)
 
-Hourly Backup (workspace):
-  Job ID: 16429a40-b0b6-470e-8c3e-8c154b57862a
-  Schedule: :30 every hour UTC
-  Action: git add/commit/push workspace files
+SMART MONEY TRACKER: smart_money_tracker.py
+  • Polls GMGN API for smart money trades every 60s
+  • Config: smart_money_config.json
+  • Wallets: smart_money_wallets.json
+  • Cache: smart_money_cache.json
 
-Hourly Backup (Dex-trading-bot):
-  Schedule: :30 every hour UTC
-  Action: git add/commit/push Dex-trading-bot
+FILES TO RESTORE AFTER REBOOT:
+  /root/Dex-trading-bot/.perm_blacklist.json    (permanent blacklist - 3000+ tokens)
+  /root/Dex-trading-bot/.stop_loss_cooldown     (stop loss cooldown state)
+  /root/Dex-trading-bot/smart_money_cache.json  (smart money cache)
+  /root/Dex-trading-bot/gmgn_scanner.log        (scanner output)
+  /root/Dex-trading-bot/position_monitor.log   (monitor output)
+  /root/Dex-trading-bot/trades/sim_trades.jsonl (trade history)
+  /root/Dex-trading-bot/sim_wallet.json         (balance state)
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-11. COMMON ISSUES AND FIXES
+SECTION 3: TRADING CONSTANTS (Single Source of Truth)
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-ISSUE: "Scan error: [Errno 2] No such file or directory: 'gmgn-cli'"
-CAUSE: Scanner can't find gmgn-cli binary
-FIX:
-  1. ln -sf /opt/node22/bin/gmgn-cli /usr/local/bin/gmgn-cli
-  2. Restart scanner
+LOCATION: /root/Dex-trading-bot/trading_constants.py
+STATUS: ✅ All constants in this file — gmgn_scanner.py imports from here
 
-ISSUE: "Monitor error: local variable 'closed_pnl' referenced before assignment"
-CAUSE: Python scoping bug in position_monitor.py
-FIX:
-  1. Add "closed_pnl = total_pnl" in monitor_cycle() before use
-  2. Restart position monitor
+# CORE TRADING
+  POSITION_SIZE = 0.1          SOL per trade
+  MAX_OPEN_POSITIONS = 5      max concurrent positions
+  MAX_DAILY_LOSS = 9999       disabled (no daily loss limit)
 
-ISSUE: Scanner dies immediately on restart
-CAUSE: Run without & to see actual error
-FIX:
-  cd /root/Dex-trading-bot && python3 -u gmgn_scanner.py
-  (no &) → see error → fix → then run with &
+# ENTRY FILTERS
+  MIN_MCAP = 7000              minimum market cap USD
+  MAX_MCAP = 30000             maximum market cap USD
+  MIN_HOLDERS = 20             minimum holder count
+  MIN_VOLUME = 5000            minimum 24h volume USD
+  MIN_CHG5_FOR_BUY = 2.0       minimum 5m change % for buy signal
+  H1_MOMENTUM_MIN = 100.0      minimum 1h change % (momentum requirement)
+  H1_MOMENTUM_MAX = 99999.0    NO CEILING - let any momentum through
 
-ISSUE: Server frozen (console blank)
-CAUSE: VPS is hung
-FIX: Hard reset via Vultr control panel (Stop → Start)
+# PUMP PATH
+  PUMP_CHG1_THRESHOLD = 5.001  chg1 must exceed this for pump path trigger
+  PUMP_ENTRY_CHG5 = 10.0        chg5 must exceed this for pump entry
+  PUMP_MIN_AGE = 210           min age (sec) before buying via pump path (3.5 min)
 
-ISSUE: Balance showing wrong (negative, too high)
-CAUSE: sim_wallet.json corrupted
-FIX:
-  echo '{"balance": 1.0, "last_updated": "2026-04-19T00:00:00+00:00"}' > /root/Dex-trading-bot/sim_wallet.json
-  mv trades file to archive, touch new empty one
-  restart position monitor
+# FALLEN GIANT FILTER
+  FALLEN_GIANT_H1 = 700         if h1 > this AND mcap < threshold → reject
+  FALLEN_GIANT_MCAP = 25000
+  H1_INSTABILITY_MULTIPLIER = 3 if h1 changes by >3x → reject
+
+# BUY/SELL RATIO
+  BS_RATIO_NEW = 1.5           required for tokens < 15 min old
+  BS_RATIO_OLD = 1.3          required for tokens >= 15 min old
+  BS_PUMP_FUN_OK = True        skip BS check for pump.fun tokens
+
+# DIP FILTER
+  MIN_DIP_PCT = 5              minimum dip % from ATH
+  MAX_DIP_PCT = 45             maximum dip % from ATH (don't buy dumps)
+
+# TIMING COOLDOWNS
+  YOUNG_AGE_THRESHOLD = 180    tokens younger than this use young cooldown
+  YOUNG_COOLDOWN = 30          young path cooldown (<15min + chg5>+50%)
+  OLDER_COOLDOWN = 30          older path cooldown (>15min + h1>+25% + chg5>-10%)
+  BASE_WAIT = 15               base path wait (15s verify chg1 > chg1_prev + 3%)
+  CHG1_RECHECK_INTERVAL = 6    recovery recheck interval
+  CHG1_VERIFY_DELAY = 6        recovery verify before buy
+  RECOVERY_WAIT = 6             recovery wait interval
+
+# PUMP PATH TIMING
+  PUMP_WAIT_1 = 45             first pump confirmation wait (45s)
+  PUMP_WAIT_2 = 10             second pump confirmation wait (10s)
+  PUMP_VERIFY_DELAY = 10        final pump verification wait (10s)
+
+# TP5 EXIT PLAN (v7.7 Optimal Exit)
+  TP1_PCT = 50, TP1_TRAIL = 12, TP1_SELL_PCT = 0      (HOLD at TP1)
+  TP2_PCT = 100, TP2_TRAIL = 12, TP2_SELL_PCT = 0.20  (sell 20%)
+  TP3_PCT = 200, TP3_TRAIL = 12, TP3_SELL_PCT = 0.15  (sell 15%)
+  TP4_PCT = 300, TP4_TRAIL = 12, TP4_SELL_PCT = 0.10  (sell 10%)
+  TP5_PCT = 1000, TP5_TRAIL = 12, TP5_SELL_PCT = 1.0  (sell ALL)
+  STOP_LOSS_PCT = 35           exit all at -35%
+
+# EXCHANGES
+  ALLOWED_EXCHANGES = ['raydium', 'pump', 'pumpswap']
+  PUMP_EXCHANGES = ['pump', 'pumpswap']  pair address must end in "pump"
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-12. QUICK REFERENCE COMMANDS
+SECTION 4: ENTRY STRATEGY (Pump Path)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+PUMP PATH TRIGGERS WHEN:
+  • h1 > H1_MOMENTUM_MIN (100%) AND
+  • chg5 >= PUMP_ENTRY_CHG5 (10%) AND
+  • chg1 > -20% (not crashed)
+
+PUMP PATH STAGES:
+  1. PUMP_WAIT_1 (45s): verify h1>100 + chg5>=10 + chg1>-20 → advance
+  2. PUMP_WAIT_2 (10s): verify same conditions → advance
+  3. PUMP_VERIFY (10s): verify same conditions → BUY 0.1 SOL
+  4. On any fail → enter RECOVERY
+
+RECOVERY MODE:
+  • Triggered when pump path conditions no longer met
+  • chg1 < -5% → triggers 6s rechecks until mcap > +5% from low
+  • Then 6s verify before BUY
+
+BASE PATH (normal entry):
+  • h1 > 100% + chg5 > 2% + chg1 > chg1_prev + 3%
+  • 15s verify → BUY
+
+COOLDOWN RULES:
+  • YOUNG (<15min) + h1>+100% + chg5>-5%: 30s cooldown → BUY if chg1 > chg1_prev + 3%
+  • OLDER (>=15min) + h1>+100% + chg5>-5%: 30s cooldown → BUY if chg1 >= +2%
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SECTION 5: EXIT STRATEGY (TP5 Progressive Selling)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ┌──────┬──────────┬─────────────────┬────────────────────────┐
+  │ Level│ Trigger  │ Sell %           │ Trail Stop             │
+  ├──────┼──────────┼─────────────────┼────────────────────────┤
+  │ TP1  │ +50%     │ HOLD (0%)        │ 12% from peak          │
+  │ TP2  │ +100%    │ Sell 20%         │ 12% from peak          │
+  │ TP3  │ +200%    │ Sell 15%         │ 12% from peak          │
+  │ TP4  │ +300%    │ Sell 10%         │ 12% from peak          │
+  │ TP5  │ +1000%   │ Sell ALL (100%)  │ EXIT                   │
+  │ STOP │ -35%     │ Sell ALL (100%)  │ EXIT                   │
+  └──────┴──────────┴─────────────────┴────────────────────────┘
+
+KEY RULE: TP1 is HOLD only — let winners ride with 12% trailing stop.
+Only start selling at TP2 (+100%).
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SECTION 6: IRONCLAD RULES
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+1. PERM_BLACKLIST: Any token ever bought = NEVER buy again
+2. Max 5 open positions at once
+3. Position size: 0.1 SOL per trade
+4. Never re-buy (PERM_BLACKLIST checked before every buy)
+5. Exchange: only pump.fun / raydium / pumpswap
+   - pump.fun pair address must end in "pump"
+   - pumpswap pair address must end in "pump"
+   - raydium: launchpad check only
+6. Fresh data only (no stale) — GMGN primary, DexScreener backup
+7. Alert dedup: 300 seconds (5 min) — same alert only once per 5 minutes
+8. DexScreener fails > 5/hour → stop calls for 1 hour
+9. Both GMGN + DexScreener throttled → STOP ALL BUYS until fixed
+10. Throttle alert: once per event (not per cycle)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SECTION 7: GMGN CLI SETUP & COMMANDS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+GMGN-CLI LOCATION:
+  Binary: /opt/node22/bin/gmgn-cli
+  Symlink: /usr/local/bin/gmgn-cli → /opt/node22/bin/gmgn-cli
+  Fallback: node /opt/node22/lib/node_modules/gmgn-cli/dist/index.js
+
+USEFUL GMGN COMMANDS:
+  # Check trending
+  /usr/local/bin/gmgn-cli market trending --chain sol --interval 5m --limit 3
+
+  # Token info
+  /usr/local/bin/gmgn-cli token info --chain sol --address <ADDRESS>
+
+  # Smart money
+  /usr/local/bin/gmgn-cli smartmoney positions --chain sol
+
+  # New pairs
+  /usr/local/bin/gmgn-cli market newpairs --chain sol --interval 5m --limit 5
+
+  # Trenches
+  /usr/local/bin/gmgn-cli market trenches --chain sol --interval 1h --limit 5
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SECTION 8: START / STOP / RESTART COMMANDS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+SCANNER (gmgn_scanner.py):
+  START: cd /root/Dex-trading-bot && nohup /root/Dex-trading-bot/venv/bin/python -u gmgn_scanner.py > gmgn_scanner.log 2>&1 &
+  STOP:  pkill -f gmgn_scanner
+  CHECK: ps aux | grep gmgn_scanner | grep -v grep
+
+POSITION MONITOR (position_monitor.py):
+  START: cd /root/Dex-trading-bot && nohup /root/Dex-trading-bot/venv/bin/python -u position_monitor.py > position_monitor.log 2>&1 &
+  STOP:  pkill -f position_monitor
+  CHECK: ps aux | grep position_monitor | grep -v grep
+
+BOTH RUNNING (confirm 2 processes):
+  ps aux | grep -E "gmgn_scanner|position_monitor" | grep -v grep | wc -l
+  (should return 2)
+
+LOGS:
+  /root/Dex-trading-bot/gmgn_scanner.log
+  /root/Dex-trading-bot/position_monitor.log
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SECTION 9: STATUS CHECK COMMANDS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+SCANNER STATUS (JSON):
+  cd /root/Dex-trading-bot && /root/Dex-trading-bot/venv/bin/python -c \
+    "from gmgn_scanner import get_scanner_status; import json; print(json.dumps(get_scanner_status(), indent=2))"
+
+OPEN POSITIONS:
+  grep "BUY" /root/Dex-trading-bot/trades/sim_trades.jsonl | python3 -c \
+    "import json,sys; [print(json.loads(l).get('token_name'), json.loads(l).get('status','open')) for l in sys.stdin if l.strip()]"
+
+BALANCE:
+  cat /root/Dex-trading-bot/sim_wallet.json
+
+RECENT TRADES (last 5):
+  tail -5 /root/Dex-trading-bot/trades/sim_trades.jsonl
+
+RECORD (wins/losses):
+  grep -c "BUY" trades/sim_trades.jsonl && grep -c "SELL" trades/sim_trades.jsonl
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SECTION 10: CRON JOBS (Scheduled Tasks)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+ACTIVE CRON JOBS:
+  1. hourly-bot-backup (ID: 649e19f9)
+     • Every :30 (30 * * * * *)
+     • Backs up Dex-trading-bot to GitHub
+     • Commits: git add -A && git commit -m "Auto backup $(date)" && git push
+
+  2. auto-backup (ID: 3d16c86d)
+     • Every 30 min (everyMs: 1800000)
+     • Backs up bot + workspace
+
+  3. scan-report-30min (ID: cb0115d8)
+     • Every 30 min (everyMs: 1800000)
+     • Sends scanner status to Telegram
+
+  4. hourly-health-check (ID: d5a59055)
+     • Every :15 (15 * * * * *)
+     • Checks systems and alerts if down
+
+  5. wallet-monitor (ID: e6239808)
+     • Every 5 min (everyMs: 300000)
+     • Monitors wallet balance
+
+DISABLED:
+  • git-backup (ID: 13ed03a1) - DISABLED
+
+CHECK CRON STATUS:
+  openclaw cron list
+
+MANUAL TRIGGER:
+  openclaw cron run <job-id>
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SECTION 11: GIT BACKUP COMMANDS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+MANUAL BACKUP - BOT:
+  cd /root/Dex-trading-bot && git add -A && git commit -m "$(date)" && git push origin master
+
+MANUAL BACKUP - WORKSPACE:
+  cd /root/.openclaw/workspace && git add -A && git commit -m "$(date)" && git push origin master
+
+BOTH AT ONCE:
+  cd /root/Dex-trading-bot && git add -A && git commit -m "$(date)" && git push origin master && cd /root/.openclaw/workspace && git add -A && git commit -m "$(date)" && git push origin master
+
+CLONE REPOS ON NEW MACHINE:
+  git clone https://github.com/cploveless123/Dex-trading-bot.git
+  git clone https://github.com/cploveless123/workspace-backup.git
+
+PUSH TO NEW REMOTE:
+  git remote set-url origin <new-url>
+  git push origin master
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SECTION 12: TELEGRAM ALERTS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+BOT: @WilsonVultrBot
+TOKEN: 8767746012:AAEAUg-yCC8uZ-U2y-VBiuKS7qGm58XYQeg
+CHAT_ID: 6402511249
+
+ALWAYS USE HTML MODE (Markdown fails with emoji → HTTP 400)
+  parse_mode="HTML" in sendMessage payload
+
+ALERT DEDUP: 300 seconds (5 minutes)
+  Same alert only sent once per 5 minutes
+
+GMGN ALERTS:
+  • GMGN throttled → immediate Telegram alert
+  • DexScreener throttled → immediate Telegram alert
+  • Both down → 🚨 STOP ALL BUYS + Telegram alert
+
+BUY/SELL ALERTS:
+  • Include entry mcap and exit mcap
+  • PnL with green/red emoji
+  • Clickable DexScreener + pump.fun links
+  • Plain URLs (Telegram auto-detects)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SECTION 13: OPENCLAWS (AI AGENT) CONFIGURATION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+AGENT NAME: Wilson
+PERSONA: Sharp, practical, results-driven AI assistant
+EMOJI: 🤖
+
+WORKSPACE: /root/.openclaw/workspace/
+GIT: https://github.com/cploveless123/workspace-backup.git
+
+OPENCLAW CLI:
+  openclaw gateway status
+  openclaw gateway start
+  openclaw gateway stop
+  openclaw gateway restart
+  openclaw help
+
+CONFIG LOCATION: /opt/node22/lib/node_modules/openclaw/
+
+CRON JOBS: /root/.openclaw/cron/jobs.json
+
+KEY SKILLS:
+  • healthcheck - host security hardening
+  • weather - weather forecasts
+  • tmux - remote control tmux sessions
+  • skill-creator - create/edit skills
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SECTION 14: RECOVERY STEPS AFTER REBOOT / Fresh Machine
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+STEP 1: Clone repos
+  git clone https://github.com/cploveless123/Dex-trading-bot.git /root/Dex-trading-bot
+  git clone https://github.com/cploveless123/workspace-backup.git /root/.openclaw/workspace
+
+STEP 2: Setup Python environment
+  cd /root/Dex-trading-bot
+  python3 -m venv venv
+  ./venv/bin/pip install -r requirements.txt
+
+STEP 3: Verify gmgn-cli
+  /usr/local/bin/gmgn-cli --version
+  ln -sf /opt/node22/bin/gmgn-cli /usr/local/bin/gmgn-cli 2>/dev/null || true
+
+STEP 4: Start scanner
+  cd /root/Dex-trading-bot
+  nohup ./venv/bin/python -u gmgn_scanner.py > gmgn_scanner.log 2>&1 &
+
+STEP 5: Start position monitor
+  nohup ./venv/bin/python -u position_monitor.py > position_monitor.log 2>&1 &
+
+STEP 6: Verify processes
+  ps aux | grep -E "gmgn_scanner|position_monitor" | grep -v grep | wc -l
+  (should return 2)
+
+STEP 7: Verify scanner status
+  ./venv/bin/python -c "from gmgn_scanner import get_scanner_status; import json; print(json.dumps(get_scanner_status(), indent=2))"
+
+STEP 8: Setup OpenClaw cron jobs (after installing openclaw)
+  openclaw cron add <job-definition>
+
+STEP 9: Verify Telegram bot
+  curl "https://api.telegram.org/bot8767746012:AAEAUg-yCC8uZ-U2y-VBiuKS7qGm58XYQeg/sendMessage?chat_id=6402511249&text=Bot restarted successfully"
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SECTION 15: PERFORMANCE METRICS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+RESET: 2026-04-24 (after v7.0/v7.1 failures - 155 trades, 17.6% WR, -2.9 SOL closed PnL)
+
+v7.9 WINNING FILTER+ (deployed 2026-04-24 22:25 UTC):
+  Entry filters: h1>=100 + mcap>=$7K + ratio>=0.40 + holders>=20
+  Exit: TP2 sell 20%, TP3 sell 15%, TP4 sell 10%, TP5 sell ALL, trail=12%
+
+KEY IMPROVEMENTS FROM v7.0/v7.1:
+  • Fallen Giants: h1>500%+mcap<$20K → REJECTED
+  • H1 ceiling removed (was 200%, now 99999%)
+  • Ratio filter: chg1/chg5 >= 0.40 (momentum acceleration)
+  • Smart money tracking integrated (v1.0 deployed 23:39)
+
+STRATEGY: Identify winners early via pump path, let them run to +1000%, compound remaining
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SECTION 16: FILE STRUCTURE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+/root/Dex-trading-bot/
+├── gmgn_scanner.py          # Main scanner (v7.7)
+├── position_monitor.py      # Exit strategy monitor
+├── alert_sender.py          # Telegram alerts
+├── signal_scorer.py         # Winner-metric scoring
+├── smart_money_tracker.py   # Smart money tracking
+├── smart_money_config.json  # Smart money config
+├── smart_money_wallets.json # Wallets to track
+├── smart_money_cache.json  # Cache of smart money activity
+├── trading_constants.py     # SINGLE SOURCE OF TRUTH for all constants
+├── gmgn_scanner.log         # Scanner output log
+├── position_monitor.log     # Monitor output log
+├── .perm_blacklist.json     # Permanent token blacklist (CRITICAL)
+├── .stop_loss_cooldown      # Stop loss cooldown state
+├── trades/
+│   ├── sim_trades.jsonl     # Trade history (CRITICAL)
+│   ├── sim_wallet.json      # Balance state
+│   ├── scan_log.jsonl       # Scan results
+│   ├── score_log.jsonl      # Signal scores
+│   └── archive_*.jsonl      # Old trade archives
+└── venv/                    # Python virtual environment
+
+/root/.openclaw/workspace/
+├── AGENTS.md                # Agent workspace config
+├── SOUL.md                  # Agent persona
+├── USER.md                  # User preferences + strategy
+├── MEMORY.md                # Long-term memory
+├── HEARTBEAT.md             # Periodic checks
+├── IDENTITY.md              # Agent identity
+├── TOOLS.md                 # Local tool notes
+├── RECOVERY_DOCUMENT.md     # This document
+├── RECOVERY_INSTRUCTIONS.md # Quick recovery steps
+├── VULTR_RECOVERY_GUIDE.md  # Vultr-specific recovery
+└── STRATEGY_v5.7.md        # Old strategy doc (outdated)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SECTION 17: QUICK REFERENCE COMMANDS
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 # Check running processes
@@ -317,87 +477,43 @@ tail -20 /root/Dex-trading-bot/position_monitor.log
 cat /root/Dex-trading-bot/sim_wallet.json
 
 # Check open positions
-grep "BUY" /root/Dex-trading-bot/trades/sim_trades.jsonl | python3 -c "import json,sys; [print(json.loads(l).get('token_name'), json.loads(l).get('status','open')) for l in sys.stdin if l.strip()]"
-
-# Check closed trades
-tail -10 /root/Dex-trading-bot/trades/sim_trades.jsonl
+tail -10 /root/Dex-trading-bot/trades/sim_trades.jsonl | grep BUY
 
 # Check scanner status
-cd /root/Dex-trading-bot && /root/Dex-trading-bot/venv/bin/python -c "from gmgn_scanner import get_scanner_status; import json; print(json.dumps(get_scanner_status(), indent=2))"
+cd /root/Dex-trading-bot && ./venv/bin/python -c "from gmgn_scanner import get_scanner_status; import json; print(json.dumps(get_scanner_status(), indent=2))"
 
 # Test gmgn-cli
 /usr/local/bin/gmgn-cli market trending --chain sol --interval 5m --limit 3
 
 # Restart scanner
-cd /root/Dex-trading-bot && pkill -f gmgn_scanner && python3 -u gmgn_scanner.py >> gmgn_scanner.log 2>&1 &
+pkill -f gmgn_scanner; sleep 1; cd /root/Dex-trading-bot && nohup ./venv/bin/python -u gmgn_scanner.py > gmgn_scanner.log 2>&1 &
 
 # Restart position monitor
-cd /root/Dex-trading-bot && pkill -f position_monitor && python3 -u position_monitor.py >> position_monitor.log 2>&1 &
+pkill -f position_monitor; sleep 1; cd /root/Dex-trading-bot && nohup ./venv/bin/python -u position_monitor.py > position_monitor.log 2>&1 &
 
-# Manual backup
+# Manual git backup
 cd /root/Dex-trading-bot && git add -A && git commit -m "$(date)" && git push origin master
 cd /root/.openclaw/workspace && git add -A && git commit -m "$(date)" && git push origin master
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-13. PERFORMANCE TRACKING (Session 2026-04-19)
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# Check cron jobs
+openclaw cron list
 
-Reset Time: ~02:08 UTC
-Starting Balance: 1.0 SOL
-Current Balance: ~0.74 SOL (as of 02:15 UTC)
-
-Trades This Session:
-  WINNERS:
-    SEX: +0.062 SOL (TP2 hit, partial sell)
-  LOSERS:
-    guy: -0.081 SOL (STOP_LOSS)
-    later: -0.068 SOL (STOP_LOSS)
-    rETH: -0.044 SOL (STOP_LOSS)
-    DOGEVAN: -0.038 SOL (STOP_LOSS)
-    Dickhead: -0.042 SOL (STOP_LOSS)
-    SEX: closed at small loss (trailing stop)
-
-Record: 2W / 8L (20% WR)
-Overall (all time): ~194W / 374L (34.1% WR), -5.98 SOL
+# Test Telegram
+curl "https://api.telegram.org/bot8767746012:AAEAUg-yCC8uZ-U2y-VBiuKS7qGm58XYQeg/sendMessage?chat_id=6402511249&text=Test"
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-14. WHAT TO DO IF YOU WAKE UP AND NOTHING IS WORKING
+SECTION 18: CRITICAL CONSTANTS (Print This)
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-Step 1: Check Vultr console
-  → https://my.vultr.com → Server → Server Console
-  → Is it frozen? → Stop/Start
-  → Is it on? → Continue
+PUMP PATH:     h1>100% + chg5>=10% + chg1>-20% → 45s→10s→10s→BUY
+ENTRY FILTERS: mcap $7K-$30K | holders ≥20 | h1 100-99999%
+TP EXIT:       TP1(+50%)=HOLD, TP2(+100%)=20%, TP3(+200%)=15%, TP4(+300%)=10%, TP5(+1000%)=ALL
+STOP LOSS:     -35%
+POSITION SIZE: 0.1 SOL | MAX OPEN: 5
+BLACKLIST:     Perm blacklist = NEVER buy again
+PUMP MIN AGE:  210 seconds (3.5 min)
+TRAILING:      12% from peak for all TP levels
 
-Step 2: Fix gmgn-cli if missing
-  ln -sf /opt/node22/bin/gmgn-cli /usr/local/bin/gmgn-cli
-
-Step 3: Start scanner
-  cd /root/Dex-trading-bot && python3 -u gmgn_scanner.py >> gmgn_scanner.log 2>&1 &
-
-Step 4: Start position monitor
-  cd /root/Dex-trading-bot && python3 -u position_monitor.py >> position_monitor.log 2>&1 &
-
-Step 5: Verify
-  ps aux | grep -E "gmgn_scanner|position_monitor" | grep -v grep
-  tail -5 gmgn_scanner.log
-  tail -5 position_monitor.log
-
-Step 6: Check my Telegram for status
-  → I'm Wilson, monitoring 24/7
-  → If systems down, I'll alert
-
-Step 7: Check memory file
-  cat /root/.openclaw/workspace/memory/2026-04-19.md
-
-Step 8: Check git for recent changes
-  cd /root/Dex-trading-bot && git log --oneline -5
-  cd /root/.openclaw/workspace && git log --oneline -5
-
-Step 9: If nothing else works
-  → Text me (Wilson) on Telegram
-  → I'll walk you through it
-
-════════════════════════════════════════════════════════════════
-  END OF RECOVERY DOCUMENT
-════════════════════════════════════════════════════════════════
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+END OF RECOVERY DOCUMENT
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

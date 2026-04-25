@@ -12,22 +12,22 @@ _Learn about the person you're helping. Update this as you go._
 - **PRIMARY OBJECTIVE:** Turn 1 SOL → 100 SOL via compound TP5 winners
 - **Strategy:** Identify winners early, let them run to +1000%, compound the remaining 10%
 
-## TP5 Exit Strategy (v7.4 - Current)
+## TP5 Exit Strategy (v7.4 - Current - ACTUAL RUNNING CODE)
 | Level | Trigger | Sell % | Trail |
 |-------|---------|--------|-------|
-| TP1 | +50% | **HOLD** | 40% from peak |
-| TP2 | +100% | 40% | 30% from peak |
-| TP3 | +200% | 30% | 30% from peak |
-| TP4 | +300% | 20% | 30% from peak |
-| TP5 | +1000% | **ALL** | 20% from peak |
-| Stop | -30% | ALL | — |
+| TP1 | +50% | **HOLD** | 15% from peak |
+| TP2 | +100% | 20% | 12% from peak |
+| TP3 | +200% | 15% | 12% from peak |
+| TP4 | +300% | 10% | 12% from peak |
+| TP5 | +1000% | **ALL** | EXIT |
+| Stop | -35% | ALL | EXIT |
 
-**Key:** TP1 is HOLD only — let winners ride with 40% trailing stop.
+**Key:** TP1 is HOLD only — let winners ride with 15% trailing stop.
 
 ## Key Trading Rules
 - Max 5 open positions at a time
 - Position size: 0.1 SOL per trade
-- Stop loss: -25% default, -15% for large winners (TP4+)
+- Stop loss: -35%
 - Max daily loss: 0.3 SOL (stop if hit)
 - Only pump.fun / raydium / pumpswap exchanges
 - Pair address must end in "pump" for pump.fun/pumpswap
