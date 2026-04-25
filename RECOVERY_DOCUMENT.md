@@ -1,7 +1,8 @@
 ════════════════════════════════════════════════════════════════
   WILSON TRADING SYSTEM — COMPLETE RECOVERY DOCUMENT
-  Last Updated: 2026-04-25 00:33 UTC
+  Last Updated: 2026-04-25 00:57 UTC
   Version: v7.9 WINNING FILTER+ (deployed 2026-04-24 22:25)
+  Updated: BS_RATIO (0.1/0.5), TRAIL (15%), STOP (-25%)
 ════════════════════════════════════════════════════════════════
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -14,7 +15,7 @@ PRIMARY BOT: /root/Dex-trading-bot/
 WORKSPACE: /root/.openclaw/workspace/
 
 GIT REPOS:
-  • Bot:     https://github.com/cploveless123/Dex-trading-bot.git
+  • Bot:       https://github.com/cploveless123/Dex-trading-bot.git
   • Workspace: https://github.com/cploveless123/workspace-backup.git
 
 TELEGRAM:
@@ -23,9 +24,9 @@ TELEGRAM:
   • Chat ID: 6402511249 (Chris)
   • Always use HTML mode for Telegram messages (Markdown fails with emoji)
 
-CRITICAL FIX (2026-04-24): gmgn_scanner.py now imports ALL constants from
-trading_constants.py — single source of truth. Previously had 50+
-hardcoded duplicates that drifted. This prevents parameter drift.
+CRITICAL ARCHITECTURE (2026-04-24):
+  gmgn_scanner.py imports ALL constants from trading_constants.py
+  → SINGLE SOURCE OF TRUTH → no parameter drift
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 SECTION 2: CURRENT VERSIONS & DEPLOYMENT
@@ -36,26 +37,22 @@ SCANNER: v7.7 OPTIMAL EXIT (gmgn_scanner.py)
   • ALL constants imported from trading_constants.py
   • No local duplicates — param drift eliminated
 
-POSITION MONITOR: position_monitor.py (TP5 exit strategy)
+POSITION MONITOR: position_monitor.py
   • Uses TP1-TP5 from trading_constants.py
   • TP5 Progressive Selling Strategy
 
-SIGNAL SCORER: signal_scorer.py (logging only, no filtering)
-  • Computes winner-metric score for every buy
+SIGNAL SCORER: signal_scorer.py
   • USE_SCORE_GATE = False (disabled)
+  • Computes winner-metric score for every buy (logging only)
 
-SMART MONEY TRACKER: smart_money_tracker.py
+SMART MONEY TRACKER: smart_money_tracker.py v1.0
   • Polls GMGN API for smart money trades every 60s
-  • Config: smart_money_config.json
-  • Wallets: smart_money_wallets.json
-  • Cache: smart_money_cache.json
+  • Config: smart_money_config.json, smart_money_wallets.json
 
 FILES TO RESTORE AFTER REBOOT:
-  /root/Dex-trading-bot/.perm_blacklist.json    (permanent blacklist - 3000+ tokens)
+  /root/Dex-trading-bot/.perm_blacklist.json    (permanent blacklist - 3080+ tokens)
   /root/Dex-trading-bot/.stop_loss_cooldown     (stop loss cooldown state)
   /root/Dex-trading-bot/smart_money_cache.json  (smart money cache)
-  /root/Dex-trading-bot/gmgn_scanner.log        (scanner output)
-  /root/Dex-trading-bot/position_monitor.log   (monitor output)
   /root/Dex-trading-bot/trades/sim_trades.jsonl (trade history)
   /root/Dex-trading-bot/sim_wallet.json         (balance state)
 
@@ -68,8 +65,8 @@ STATUS: ✅ All constants in this file — gmgn_scanner.py imports from here
 
 # CORE TRADING
   POSITION_SIZE = 0.1          SOL per trade
-  MAX_OPEN_POSITIONS = 5      max concurrent positions
-  MAX_DAILY_LOSS = 9999       disabled (no daily loss limit)
+  MAX_OPEN_POSITIONS = 5       max concurrent positions
+  MAX_DAILY_LOSS = 9999        disabled (no daily loss limit)
 
 # ENTRY FILTERS
   MIN_MCAP = 7000              minimum market cap USD
@@ -90,7 +87,7 @@ STATUS: ✅ All constants in this file — gmgn_scanner.py imports from here
   FALLEN_GIANT_MCAP = 25000
   H1_INSTABILITY_MULTIPLIER = 3 if h1 changes by >3x → reject
 
-# BUY/SELL RATIO
+# BUY/SELL RATIO (updated 2026-04-25)
   BS_RATIO_NEW = 0.1           required for tokens < 15 min old
   BS_RATIO_OLD = 0.5           required for tokens >= 15 min old
   BS_PUMP_FUN_OK = True        skip BS check for pump.fun tokens
@@ -104,21 +101,21 @@ STATUS: ✅ All constants in this file — gmgn_scanner.py imports from here
   YOUNG_COOLDOWN = 30          young path cooldown (<15min + chg5>+50%)
   OLDER_COOLDOWN = 30          older path cooldown (>15min + h1>+25% + chg5>-10%)
   BASE_WAIT = 15               base path wait (15s verify chg1 > chg1_prev + 3%)
-  CHG1_RECHECK_INTERVAL = 6    recovery recheck interval
+  CHG1_RECHECK_INTERVAL = 6   recovery recheck interval
   CHG1_VERIFY_DELAY = 6        recovery verify before buy
-  RECOVERY_WAIT = 6             recovery wait interval
+  RECOVERY_WAIT = 6            recovery wait interval
 
 # PUMP PATH TIMING
   PUMP_WAIT_1 = 45             first pump confirmation wait (45s)
-  PUMP_WAIT_2 = 10             second pump confirmation wait (10s)
-  PUMP_VERIFY_DELAY = 10        final pump verification wait (10s)
+  PUMP_WAIT_2 = 10            second pump confirmation wait (10s)
+  PUMP_VERIFY_DELAY = 10      final pump verification wait (10s)
 
-# TP5 EXIT PLAN (v7.7 Optimal Exit)
-  TP1_PCT = 50, TP1_TRAIL = 15, TP1_SELL_PCT = 0      (HOLD at TP1)
-  TP2_PCT = 100, TP2_TRAIL = 15, TP2_SELL_PCT = 0.20  (sell 20%)
-  TP3_PCT = 200, TP3_TRAIL = 15, TP3_SELL_PCT = 0.15  (sell 15%)
-  TP4_PCT = 300, TP4_TRAIL = 15, TP4_SELL_PCT = 0.10  (sell 10%)
-  TP5_PCT = 1000, TP5_TRAIL = 15, TP5_SELL_PCT = 1.0  (sell ALL)
+# TP5 EXIT PLAN (v7.7 Optimal Exit - updated 2026-04-25)
+  TP1_PCT = 50,  TP1_TRAIL = 15,  TP1_SELL_PCT = 0      (HOLD at TP1)
+  TP2_PCT = 100, TP2_TRAIL = 15,  TP2_SELL_PCT = 0.20    (sell 20%)
+  TP3_PCT = 200, TP3_TRAIL = 15,  TP3_SELL_PCT = 0.15    (sell 15%)
+  TP4_PCT = 300, TP4_TRAIL = 15,  TP4_SELL_PCT = 0.10    (sell 10%)
+  TP5_PCT = 1000, TP5_TRAIL = 15, TP5_SELL_PCT = 1.0     (sell ALL)
   STOP_LOSS_PCT = 25           exit all at -25%
 
 # EXCHANGES
@@ -160,10 +157,10 @@ SECTION 5: EXIT STRATEGY (TP5 Progressive Selling)
   ┌──────┬──────────┬─────────────────┬────────────────────────┐
   │ Level│ Trigger  │ Sell %           │ Trail Stop             │
   ├──────┼──────────┼─────────────────┼────────────────────────┤
-  │ TP1  │ +50%     │ HOLD (0%)        │ 12% from peak          │
-  │ TP2  │ +100%    │ Sell 20%         │ 12% from peak          │
-  │ TP3  │ +200%    │ Sell 15%         │ 12% from peak          │
-  │ TP4  │ +300%    │ Sell 10%         │ 12% from peak          │
+  │ TP1  │ +50%     │ HOLD (0%)        │ 15% from peak          │
+  │ TP2  │ +100%    │ Sell 20%         │ 15% from peak          │
+  │ TP3  │ +200%    │ Sell 15%         │ 15% from peak          │
+  │ TP4  │ +300%    │ Sell 10%         │ 15% from peak          │
   │ TP5  │ +1000%   │ Sell ALL (100%)  │ EXIT                   │
   │ STOP │ -25%     │ Sell ALL (100%)  │ EXIT                   │
   └──────┴──────────┴─────────────────┴────────────────────────┘
@@ -265,7 +262,6 @@ ACTIVE CRON JOBS:
   1. hourly-bot-backup (ID: 649e19f9)
      • Every :30 (30 * * * * *)
      • Backs up Dex-trading-bot to GitHub
-     • Commits: git add -A && git commit -m "Auto backup $(date)" && git push
 
   2. auto-backup (ID: 3d16c86d)
      • Every 30 min (everyMs: 1800000)
@@ -309,10 +305,6 @@ CLONE REPOS ON NEW MACHINE:
   git clone https://github.com/cploveless123/Dex-trading-bot.git
   git clone https://github.com/cploveless123/workspace-backup.git
 
-PUSH TO NEW REMOTE:
-  git remote set-url origin <new-url>
-  git push origin master
-
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 SECTION 12: TELEGRAM ALERTS
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -325,7 +317,6 @@ ALWAYS USE HTML MODE (Markdown fails with emoji → HTTP 400)
   parse_mode="HTML" in sendMessage payload
 
 ALERT DEDUP: 300 seconds (5 minutes)
-  Same alert only sent once per 5 minutes
 
 GMGN ALERTS:
   • GMGN throttled → immediate Telegram alert
@@ -357,14 +348,9 @@ OPENCLAW CLI:
   openclaw help
 
 CONFIG LOCATION: /opt/node22/lib/node_modules/openclaw/
-
 CRON JOBS: /root/.openclaw/cron/jobs.json
 
-KEY SKILLS:
-  • healthcheck - host security hardening
-  • weather - weather forecasts
-  • tmux - remote control tmux sessions
-  • skill-creator - create/edit skills
+KEY SKILLS: healthcheck, weather, tmux, skill-creator
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 SECTION 14: RECOVERY STEPS AFTER REBOOT / Fresh Machine
@@ -390,17 +376,13 @@ STEP 4: Start scanner
 STEP 5: Start position monitor
   nohup ./venv/bin/python -u position_monitor.py > position_monitor.log 2>&1 &
 
-STEP 6: Verify processes
+STEP 6: Verify processes (should return 2)
   ps aux | grep -E "gmgn_scanner|position_monitor" | grep -v grep | wc -l
-  (should return 2)
 
 STEP 7: Verify scanner status
   ./venv/bin/python -c "from gmgn_scanner import get_scanner_status; import json; print(json.dumps(get_scanner_status(), indent=2))"
 
-STEP 8: Setup OpenClaw cron jobs (after installing openclaw)
-  openclaw cron add <job-definition>
-
-STEP 9: Verify Telegram bot
+STEP 8: Verify Telegram
   curl "https://api.telegram.org/bot8767746012:AAEAUg-yCC8uZ-U2y-VBiuKS7qGm58XYQeg/sendMessage?chat_id=6402511249&text=Bot restarted successfully"
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -411,13 +393,14 @@ RESET: 2026-04-24 (after v7.0/v7.1 failures - 155 trades, 17.6% WR, -2.9 SOL clo
 
 v7.9 WINNING FILTER+ (deployed 2026-04-24 22:25 UTC):
   Entry filters: h1>=100 + mcap>=$7K + ratio>=0.40 + holders>=20
-  Exit: TP2 sell 20%, TP3 sell 15%, TP4 sell 10%, TP5 sell ALL, trail=15%
+  Exit: TP2 sell 20%, TP3 sell 15%, TP4 sell 10%, TP5 sell ALL
+  Trail: 15% for all TP levels | Stop: -25%
 
 KEY IMPROVEMENTS FROM v7.0/v7.1:
   • Fallen Giants: h1>500%+mcap<$20K → REJECTED
   • H1 ceiling removed (was 200%, now 99999%)
   • Ratio filter: chg1/chg5 >= 0.40 (momentum acceleration)
-  • Smart money tracking integrated (v1.0 deployed 23:39)
+  • Smart money tracking v1.0 integrated (deployed 2026-04-24 23:39)
 
 STRATEGY: Identify winners early via pump path, let them run to +1000%, compound remaining
 
@@ -426,15 +409,15 @@ SECTION 16: FILE STRUCTURE
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 /root/Dex-trading-bot/
-├── gmgn_scanner.py          # Main scanner (v7.7)
+├── gmgn_scanner.py          # Main scanner (v7.7) - imports all from trading_constants.py
 ├── position_monitor.py      # Exit strategy monitor
 ├── alert_sender.py          # Telegram alerts
-├── signal_scorer.py         # Winner-metric scoring
-├── smart_money_tracker.py   # Smart money tracking
+├── signal_scorer.py         # Winner-metric scoring (disabled)
+├── smart_money_tracker.py   # Smart money tracking v1.0
 ├── smart_money_config.json  # Smart money config
 ├── smart_money_wallets.json # Wallets to track
-├── smart_money_cache.json  # Cache of smart money activity
-├── trading_constants.py     # SINGLE SOURCE OF TRUTH for all constants
+├── smart_money_cache.json   # Cache of smart money activity
+├── trading_constants.py      # ✅ SINGLE SOURCE OF TRUTH for all constants
 ├── gmgn_scanner.log         # Scanner output log
 ├── position_monitor.log     # Monitor output log
 ├── .perm_blacklist.json     # Permanent token blacklist (CRITICAL)
@@ -448,17 +431,11 @@ SECTION 16: FILE STRUCTURE
 └── venv/                    # Python virtual environment
 
 /root/.openclaw/workspace/
-├── AGENTS.md                # Agent workspace config
-├── SOUL.md                  # Agent persona
-├── USER.md                  # User preferences + strategy
-├── MEMORY.md                # Long-term memory
-├── HEARTBEAT.md             # Periodic checks
-├── IDENTITY.md              # Agent identity
-├── TOOLS.md                 # Local tool notes
+├── AGENTS.md | SOUL.md | USER.md | MEMORY.md
+├── HEARTBEAT.md | IDENTITY.md | TOOLS.md
 ├── RECOVERY_DOCUMENT.md     # This document
-├── RECOVERY_INSTRUCTIONS.md # Quick recovery steps
-├── VULTR_RECOVERY_GUIDE.md  # Vultr-specific recovery
-└── STRATEGY_v5.7.md        # Old strategy doc (outdated)
+├── RECOVERY_INSTRUCTIONS.md
+└── VULTR_RECOVERY_GUIDE.md
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 SECTION 17: QUICK REFERENCE COMMANDS
@@ -475,9 +452,6 @@ tail -20 /root/Dex-trading-bot/position_monitor.log
 
 # Check balance
 cat /root/Dex-trading-bot/sim_wallet.json
-
-# Check open positions
-tail -10 /root/Dex-trading-bot/trades/sim_trades.jsonl | grep BUY
 
 # Check scanner status
 cd /root/Dex-trading-bot && ./venv/bin/python -c "from gmgn_scanner import get_scanner_status; import json; print(json.dumps(get_scanner_status(), indent=2))"
@@ -507,12 +481,19 @@ SECTION 18: CRITICAL CONSTANTS (Print This)
 
 PUMP PATH:     h1>100% + chg5>=10% + chg1>-20% → 45s→10s→10s→BUY
 ENTRY FILTERS: mcap $7K-$30K | holders ≥20 | h1 100-99999%
-TP EXIT:       TP1(+50%)=HOLD, TP2(+100%)=20%, TP3(+200%)=15%, TP4(+300%)=10%, TP5(+1000%)=ALL
-STOP LOSS:     -25%
+BS_RATIO:      NEW=0.1 (<15min) | OLD=0.5 (>=15min)
+
+TP EXIT PLAN:
+  TP1 (+50%):  HOLD      | Trail 15%
+  TP2 (+100%): Sell 20%  | Trail 15%
+  TP3 (+200%): Sell 15%  | Trail 15%
+  TP4 (+300%): Sell 10%  | Trail 15%
+  TP5 (+1000%): Sell ALL | EXIT
+  STOP:        -25%      | EXIT
+
 POSITION SIZE: 0.1 SOL | MAX OPEN: 5
-BLACKLIST:     Perm blacklist = NEVER buy again
+BLACKLIST:     PERM blacklist = NEVER buy again
 PUMP MIN AGE:  210 seconds (3.5 min)
-TRAILING:      15% from peak for all TP levels
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 END OF RECOVERY DOCUMENT
