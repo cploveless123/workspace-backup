@@ -1,8 +1,7 @@
 ════════════════════════════════════════════════════════════════
   WILSON TRADING SYSTEM — COMPLETE RECOVERY DOCUMENT
   Last Updated: 2026-04-25 00:57 UTC
-  Version: v7.9 WINNING FILTER+ (deployed 2026-04-24 22:25)
-  Updated: BS_RATIO (0.1/0.5), TRAIL (15%), STOP (-25%)
+  Version: v7.9 WINNING FILTER+ (TRAIL=12%, STOP=-35%, BS_RATIO=1.5/1.3)
 ════════════════════════════════════════════════════════════════
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -88,8 +87,8 @@ STATUS: ✅ All constants in this file — gmgn_scanner.py imports from here
   H1_INSTABILITY_MULTIPLIER = 3 if h1 changes by >3x → reject
 
 # BUY/SELL RATIO (updated 2026-04-25)
-  BS_RATIO_NEW = 0.1           required for tokens < 15 min old
-  BS_RATIO_OLD = 0.5           required for tokens >= 15 min old
+  BS_RATIO_NEW = 1.5           required for tokens < 15 min old
+  BS_RATIO_OLD = 1.3           required for tokens >= 15 min old
   BS_PUMP_FUN_OK = True        skip BS check for pump.fun tokens
 
 # DIP FILTER
@@ -111,12 +110,12 @@ STATUS: ✅ All constants in this file — gmgn_scanner.py imports from here
   PUMP_VERIFY_DELAY = 10      final pump verification wait (10s)
 
 # TP5 EXIT PLAN (v7.7 Optimal Exit - updated 2026-04-25)
-  TP1_PCT = 50,  TP1_TRAIL = 15,  TP1_SELL_PCT = 0      (HOLD at TP1)
-  TP2_PCT = 100, TP2_TRAIL = 15,  TP2_SELL_PCT = 0.20    (sell 20%)
-  TP3_PCT = 200, TP3_TRAIL = 15,  TP3_SELL_PCT = 0.15    (sell 15%)
-  TP4_PCT = 300, TP4_TRAIL = 15,  TP4_SELL_PCT = 0.10    (sell 10%)
-  TP5_PCT = 1000, TP5_TRAIL = 15, TP5_SELL_PCT = 1.0     (sell ALL)
-  STOP_LOSS_PCT = 25           exit all at -25%
+  TP1_PCT = 50,  TP1_TRAIL = 12,  TP1_SELL_PCT = 0      (HOLD at TP1)
+  TP2_PCT = 100, TP2_TRAIL = 12,  TP2_SELL_PCT = 0.20    (sell 20%)
+  TP3_PCT = 200, TP3_TRAIL = 12,  TP3_SELL_PCT = 0.15    (sell 15%)
+  TP4_PCT = 300, TP4_TRAIL = 12,  TP4_SELL_PCT = 0.10    (sell 10%)
+  TP5_PCT = 1000, TP5_TRAIL = 12, TP5_SELL_PCT = 1.0     (sell ALL)
+  STOP_LOSS_PCT = 35           exit all at -35%
 
 # EXCHANGES
   ALLOWED_EXCHANGES = ['raydium', 'pump', 'pumpswap']
@@ -166,12 +165,12 @@ SECTION 5: EXIT STRATEGY (TP5 Progressive Selling)
   ┌──────┬──────────┬─────────────────┬────────────────────────┐
   │ Level│ Trigger  │ Sell %           │ Trail Stop             │
   ├──────┼──────────┼─────────────────┼────────────────────────┤
-  │ TP1  │ +50%     │ HOLD (0%)        │ 15% from peak          │
-  │ TP2  │ +100%    │ Sell 20%         │ 15% from peak          │
-  │ TP3  │ +200%    │ Sell 15%         │ 15% from peak          │
-  │ TP4  │ +300%    │ Sell 10%         │ 15% from peak          │
+  │ TP1  │ +50%     │ HOLD (0%)        │ 12% from peak          │
+  │ TP2  │ +100%    │ Sell 20%         │ 12% from peak          │
+  │ TP3  │ +200%    │ Sell 15%         │ 12% from peak          │
+  │ TP4  │ +300%    │ Sell 10%         │ 12% from peak          │
   │ TP5  │ +1000%   │ Sell ALL (100%)  │ EXIT                   │
-  │ STOP │ -25%     │ Sell ALL (100%)  │ EXIT                   │
+  │ STOP │ -35%     │ Sell ALL (100%)  │ EXIT                   │
   └──────┴──────────┴─────────────────┴────────────────────────┘
 
 KEY RULE: TP1 is HOLD only — let winners ride with 15% trailing stop.
@@ -403,7 +402,7 @@ RESET: 2026-04-24 (after v7.0/v7.1 failures - 155 trades, 17.6% WR, -2.9 SOL clo
 v7.9 WINNING FILTER+ (deployed 2026-04-24 22:25 UTC):
   Entry filters: h1>=100 + mcap>=$7K + ratio>=0.40 + holders>=20
   Exit: TP2 sell 20%, TP3 sell 15%, TP4 sell 10%, TP5 sell ALL
-  Trail: 15% for all TP levels | Stop: -25%
+  Trail: 15% for all TP levels | Stop: -35%
 
 KEY IMPROVEMENTS FROM v7.0/v7.1:
   • Fallen Giants: h1>500%+mcap<$20K → REJECTED
@@ -490,7 +489,7 @@ SECTION 18: CRITICAL CONSTANTS (Print This)
 
 PUMP PATH:     h1>100% + chg5>=10% + chg1>-20% → 45s→10s→10s→BUY
 ENTRY FILTERS: mcap $7K-$30K | holders ≥20 | h1 100-99999%
-BS_RATIO:      NEW=0.1 (<15min) | OLD=0.5 (>=15min)
+BS_RATIO:      NEW=1.5 (<15min) | OLD=1.3 (>=15min)
 
 TP EXIT PLAN:
   TP1 (+50%):  HOLD      | Trail 15%
@@ -498,7 +497,7 @@ TP EXIT PLAN:
   TP3 (+200%): Sell 15%  | Trail 15%
   TP4 (+300%): Sell 10%  | Trail 15%
   TP5 (+1000%): Sell ALL | EXIT
-  STOP:        -25%      | EXIT
+  STOP:        -35%      | EXIT
 
 POSITION SIZE: 0.1 SOL | MAX OPEN: 5
 BLACKLIST:     PERM blacklist = NEVER buy again
