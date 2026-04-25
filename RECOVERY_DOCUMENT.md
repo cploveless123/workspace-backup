@@ -114,11 +114,11 @@ STATUS: ✅ All constants in this file — gmgn_scanner.py imports from here
   PUMP_VERIFY_DELAY = 10        final pump verification wait (10s)
 
 # TP5 EXIT PLAN (v7.7 Optimal Exit)
-  TP1_PCT = 50, TP1_TRAIL = 12, TP1_SELL_PCT = 0      (HOLD at TP1)
-  TP2_PCT = 100, TP2_TRAIL = 12, TP2_SELL_PCT = 0.20  (sell 20%)
-  TP3_PCT = 200, TP3_TRAIL = 12, TP3_SELL_PCT = 0.15  (sell 15%)
-  TP4_PCT = 300, TP4_TRAIL = 12, TP4_SELL_PCT = 0.10  (sell 10%)
-  TP5_PCT = 1000, TP5_TRAIL = 12, TP5_SELL_PCT = 1.0  (sell ALL)
+  TP1_PCT = 50, TP1_TRAIL = 15, TP1_SELL_PCT = 0      (HOLD at TP1)
+  TP2_PCT = 100, TP2_TRAIL = 15, TP2_SELL_PCT = 0.20  (sell 20%)
+  TP3_PCT = 200, TP3_TRAIL = 15, TP3_SELL_PCT = 0.15  (sell 15%)
+  TP4_PCT = 300, TP4_TRAIL = 15, TP4_SELL_PCT = 0.10  (sell 10%)
+  TP5_PCT = 1000, TP5_TRAIL = 15, TP5_SELL_PCT = 1.0  (sell ALL)
   STOP_LOSS_PCT = 35           exit all at -35%
 
 # EXCHANGES
@@ -168,7 +168,7 @@ SECTION 5: EXIT STRATEGY (TP5 Progressive Selling)
   │ STOP │ -35%     │ Sell ALL (100%)  │ EXIT                   │
   └──────┴──────────┴─────────────────┴────────────────────────┘
 
-KEY RULE: TP1 is HOLD only — let winners ride with 12% trailing stop.
+KEY RULE: TP1 is HOLD only — let winners ride with 15% trailing stop.
 Only start selling at TP2 (+100%).
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -411,7 +411,7 @@ RESET: 2026-04-24 (after v7.0/v7.1 failures - 155 trades, 17.6% WR, -2.9 SOL clo
 
 v7.9 WINNING FILTER+ (deployed 2026-04-24 22:25 UTC):
   Entry filters: h1>=100 + mcap>=$7K + ratio>=0.40 + holders>=20
-  Exit: TP2 sell 20%, TP3 sell 15%, TP4 sell 10%, TP5 sell ALL, trail=12%
+  Exit: TP2 sell 20%, TP3 sell 15%, TP4 sell 10%, TP5 sell ALL, trail=15%
 
 KEY IMPROVEMENTS FROM v7.0/v7.1:
   • Fallen Giants: h1>500%+mcap<$20K → REJECTED
@@ -512,7 +512,7 @@ STOP LOSS:     -35%
 POSITION SIZE: 0.1 SOL | MAX OPEN: 5
 BLACKLIST:     Perm blacklist = NEVER buy again
 PUMP MIN AGE:  210 seconds (3.5 min)
-TRAILING:      12% from peak for all TP levels
+TRAILING:      15% from peak for all TP levels
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 END OF RECOVERY DOCUMENT
