@@ -123,7 +123,7 @@ STATUS: ✅ All constants in this file — gmgn_scanner.py imports from here
   PUMP_EXCHANGES = ['pump', 'pumpswap']  pair address must end in "pump"
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-SECTION 4: ENTRY STRATEGY (Pump Path)
+SECTION 4: ENTRY STRATEGY (Pump Path + Cooldowns)
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 PUMP PATH TRIGGERS WHEN:
@@ -135,20 +135,29 @@ PUMP PATH STAGES:
   1. PUMP_WAIT_1 (45s): verify h1>100 + chg5>=10 + chg1>-20 → advance
   2. PUMP_WAIT_2 (10s): verify same conditions → advance
   3. PUMP_VERIFY (10s): verify same conditions → BUY 0.1 SOL
-  4. On any fail → enter RECOVERY
+  4. On any fail → enter CHG1_RECHECK or RECOVERY_WAIT
 
-RECOVERY MODE:
-  • Triggered when pump path conditions no longer met
-  • chg1 < -5% → triggers 6s rechecks until mcap > +5% from low
-  • Then 6s verify before BUY
+CHG1 RECOVERY (chg1 < -5% during pump wait):
+  • STATE_CHG1_RECHECK: 6s rechecks until mcap > +5% from lowest observed
+  • STATE_CHG1_VERIFY: 6s verify → BUY
+
+RECOVERY (chg5 dropped - recovery monitoring):
+  • STATE_RECOVERY_WAIT: 6s rechecks
+  • Recovery target: lowest_chg5 + CHG5_RECOVERY_CHECK (5%)
+  • Must exceed recovery target AND MIN_CHG5_FOR_BUY (2%)
+  • Then → BASE_WAIT 30s → verify → BUY
 
 BASE PATH (normal entry):
   • h1 > 100% + chg5 > 2% + chg1 > chg1_prev + 3%
   • 15s verify → BUY
 
-COOLDOWN RULES:
-  • YOUNG (<15min) + h1>+100% + chg5>-5%: 30s cooldown → BUY if chg1 > chg1_prev + 3%
-  • OLDER (>=15min) + h1>+100% + chg5>-5%: 30s cooldown → BUY if chg1 >= +2%
+COOLDOWN PATHS (non-pump entries):
+  • CHG1 < -5% → CHG1_RECHECK (6s) → CHG1_VERIFY (6s) → BUY
+  • h1>+25% + chg5>-10% → COOLDOWN_WAIT (30s) → BASE_WAIT (30s) → verify chg1 > chg1_prev+10% → BUY
+  • YOUNG (<3min) + h1>+100% + chg5>-5% → YOUNG_COOLDOWN (30s) → verify chg1 > chg1_prev+10% → BUY
+  • OLDER (>=3min) + h1>+100% + chg5>-5% → OLDER_COOLDOWN (30s) → verify chg1 > chg1_prev+10% → BUY
+
+PUMP MIN AGE: 210 seconds (3.5 min) - all paths must wait this before buying
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 SECTION 5: EXIT STRATEGY (TP5 Progressive Selling)
