@@ -91,8 +91,8 @@ STATUS: ✅ All constants in this file — gmgn_scanner.py imports from here
   H1_INSTABILITY_MULTIPLIER = 3 if h1 changes by >3x → reject
 
 # BUY/SELL RATIO
-  BS_RATIO_NEW = 1.5           required for tokens < 15 min old
-  BS_RATIO_OLD = 1.3          required for tokens >= 15 min old
+  BS_RATIO_NEW = 0.1           required for tokens < 15 min old
+  BS_RATIO_OLD = 0.5           required for tokens >= 15 min old
   BS_PUMP_FUN_OK = True        skip BS check for pump.fun tokens
 
 # DIP FILTER
