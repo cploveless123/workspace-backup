@@ -119,7 +119,7 @@ STATUS: ✅ All constants in this file — gmgn_scanner.py imports from here
   TP3_PCT = 200, TP3_TRAIL = 15, TP3_SELL_PCT = 0.15  (sell 15%)
   TP4_PCT = 300, TP4_TRAIL = 15, TP4_SELL_PCT = 0.10  (sell 10%)
   TP5_PCT = 1000, TP5_TRAIL = 15, TP5_SELL_PCT = 1.0  (sell ALL)
-  STOP_LOSS_PCT = 35           exit all at -35%
+  STOP_LOSS_PCT = 25           exit all at -25%
 
 # EXCHANGES
   ALLOWED_EXCHANGES = ['raydium', 'pump', 'pumpswap']
@@ -165,7 +165,7 @@ SECTION 5: EXIT STRATEGY (TP5 Progressive Selling)
   │ TP3  │ +200%    │ Sell 15%         │ 12% from peak          │
   │ TP4  │ +300%    │ Sell 10%         │ 12% from peak          │
   │ TP5  │ +1000%   │ Sell ALL (100%)  │ EXIT                   │
-  │ STOP │ -35%     │ Sell ALL (100%)  │ EXIT                   │
+  │ STOP │ -25%     │ Sell ALL (100%)  │ EXIT                   │
   └──────┴──────────┴─────────────────┴────────────────────────┘
 
 KEY RULE: TP1 is HOLD only — let winners ride with 15% trailing stop.
@@ -508,7 +508,7 @@ SECTION 18: CRITICAL CONSTANTS (Print This)
 PUMP PATH:     h1>100% + chg5>=10% + chg1>-20% → 45s→10s→10s→BUY
 ENTRY FILTERS: mcap $7K-$30K | holders ≥20 | h1 100-99999%
 TP EXIT:       TP1(+50%)=HOLD, TP2(+100%)=20%, TP3(+200%)=15%, TP4(+300%)=10%, TP5(+1000%)=ALL
-STOP LOSS:     -35%
+STOP LOSS:     -25%
 POSITION SIZE: 0.1 SOL | MAX OPEN: 5
 BLACKLIST:     Perm blacklist = NEVER buy again
 PUMP MIN AGE:  210 seconds (3.5 min)
