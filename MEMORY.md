@@ -7,13 +7,31 @@
 - Telegram alerts via @WilsonVultrBot (token: 8767746012:AAEAUg-yCC8uZ-U2y-VBiuKS7qGm58XYQeg)
 - Chat ID: 6402511249 (Chris - "please grow good weed")
 
-## System Status (2026-04-15 06:30 UTC) - LIVE TRADING
-- sim_trades.jsonl: EMPTY
-- sim_wallet.json: 1.0 SOL
-- Starting balance: 1.0 SOL
-- Record: 0W / 0L
-- Position peak cache: cleared
-- All scanners STOPPED
+## APRIL 16 BABA STRATEGY - RESTORED 2026-04-25 19:08 UTC
+Chris confirmed 75% WR during 06:00-10:00 UTC. I BROKE it after VPN switch. RESTORED.
+
+### Buy Strategy (THE WINNING SETTINGS):
+| Setting | April 16 | Broke To |
+|--------|----------|----------|
+| MIN_MCAP | $8,000 | $7,000 |
+| MAX_MCAP | $20,000 | $30,000 |
+| H1_MOMENTUM_MIN | 25% | 100% ← TOO HIGH! |
+| H1_MOMENTUM_MAX | 200% | 700% |
+| PUMP_MIN_AGE | 120s | 240s ← TOO LONG! |
+| MIN_CHG5_FOR_BUY | 2% | 5% ← TOO RESTRICTIVE |
+| PUMP_CHG1_THRESHOLD | 10% | 5% |
+
+### Exit Plan (April 16):
+| Level | Trigger | Sell % | Trail |
+|-------|---------|--------|-------|
+| TP1 | +50% | HOLD | 40% |
+| TP2 | +100% | 35% | 30% |
+| TP3 | +200% | 35% | 30% |
+| TP4 | +300% | 20% | 30% |
+| TP5 | +1000% | 10% | 15% |
+| STOP | -25% | ALL | — |
+
+### DO NOT CHANGE THESE SETTINGS
 
 ## v7.2 Strategy (Current - Deployed 2026-04-15)
 Chris reset after analyzing poor v7.0/v7.1 performance:
