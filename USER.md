@@ -25,7 +25,7 @@ _Learn about the person you're helping. Update this as you go._
 **Key:** TP1 is HOLD only — let winners ride with 15% trailing stop.
 
 ## Key Trading Rules
-- Max 5 open positions at a time
+- Max 9 open positions at a time
 - Position size: 0.1 SOL per trade
 - Stop loss: -35%
 - Max daily loss: 0.3 SOL (stop if hit)
