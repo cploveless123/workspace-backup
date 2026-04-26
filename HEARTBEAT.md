@@ -5,6 +5,7 @@
 2. Check scanner status: `cd /root/Dex-trading-bot && /root/Dex-trading-bot/venv/bin/python -c "from gmgn_scanner import get_scanner_status; import json; print(json.dumps(get_scanner_status(), indent=2))"`
 3. Check scanner log: `tail -20 /root/Dex-trading-bot/gmgn_scanner.log`
 4. Check trades: `tail -3 trades/sim_trades.jsonl`
+5. **Read actual wallet balance from `sim_wallet.json`** — the bot writes it there after every sell. Format: `cat /root/Dex-trading-bot/sim_wallet.json`
 
 ## Primary Objective: Trade to 100 SOL via compound TP5 winners
 
