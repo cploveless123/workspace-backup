@@ -33,33 +33,43 @@ Chris confirmed 75% WR during 06:00-10:00 UTC. I BROKE it after VPN switch. REST
 
 ### DO NOT CHANGE THESE SETTINGS
 
-## v7.2 Strategy (Current - Deployed 2026-04-15)
+## Current Strategy: TP5 COMPOUND (v7.4)
 Chris reset after analyzing poor v7.0/v7.1 performance:
 - 155 trades, 17.6% WR, -2.9 SOL closed PnL
-- Root cause: buying Fallen Giants (h1>500% + small mcap), chasing high h1, not enough dip
+- Root cause: buying Fallen Giants, chasing high h1, not enough dip
+- **2026-04-26: Major improvements made**
 
 ### Entry Filters:
-- Mcap: $6K-$25K
-- Holders: ≥20
-- Dip: 20-45% from ATH (winners avg 23.6% dip)
-- h1: ≤250% max (losers avg h1=404% at entry - too late)
-- Fallen Giant: h1 >400% + mcap <$20K → REJECT
-- No ATH data + mcap >$20K → REJECT
+- Mcap: $6K-$55K
+- Holders: ≥15
+- H1 momentum: ≤500% (cap)
+- **chg1 floor: ≥5%** (NEW - kills toxic dump-before-dump buys)
+- **Pump path only: h1>100% AND chg5≥15%** (confirmed pump momentum)
+- **Time filter: BLOCKED 14-17 UTC** (worst performing window - 9am-12pm CT)
 - Symbol blacklist: prevent repeat buys of same symbol name
 
-### Exit Rules:
-- TP1 +50%: Sell 40% → 10% trailing stop
-- TP2 +100%: Sell 30% → 35% trailing stop
-- TP3 +200%: Sell 20%
-- TP4 +300%: Sell 10%
-- Stop: -25%
+### Exit Rules (v7.4 - ACTUAL):
+| Level | Trigger | Sell % | Trail |
+|-------|---------|--------|-------|
+| TP1 | **+30%** | 0% (HOLD) | **40% from peak** |
+| TP2 | +100% | 40% | 35% from peak |
+| TP3 | +200% | 30% | 30% from peak |
+| TP4 | +300% | 20% | 20% from peak |
+| TP5 | +1000% | ALL | EXIT |
+| Stop | **-40%** | ALL | EXIT |
 
-### Fresh Data Rule (IRONCLAD):
-- ALWAYS fetch fresh data before any decision
-- GMGN primary source
-- DexScreener backup (circuit breaker: skip if 5+ consecutive failures)
-- If GMGN unavailable → Telegram alert + PAUSE trading
-- If DexScreener throttled → skip until recovers + alert
+**Key change 2026-04-26: TP1 at +30% (was +50%)** - locks peak earlier so trail catches dumps from high peaks (e.g. LEON at +53% would have exited at +32% instead of stopping at -10%)
+
+### Signal Scorer v2.0 (recalibrated 2026-04-26):
+- chg_ratio optimal: 0.25-0.40 (+3pts) - was inverted (50% WR in hot zone vs 8% in "optimal")
+- H1 optimal: 101-200% (+2pts) - was rewarding highest H1
+- chg5: INVERTED - lower chg5 now scores best (10-50% = 39% WR vs >300% = 19% WR)
+- All data logged for future score-based filtering
+
+### Time Zone Analysis (NEW 2026-04-26):
+- Best window: 23:00-04:00 UTC (6pm-11pm CT) - +0.64 SOL from 42 buys
+- Worst window: 14:00-17:00 UTC (9am-12pm CT) - -0.64 SOL from 28 buys
+- `trades/time_block_log.jsonl` logs every cycle for win zone shift detection
 
 ### System Rules (NEVER BREAK) - LIVE TRADING:
 1. Permanent Blacklist: Any token ever bought = NEVER buy again
