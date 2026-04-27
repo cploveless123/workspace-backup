@@ -222,3 +222,37 @@ After the blackout removal bug (return statement left in, cost ~40 min), Chris r
    - Log growing confirmation
 
 **The key error learned:** When removing an `if` block, remove the ENTIRE block including its `return`. The `return` after logging was the bug that cost 40 minutes of scanning.
+
+## CURRENT CONFIRMED SETTINGS (2026-04-27 20:26 UTC)
+Chris confirmed these are the CORRECT winning strategy settings:
+
+### Entry:
+- MIN_MCAP: $8,000
+- MAX_MCAP: $20,000
+- H1_MOMENTUM_MIN: 25%
+- H1_MOMENTUM_MAX: 600% (scanner enforces)
+- PUMP_MIN_AGE: 120s
+- MIN_CHG5_FOR_BUY: 2%
+- PUMP_CHG1_THRESHOLD: 5% (was 10% — restored)
+- MIN_HOLDERS: 15
+
+### Exit Plan (CONFIRMED BY CHRIS — keep as-is):
+- TP1: +30% | HOLD | 40% trail
+- TP2: +100% | 40% sell | 35% trail
+- TP3: +200% | 30% sell | 30% trail
+- TP4: +300% | 20% sell | 30% trail
+- TP5: +1000% | 10% sell | 15% trail
+- STOP: -40%
+
+### Other:
+- Blackout: REMOVED (Chris decision)
+- Trail disable fix: APPLIED
+- TP1 sell record fix: APPLIED
+
+### Before ANY change to scanner/monitor:
+1. Run settings verification script
+2. Show Chris current vs proposed settings
+3. Get explicit approval
+4. Backup
+5. Implement
+6. Test and verify
