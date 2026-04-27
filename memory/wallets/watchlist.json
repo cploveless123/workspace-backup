@@ -12,10 +12,10 @@
       "pattern": "Active accumulation",
       "notes": "Bought +0.15 SOL today (now 6.34 SOL)",
       "recent_activity": [
-        "47MV3eLE92r67uZcBgq6msymVP9XYNYTsumPEftfUkQsGdmtaJ7NYiBy2N73q88NLkvzoFBYFKgSm2xz2QYMCwuA",
-        "5VGbZjPKFry8gtDcQRoPZvemdkZY1oGv346myKsSeegMp4BMtXGtm5FnhGYqu2Dcn8aWreRrPWtbjAVDCvhbmRz5"
+        "5q9WkN6DSbiUt4PbL2TaBfZK5g9vKws9i9LP1MfKnHWAQuaBVGirxJr2us6xVprZWKo1bi8Lx6ebrrnfSX2HLTu1",
+        "47MV3eLE92r67uZcBgq6msymVP9XYNYTsumPEftfUkQsGdmtaJ7NYiBy2N73q88NLkvzoFBYFKgSm2xz2QYMCwuA"
       ],
-      "last_check": 1777265493.9838338
+      "last_check": 1777277009.914098
     },
     {
       "address": "CyaE1VxvBrahnPWkqm5VsdCvyS2QmNht2UFrKJHga54o",
@@ -30,7 +30,7 @@
         "4Ao5gbL1ue5fotDyopjitSQQC5jyJwXDFCk5o1fwBHy9tBUsQyZXayndpjXt7eBj58ekK69QZgb5RW3N64ZRQEg6",
         "4TPovVr4kD4q1n9sthm98hujKT1jKSChckBYB7s5sKjHwqJWcSiiCrx8X8HJNngtPmJSqK2Xhk8sQaxkaKTwGFTs"
       ],
-      "last_check": 1777235275.1977592
+      "last_check": 1777277009.914098
     }
   ]
 }
