@@ -1,199 +1,241 @@
-# VULTR CONSOLE RECOVERY GUIDE
+# EMERGENCY RECOVERY GUIDE — Vultr Console
 
-## Accessing Vultr Console
-
-1. Go to **https://my.vultr.com**
-2. Click **Servers** → select your VPS
-3. Click **Server Console** (or "View Console")
-4. A new window opens with terminal access
-
-If console is **blank/black** → Server is hung:
-→ Click **Server** → **Stop** → wait 10 seconds → **Start**
-→ Wait 2-3 minutes for boot → console shows `root@vultr:~#`
+**If Wilson goes silent or you can't trade, follow this guide step by step.**
 
 ---
 
-## SCENARIO 1: Server was completely stopped/restarted
+## WHAT IS THIS?
 
-After Vultr boot completes, paste this ALL at once:
-
-```
-ln -sf /opt/node22/bin/gmgn-cli /usr/local/bin/gmgn-cli && cd /root/Dex-trading-bot && python3 -u gmgn_scanner.py >> gmgn_scanner.log 2>&1 & && python3 -u position_monitor.py >> position_monitor.log 2>&1 &
-```
-
-Verify with:
-```
-ps aux | grep -E "gmgn_scanner|position_monitor" | grep -v grep
-```
+This guide helps you recover the trading bot (Wilson) if:
+- You stop getting heartbeat updates
+- The bot stops responding
+- You can't reach Wilson via Telegram
+- Exec/commands are all failing
 
 ---
 
-## SCENARIO 2: Server is running but scanner is dead (no signals, scan errors)
+## STEP 1: ACCESS VULTR CONSOLE
 
-**Step 1:** Fix gmgn-cli path
-```
-ln -sf /opt/node22/bin/gmgn-cli /usr/local/bin/gmgn-cli
-```
+1. **Log into Vultr** → https://my.vultr.com
+2. **Find your server** (the VPS running Wilson)
+3. **Click on it** → go to "Console" tab
+4. A black/green screen will appear — this is your server's terminal
 
-**Step 2:** Restart scanner
-```
-cd /root/Dex-trading-bot && pkill -f gmgn_scanner && python3 -u gmgn_scanner.py >> gmgn_scanner.log 2>&1 &
-```
-
-**Step 3:** Verify
-```
-tail -5 /root/Dex-trading-bot/gmgn_scanner.log
-```
+**You are now inside your server. Everything below happens HERE.**
 
 ---
 
-## SCENARIO 3: Scanner works but position monitor is broken (wrong balance, "no price" errors)
+## STEP 2: CHECK IF BOT IS RUNNING
 
-**Step 1:** Restart position monitor
+Type this command and press Enter:
+
 ```
-cd /root/Dex-trading-bot && pkill -f position_monitor && python3 -u position_monitor.py >> position_monitor.log 2>&1 &
+ps aux | grep python
 ```
 
-**Step 2:** Verify
-```
-tail -5 /root/Dex-trading-bot/position_monitor.log
-```
+**What you should see:**
+- 2 lines with "gmgn_scanner.py" and "position_monitor.py"
+- Both should show as running (not "defunct" or "zombie")
+
+**If you see NOTHING or only 1 process → Bot crashed → Go to STEP 3**
+
+**If you see 2+ processes → Bot is running → Try STEP 5 first**
 
 ---
 
-## SCENARIO 4: Balance is completely wrong (negative, way too high, etc.)
+## STEP 3: KILL EVERYTHING (Clean Slate)
 
-**Step 1:** Reset wallet and trades
-```
-echo '{"balance": 1.0, "last_updated": "2026-04-19T00:00:00+00:00"}' > /root/Dex-trading-bot/sim_wallet.json && mv /root/Dex-trading-bot/trades/sim_trades.jsonl /root/Dex-trading-bot/trades/archive_sim_$(date +%Y%m%d_%H%M%S).jsonl && touch /root/Dex-trading-bot/trades/sim_trades.jsonl
-```
+If the bot crashed or is messed up, first kill all Python processes:
 
-**Step 2:** Restart position monitor
 ```
-cd /root/Dex-trading-bot && pkill -f position_monitor && python3 -u position_monitor.py >> position_monitor.log 2>&1 &
+killall -9 python
 ```
 
-Note: This archives ALL trade history and resets to 1.0 SOL balance. The perm_blacklist stays intact (those tokens are still banned).
+Press Enter. Wait 3 seconds.
 
 ---
 
-## SCENARIO 5: Getting constant "Scan error: No such file" or "gmgn-cli not found"
+## STEP 4: RESTART THE BOT
 
-Fix the symlink:
-```
-ln -sf /opt/node22/bin/gmgn-cli /usr/local/bin/gmgn-cli
-```
+After killing, start the bot fresh:
 
-Then restart scanner:
 ```
-cd /root/Dex-trading-bot && pkill -f gmgn_scanner && python3 -u gmgn_scanner.py >> gmgn_scanner.log 2>&1 &
+cd /root/Dex-trading-bot
+nohup /root/Dex-trading-bot/venv/bin/python -u gmgn_scanner.py >> gmgn_scanner.log 2>&1 &
+nohup /root/Dex-trading-bot/venv/bin/python -u position_monitor.py >> position_monitor.log 2>&1 &
 ```
 
-Test gmgn-cli works:
-```
-/usr/local/bin/gmgn-cli market trending --chain sol --interval 5m --limit 1
-```
+Press Enter. You should see a new prompt appear immediately.
 
 ---
 
-## SCENARIO 6: Getting throttle alerts and buys were stopped
+## STEP 5: VERIFY IT'S WORKING
 
-The system has a circuit breaker — when BOTH GMGN throttled AND DexScreener failing, it stops buys.
+Run this to confirm both are running:
 
-Wait 5-10 minutes. The scanner will automatically resume when APIs recover.
-
-To check current status:
 ```
-cd /root/Dex-trading-bot && /root/Dex-trading-bot/venv/bin/python -c "from gmgn_scanner import get_scanner_status; import json; print(json.dumps(get_scanner_status(), indent=2))"
+ps aux | grep gmgn
 ```
 
-If `buys_stopped: false` → system resumed automatically.
+**You should see:**
+- Line with "gmgn_scanner.py"
+- Line with "position_monitor.py"
+
+**Count the lines → should be EXACTLY 2**
+
+If more than 2 lines, you have duplicate processes (BAD → go to STEP 3 and restart).
 
 ---
 
-## SCENARIO 7: Everything is running but you want to restart cleanly
+## STEP 6: CHECK LOGS
 
-```
-cd /root/Dex-trading-bot && pkill -f gmgn_scanner && pkill -f position_monitor && sleep 2 && python3 -u gmgn_scanner.py >> gmgn_scanner.log 2>&1 & && python3 -u position_monitor.py >> position_monitor.log 2>&1 &
-```
+To see recent activity:
 
----
-
-## CHECK STATUS (run any time)
-
-**Check what's running:**
-```
-ps aux | grep -E "gmgn_scanner|position_monitor" | grep -v grep
-```
-
-**Check scanner log:**
 ```
 tail -10 /root/Dex-trading-bot/gmgn_scanner.log
 ```
 
-**Check position monitor log:**
-```
-tail -10 /root/Dex-trading-bot/position_monitor.log
-```
+You should see recent timestamps showing it's scanning.
 
-**Check balance:**
+---
+
+## STEP 7: CHECK BALANCE
+
 ```
 cat /root/Dex-trading-bot/sim_wallet.json
 ```
 
-**Check open positions:**
+Look for: `"balance": X.XXXXX`
+
+This is your current SOL balance.
+
+---
+
+## STEP 8: TEST TELEGRAM ALERTS
+
+Tell Wilson (via Telegram) to send a test alert. If he responds, he's alive.
+
+If no response for 5+ minutes → Go to STEP 9.
+
+---
+
+## STEP 9: RESTART OPENCLAW (If Wilson is silent but bot is running)
+
+If the bot is running (you see processes) but Wilson doesn't respond to Telegram:
+
 ```
-grep "BUY" /root/Dex-trading-bot/trades/sim_trades.jsonl | python3 -c "import json,sys; [print(json.loads(l).get('token_name'), json.loads(l).get('status','open')) for l in sys.stdin if l.strip()]"
+kill -9 $(pgrep -f openclaw-gateway)
+```
+
+Wait 5 seconds, it should auto-restart.
+
+---
+
+## STEP 10: IF NOTHING WORKS — FULL REBOOT
+
+**Last resort. This restarts the entire server:**
+
+In Vultr dashboard:
+1. Go to your server
+2. Click "Server Reset"
+3. Confirm the reset
+
+**WAIT 2-3 MINUTES** for server to come back online.
+
+Then repeat from STEP 1.
+
+---
+
+## QUICK REFERENCE — COPY-PASTE COMMANDS
+
+When you're in the console, copy these exactly:
+
+```
+# Check processes
+ps aux | grep python
+
+# Kill everything
+killall -9 python
+
+# Start bot
+cd /root/Dex-trading-bot && nohup /root/Dex-trading-bot/venv/bin/python -u gmgn_scanner.py >> gmgn_scanner.log 2>&1 & nohup /root/Dex-trading-bot/venv/bin/python -u position_monitor.py >> position_monitor.log 2>&1 &
+
+# Verify 2 processes
+ps aux | grep gmgn | grep -v grep | wc -l
+
+# Check balance
+cat /root/Dex-trading-bot/sim_wallet.json
+
+# View recent trades
+tail -5 /root/Dex-trading-bot/trades/sim_trades.jsonl
+
+# View scanner log
+tail -10 /root/Dex-trading-bot/gmgn_scanner.log
 ```
 
 ---
 
-## MANUAL BACKUP (if worried about losing changes)
+## WHAT IS WILSON?
+
+Wilson is the AI assistant (OpenClaw agent) that:
+- Monitors the bot
+- Sends you Telegram alerts
+- Calculates stats
+- Makes trading decisions
+
+The **bot** (gmgn_scanner + position_monitor) does the actual trading.
+**Wilson** talks to you about it.
+
+Both need to be running for everything to work.
+
+---
+
+## COMMON PROBLEMS
+
+**Problem: "command not found"**
+→ You typed something wrong. Retype exactly as shown.
+
+**Problem: "Permission denied"**
+→ You need to be root. Type: `sudo su` first, then re-enter command.
+
+**Problem: Server won't respond at all**
+→ Server is down. Use Vultr dashboard to hard reboot.
+
+**Problem: Bot running but no Telegram alerts**
+→ Wilson (OpenClaw) is down but bot is alive. Restart OpenClaw:
+```
+kill -9 $(pgrep -f openclaw-gateway)
+```
+
+**Problem: Too many python processes (more than 2)**
+→ Duplicate bot instances running. This causes bugs.
+→ Fix: `killall -9 python` then restart from STEP 4.
+
+---
+
+## WHAT EACH FILE DOES
+
+| File | Purpose |
+|------|---------|
+| `gmgn_scanner.py` | Scans for tokens, makes buy decisions |
+| `position_monitor.py` | Watches open positions, handles exits |
+| `sim_trades.jsonl` | History of ALL trades (never delete) |
+| `sim_wallet.json` | Your SOL balance (source of truth) |
+| `.perm_blacklist.json` | Tokens we never buy again |
+
+---
+
+## RECOVERY FLOW (SUMMARY)
 
 ```
-cd /root/Dex-trading-bot && git add -A && git commit -m "$(date)" && git push origin master
-cd /root/.openclaw/workspace && git add -A && git commit -m "$(date)" && git push origin master
+Are you getting heartbeat updates?
+  YES → Everything OK. Nothing to do.
+  NO  → Is bot running?
+          YES → Restart OpenClaw (STEP 9)
+          NO  → Kill + Restart (STEP 3 → STEP 4 → STEP 5)
+                Still broken? → FULL REBOOT (STEP 10)
 ```
 
 ---
 
-## WHAT EACH THING DOES
-
-| Command | What it does |
-|---------|-------------|
-| `ln -sf` | Creates symlink so scanner can find gmgn-cli |
-| `pkill -f gmgn_scanner` | Kills old scanner process |
-| `python3 -u gmgn_scanner.py >> gmgn_scanner.log 2>&1 &` | Starts scanner in background, logs to file |
-| `python3 -u position_monitor.py >> position_monitor.log 2>&1 &` | Starts position monitor in background |
-| `ps aux \| grep` | Shows running processes |
-| `tail -10` | Shows last 10 lines of log file |
-| `sim_wallet.json` | Holds current balance |
-| `sim_trades.jsonl` | Holds all trade records |
-
----
-
-## COMMON ERRORS AND FIXES
-
-| Error | Fix |
-|-------|-----|
-| `No such file: 'gmgn-cli'` | `ln -sf /opt/node22/bin/gmgn-cli /usr/local/bin/gmgn-cli` |
-| `Scan error: [Errno 2]` | Same as above — gmgn-cli path broken |
-| `local variable 'closed_pnl' referenced before assignment` | Restart position monitor |
-| Balance showing negative | Reset balance (Scenario 4) |
-| Scanner not finding anything | Check scanner log for errors |
-| Position monitor shows "No price" | Restart position monitor |
-
----
-
-## RECOVERY FLOWchart
-
-```
-Is server responding?
-├── YES → Go to Vultr console
-│   ├── Scanner dead? → Scenario 2
-│   ├── Position monitor dead? → Scenario 3
-│   ├── Balance wrong? → Scenario 4
-│   ├── gmgn-cli error? → Scenario 5
-│   └── Everything fine? → All good!
-└── NO (blank/frozen) → Hard reset via Vultr control panel → Scenario 1
-```
+**Write this down or bookmark this page. You'll need it.**
