@@ -12,8 +12,8 @@
       "pattern": "Active accumulation",
       "notes": "Bought +0.15 SOL today (now 6.34 SOL)",
       "recent_activity": [
-        "46ZMotWKCY8enynJvRjjFvbJNbuDLckBYjthb2eoxXddSP1tQXqTrWHH2RHBLzjqb3iBkxoHtNLtXuFcxfrp8LpK",
-        "64PVB2YYoQqoSbQoYgJpJTkrozFqkNQ22L8Qs8Rjd615frvix2DTnR615BAuh4wYKVgHsCvZTpnSExFixaJ2JbAV"
+        "48TQCLLNCDHx1T84fbjEURvjZx4oK44eyP2Nmnoac7VqPMRvmuiiN5GJpUq37nLwrJjve4MKiM53pgThCVG8VoNd",
+        "46ZMotWKCY8enynJvRjjFvbJNbuDLckBYjthb2eoxXddSP1tQXqTrWHH2RHBLzjqb3iBkxoHtNLtXuFcxfrp8LpK"
       ],
       "last_check": 1777248211.9013336
     },
@@ -26,7 +26,10 @@
       "recent_tokens": [],
       "pattern": "Large SOL whale",
       "notes": "Large SOL whale - ACCUMULATING (+1.48 SOL today, +142.41 from 247.08)",
-      "recent_activity": [],
+      "recent_activity": [
+        "4TPovVr4kD4q1n9sthm98hujKT1jKSChckBYB7s5sKjHwqJWcSiiCrx8X8HJNngtPmJSqK2Xhk8sQaxkaKTwGFTs",
+        "619563NMuVdyLwHhRHQTc4gowzCqu5qYLitbyGZzrMFevq4bNdSF75tVb3dTvJ5m8pR39wY93NC628y9HuLWx8k6"
+      ],
       "last_check": 1777235275.1977592
     }
   ]
