@@ -16,7 +16,7 @@ Chris confirmed 75% WR during 06:00-10:00 UTC. I BROKE it after VPN switch. REST
 | MIN_MCAP | $8,000 | $7,000 |
 | MAX_MCAP | $20,000 | $30,000 |
 | H1_MOMENTUM_MIN | 25% | 100% ← TOO HIGH! |
-| H1_MOMENTUM_MAX | 200% | 700% |
+| H1_MOMENTUM_MAX | 200% | 600% | Scanner uses 600% (not 200%) |
 | PUMP_MIN_AGE | 120s | 240s ← TOO LONG! |
 | MIN_CHG5_FOR_BUY | 2% | 5% ← TOO RESTRICTIVE |
 | PUMP_CHG1_THRESHOLD | 10% | 5% |
@@ -188,3 +188,37 @@ Runs at :30 every hour
 - Prefers fast decisions over perfect analysis
 - Very detail-oriented on alert/report format
 - All Telegram must go to chat_id 6402511249 (his Telegram, not "Chris")
+
+## SAFEGUARDS FOR CODE CHANGES (committed 2026-04-27 20:09 UTC)
+After the blackout removal bug (return statement left in, cost ~40 min), Chris requires these for ALL scanner/monitor changes:
+
+1. **MANDATORY BACKUP** before any edit:
+   `cp gmgn_scanner.py gmgn_scanner.py.bak.$(date +%Y%m%d_%H%M)`
+
+2. **CHECK FOR DANGEROUS PATTERNS** after any edit:
+   - `return` statements in modified section
+   - `break` or `continue` that could skip logic
+   - Accidental infinite loops
+
+3. **TEST SCAN CYCLE** — MANDATORY after any change:
+   ```python
+   from gmgn_scanner import scan_cycle, COOLDOWN_WATCH
+   before = len(COOLDOWN_WATCH)
+   scan_cycle()
+   after = len(COOLDOWN_WATCH)
+   # If before==after with no new tokens → PROBLEM
+   ```
+
+4. **VERIFY LOG GROWS** after restart — not just "process running"
+
+5. **TWO-VERIFY RULE**:
+   - First: immediate (run cycle, check output)
+   - Second: 5 min later (check no regression)
+
+6. **REPORT TO CHRIS** before deploying changes:
+   - Backup confirmation
+   - Exact lines changed
+   - Test result
+   - Log growing confirmation
+
+**The key error learned:** When removing an `if` block, remove the ENTIRE block including its `return`. The `return` after logging was the bug that cost 40 minutes of scanning.
