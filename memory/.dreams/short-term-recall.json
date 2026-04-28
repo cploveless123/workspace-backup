@@ -1,0 +1,68 @@
+{
+  "version": 1,
+  "updatedAt": "2026-04-28T19:26:26.468Z",
+  "entries": {
+    "memory:memory/2026-04-15.md:209:236": {
+      "key": "memory:memory/2026-04-15.md:209:236",
+      "path": "memory/2026-04-15.md",
+      "startLine": 209,
+      "endLine": 236,
+      "source": "memory",
+      "snippet": "- **trading_constants.py:** TP1+50% HOLD 40% trail, TP2+100% 40%, TP3+200% 30%, TP4+300% 20%, TP5+1000% ALL 20%, Stop -30% - **position_monitor.py:** TP1+35% sell 25%, TP2+95% sell 25%, TP3+200% sell 25%, TP4+300% sell 25%, TP5+1000% sell 25% - **USER.md/HEARTBEAT.md:** TP1+50% sell 10%, TP2+100% sell 15%, TP3+200% sell 20%, TP4+400% sell 25%, TP5+1000% sell 30%, compound 10% @ 20% trail - Chris was asked to clarify which is correct - NO ANSWER YET ### SCANNER IS WORKING CORRECTLY - GMGN fetch: Returns tokens with valid chg1/chg5/h1 data - scan_token(): Correctly identifies pump tokens (chg1 >= 5.001%) - buy_token(): Executes correctly (writes to sim_trades.jsonl, sends Telegram alert) - Co",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 1,
+      "maxScore": 1,
+      "firstRecalledAt": "2026-04-28T19:26:26.468Z",
+      "lastRecalledAt": "2026-04-28T19:26:26.468Z",
+      "queryHashes": [
+        "9d7ae2188a53"
+      ],
+      "recallDays": [
+        "2026-04-28"
+      ],
+      "conceptTags": [
+        "trading-constants.py",
+        "position-monitor.py",
+        "user.md/heartbeat.md",
+        "chg1/chg5/h1",
+        "scan-token",
+        "5.001",
+        "buy-token",
+        "sim-trades.jsonl"
+      ]
+    },
+    "memory:memory/2026-04-05.md:36:88": {
+      "key": "memory:memory/2026-04-05.md:36:88",
+      "path": "memory/2026-04-05.md",
+      "startLine": 36,
+      "endLine": 88,
+      "source": "memory",
+      "snippet": "- DexScreener links for every signal and trade - Format example: 🏐 WILSON BUY ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 💰 Solana Swap (SOS) 📊 VOL 6.4x 💎 FDV: $430K | Liq: $215K 📈 Price: $0.00043010 | Age: 810329m 🎯 TP1: +50% | TP2: +100% | Stop: -20% 🔗 https://dexscreener.com/solana/... ### Known Issues - GMGN symbol parsing sometimes shows \"NEW\" instead of actual token name - Need to fix regex for extracting token symbols from GMGN messages ### Next Steps 1. Continue monitoring and trading 2. Set up GitHub remote and push 3. Fix symbol parsing 4. Test DexScreener-only signals vs GMGN signals 5. When P&L is good enough, Chris will let bot trade with real funds ## Trade Lea",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 1,
+      "maxScore": 1,
+      "firstRecalledAt": "2026-04-28T19:26:26.468Z",
+      "lastRecalledAt": "2026-04-28T19:26:26.468Z",
+      "queryHashes": [
+        "9d7ae2188a53"
+      ],
+      "recallDays": [
+        "2026-04-28"
+      ],
+      "conceptTags": [
+        "6.4x",
+        "0.00043010",
+        "dexscreener.com/solana",
+        "dexscreener-only",
+        "dexscreener",
+        "links",
+        "signal",
+        "trade"
+      ]
+    }
+  }
+}

@@ -1,0 +1,1 @@
+{"type":"memory.recall.recorded","timestamp":"2026-04-28T19:26:26.468Z","query":"test deploy rules scanner changes code changes safeguard backup","resultCount":2,"results":[{"path":"memory/2026-04-15.md","startLine":209,"endLine":236,"score":1},{"path":"memory/2026-04-05.md","startLine":36,"endLine":88,"score":1}]}
