@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-04-28T19:26:26.468Z",
+  "updatedAt": "2026-04-30T14:59:50.452Z",
   "entries": {
     "memory:memory/2026-04-15.md:209:236": {
       "key": "memory:memory/2026-04-15.md:209:236",
@@ -62,6 +62,161 @@
         "links",
         "signal",
         "trade"
+      ]
+    },
+    "memory:memory/2026-04-15.md:186:211": {
+      "key": "memory:memory/2026-04-15.md:186:211",
+      "path": "memory/2026-04-15.md",
+      "startLine": 186,
+      "endLine": 211,
+      "source": "memory",
+      "snippet": "- Scanner: PID 1398802 (gmgn_scanner.py v7.4/v7.5) - Monitor: PID 1379918 (position_monitor.py) - Alert Sender: PID 1381544 (alert_sender.py) - Balance: 1.0 SOL | 0W/0L | 0 open ### PUMP PATH BUG FIXED (20:23 UTC) - **Bug:** Tokens in PUMP_WAIT_1 with chg1 >= 5.001% were being EXPIRED and removed when fresh data fetch failed at cooldown expiry - **Fix:** When fresh data fetch fails at expiry, now uses cached chg1_prev for BUY check instead of expiring the token - **Also:** chg1_check variable introduced to track which chg1 value (fresh or cached) to use for buy decisions - **Commit:** 08f4a50 - \"FIX: Pump path - use cached chg1_prev if fresh data fetch fails at expiry\" - Scanner restarted w",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 1,
+      "maxScore": 1,
+      "firstRecalledAt": "2026-04-30T14:59:50.452Z",
+      "lastRecalledAt": "2026-04-30T14:59:50.452Z",
+      "queryHashes": [
+        "d8698a368a54"
+      ],
+      "recallDays": [
+        "2026-04-30"
+      ],
+      "conceptTags": [
+        "gmgn-scanner.py",
+        "v7.4/v7.5",
+        "position-monitor.py",
+        "alert-sender.py",
+        "1.0",
+        "0w/0l",
+        "pump-wait-1",
+        "5.001"
+      ]
+    },
+    "memory:memory/2026-04-15.md:71:101": {
+      "key": "memory:memory/2026-04-15.md:71:101",
+      "path": "memory/2026-04-15.md",
+      "startLine": 71,
+      "endLine": 101,
+      "source": "memory",
+      "snippet": "- Scanner: PID 1273974 (gmgn_scanner.py v7.4) - Monitor: PID 1274648 (position_monitor.py v7.4) - Balance: 1.0 SOL | 0W/0L | 0 open positions ### BUGS FIXED (17:00-18:00 UTC) 1. **Position monitor crash**: ImportError - BOT_TOKEN, CHAT_ID, TRADES_FILE not in trading_constants.py - Fix: Added these constants to trading_constants.py 2. **Pump threshold wrong**: Was checking chg5 instead of chg1 for pump detection - Changed PUMP_CHG5_THRESHOLD → PUMP_CHG1_THRESHOLD throughout gmgn_scanner.py - All 4 pump path checks now use chg1 3. **scan_token() failing**: \"pair_address not defined\" error for many tokens - Fix: Extract pair_address from token_data in scan_token() - Fix: Ad",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 1,
+      "maxScore": 1,
+      "firstRecalledAt": "2026-04-30T14:59:50.452Z",
+      "lastRecalledAt": "2026-04-30T14:59:50.452Z",
+      "queryHashes": [
+        "d8698a368a54"
+      ],
+      "recallDays": [
+        "2026-04-30"
+      ],
+      "conceptTags": [
+        "gmgn-scanner.py",
+        "v7.4",
+        "position-monitor.py",
+        "1.0",
+        "0w/0l",
+        "00-18",
+        "bot-token",
+        "chat-id"
+      ]
+    },
+    "memory:memory/2026-04-28.md:26:57": {
+      "key": "memory:memory/2026-04-28.md:26:57",
+      "path": "memory/2026-04-28.md",
+      "startLine": 26,
+      "endLine": 57,
+      "source": "memory",
+      "snippet": "2. **OpenClaw startup**: `node openclaw.mjs` starts INTERACTIVE mode. Need `node openclaw.mjs gateway` for gateway mode 3. **Old gateway blocking**: Need to kill old PID before starting fresh 4. **Auto-recovery**: It DID recover on its own after ~4.5 hours (like the 04:00 UTC incident) ### Status at 01:03 UTC: - Balance: 3.476899 SOL - Scanner: running (BL:3535) - GMGN: 0/0/0 fails - Exec now WORKING ✓ - Gateway running (PID ~2003) ### To properly restart OpenClaw gateway: ```bash # Kill old gateway first kill -9 2003 # Start fresh (in gateway mode, not interactive) cd /opt/node22/lib/node_modules/openclaw && node openclaw.mjs gateway ``` ### Scanner status at 01:03 UTC: - 0 scanner proc",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 1,
+      "maxScore": 1,
+      "firstRecalledAt": "2026-04-30T14:59:50.452Z",
+      "lastRecalledAt": "2026-04-30T14:59:50.452Z",
+      "queryHashes": [
+        "d8698a368a54"
+      ],
+      "recallDays": [
+        "2026-04-30"
+      ],
+      "conceptTags": [
+        "gateway",
+        "openclaw.mjs",
+        "auto-recovery",
+        "4.5",
+        "3.476899",
+        "0/0/0",
+        "openclaw",
+        "startup"
+      ]
+    },
+    "memory:memory/2026-04-13.md:33:83": {
+      "key": "memory:memory/2026-04-13.md:33:83",
+      "path": "memory/2026-04-13.md",
+      "startLine": 33,
+      "endLine": 83,
+      "source": "memory",
+      "snippet": "- 3a33196: ADD: ATH check (later removed) - cec1ff5: REMOVED: ATH check from price stability - d468f7a: ADD: Age logging to trades + MIN_AGE 4min - bec41f8: ADD: Price stability check - reject if price drops >5% 3x before buy ### Open Positions at End of Session: - BULL | Entry $19,266 - Haku | Entry $17,066 - YANNICK | Entry $35,877 - 布利纳 | Entry $9,581 - Psyop | Entry $42,232 - 10PENCE | Entry $14,257 - GTOR | Entry $28,208 - (2 others) ### Systems Running: - gmgn_scanner.py (PID 798036, started 08:21) - position_monitor.py (PID 815125, started 12:52) - alert_sender.py (running) ## 5:06 PM - End of Session Updates ### NEW EXIT PLAN v7.0 (Implemented 17:00 UTC) | Target | Gain | Sell %",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 1,
+      "maxScore": 1,
+      "firstRecalledAt": "2026-04-30T14:59:50.452Z",
+      "lastRecalledAt": "2026-04-30T14:59:50.452Z",
+      "queryHashes": [
+        "d8698a368a54"
+      ],
+      "recallDays": [
+        "2026-04-30"
+      ],
+      "conceptTags": [
+        "min-age",
+        "gmgn-scanner.py",
+        "position-monitor.py",
+        "alert-sender.py",
+        "v7.0",
+        "3a33196",
+        "add",
+        "ath"
+      ]
+    },
+    "memory:memory/2026-04-10.md:96:153": {
+      "key": "memory:memory/2026-04-10.md:96:153",
+      "path": "memory/2026-04-10.md",
+      "startLine": 96,
+      "endLine": 153,
+      "source": "memory",
+      "snippet": "- TP2: +100% sell 20%, trail 35% - TP3: +200% sell 20%, trail 35% - TP4: +300% sell 20%, trail 35% - TP5: +1000% sell remaining 10%, trail 35% - Stop: -30% ## Key Fixes Applied - DIP_MIN constant (15%) enforced in both scanners - Anti-momentum: chg5 > +5% = reject - IRONCLAD: token in trade file ever = reject ## Backup - Dex: ef1d188 ## Anti-Momentum Change (23:07 UTC) - Changed chg5 threshold from +5% to +15% - Both scanners now allow moderate upward momentum - Reject only parabolic pumps (chg5 > +15%) ## Hourly 23:59 UTC - Balance: -0.2673 SOL (positions open) - Record: 2W/19L (9.5% WR) - elondog +68.7% (was +118%) - Skibidi +57.1% - New buys: Bro, PIZZALADY, Oke, PI - Systems: 5/5 run",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 1,
+      "maxScore": 1,
+      "firstRecalledAt": "2026-04-30T14:59:50.452Z",
+      "lastRecalledAt": "2026-04-30T14:59:50.452Z",
+      "queryHashes": [
+        "d8698a368a54"
+      ],
+      "recallDays": [
+        "2026-04-30"
+      ],
+      "conceptTags": [
+        "backup",
+        "dip-min",
+        "anti-momentum",
+        "0.2673",
+        "2w/19l",
+        "9.5",
+        "68.7",
+        "57.1"
       ]
     }
   }
