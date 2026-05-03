@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-04-30T14:59:50.452Z",
+  "updatedAt": "2026-05-03T00:22:04.693Z",
   "entries": {
     "memory:memory/2026-04-15.md:209:236": {
       "key": "memory:memory/2026-04-15.md:209:236",
@@ -71,18 +71,20 @@
       "endLine": 211,
       "source": "memory",
       "snippet": "- Scanner: PID 1398802 (gmgn_scanner.py v7.4/v7.5) - Monitor: PID 1379918 (position_monitor.py) - Alert Sender: PID 1381544 (alert_sender.py) - Balance: 1.0 SOL | 0W/0L | 0 open ### PUMP PATH BUG FIXED (20:23 UTC) - **Bug:** Tokens in PUMP_WAIT_1 with chg1 >= 5.001% were being EXPIRED and removed when fresh data fetch failed at cooldown expiry - **Fix:** When fresh data fetch fails at expiry, now uses cached chg1_prev for BUY check instead of expiring the token - **Also:** chg1_check variable introduced to track which chg1 value (fresh or cached) to use for buy decisions - **Commit:** 08f4a50 - \"FIX: Pump path - use cached chg1_prev if fresh data fetch fails at expiry\" - Scanner restarted w",
-      "recallCount": 1,
+      "recallCount": 2,
       "dailyCount": 0,
       "groundedCount": 0,
-      "totalScore": 1,
+      "totalScore": 2,
       "maxScore": 1,
       "firstRecalledAt": "2026-04-30T14:59:50.452Z",
-      "lastRecalledAt": "2026-04-30T14:59:50.452Z",
+      "lastRecalledAt": "2026-05-03T00:22:04.693Z",
       "queryHashes": [
-        "d8698a368a54"
+        "d8698a368a54",
+        "1803c2fb84b5"
       ],
       "recallDays": [
-        "2026-04-30"
+        "2026-04-30",
+        "2026-05-03"
       ],
       "conceptTags": [
         "gmgn-scanner.py",
@@ -102,18 +104,20 @@
       "endLine": 101,
       "source": "memory",
       "snippet": "- Scanner: PID 1273974 (gmgn_scanner.py v7.4) - Monitor: PID 1274648 (position_monitor.py v7.4) - Balance: 1.0 SOL | 0W/0L | 0 open positions ### BUGS FIXED (17:00-18:00 UTC) 1. **Position monitor crash**: ImportError - BOT_TOKEN, CHAT_ID, TRADES_FILE not in trading_constants.py - Fix: Added these constants to trading_constants.py 2. **Pump threshold wrong**: Was checking chg5 instead of chg1 for pump detection - Changed PUMP_CHG5_THRESHOLD → PUMP_CHG1_THRESHOLD throughout gmgn_scanner.py - All 4 pump path checks now use chg1 3. **scan_token() failing**: \"pair_address not defined\" error for many tokens - Fix: Extract pair_address from token_data in scan_token() - Fix: Ad",
-      "recallCount": 1,
+      "recallCount": 2,
       "dailyCount": 0,
       "groundedCount": 0,
-      "totalScore": 1,
+      "totalScore": 2,
       "maxScore": 1,
       "firstRecalledAt": "2026-04-30T14:59:50.452Z",
-      "lastRecalledAt": "2026-04-30T14:59:50.452Z",
+      "lastRecalledAt": "2026-05-03T00:22:04.693Z",
       "queryHashes": [
-        "d8698a368a54"
+        "d8698a368a54",
+        "1803c2fb84b5"
       ],
       "recallDays": [
-        "2026-04-30"
+        "2026-04-30",
+        "2026-05-03"
       ],
       "conceptTags": [
         "gmgn-scanner.py",
@@ -164,18 +168,20 @@
       "endLine": 83,
       "source": "memory",
       "snippet": "- 3a33196: ADD: ATH check (later removed) - cec1ff5: REMOVED: ATH check from price stability - d468f7a: ADD: Age logging to trades + MIN_AGE 4min - bec41f8: ADD: Price stability check - reject if price drops >5% 3x before buy ### Open Positions at End of Session: - BULL | Entry $19,266 - Haku | Entry $17,066 - YANNICK | Entry $35,877 - 布利纳 | Entry $9,581 - Psyop | Entry $42,232 - 10PENCE | Entry $14,257 - GTOR | Entry $28,208 - (2 others) ### Systems Running: - gmgn_scanner.py (PID 798036, started 08:21) - position_monitor.py (PID 815125, started 12:52) - alert_sender.py (running) ## 5:06 PM - End of Session Updates ### NEW EXIT PLAN v7.0 (Implemented 17:00 UTC) | Target | Gain | Sell %",
-      "recallCount": 1,
+      "recallCount": 2,
       "dailyCount": 0,
       "groundedCount": 0,
-      "totalScore": 1,
+      "totalScore": 2,
       "maxScore": 1,
       "firstRecalledAt": "2026-04-30T14:59:50.452Z",
-      "lastRecalledAt": "2026-04-30T14:59:50.452Z",
+      "lastRecalledAt": "2026-05-03T00:22:04.693Z",
       "queryHashes": [
-        "d8698a368a54"
+        "d8698a368a54",
+        "1803c2fb84b5"
       ],
       "recallDays": [
-        "2026-04-30"
+        "2026-04-30",
+        "2026-05-03"
       ],
       "conceptTags": [
         "min-age",
@@ -217,6 +223,161 @@
         "9.5",
         "68.7",
         "57.1"
+      ]
+    },
+    "memory:memory/2026-04-29.md:88:120": {
+      "key": "memory:memory/2026-04-29.md:88:120",
+      "path": "memory/2026-04-29.md",
+      "startLine": 88,
+      "endLine": 120,
+      "source": "memory",
+      "snippet": "- Scanner v7.8 ChrisSpec running - PUMP_MIN_AGE: 120s (Chris confirmed) - H1_MOMENTUM_MIN: 75% - FALLEN_GIANT_H1: 800% - PUMP_ENTRY_CHG5: 10% - PUMP_WAIT_1: 45s | PUMP_WAIT_2: 10s | PUMP_VERIFY_DELAY: 10s - Monitor restarted with sell_token fix and TP3/TP4 independent checks - Age check still needs fix (using stored timestamp, not fresh) ### Scanner Still Not Fixed JRE and Hoppy both bought with entry_age_sec: 45 despite PUMP_MIN_AGE: 120s. Chris demanding fresh data verification before any buy. Scanner needs fix to re-check age with fresh GMGN data at PUMP_VERIFY time. ## 17:55 UTC - FRESH DATA VERIFICATION REBUILT (v7.8 FIX #2) ### The Problem All 7 buy paths used STORED result values (",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 1,
+      "maxScore": 1,
+      "firstRecalledAt": "2026-05-03T00:22:04.693Z",
+      "lastRecalledAt": "2026-05-03T00:22:04.693Z",
+      "queryHashes": [
+        "1803c2fb84b5"
+      ],
+      "recallDays": [
+        "2026-05-03"
+      ],
+      "conceptTags": [
+        "v7.8",
+        "pump-min-age",
+        "h1-momentum-min",
+        "fallen-giant-h1",
+        "pump-entry-chg5",
+        "pump-wait-1",
+        "pump-wait-2",
+        "pump-verify-delay"
+      ]
+    },
+    "memory:memory/2026-04-30.md:1:34": {
+      "key": "memory:memory/2026-04-30.md:1:34",
+      "path": "memory/2026-04-30.md",
+      "startLine": 1,
+      "endLine": 34,
+      "source": "memory",
+      "snippet": "# 2026-04-30 ## Morning (7:39 UTC) - Wallet monitor ran, no new alerts - **suqh5sHtr**: 12.72 SOL (+4.14 total) - ACCUMULATING - **CyaE1Vxv**: 572.64 SOL (+294.04 total) - ACCUMULATING # 2026-04-30 ## Morning (7:39 UTC) - Wallet monitor ran, no new alerts - **suqh5sHtr**: 12.72 SOL (+4.14 total) - ACCUMULATING - **CyaE1Vxv**: 572.64 SOL (+294.04 total) - ACCUMULATING ## Scanner Issues (14:00-16:00 UTC) - Chris reported scanner finding tokens but not showing \"work\" (buy signals) - Root cause: GMGN `token info` returns `price_change_percent1h: None` for ALL tokens tested (JEW, BISCUIT, etc.) - GMGN `trending` DOES return price data (h1, chg5, m5, m1) — it's batch data, 30-75s old - GMGN `tr",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 1,
+      "maxScore": 1,
+      "firstRecalledAt": "2026-05-03T00:22:04.693Z",
+      "lastRecalledAt": "2026-05-03T00:22:04.693Z",
+      "queryHashes": [
+        "1803c2fb84b5"
+      ],
+      "recallDays": [
+        "2026-05-03"
+      ],
+      "conceptTags": [
+        "12.72",
+        "4.14",
+        "572.64",
+        "294.04",
+        "00-16",
+        "price-change-percent1h",
+        "30-75s",
+        "morning"
+      ]
+    },
+    "memory:memory/2026-04-29.md:67:96": {
+      "key": "memory:memory/2026-04-29.md:67:96",
+      "path": "memory/2026-04-29.md",
+      "startLine": 67,
+      "endLine": 96,
+      "source": "memory",
+      "snippet": "**Root Cause:** Line ~1104 in gmgn_scanner.py uses `data.get('token_data', {}).get('creation_timestamp', 0)` which is the STORED value from when token was first added to COOLDOWN_WATCH — not fresh GMGN data. If GMGN `created_timestamp` = 0 or missing, `creation_timestamp` defaults to 0 → `now - 0 = huge number` → age appears correct → BUY PASSES. **Fix needed:** Use GMGN `created_timestamp` from fresh_data at PUMP_VERIFY. If unavailable or < PUMP_MIN_AGE, reject the buy. ### Bug #2: sell_token Dedup Blocks Same-Token Different-TP Sells TP3 sell was blocked 30s after TP2 sell because dedup logic checked \"same token + <60s = skip ALL\". **Fix applied:** Only skip if same token + same reason",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 1,
+      "maxScore": 1,
+      "firstRecalledAt": "2026-05-03T00:22:04.693Z",
+      "lastRecalledAt": "2026-05-03T00:22:04.693Z",
+      "queryHashes": [
+        "1803c2fb84b5"
+      ],
+      "recallDays": [
+        "2026-05-03"
+      ],
+      "conceptTags": [
+        "gmgn-scanner.py",
+        "data.get",
+        "token-data",
+        "creation-timestamp",
+        "cooldown-watch",
+        "created-timestamp",
+        "fresh-data",
+        "pump-verify"
+      ]
+    },
+    "memory:memory/2026-04-29.md:34:70": {
+      "key": "memory:memory/2026-04-29.md:34:70",
+      "path": "memory/2026-04-29.md",
+      "startLine": 34,
+      "endLine": 70,
+      "source": "memory",
+      "snippet": "Lost 1.73 SOL total. Devastating losses. ### Root Cause Unknown Cannot find why age checks fail. Scanner log insufficient. All paths show age checks in code but they bypass at runtime. ### Current Settings (2026-04-29 03:37 UTC) - PUMP_MIN_AGE: 240s - MIN_MCAP: $3,500 - MAX_MCAP: $20,000 - PUMP_CHG1: 10% - Scanner PID: 433518 ### Chris is Extremely Upset He's lost significant money and has every right to be. I've been unable to find the root cause of the age check bug. ### OpenRouter Discussion Chris wants to switch from MiniMax to OpenRouter. API key not yet provided. ### Key Files - Scanner: /root/Dex-trading-bot/gmgn_scanner.py - Monitor: /root/Dex-trading-bot/position_monitor.py - T",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 1,
+      "maxScore": 1,
+      "firstRecalledAt": "2026-05-03T00:22:04.693Z",
+      "lastRecalledAt": "2026-05-03T00:22:04.693Z",
+      "queryHashes": [
+        "1803c2fb84b5"
+      ],
+      "recallDays": [
+        "2026-05-03"
+      ],
+      "conceptTags": [
+        "router",
+        "1.73",
+        "pump-min-age",
+        "min-mcap",
+        "max-mcap",
+        "pump-chg1",
+        "lost",
+        "sol"
+      ]
+    },
+    "memory:memory/2026-04-28.md:26:64": {
+      "key": "memory:memory/2026-04-28.md:26:64",
+      "path": "memory/2026-04-28.md",
+      "startLine": 26,
+      "endLine": 64,
+      "source": "memory",
+      "snippet": "2. **OpenClaw startup**: `node openclaw.mjs` starts INTERACTIVE mode. Need `node openclaw.mjs gateway` for gateway mode 3. **Old gateway blocking**: Need to kill old PID before starting fresh 4. **Auto-recovery**: It DID recover on its own after ~4.5 hours (like the 04:00 UTC incident) ### Status at 01:03 UTC: - Balance: 3.476899 SOL - Scanner: running (BL:3535) - GMGN: 0/0/0 fails - Exec now WORKING ✓ - Gateway running (PID ~2003) ### To properly restart OpenClaw gateway: ```bash # Kill old gateway first kill -9 2003 # Start fresh (in gateway mode, not interactive) cd /opt/node22/lib/node_modules/openclaw && node openclaw.mjs gateway ``` ### Scanner status at 01:03 UTC: - 0 scanner proc",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 1,
+      "maxScore": 1,
+      "firstRecalledAt": "2026-05-03T00:22:04.693Z",
+      "lastRecalledAt": "2026-05-03T00:22:04.693Z",
+      "queryHashes": [
+        "1803c2fb84b5"
+      ],
+      "recallDays": [
+        "2026-05-03"
+      ],
+      "conceptTags": [
+        "gateway",
+        "openclaw.mjs",
+        "auto-recovery",
+        "4.5",
+        "3.476899",
+        "0/0/0",
+        "openclaw",
+        "startup"
       ]
     }
   }
