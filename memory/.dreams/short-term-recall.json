@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-05-04T15:42:33.867Z",
+  "updatedAt": "2026-05-04T19:12:51.975Z",
   "entries": {
     "memory:memory/2026-04-15.md:209:236": {
       "key": "memory:memory/2026-04-15.md:209:236",
@@ -533,6 +533,130 @@
         "16-18",
         "entry-mcap",
         "gmgn-price"
+      ]
+    },
+    "memory:memory/wallets/2026-04-13.md:1:6": {
+      "key": "memory:memory/wallets/2026-04-13.md:1:6",
+      "path": "memory/wallets/2026-04-13.md",
+      "startLine": 1,
+      "endLine": 6,
+      "source": "memory",
+      "snippet": "# April 13, 2026 — Wallet Monitor Log ## 04:39 UTC - **suqh5sHt...**: -0.48 SOL (1.18 → 0.70) | ACCUMULATING | Reducing positions - **CyaE1...**: +179 SOL (898.74 → 1077.79) | IDLE | Large SOL whale",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 1,
+      "maxScore": 1,
+      "firstRecalledAt": "2026-05-04T19:12:51.975Z",
+      "lastRecalledAt": "2026-05-04T19:12:51.975Z",
+      "queryHashes": [
+        "204dda97d4df"
+      ],
+      "recallDays": [
+        "2026-05-04"
+      ],
+      "conceptTags": [
+        "0.48",
+        "1.18",
+        "0.70",
+        "898.74",
+        "1077.79",
+        "april",
+        "wallet",
+        "monitor"
+      ]
+    },
+    "memory:memory/daily/2026-04-11.md:1:5": {
+      "key": "memory:memory/daily/2026-04-11.md:1:5",
+      "path": "memory/daily/2026-04-11.md",
+      "startLine": 1,
+      "endLine": 5,
+      "source": "memory",
+      "snippet": "## April 11, 2026 ### Wallet Monitor (9:19 PM UTC) - **suqh5sHt...**: 2.18 → 2.74 SOL (+0.56 SOL) | ACCUMULATING - reducing positions, taking profits, very active trader - **CyaE1VxvB...**: 811.04 SOL | IDLE - large SOL whale, relatively inactive",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 1,
+      "maxScore": 1,
+      "firstRecalledAt": "2026-05-04T19:12:51.975Z",
+      "lastRecalledAt": "2026-05-04T19:12:51.975Z",
+      "queryHashes": [
+        "204dda97d4df"
+      ],
+      "recallDays": [
+        "2026-05-04"
+      ],
+      "conceptTags": [
+        "2.18",
+        "2.74",
+        "0.56",
+        "811.04",
+        "april",
+        "wallet",
+        "monitor",
+        "utc"
+      ]
+    },
+    "memory:memory/2026-04-17.md:25:58": {
+      "key": "memory:memory/2026-04-17.md:25:58",
+      "path": "memory/2026-04-17.md",
+      "startLine": 25,
+      "endLine": 58,
+      "source": "memory",
+      "snippet": "- Balance: -2.09 SOL | 116W/216L | 0 open ## 08:00 UTC Heartbeat - Systems running: gmgn_scanner + position_monitor - CHUDJAK open: entry $14,645, peak $21,793 (+48.8%) - approaching TP1 (+50%) - Balance: -2.25 SOL | 116W/220L | 1 open - Recent losses: Simscat (-0.030), LUNA (-0.060), NO (-0.031) Wallet monitor check done - no significant changes ## 13:08 UTC - Strategy Revert - Reverted to April 16 strategy (commit 7de4369c) - produced 75% WR during 06:00-10:00 UTC - Key changes: H1 +25% (was +100%), no chg5 pre-filter, BUY_NOW/BASE immediate path, 30s Young/Older cooldowns - Scanner v7.4 April 16 strategy running - Position monitor running ## 19:54 UTC - End of Day Memory Flush ### Tod",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 1,
+      "maxScore": 1,
+      "firstRecalledAt": "2026-05-04T19:12:51.975Z",
+      "lastRecalledAt": "2026-05-04T19:12:51.975Z",
+      "queryHashes": [
+        "204dda97d4df"
+      ],
+      "recallDays": [
+        "2026-05-04"
+      ],
+      "conceptTags": [
+        "2.09",
+        "116w/216l",
+        "gmgn-scanner",
+        "position-monitor",
+        "48.8",
+        "2.25",
+        "116w/220l",
+        "0.030"
+      ]
+    },
+    "memory:memory/2026-04-07.md:1:25": {
+      "key": "memory:memory/2026-04-07.md:1:25",
+      "path": "memory/2026-04-07.md",
+      "startLine": 1,
+      "endLine": 25,
+      "source": "memory",
+      "snippet": "# April 7, 2026 ## Wallet Monitor Results (7:58 PM UTC) **suqh5sHtr8HyJ7q8scBimULPkPpA557prMG47xCHQfK** - Status: ACCUMULATING - Balance: 13.33 → 13.47 SOL (+0.14 SOL) - Pattern: Reducing positions, taking profits - Recent token: 7kr5sdADJUzYWDgXPnHMTFaRQm3zTm **CyaE1VxvBrahnPWkqm5VsdCvyS2QmNht2UFrKJHga54o** - Status: IDLE - Balance: 122.84 SOL - Whale wallet ## Trading Session (7:53 PM UTC) **Criteria loosened:** mcap $5K-$100K, vol $5K+, pump.fun only **Exit plan fixed:** +25%→sell 50%, +100%→sell 50%, no TP3 **Error fixed:** auto_scanner.py had broken condition `if v < MIN_VOLUME: continue` → fixed to allow pump.fun 0 liquidity **Open positions:** FPC, Ikizama, Tooker, MOLTMPP, Bow-",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 1,
+      "maxScore": 1,
+      "firstRecalledAt": "2026-05-04T19:12:51.975Z",
+      "lastRecalledAt": "2026-05-04T19:12:51.975Z",
+      "queryHashes": [
+        "204dda97d4df"
+      ],
+      "recallDays": [
+        "2026-05-04"
+      ],
+      "conceptTags": [
+        "13.33",
+        "13.47",
+        "0.14",
+        "122.84",
+        "pump.fun",
+        "auto-scanner.py",
+        "min-volume",
+        "april"
       ]
     }
   }
