@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-05-04T19:12:51.975Z",
+  "updatedAt": "2026-05-04T22:11:16.979Z",
   "entries": {
     "memory:memory/2026-04-15.md:209:236": {
       "key": "memory:memory/2026-04-15.md:209:236",
@@ -480,15 +480,16 @@
       "endLine": 59,
       "source": "memory",
       "snippet": "- position_monitor.py: running (PID 73736), checks every 60s - alert_sender.py: running (PID 73048), 30s check - Whale watcher: running ## Git - Committed as 40d9036 \"Fix exit plan, re-entry lockout, Telegram HTML mode\" - .gitignore added for __pycache__/ and *.log ## Session Update (05:46 UTC) ### GMGN Active Scanner Built - New `gmgn_buyer.py` - scans GMGN signals directly instead of waiting for DexScreener - Uses `gmgn_signal_scorer.py` - scores 0-100 based on: liquidity (25pts), holders (20pts), top10% conc (15pts), LP burnt (10pts), safety flags (10pts), age (10pts), vol ratio (10pts) - MIN_GMGN_SCORE = 50 threshold - 60-second scan interval - Now running dual scanners: auto_scanner (",
-      "recallCount": 1,
+      "recallCount": 2,
       "dailyCount": 0,
       "groundedCount": 0,
-      "totalScore": 1,
+      "totalScore": 2,
       "maxScore": 1,
       "firstRecalledAt": "2026-05-04T15:42:33.867Z",
-      "lastRecalledAt": "2026-05-04T15:42:33.867Z",
+      "lastRecalledAt": "2026-05-04T22:11:16.979Z",
       "queryHashes": [
-        "45672317eb82"
+        "45672317eb82",
+        "21e8d02ecbb5"
       ],
       "recallDays": [
         "2026-05-04"
@@ -657,6 +658,99 @@
         "auto-scanner.py",
         "min-volume",
         "april"
+      ]
+    },
+    "memory:memory/2026-04-16.md:28:55": {
+      "key": "memory:memory/2026-04-16.md:28:55",
+      "path": "memory/2026-04-16.md",
+      "startLine": 28,
+      "endLine": 55,
+      "source": "memory",
+      "snippet": "- position_monitor updates sim_wallet.json after every sell - alert_sender reads from sim_wallet.json (was hardcoded to 1.0) - Chris reset balance to 1.0 SOL at start of this session ### Winner/Loser Analysis (Post-Reset) - Winners avg entry mcap: $10,699 - Losers avg entry mcap: $12,808 - Current record since reset: ~6W/18L ### Chris's Config (permanent) - Telegram: chat ID 6402511249 (@pleasegrowgoodweed) - Bot: @WilsonVultrBot (token: 8767746012:AAEAUg-yCC8uZ-U2y-VBiuKS7qGm58XYQeg) - All alerts go to 6402511249 only - NEVER \"Chris\" as username ### Exit Plan (TP5 Compound v7.4) | Level | Trigger | Sell % | Trail | Stop | |-------|---------|--------|-------|------| | TP1 | +50% | HOLD |",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 1,
+      "maxScore": 1,
+      "firstRecalledAt": "2026-05-04T22:11:16.979Z",
+      "lastRecalledAt": "2026-05-04T22:11:16.979Z",
+      "queryHashes": [
+        "21e8d02ecbb5"
+      ],
+      "recallDays": [
+        "2026-05-04"
+      ],
+      "conceptTags": [
+        "position-monitor",
+        "sim-wallet.json",
+        "alert-sender",
+        "1.0",
+        "winner/loser",
+        "post-reset",
+        "6w/18l",
+        "v7.4"
+      ]
+    },
+    "memory:memory/2026-04-17.md:51:93": {
+      "key": "memory:memory/2026-04-17.md:51:93",
+      "path": "memory/2026-04-17.md",
+      "startLine": 51,
+      "endLine": 93,
+      "source": "memory",
+      "snippet": "7. Fixed BUY alert dedup - now uses token address as key (not message prefix) 8. Fixed BUY alert to only fire if buy_token returns True 9. Added GMGN API key to ~/.gmgn-cli/config.json: gmgn_316679140df01f0712907201654ee2a6 10. Scanner throttle fix: trending→trenches→new pairs every 30s, 50 tokens each ### Current Scanner Settings (final): - MIN_MCAP: $6,700 - MAX_MCAP: $30,000 - H1_MAX: +200% ceiling (blocks parabolic tokens) - PUMP_MIN_AGE: 300s (5 min) - H1_MOMENTUM_MIN: +25% (pre-filter minimum) - MAX_OPEN_POSITIONS: 5 - POSITION_SIZE: 0.1 SOL ### Performance: - Started day at roughly -$2.50 SOL - Ended day around -$3.54 SOL - H1 filter, mcap adjustments, and throttle issues caused rou",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 1,
+      "maxScore": 1,
+      "firstRecalledAt": "2026-05-04T22:11:16.979Z",
+      "lastRecalledAt": "2026-05-04T22:11:16.979Z",
+      "queryHashes": [
+        "21e8d02ecbb5"
+      ],
+      "recallDays": [
+        "2026-05-04"
+      ],
+      "conceptTags": [
+        "buy-token",
+        "gmgn-cli/config.json",
+        "min-mcap",
+        "max-mcap",
+        "h1-max",
+        "pump-min-age",
+        "h1-momentum-min",
+        "pre-filter"
+      ]
+    },
+    "memory:memory/2026-04-08.md:105:141": {
+      "key": "memory:memory/2026-04-08.md:105:141",
+      "path": "memory/2026-04-08.md",
+      "startLine": 105,
+      "endLine": 141,
+      "source": "memory",
+      "snippet": "- GMGN_VOL_MCAP_MAX: 8.0 -> 15.0 ## Finding Winners Earlier (TODO) - Monitor pumpswap new listings (not just pumpfun) - GMGN signals show tokens BEFORE they pump big - Look for vol spike + holder spike combo - KOL wallet tracking: when smart money accumulates, price follows - Tokens with 100+ holders + extreme vol/mcap = likely pump incoming ## Mid-Session Update (14:44 UTC) ### Network Outage - Root Cause + Fix - **Symptom:** All outbound APIs blocked (Telegram 403, DexScreener 403, Solana RPC blocked) - **Root Cause:** Scanners hit APIs too aggressively during debugging → IP rate-limited by Cloudflare/WAF - **Duration:** ~20 minutes (14:20-14:40 UTC) - **Fix:** Added CircuitBreaker class",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 1,
+      "maxScore": 1,
+      "firstRecalledAt": "2026-05-04T22:11:16.979Z",
+      "lastRecalledAt": "2026-05-04T22:11:16.979Z",
+      "queryHashes": [
+        "21e8d02ecbb5"
+      ],
+      "recallDays": [
+        "2026-05-04"
+      ],
+      "conceptTags": [
+        "network",
+        "gmgn-vol-mcap-max",
+        "8.0",
+        "15.0",
+        "vol/mcap",
+        "mid-session",
+        "rate-limited",
+        "cloudflare/waf"
       ]
     }
   }
