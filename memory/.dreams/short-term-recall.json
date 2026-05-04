@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-05-03T00:22:04.693Z",
+  "updatedAt": "2026-05-04T15:42:33.867Z",
   "entries": {
     "memory:memory/2026-04-15.md:209:236": {
       "key": "memory:memory/2026-04-15.md:209:236",
@@ -378,6 +378,161 @@
         "0/0/0",
         "openclaw",
         "startup"
+      ]
+    },
+    "memory:memory/2026-04-08.md:52:83": {
+      "key": "memory:memory/2026-04-08.md:52:83",
+      "path": "memory/2026-04-08.md",
+      "startLine": 52,
+      "endLine": 83,
+      "source": "memory",
+      "snippet": "- Plus Agentbot + SONE from auto_scanner - Total: 6 open positions, 0.3 SOL locked ### Alerts Format (verified correct) BUY: ✅ BUY EXECUTED | time | 💰 symbol | Entry MC | Amount | 🔗 Dex | 🥧 Pump | Exit Plan SELL: 🛑 STOP LOSS | time | 💰 symbol | Entry/Exit MC | Loss | Wallet | Reason | 🔗 ### gmgn_buyer Currently Broken - Has import error: `MIN_5MIN_VOLUME` not in trading_constants - Needs fix before next restart - Process killed (was PID 82357, restarted as 82851 then crashed) ## GMGN API Key (set up 06:03 UTC) - Key: `gmgn_316679140df01f0712907201654ee2a6` - Configured at: `~/.config/gmgn/.env` - CLI tool: `gmgn-cli` (installed globally via npm) - 6 skills installed: gmgn-token, gmg",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 1,
+      "maxScore": 1,
+      "firstRecalledAt": "2026-05-04T15:42:33.867Z",
+      "lastRecalledAt": "2026-05-04T15:42:33.867Z",
+      "queryHashes": [
+        "45672317eb82"
+      ],
+      "recallDays": [
+        "2026-05-04"
+      ],
+      "conceptTags": [
+        "auto-scanner",
+        "0.3",
+        "entry/exit",
+        "gmgn-buyer",
+        "min-5min-volume",
+        "trading-constants",
+        "config/gmgn",
+        "gmgn-cli"
+      ]
+    },
+    "memory:memory/2026-05-01.md:20:41": {
+      "key": "memory:memory/2026-05-01.md:20:41",
+      "path": "memory/2026-05-01.md",
+      "startLine": 20,
+      "endLine": 41,
+      "source": "memory",
+      "snippet": "- **Result:** Alert formula `current_mcap = current_price × entry_mcap / entry_price` uses mismatched supplies → wrong mcap - **Example:** ARI alert showed \"Current: $7,956\" but real GMGN mcap is $11,528 - **Fix needed:** `entry_mcap` should be `GMGN_price × GMGN_circulating_supply` (calculated from GMGN fields, not DexScreener) - **Scanner location:** where `entry_mcap` is set from DexScreener data - **Impact:** All position monitor alerts show wrong mcap figures ### Bug 3: Alert gain % uses `ath_price` in TRUE_PEAK (PENDING FIX) - **Problem:** `TRUE_PEAK` (line ~307) uses `ath_price` in max() → alerts show inflated peak mcap - **PokéCoin example:** Alert showed Peak: $21,653 → derived fro",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 1,
+      "maxScore": 1,
+      "firstRecalledAt": "2026-05-04T15:42:33.867Z",
+      "lastRecalledAt": "2026-05-04T15:42:33.867Z",
+      "queryHashes": [
+        "45672317eb82"
+      ],
+      "recallDays": [
+        "2026-05-04"
+      ],
+      "conceptTags": [
+        "current-mcap",
+        "current-price",
+        "entry-mcap",
+        "entry-price",
+        "gmgn-price",
+        "gmgn-circulating-supply",
+        "ath-price",
+        "true-peak"
+      ]
+    },
+    "memory:memory/2026-04-14.md:1:53": {
+      "key": "memory:memory/2026-04-14.md:1:53",
+      "path": "memory/2026-04-14.md",
+      "startLine": 1,
+      "endLine": 53,
+      "source": "memory",
+      "snippet": "## 03:38 UTC - Wilson v6.1 Strategy (Final Updates) ### Final v6.1 Config: - MIN_MCAP: $4,000 - DIP: 10-45% - MIN_CHG1: 3% - ATH distance: >15% below ATH - CHG1_DROP: 5% (continue watching, not reject) - Stop loss: -20% - MIN_AGE: 3 min - MIN_HOLDERS: 15+ - BS ratio: pump.fun OK, raydium >0.8 ### Git Commit: 50b6513 ### Systems Restarted (03:38 UTC): - gmgn_scanner.py - position_monitor.py - alert_sender.py ## 03:45 UTC - Wilson v6.2 Strategy ### v6.2 Changes from v6.1: - TP1 trail: 35% → 40% - TP2-4 trail: 30% → 35% - Stop loss: -20% → -25% - Cooldown: Young chg5 >+100%, Older chg5 >+3% - Improvement threshold: +2% → +3% ### Git Commit: b0e9155 ### Systems Restarted (03:45 UTC): - g",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 1,
+      "maxScore": 1,
+      "firstRecalledAt": "2026-05-04T15:42:33.867Z",
+      "lastRecalledAt": "2026-05-04T15:42:33.867Z",
+      "queryHashes": [
+        "45672317eb82"
+      ],
+      "recallDays": [
+        "2026-05-04"
+      ],
+      "conceptTags": [
+        "v6.1",
+        "min-mcap",
+        "10-45",
+        "min-chg1",
+        "chg1-drop",
+        "min-age",
+        "min-holders",
+        "pump.fun"
+      ]
+    },
+    "memory:memory/2026-04-08.md:27:59": {
+      "key": "memory:memory/2026-04-08.md:27:59",
+      "path": "memory/2026-04-08.md",
+      "startLine": 27,
+      "endLine": 59,
+      "source": "memory",
+      "snippet": "- position_monitor.py: running (PID 73736), checks every 60s - alert_sender.py: running (PID 73048), 30s check - Whale watcher: running ## Git - Committed as 40d9036 \"Fix exit plan, re-entry lockout, Telegram HTML mode\" - .gitignore added for __pycache__/ and *.log ## Session Update (05:46 UTC) ### GMGN Active Scanner Built - New `gmgn_buyer.py` - scans GMGN signals directly instead of waiting for DexScreener - Uses `gmgn_signal_scorer.py` - scores 0-100 based on: liquidity (25pts), holders (20pts), top10% conc (15pts), LP burnt (10pts), safety flags (10pts), age (10pts), vol ratio (10pts) - MIN_GMGN_SCORE = 50 threshold - 60-second scan interval - Now running dual scanners: auto_scanner (",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 1,
+      "maxScore": 1,
+      "firstRecalledAt": "2026-05-04T15:42:33.867Z",
+      "lastRecalledAt": "2026-05-04T15:42:33.867Z",
+      "queryHashes": [
+        "45672317eb82"
+      ],
+      "recallDays": [
+        "2026-05-04"
+      ],
+      "conceptTags": [
+        "position-monitor.py",
+        "alert-sender.py",
+        "re-entry",
+        "gmgn-buyer.py",
+        "gmgn-signal-scorer.py",
+        "0-100",
+        "min-gmgn-score",
+        "60-second"
+      ]
+    },
+    "memory:memory/2026-05-01.md:35:61": {
+      "key": "memory:memory/2026-05-01.md:35:61",
+      "path": "memory/2026-05-01.md",
+      "startLine": 35,
+      "endLine": 61,
+      "source": "memory",
+      "snippet": "- gmgn_scanner.py v7.7 with PUMP_CHG1_THRESHOLD=5% restored - position_monitor.py with ATH fix applied - Backup pushed to both repos at 17:04 UTC ## 18:16-18:55 UTC - Session Events ### entry_mcap FIX applied (commit 939ae179) - Scanner (`gmgn_scanner.py`) now calculates `entry_mcap = int(gmgn_price * gmgn_supply)` using GMGN data only — consistent with `entry_price` - Position monitor (`position_monitor.py`) uses `live_mcap` (from GMGN) for display when available; `entry_mcap` only as fallback - WHEELSHIB trade bought at 18:16:02 (OLD code) has DexScreener entry_mcap=$13,949 — new buys will use correct GMGN entry_mcap ### Scanner restart at 18:25 - Old scanner (started ~18:16) killed and",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 1,
+      "maxScore": 1,
+      "firstRecalledAt": "2026-05-04T15:42:33.867Z",
+      "lastRecalledAt": "2026-05-04T15:42:33.867Z",
+      "queryHashes": [
+        "45672317eb82"
+      ],
+      "recallDays": [
+        "2026-05-04"
+      ],
+      "conceptTags": [
+        "backup",
+        "gmgn-scanner.py",
+        "v7.7",
+        "pump-chg1-threshold",
+        "position-monitor.py",
+        "16-18",
+        "entry-mcap",
+        "gmgn-price"
       ]
     }
   }
