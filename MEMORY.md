@@ -1,5 +1,27 @@
 # MEMORY.md - Long-Term Memory
 
+## V1 SYSTEM - THE ONLY ALLOWED TRADING SYSTEM
+- Scanner: `scanner_v1.py`
+- Monitor: `monitor_v1.py`
+- **NO OTHER scanner/monitor files should ever run**
+
+### Commands:
+- Start: `cd /root/Dex-trading-bot && bash start_v1.sh`
+- Stop: `cd /root/Dex-trading-bot && bash stop_v1.sh`
+- Restart: `cd /root/Dex-trading-bot && bash restart_v1.sh`
+- Status: `cd /root/Dex-trading-bot && bash status_v1.sh`
+
+### FORBIDDEN (never run these):
+- `gmgn_scanner.py` and all variants
+- `position_monitor.py` and all variants
+- `auto_scanner.py`, `combined_monitor.py`, `alert_sender.py`
+- Old scripts: `restart_scanner.sh`, `restart_monitor.sh`
+
+### System Guard:
+- Cron job runs every 60 seconds to kill forbidden processes
+- Health check every 15 minutes
+- Strategy review every 4 hours
+
 ## Trading Bot Setup
 - Location: `/root/Dex-trading-bot/`
 - Git remote: https://github.com/cploveless123/Dex-trading-bot.git
