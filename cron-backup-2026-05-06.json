@@ -1,0 +1,413 @@
+{
+  "version": 1,
+  "jobs": [
+    {
+      "id": "e6239808-e4a1-450d-b034-0b8eaf099dfd",
+      "agentId": "main",
+      "sessionKey": "agent:main:main",
+      "name": "wallet-monitor",
+      "enabled": true,
+      "createdAtMs": 1775494068269,
+      "schedule": {
+        "everyMs": 300000,
+        "kind": "every",
+        "anchorMs": 1775494068269
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "Run wallet monitor: cd /root/Dex-trading-bot && python3 wallet_watcher.py && echo '---' && cat /root/.openclaw/workspace/memory/wallets/watchlist.json",
+        "model": "minimax/MiniMax-M2.5",
+        "thinking": "off",
+        "timeoutSeconds": 60
+      },
+      "delivery": {
+        "mode": "none"
+      },
+      "state": {
+        "nextRunAtMs": 1778041904216,
+        "lastRunAtMs": 1778041604216,
+        "lastRunStatus": "ok",
+        "lastStatus": "ok",
+        "lastDurationMs": 38912,
+        "lastDeliveryStatus": "not-requested",
+        "consecutiveErrors": 0,
+        "consecutiveSkipped": 0
+      },
+      "updatedAtMs": 1778041643128
+    },
+    {
+      "id": "3d16c86d-53f5-44ca-ae3e-cc78cccb4590",
+      "agentId": "main",
+      "sessionKey": "agent:main:main",
+      "name": "auto-backup",
+      "enabled": true,
+      "createdAtMs": 1775961659798,
+      "schedule": {
+        "everyMs": 1800000,
+        "kind": "every",
+        "anchorMs": 1775961659798
+      },
+      "sessionTarget": "main",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "systemEvent",
+        "text": "Hourly backup triggered"
+      },
+      "delivery": {
+        "mode": "none"
+      },
+      "state": {
+        "nextRunAtMs": 1778043337058,
+        "lastRunAtMs": 1778041537058,
+        "lastRunStatus": "ok",
+        "lastStatus": "ok",
+        "lastDurationMs": 25722,
+        "lastDeliveryStatus": "not-requested",
+        "consecutiveErrors": 0,
+        "consecutiveSkipped": 0
+      },
+      "updatedAtMs": 1778041562780
+    },
+    {
+      "id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+      "agentId": "main",
+      "sessionKey": "agent:main:main",
+      "name": "hourly-git-backup-v2",
+      "enabled": true,
+      "createdAtMs": 1745846400000,
+      "schedule": {
+        "expr": "0 * * * *",
+        "kind": "cron"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "bash /root/hourly_git_backup.sh",
+        "timeoutSeconds": 180
+      },
+      "delivery": {
+        "mode": "announce",
+        "channel": "telegram",
+        "to": "6402511249"
+      },
+      "description": "Hourly git backup (increased timeout to 120s)",
+      "state": {
+        "nextRunAtMs": 1778043677429,
+        "lastRunAtMs": 1778040077436,
+        "lastRunStatus": "ok",
+        "lastStatus": "ok",
+        "lastDurationMs": 50042,
+        "lastDeliveryStatus": "delivered",
+        "consecutiveErrors": 0,
+        "consecutiveSkipped": 0,
+        "lastDelivered": true
+      },
+      "updatedAtMs": 1778040127478
+    },
+    {
+      "id": "17de649d-c18b-4e28-8357-832b0af3599d",
+      "agentId": "main",
+      "sessionKey": "agent:main:telegram:direct:6402511249",
+      "name": "v1-system-guard",
+      "enabled": true,
+      "createdAtMs": 1777995021274,
+      "schedule": {
+        "kind": "every",
+        "everyMs": 60000,
+        "anchorMs": 1777995021274
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "Run the v1 system guard to kill any forbidden processes: cd /root/Dex-trading-bot && bash system_guard.sh && ps aux | grep -E 'scanner|monitor' | grep -v grep",
+        "timeoutSeconds": 15
+      },
+      "delivery": {
+        "mode": "none"
+      },
+      "state": {
+        "nextRunAtMs": 1778044000194,
+        "lastRunAtMs": 1778040369889,
+        "lastRunStatus": "error",
+        "lastStatus": "error",
+        "lastDurationMs": 30305,
+        "lastErrorReason": "timeout",
+        "lastDeliveryStatus": "not-requested",
+        "consecutiveErrors": 17,
+        "consecutiveSkipped": 0,
+        "lastError": "cron: job execution timed out"
+      },
+      "updatedAtMs": 1778041274982
+    },
+    {
+      "id": "d5a59055-fb4e-4085-b782-9f5876fc1b3d",
+      "agentId": "main",
+      "sessionKey": "agent:main:main",
+      "name": "hourly-health-check",
+      "enabled": true,
+      "createdAtMs": 1776039249850,
+      "schedule": {
+        "kind": "cron",
+        "expr": "15 * * * *"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "Run system health check:\n\n```bash\ncd /root/Dex-trading-bot && bash scripts/system_health_check.sh 2>&1\n```\n\nCRITICAL: ONLY scanner_v1.py and monitor_v1.py should be running. Kill ANY other scanner/monitor processes immediately. Report to Chris what was found and killed.",
+        "timeoutSeconds": 90
+      },
+      "delivery": {
+        "channel": "telegram",
+        "mode": "announce",
+        "to": "6402511249"
+      },
+      "state": {
+        "nextRunAtMs": 1778044500000,
+        "lastRunAtMs": 1778040900008,
+        "lastRunStatus": "error",
+        "lastStatus": "error",
+        "lastDurationMs": 90258,
+        "lastDeliveryStatus": "unknown",
+        "consecutiveErrors": 1,
+        "consecutiveSkipped": 0,
+        "lastError": "cron: job execution timed out",
+        "lastErrorReason": "timeout"
+      },
+      "updatedAtMs": 1778040990266
+    },
+    {
+      "id": "81b51afc-b155-4ba3-84e2-dc6367deebe8",
+      "agentId": "main",
+      "sessionKey": "agent:main:telegram:default:direct:6402511249",
+      "name": "Wilson Strategy Review",
+      "enabled": true,
+      "createdAtMs": 1777605963012,
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 */4 * * *",
+        "tz": "UTC",
+        "staggerMs": 300000
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "You are Wilson's 4-hour strategy and skills reviewer. Keep Wilson sharp by following this checklist:\n\n## PART 1: MARKET INTELLIGENCE (via gmgn-cli only)\n1. `gmgn-cli market trending --chain sol --interval 1m --platform Pump.fun --platform pump_mayhem --platform pump_mayhem_agent --platform pump_agent --platform letsbonk --order-by volume --limit 10 --raw` — hottest pump.fun tokens right now\n2. `gmgn-cli market trenches --chain sol --type new_creation --limit 20 --raw` — brand new pump.fun tokens\n3. `gmgn-cli market signal --chain sol --signal-type 12 --limit 10 --raw` — smart money buys\n4. `gmgn-cli track smartmoney --chain sol --limit 10 --raw` — what smart money is trading\n\n## PART 2: SCANNER AUDIT (read files)\n1. Read /root/Dex-trading-bot/scanner_v1.py — verify settings:\n   - MIN_MCAP=$8,000, MAX_MCAP=$20,000, MIN_HOLDERS=15, MIN_VOLUME=$10,000, H1_MIN=100%\n   - 5 ENTRY PATHS: SURGE (h1>200%, chg5>50%, chg1>10%), WHALE (whale≥5, h1>100%, vol>$15K), ESTABLISHED (age>600s, h1>100%), SNIPER (snipers≥1, h1>100%, vol>$10K), PUMP (h1>75%, chg5>10%, chg1>5%)\n   - BOUNCE PATH: DISABLED\n   - All 4 sources active (trending, trenches, dexscreener)?\n2. Read /root/Dex-trading-bot/monitor_v1.py — verify:\n   - TP exits: TP1:+50% HOLD, TP2:+100% 40%, TP3:+200% 30%, TP4:+300% 20%, TP5:+500% 10%, TP6:+1000% ALL\n   - Trail stops from local peak\n3. Read /root/.openclaw/workspace/.agents/skills/gmgn-market/SKILL.md — refresh GMGN skills\n\n## PART 3: POSITIONS & PNL\n1. Read /root/Dex-trading-bot/trades/sim_trades.jsonl — open positions, recent wins/losses\n2. Check current balance from wallet\n\n## PART 4: MEMORY\n1. Read /root/.openclaw/workspace/memory/2026-05-05.md — pending issues\n2. Read /root/.openclaw/workspace/MEMORY.md — review strategy and rules\n\n## PART 5: REPORT\nSend Telegram (6402511249) a concise report:\n- Top pump.fun tokens (name, mcap, h1, chg5, smart_degen_count)\n- Any settings that drifted\n- Open positions and recent PnL\n- Any new learnings or issues\n- Whether skills are current\n\nCRITICAL: ONLY scanner_v1.py and monitor_v1.py should be running. If ANY other scanner/monitor is found (gmgn_scanner.py, position_monitor.py, alert_sender.py, combined_monitor.py, auto_scanner.py, etc.), KILL THEM IMMEDIATELY and report which ones were killed.\n\nBe concise for Telegram.",
+        "timeoutSeconds": 240,
+        "model": "minimax/MiniMax-M2.5",
+        "thinking": "off"
+      },
+      "delivery": {
+        "mode": "announce",
+        "channel": "telegram",
+        "to": "6402511249"
+      },
+      "state": {
+        "nextRunAtMs": 1778054525074,
+        "lastRunAtMs": 1778040129491,
+        "lastRunStatus": "error",
+        "lastStatus": "error",
+        "lastDurationMs": 240398,
+        "lastDeliveryStatus": "unknown",
+        "consecutiveErrors": 2,
+        "consecutiveSkipped": 0,
+        "lastErrorReason": "timeout",
+        "lastError": "cron: job execution timed out"
+      },
+      "updatedAtMs": 1778040369889
+    },
+    {
+      "id": "98241a56-f01a-4712-b96e-8a701ee31e5b",
+      "agentId": "main",
+      "sessionKey": "agent:main:main",
+      "name": "Rejection data analysis",
+      "enabled": true,
+      "createdAtMs": 1777171908246,
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 3 * * *",
+        "tz": "UTC"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "Analyze scanner rejection data for v1.3 system. Run: cd /root/Dex-trading-bot/trades && wc -l rejections.jsonl 2>/dev/null || echo 'No rejections file'. Check scanner_v1.py for current filters: MIN_MCAP=$8,000, MAX_MCAP=$20,000, MIN_HOLDERS=15, MIN_VOLUME=$10,000, H1_MIN=100%. Check 5 ENTRY PATHS: SURGE (h1>200%, chg5>50%, chg1>10%), WHALE (whale≥5, h1>100%, vol>$15K), ESTABLISHED (age>600s, h1>100%), SNIPER (snipers≥1, h1>100%, vol>$10K), PUMP (h1>75%, chg5>10%, chg1>5%). BOUNCE PATH is DISABLED. Report to user what filters are rejecting the most tokens and whether any are too aggressive.",
+        "timeoutSeconds": 120
+      },
+      "delivery": {
+        "mode": "announce",
+        "channel": "telegram",
+        "to": "6402511249"
+      },
+      "state": {
+        "nextRunAtMs": 1778122800000,
+        "lastRunAtMs": 1778036400003,
+        "lastRunStatus": "error",
+        "lastStatus": "error",
+        "lastDurationMs": 120959,
+        "lastDeliveryStatus": "unknown",
+        "consecutiveErrors": 1,
+        "consecutiveSkipped": 0,
+        "lastError": "cron: job execution timed out",
+        "lastErrorReason": "timeout"
+      },
+      "updatedAtMs": 1778036520962
+    },
+    {
+      "id": "13ed03a1-b2b7-4b78-8739-0d0b909b0147",
+      "agentId": "main",
+      "sessionKey": "agent:main:main",
+      "name": "git-backup",
+      "enabled": false,
+      "createdAtMs": 1775432221771,
+      "schedule": {
+        "expr": "*/30 * * * *",
+        "kind": "cron"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "Git add and commit all changes. Run: cd /root/.openclaw/workspace && git add -A && git commit -m \"Auto-backup $(date)\"",
+        "timeoutSeconds": 30
+      },
+      "delivery": {
+        "mode": "none"
+      },
+      "state": {
+        "lastRunAtMs": 1775518265113,
+        "lastRunStatus": "error",
+        "lastStatus": "error",
+        "lastDurationMs": 30005,
+        "lastDeliveryStatus": "not-requested",
+        "consecutiveErrors": 7,
+        "lastErrorReason": "timeout",
+        "lastError": "cron: job execution timed out"
+      },
+      "updatedAtMs": 1775520523647
+    },
+    {
+      "id": "649e19f9-ade8-4fdd-9c11-63f8bd7ca434",
+      "agentId": "main",
+      "sessionKey": "agent:main:main",
+      "name": "hourly-bot-backup",
+      "enabled": false,
+      "createdAtMs": 1775622987081,
+      "schedule": {
+        "expr": "30 * * * *",
+        "kind": "cron"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "Run hourly status:\n\n```bash\ncd /root/Dex-trading-bot && bash backup.sh && python3 -c \"from alert_sender import get_status; print(get_status())\"\n```\n\nSend Chris balance, record, and systems status.",
+        "timeoutSeconds": 90
+      },
+      "delivery": {
+        "mode": "announce",
+        "channel": "telegram",
+        "to": "6402511249"
+      },
+      "state": {
+        "lastRunAtMs": 1777584737572,
+        "lastRunStatus": "error",
+        "lastStatus": "error",
+        "lastDurationMs": 67071,
+        "lastDeliveryStatus": "delivered",
+        "consecutiveErrors": 6,
+        "consecutiveSkipped": 0,
+        "lastError": "⚠️ Agent couldn't generate a response. Please try again.",
+        "lastDelivered": true
+      },
+      "updatedAtMs": 1777584985621
+    },
+    {
+      "id": "7af415d1-8f4f-4523-92a7-4edc62e7dd38",
+      "agentId": "main",
+      "sessionKey": "agent:main:main",
+      "name": "OpenClaw Auto Update",
+      "enabled": false,
+      "createdAtMs": 1777348888281,
+      "schedule": {
+        "everyMs": 86400000,
+        "kind": "every",
+        "anchorMs": 1777348888281
+      },
+      "sessionTarget": "main",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "systemEvent",
+        "text": "AUTO_UPDATE_OPENCLAW"
+      },
+      "delivery": {
+        "mode": "none"
+      },
+      "state": {
+        "lastRunAtMs": 1777521861689,
+        "lastRunStatus": "error",
+        "lastStatus": "error",
+        "lastDurationMs": 600002,
+        "lastDeliveryStatus": "not-requested",
+        "consecutiveErrors": 1,
+        "consecutiveSkipped": 0,
+        "lastError": "cron: job execution timed out",
+        "lastErrorReason": "timeout"
+      },
+      "updatedAtMs": 1777584989996
+    }
+  ],
+  "total": 10,
+  "offset": 0,
+  "limit": 10,
+  "hasMore": false,
+  "nextOffset": null,
+  "deliveryPreviews": {
+    "e6239808-e4a1-450d-b034-0b8eaf099dfd": {
+      "label": "none -> last",
+      "detail": "last -> no route, will fail-closed: Delivering to Telegram requires target <chatId>"
+    },
+    "3d16c86d-53f5-44ca-ae3e-cc78cccb4590": {
+      "label": "none -> last",
+      "detail": "last -> no route, will fail-closed: Delivering to Telegram requires target <chatId>"
+    },
+    "a1b2c3d4-e5f6-7890-abcd-ef1234567890": {
+      "label": "announce -> telegram:6402511249",
+      "detail": "explicit"
+    },
+    "17de649d-c18b-4e28-8357-832b0af3599d": {
+      "label": "none -> telegram:telegram:6402511249",
+      "detail": "resolved from last, session agent:main:telegram:direct:6402511249"
+    },
+    "d5a59055-fb4e-4085-b782-9f5876fc1b3d": {
+      "label": "announce -> telegram:6402511249",
+      "detail": "explicit"
+    },
+    "81b51afc-b155-4ba3-84e2-dc6367deebe8": {
+      "label": "announce -> telegram:6402511249",
+      "detail": "explicit"
+    },
+    "98241a56-f01a-4712-b96e-8a701ee31e5b": {
+      "label": "announce -> telegram:6402511249",
+      "detail": "explicit"
+    },
+    "13ed03a1-b2b7-4b78-8739-0d0b909b0147": {
+      "label": "none -> last",
+      "detail": "last -> no route, will fail-closed: Delivering to Telegram requires target <chatId>"
+    },
+    "649e19f9-ade8-4fdd-9c11-63f8bd7ca434": {
+      "label": "announce -> telegram:6402511249",
+      "detail": "explicit"
+    },
+    "7af415d1-8f4f-4523-92a7-4edc62e7dd38": {
+      "label": "not requested",
+      "detail": "not requested"
+    }
+  }
+}
