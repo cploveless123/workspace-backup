@@ -9,6 +9,20 @@ Root causes:
 - Accidentally deleting the buy logic path
 - Not testing the scan cycle after changes
 - Not verifying logs grow after restart
+- **Reporting from memory instead of live data**
+
+## LIVE DATA RULE (NEW)
+**Before answering ANY trading question:**
+1. Run `ps aux | grep -E "scanner_v1|monitor_v1" | grep -v grep`
+2. Run `tail -20 scanner_v1.log`
+3. Run `tail -20 monitor_v1.log`
+4. Run `cat sim_wallet.json` (or actual balance source)
+5. Only THEN answer
+
+**NEVER say:** "I think..." or "From memory..."
+**ALWAYS say:** "Here's what the system shows right now..."
+
+The 13:00 UTC stale data incident (reporting Boogle from 04:00) proves memory is unreliable.
 
 ## THE PROTOCOL
 
@@ -94,3 +108,4 @@ Before considering it done, tell Chris:
 - Skip log verification
 - Make "quick" changes
 - Change multiple things at once
+- **Answer from memory without checking live data first**
