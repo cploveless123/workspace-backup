@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-05-04T22:11:16.979Z",
+  "updatedAt": "2026-05-06T13:57:01.594Z",
   "entries": {
     "memory:memory/2026-04-15.md:209:236": {
       "key": "memory:memory/2026-04-15.md:209:236",
@@ -751,6 +751,99 @@
         "mid-session",
         "rate-limited",
         "cloudflare/waf"
+      ]
+    },
+    "memory:memory/2026-04-16.md:1:36": {
+      "key": "memory:memory/2026-04-16.md:1:36",
+      "path": "memory/2026-04-16.md",
+      "startLine": 1,
+      "endLine": 36,
+      "source": "memory",
+      "snippet": "# 2026-04-16 ## 7:38 AM - Wallet Monitor (cron) - Whale 1 (`suqh5...QfK`): 1.99 SOL ↓ from 3.44 SOL — ACCUMULATING - Whale 2 (`CyaE1...a54o`): 506.93 SOL ↑ from 378.93 SOL — IDLE ## 7:13 PM - Wallet Monitor (cron) - Whale 1 (`CyaE1...a54o`): 594.11 SOL ↑ from 581.76 SOL (+12.35) — IDLE - Whale 2 (`suqh5...QfK`): 1.66 SOL ↓ from 3.44 SOL (-1.78) — ACCUMULATING ## 2:20 PM - Trading Bot Session Summary ### Scanner Fixes Today - PUMP path: chg1>+10% threshold, 45s→30s→15s timing - CRITICAL BUG FIX: pump and cooldown paths were using stale chg1 (cached from scan time) at every decision stage. All paths now do dedicated fresh fetch at stage expiry before confirming - All paths (Pump, Young, Ol",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 1,
+      "maxScore": 1,
+      "firstRecalledAt": "2026-05-06T13:57:01.594Z",
+      "lastRecalledAt": "2026-05-06T13:57:01.594Z",
+      "queryHashes": [
+        "830b790d8980"
+      ],
+      "recallDays": [
+        "2026-05-06"
+      ],
+      "conceptTags": [
+        "1.99",
+        "3.44",
+        "506.93",
+        "378.93",
+        "594.11",
+        "581.76",
+        "12.35",
+        "1.66"
+      ]
+    },
+    "memory:memory/2026-04-06.md:1:7": {
+      "key": "memory:memory/2026-04-06.md:1:7",
+      "path": "memory/2026-04-06.md",
+      "startLine": 1,
+      "endLine": 7,
+      "source": "memory",
+      "snippet": "# 2026-04-06 ## Wallet Monitor (23:45 UTC) - **CyaE1Vxv...**: 273.81 → 270.69 SOL (-3.12 SOL), IDLE - **suqh5sHtr...**: 4.31 SOL, SELLING (reducing positions) Whale wallet moved ~3 SOL - likely a trade or transfer.",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 1,
+      "maxScore": 1,
+      "firstRecalledAt": "2026-05-06T13:57:01.594Z",
+      "lastRecalledAt": "2026-05-06T13:57:01.594Z",
+      "queryHashes": [
+        "830b790d8980"
+      ],
+      "recallDays": [
+        "2026-05-06"
+      ],
+      "conceptTags": [
+        "273.81",
+        "270.69",
+        "3.12",
+        "4.31",
+        "wallet",
+        "monitor",
+        "utc",
+        "cyae1vxv"
+      ]
+    },
+    "memory:memory/wallets/2026-04-27.md:1:7": {
+      "key": "memory:memory/wallets/2026-04-27.md:1:7",
+      "path": "memory/wallets/2026-04-27.md",
+      "startLine": 1,
+      "endLine": 7,
+      "source": "memory",
+      "snippet": "# 2026-04-27 Daily Log ## Wallet Monitor (04:25 UTC) - **suqh5sHtr...**: 5.31 → 2.33 SOL (-2.98 SOL sold) - **CyaE1Vxv...**: 795.21 SOL (unchanged) No new buys on either wallet. Active trader reduced position.",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 1,
+      "maxScore": 1,
+      "firstRecalledAt": "2026-05-06T13:57:01.594Z",
+      "lastRecalledAt": "2026-05-06T13:57:01.594Z",
+      "queryHashes": [
+        "830b790d8980"
+      ],
+      "recallDays": [
+        "2026-05-06"
+      ],
+      "conceptTags": [
+        "5.31",
+        "2.33",
+        "2.98",
+        "795.21",
+        "log",
+        "wallet",
+        "monitor",
+        "utc"
       ]
     }
   }
