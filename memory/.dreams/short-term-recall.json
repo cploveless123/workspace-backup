@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-05-07T03:36:44.299Z",
+  "updatedAt": "2026-05-07T04:27:32.527Z",
   "entries": {
     "memory:memory/2026-04-15.md:209:236": {
       "key": "memory:memory/2026-04-15.md:209:236",
@@ -418,18 +418,20 @@
       "endLine": 41,
       "source": "memory",
       "snippet": "- **Result:** Alert formula `current_mcap = current_price × entry_mcap / entry_price` uses mismatched supplies → wrong mcap - **Example:** ARI alert showed \"Current: $7,956\" but real GMGN mcap is $11,528 - **Fix needed:** `entry_mcap` should be `GMGN_price × GMGN_circulating_supply` (calculated from GMGN fields, not DexScreener) - **Scanner location:** where `entry_mcap` is set from DexScreener data - **Impact:** All position monitor alerts show wrong mcap figures ### Bug 3: Alert gain % uses `ath_price` in TRUE_PEAK (PENDING FIX) - **Problem:** `TRUE_PEAK` (line ~307) uses `ath_price` in max() → alerts show inflated peak mcap - **PokéCoin example:** Alert showed Peak: $21,653 → derived fro",
-      "recallCount": 1,
+      "recallCount": 2,
       "dailyCount": 0,
       "groundedCount": 0,
-      "totalScore": 1,
+      "totalScore": 2,
       "maxScore": 1,
       "firstRecalledAt": "2026-05-04T15:42:33.867Z",
-      "lastRecalledAt": "2026-05-04T15:42:33.867Z",
+      "lastRecalledAt": "2026-05-07T04:04:05.752Z",
       "queryHashes": [
-        "45672317eb82"
+        "45672317eb82",
+        "6e094a11a8d4"
       ],
       "recallDays": [
-        "2026-05-04"
+        "2026-05-04",
+        "2026-05-07"
       ],
       "conceptTags": [
         "current-mcap",
@@ -449,18 +451,20 @@
       "endLine": 53,
       "source": "memory",
       "snippet": "## 03:38 UTC - Wilson v6.1 Strategy (Final Updates) ### Final v6.1 Config: - MIN_MCAP: $4,000 - DIP: 10-45% - MIN_CHG1: 3% - ATH distance: >15% below ATH - CHG1_DROP: 5% (continue watching, not reject) - Stop loss: -20% - MIN_AGE: 3 min - MIN_HOLDERS: 15+ - BS ratio: pump.fun OK, raydium >0.8 ### Git Commit: 50b6513 ### Systems Restarted (03:38 UTC): - gmgn_scanner.py - position_monitor.py - alert_sender.py ## 03:45 UTC - Wilson v6.2 Strategy ### v6.2 Changes from v6.1: - TP1 trail: 35% → 40% - TP2-4 trail: 30% → 35% - Stop loss: -20% → -25% - Cooldown: Young chg5 >+100%, Older chg5 >+3% - Improvement threshold: +2% → +3% ### Git Commit: b0e9155 ### Systems Restarted (03:45 UTC): - g",
-      "recallCount": 1,
+      "recallCount": 2,
       "dailyCount": 0,
       "groundedCount": 0,
-      "totalScore": 1,
+      "totalScore": 2,
       "maxScore": 1,
       "firstRecalledAt": "2026-05-04T15:42:33.867Z",
-      "lastRecalledAt": "2026-05-04T15:42:33.867Z",
+      "lastRecalledAt": "2026-05-07T04:04:05.752Z",
       "queryHashes": [
-        "45672317eb82"
+        "45672317eb82",
+        "6e094a11a8d4"
       ],
       "recallDays": [
-        "2026-05-04"
+        "2026-05-04",
+        "2026-05-07"
       ],
       "conceptTags": [
         "v6.1",
@@ -698,18 +702,20 @@
       "endLine": 93,
       "source": "memory",
       "snippet": "7. Fixed BUY alert dedup - now uses token address as key (not message prefix) 8. Fixed BUY alert to only fire if buy_token returns True 9. Added GMGN API key to ~/.gmgn-cli/config.json: gmgn_316679140df01f0712907201654ee2a6 10. Scanner throttle fix: trending→trenches→new pairs every 30s, 50 tokens each ### Current Scanner Settings (final): - MIN_MCAP: $6,700 - MAX_MCAP: $30,000 - H1_MAX: +200% ceiling (blocks parabolic tokens) - PUMP_MIN_AGE: 300s (5 min) - H1_MOMENTUM_MIN: +25% (pre-filter minimum) - MAX_OPEN_POSITIONS: 5 - POSITION_SIZE: 0.1 SOL ### Performance: - Started day at roughly -$2.50 SOL - Ended day around -$3.54 SOL - H1 filter, mcap adjustments, and throttle issues caused rou",
-      "recallCount": 1,
+      "recallCount": 2,
       "dailyCount": 0,
       "groundedCount": 0,
-      "totalScore": 1,
+      "totalScore": 2,
       "maxScore": 1,
       "firstRecalledAt": "2026-05-04T22:11:16.979Z",
-      "lastRecalledAt": "2026-05-04T22:11:16.979Z",
+      "lastRecalledAt": "2026-05-07T04:27:32.527Z",
       "queryHashes": [
-        "21e8d02ecbb5"
+        "21e8d02ecbb5",
+        "7ea54eeed800"
       ],
       "recallDays": [
-        "2026-05-04"
+        "2026-05-04",
+        "2026-05-07"
       ],
       "conceptTags": [
         "buy-token",
@@ -1036,6 +1042,162 @@
         "2.0",
         "1.5",
         "min-holders"
+      ]
+    },
+    "memory:memory/2026-05-01.md:1:23": {
+      "key": "memory:memory/2026-05-01.md:1:23",
+      "path": "memory/2026-05-01.md",
+      "startLine": 1,
+      "endLine": 23,
+      "source": "memory",
+      "snippet": "# 2026-05-01 - Memory Log ## 01:24 UTC - Wallet monitor run: suqh5sHt dropped from 3.71 → 2.41 SOL (-1.3 SOL). CyaE1V whale stable at ~842.9 SOL. No alerts sent. # 2026-05-01 - Memory Log ## 01:24 UTC - Wallet monitor run: suqh5sHt dropped from 3.71 → 2.41 SOL (-1.3 SOL). CyaE1V whale stable at ~842.9 SOL. No alerts sent. ## 17:04 UTC - CRITICAL BUG FIXES ### Bug 1: ATH price contaminating peak tracking (FIXED) - **File:** `position_monitor.py` line 332 - **Problem:** `true_peak = max(current_price, ath_price, peak_price)` — GMGN's all-time high (`ath_price`) was overriding trade-local peak tracking - **PokéCoin example:** ATH = $39,856, TP2 peak = $20,401 → trail threshold wrongly set to",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 1,
+      "maxScore": 1,
+      "firstRecalledAt": "2026-05-07T04:04:05.752Z",
+      "lastRecalledAt": "2026-05-07T04:04:05.752Z",
+      "queryHashes": [
+        "6e094a11a8d4"
+      ],
+      "recallDays": [
+        "2026-05-07"
+      ],
+      "conceptTags": [
+        "3.71",
+        "2.41",
+        "1.3",
+        "842.9",
+        "position-monitor.py",
+        "true-peak",
+        "current-price",
+        "ath-price"
+      ]
+    },
+    "memory:memory/2026-04-17.md:142:173": {
+      "key": "memory:memory/2026-04-17.md:142:173",
+      "path": "memory/2026-04-17.md",
+      "startLine": 142,
+      "endLine": 173,
+      "source": "memory",
+      "snippet": "### Current Scanner Settings (FINAL): - MIN_MCAP: $7,500 - MAX_MCAP: $30,000 - H1_MOMENTUM_MIN: 0% (no H1 floor) - H1_MAX: +300% ceiling - PUMP_MIN_AGE: 150s (2.5 min) - PUMP_CHG1_THRESHOLD: +10% + rising momentum - MIN_CHG5_FOR_BUY: +5% - H1_MOMENTUM_MIN: 0% - 4-cycle scan: GMGN trending → GMGN trenches → GMGN trenches → DexScreener pump.fun - Process 25 tokens per GMGN cycle, ALL DexScreener tokens ### Current Balance: -4.02 SOL | Record: 173W/339L ### Open Positions: - Tomodachi: entry $8,453 | peak +177% | sold 30% at TP2 | 60% remaining ### Alert Bug Fixed: - TP2 alert was saying \"Sold 40%\" but should say \"Sold 30%\" - Trade data was correct, alert message was wrong ### Today's Key W",
+      "recallCount": 2,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 2,
+      "maxScore": 1,
+      "firstRecalledAt": "2026-05-07T04:04:05.752Z",
+      "lastRecalledAt": "2026-05-07T04:27:32.527Z",
+      "queryHashes": [
+        "6e094a11a8d4",
+        "7ea54eeed800"
+      ],
+      "recallDays": [
+        "2026-05-07"
+      ],
+      "conceptTags": [
+        "min-mcap",
+        "max-mcap",
+        "h1-momentum-min",
+        "h1-max",
+        "pump-min-age",
+        "2.5",
+        "pump-chg1-threshold",
+        "min-chg5-for-buy"
+      ]
+    },
+    "memory:memory/2026-05-04.md:1:35": {
+      "key": "memory:memory/2026-05-04.md:1:35",
+      "path": "memory/2026-05-04.md",
+      "startLine": 1,
+      "endLine": 35,
+      "source": "memory",
+      "snippet": "## 2026-05-04 Trading Bot Rewrite ### Major Issues Found & Fixed 1. **GMGN API Field Changes** - CRITICAL - GMGN changed API response structure without notice - Old fields: `market_cap`, `h1`, `volume_24h`, `exchange` → all returning 0 - New fields: `price`, `supply`, `stat` object, `launchpad` - Fixed scanner to use correct fields: mcap = `price * supply`, stats from `stat` object - **Lesson:** Always verify API responses, never assume field names stay the same 2. **Old System Alerts Still Sending** - alert_sender.py (old system) was still running and sending outdated reports - Old reports showed wrong data (balance -13 SOL, old positions, wrong settings) - Kille",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 1,
+      "maxScore": 1,
+      "firstRecalledAt": "2026-05-07T04:04:05.752Z",
+      "lastRecalledAt": "2026-05-07T04:04:05.752Z",
+      "queryHashes": [
+        "6e094a11a8d4"
+      ],
+      "recallDays": [
+        "2026-05-07"
+      ],
+      "conceptTags": [
+        "market-cap",
+        "volume-24h",
+        "alert-sender.py",
+        "trading",
+        "bot",
+        "rewrite",
+        "major",
+        "issues"
+      ]
+    },
+    "memory:memory/2026-04-17.md:118:151": {
+      "key": "memory:memory/2026-04-17.md:118:151",
+      "path": "memory/2026-04-17.md",
+      "startLine": 118,
+      "endLine": 151,
+      "source": "memory",
+      "snippet": "- Tradooor: -$0.065 (STOP_LOSS, dropped 65%) - MCN: -$0.037, SFish: -$0.032, Glandon: -$0.030 ### Remaining Questions from Chris - TP1 exit strategy: Chris asked if we should take profits at TP1 or hold - Decision: Keep HOLD at TP1 (winners like Baba/shortly/URANIUM all went 3-10x past TP1) - Strategy: big winners pay for TP1 reversals ## 23:22 UTC - Final Evening Memory Flush ### Strategy Changes (Tonight) 1. Lowered H1_MOMENTUM_MIN from +25% → +0% (allow flat/hybrid markets) 2. Changed GMGN scan to prioritize newest tokens first 3. Changed to 2-cycle processing: process 25 tokens, carry remaining to next cycle 4. Added GMGN new pairs to scan rotation (3-cycle GMGN) 5. Added dedicated De",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 1,
+      "maxScore": 1,
+      "firstRecalledAt": "2026-05-07T04:27:32.527Z",
+      "lastRecalledAt": "2026-05-07T04:27:32.527Z",
+      "queryHashes": [
+        "7ea54eeed800"
+      ],
+      "recallDays": [
+        "2026-05-07"
+      ],
+      "conceptTags": [
+        "0.065",
+        "stop-loss",
+        "0.037",
+        "0.032",
+        "0.030",
+        "baba/shortly/uranium",
+        "3-10x",
+        "h1-momentum-min"
+      ]
+    },
+    "memory:memory/2026-04-29.md:1:46": {
+      "key": "memory:memory/2026-04-29.md:1:46",
+      "path": "memory/2026-04-29.md",
+      "startLine": 1,
+      "endLine": 46,
+      "source": "memory",
+      "snippet": "# 2026-04-29 ## 02:34 UTC - Wallet Monitor - CyaE1Vxv: 1725.87 → 1732.91 SOL (+7.04 SOL) - suqh5sHtr: 6.24 SOL (accumulating +4.14 total) - Both wallets ACCUMULATING ## Recent TXs - 3uLpUSV68bxyTPrXf5xaPQhoFCCG7cfAESj3EdH4gwisbW8RK8TLZy2KdSLCXXFKdykdznYvwQNMbqnyr9Uw4NNK - 9KtBkLcdyn6yqUKdWwhoLiwZon8ofKcMvFD2L8J1tc2VDZjZpbLuYAHZLGNh5eCj1fMCVWzxe5iSTpP7ZHHhnR3 # 2026-04-29 ## 02:34 UTC - Wallet Monitor - CyaE1Vxv: 1725.87 → 1732.91 SOL (+7.04 SOL) - suqh5sHtr: 6.24 SOL (accumulating +4.14 total) - Both wallets ACCUMULATING ## Recent TXs - 3uLpUSV68bxyTPrXf5xaPQhoFCCG7cfAESj3EdH4gwisbW8RK8TLZy2KdSLCXXFKdykdznYvwQNMbqnyr9Uw4NNK - 9KtBkLcdyn6yqUKdWwhoLiwZon8ofKcMvFD2L8J1tc2VDZjZpbLuYAHZLGNh5e",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 1,
+      "maxScore": 1,
+      "firstRecalledAt": "2026-05-07T04:27:32.527Z",
+      "lastRecalledAt": "2026-05-07T04:27:32.527Z",
+      "queryHashes": [
+        "7ea54eeed800"
+      ],
+      "recallDays": [
+        "2026-05-07"
+      ],
+      "conceptTags": [
+        "1725.87",
+        "1732.91",
+        "7.04",
+        "6.24",
+        "4.14",
+        "utc",
+        "wallet",
+        "monitor"
       ]
     }
   }
