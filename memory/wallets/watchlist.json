@@ -3,32 +3,32 @@
     {
       "address": "suqh5sHtr8HyJ7q8scBimULPkPpA557prMG47xCHQfK",
       "added": "2026-04-06T16:38:00Z",
-      "balance_sol": 2.58785489,
+      "balance_sol": 3.155550519,
       "prev_balance_sol": 4.36,
       "status": "ACCUMULATING",
       "recent_tokens": [],
       "pattern": "Active accumulation",
       "notes": "Balance dropped from 4.36 \u2192 3.35 SOL (-1.01 SOL)",
       "recent_activity": [
-        "5itMtLyZ4wu2uENh68wvym2juTsZw3Scss1y2f7Ayb54NfXCr6EN4xouhqR1ncAdbQn6axPVLUwq61RVFJ9ZPD3o",
-        "2kNsPvb5ZjNL18HQU6fh2jPeaMNvhAZydHTyXeqoYFeWNyF9JmctHkBgpkTyo4RREsjFPLLx7bF3w4RyDfsRzk4n"
+        "AdEZwtWGTrkMbftqpXxVvv7HwLGyH1uW15wypXNHorr8reJ7iZjLWJGDLneDSs5DM42uEehRdezgM5Ahtf7XeYx",
+        "2N2eH2zZVHmLCuXDZ19LmvzCCT3FZEN661qBG3fsokCwwLbfTySLN5YFp9fswBrbDWENNSPTHZDJtfNVTpVEu79u"
       ],
-      "last_check": 1778187514.7322364
+      "last_check": 1778190228.5082297
     },
     {
       "address": "CyaE1VxvBrahnPWkqm5VsdCvyS2QmNht2UFrKJHga54o",
       "added": "2026-04-06T16:45:00Z",
-      "balance_sol": 312.002987891,
+      "balance_sol": 315.957934002,
       "prev_balance_sol": 839.79,
       "status": "ACCUMULATING",
       "recent_tokens": [],
       "pattern": "Large SOL whale",
       "notes": "Large SOL whale - gained +310.63 SOL total, +16.59 SOL session, +1.99 SOL recent",
       "recent_activity": [
-        "42YAXeSV7R5nMcc2DxtP5j69idhqvVdSNo3FobEs8vTgAoRTjUbP37PQuBw8LLbRFEKUqrcKsk8Unz7ZfqCJH1or",
-        "ZAjdaEbBfRS7wcHQtqY754iGDygby9SJq82n1SKRuCvy29jXjiUL1zpcm6T25uWfg42LjRSuPUmPXYkVLYzXv6E"
+        "2ETn31iwphwTxguAGKrx4UQ9ykvL19iakphZ5xYut4pR6ypM1R6PB441WbR78T3t4DuD4UyJFHzvGjHNXTUpiSkL",
+        "39tKWfYHJpPrKbBDXRpmHtgksMjsugX6oxQwHZfsfJRCWZCnn5jmAPU1ZogCytCH7P55JW5bBkzVyKVxpUfKM2MT"
       ],
-      "last_check": 1778187514.9458447
+      "last_check": 1778188419.1920893
     }
   ]
 }
