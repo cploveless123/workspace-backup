@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-05-07T04:27:32.527Z",
+  "updatedAt": "2026-05-07T22:24:25.194Z",
   "entries": {
     "memory:memory/2026-04-15.md:209:236": {
       "key": "memory:memory/2026-04-15.md:209:236",
@@ -40,18 +40,20 @@
       "endLine": 88,
       "source": "memory",
       "snippet": "- DexScreener links for every signal and trade - Format example: 🏐 WILSON BUY ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 💰 Solana Swap (SOS) 📊 VOL 6.4x 💎 FDV: $430K | Liq: $215K 📈 Price: $0.00043010 | Age: 810329m 🎯 TP1: +50% | TP2: +100% | Stop: -20% 🔗 https://dexscreener.com/solana/... ### Known Issues - GMGN symbol parsing sometimes shows \"NEW\" instead of actual token name - Need to fix regex for extracting token symbols from GMGN messages ### Next Steps 1. Continue monitoring and trading 2. Set up GitHub remote and push 3. Fix symbol parsing 4. Test DexScreener-only signals vs GMGN signals 5. When P&L is good enough, Chris will let bot trade with real funds ## Trade Lea",
-      "recallCount": 1,
+      "recallCount": 2,
       "dailyCount": 0,
       "groundedCount": 0,
-      "totalScore": 1,
+      "totalScore": 2,
       "maxScore": 1,
       "firstRecalledAt": "2026-04-28T19:26:26.468Z",
-      "lastRecalledAt": "2026-04-28T19:26:26.468Z",
+      "lastRecalledAt": "2026-05-07T22:24:25.194Z",
       "queryHashes": [
-        "9d7ae2188a53"
+        "9d7ae2188a53",
+        "7e73fa846a9b"
       ],
       "recallDays": [
-        "2026-04-28"
+        "2026-04-28",
+        "2026-05-07"
       ],
       "conceptTags": [
         "6.4x",
@@ -766,16 +768,17 @@
       "endLine": 36,
       "source": "memory",
       "snippet": "# 2026-04-16 ## 7:38 AM - Wallet Monitor (cron) - Whale 1 (`suqh5...QfK`): 1.99 SOL ↓ from 3.44 SOL — ACCUMULATING - Whale 2 (`CyaE1...a54o`): 506.93 SOL ↑ from 378.93 SOL — IDLE ## 7:13 PM - Wallet Monitor (cron) - Whale 1 (`CyaE1...a54o`): 594.11 SOL ↑ from 581.76 SOL (+12.35) — IDLE - Whale 2 (`suqh5...QfK`): 1.66 SOL ↓ from 3.44 SOL (-1.78) — ACCUMULATING ## 2:20 PM - Trading Bot Session Summary ### Scanner Fixes Today - PUMP path: chg1>+10% threshold, 45s→30s→15s timing - CRITICAL BUG FIX: pump and cooldown paths were using stale chg1 (cached from scan time) at every decision stage. All paths now do dedicated fresh fetch at stage expiry before confirming - All paths (Pump, Young, Ol",
-      "recallCount": 2,
+      "recallCount": 3,
       "dailyCount": 0,
       "groundedCount": 0,
-      "totalScore": 2,
+      "totalScore": 3,
       "maxScore": 1,
       "firstRecalledAt": "2026-05-06T13:57:01.594Z",
-      "lastRecalledAt": "2026-05-07T02:16:56.996Z",
+      "lastRecalledAt": "2026-05-07T22:24:25.194Z",
       "queryHashes": [
         "830b790d8980",
-        "99414fbd5d01"
+        "99414fbd5d01",
+        "7e73fa846a9b"
       ],
       "recallDays": [
         "2026-05-06",
@@ -799,16 +802,17 @@
       "endLine": 7,
       "source": "memory",
       "snippet": "# 2026-04-06 ## Wallet Monitor (23:45 UTC) - **CyaE1Vxv...**: 273.81 → 270.69 SOL (-3.12 SOL), IDLE - **suqh5sHtr...**: 4.31 SOL, SELLING (reducing positions) Whale wallet moved ~3 SOL - likely a trade or transfer.",
-      "recallCount": 2,
+      "recallCount": 3,
       "dailyCount": 0,
       "groundedCount": 0,
-      "totalScore": 2,
+      "totalScore": 3,
       "maxScore": 1,
       "firstRecalledAt": "2026-05-06T13:57:01.594Z",
-      "lastRecalledAt": "2026-05-07T02:16:56.996Z",
+      "lastRecalledAt": "2026-05-07T22:24:25.194Z",
       "queryHashes": [
         "830b790d8980",
-        "99414fbd5d01"
+        "99414fbd5d01",
+        "7e73fa846a9b"
       ],
       "recallDays": [
         "2026-05-06",
