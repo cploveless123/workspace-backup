@@ -8,7 +8,7 @@
       "status": "ACCUMULATING",
       "recent_tokens": [],
       "pattern": "Active accumulation",
-      "notes": "Balance dropped from 4.36 \u2192 3.35 SOL (-1.01 SOL)",
+      "notes": "Balance dropped from 4.36 \u2192 3.35 SOL (-1.01 SOL). Now at 4.82 SOL \u2014 recovering, still accumulating.",
       "recent_activity": [
         "5aQ7s7rFueyuFWMZNDh6qJwELAyrdBUNwc9NmtNKjpCp4rRXQ9trRypEWjka7h6cPvW1vHokooWmio7NMABFmqJs",
         "zpDBHcSGuCKGeDRtCJGuNx5iZ2EfhePRGD8NrhKkDwB8pogVLYaBoq2vSmada7LJYHzq2bvs8iQve3739vvaA6C"
@@ -25,8 +25,8 @@
       "pattern": "Large SOL whale",
       "notes": "Large SOL whale - gained +310.63 SOL total, +16.59 SOL session, +1.99 SOL recent",
       "recent_activity": [
-        "5NuKyfPbLhamTayJZBa8YnKKeBryXqaFJpVDoZ8nG4CYNX5KVaaz5Y7bP99FJBQv2rya1wtqSLyLz5HYGBBLQFXw",
-        "2KR57N8rZVkngbguyHakNseyCNfuBAy4EptUEjUc9XTrJaVyFng5KS7a67nZ4fYv2T42HjLu5LGE2uUku8QY22Mc"
+        "4YyMBw1LnKhR3zesRjqtGqzwFxsN2q7xbrdMvxjeEBGztJtBrAdTgnit8eEZoPort5SvHnM7UZsNhohXcuik4XC7",
+        "5NuKyfPbLhamTayJZBa8YnKKeBryXqaFJpVDoZ8nG4CYNX5KVaaz5Y7bP99FJBQv2rya1wtqSLyLz5HYGBBLQFXw"
       ],
       "last_check": 1778274796.044699
     }
