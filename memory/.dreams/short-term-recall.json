@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-05-08T01:16:35.368Z",
+  "updatedAt": "2026-05-09T04:00:52.579Z",
   "entries": {
     "memory:memory/2026-04-15.md:209:236": {
       "key": "memory:memory/2026-04-15.md:209:236",
@@ -875,18 +875,20 @@
       "endLine": 161,
       "source": "memory",
       "snippet": "- Pump path: chg1 >= 20% → 45s wait → verify chg1 still >= 20% → BUY or recovery ### REMAINING ISSUE - USER.md/HEARTBEAT.md still show OLD exit plan (TP1 sell 10%, etc.) - Actual working plan is in position_monitor.py (TP1 HOLD, TP2 40%, etc.) - Need to update USER.md/HEARTBEAT.md to match current exit plan ## FULL BACKUP (18:33 UTC) ### SYSTEMS STATUS - Scanner: PID 1306403 (gmgn_scanner.py v7.4) - Monitor: PID 1274648 (position_monitor.py v7.4) - Alert Sender: PID 1255636 (alert_sender.py) - Balance: 1.0 SOL | 0W/0L | 0 open ### ALL FIXES APPLIED TODAY 1. ✅ PUMP_CHG1_THRESHOLD (was chg5, now chg1) - all 4 pump path checks 2. ✅ ALLOWED_EXCHANGES = ['raydium', 'pump', 'pumpswap'] 3. ✅ pa",
-      "recallCount": 1,
+      "recallCount": 2,
       "dailyCount": 0,
       "groundedCount": 0,
-      "totalScore": 1,
+      "totalScore": 2,
       "maxScore": 1,
       "firstRecalledAt": "2026-05-07T03:36:44.299Z",
-      "lastRecalledAt": "2026-05-07T03:36:44.299Z",
+      "lastRecalledAt": "2026-05-09T04:00:52.579Z",
       "queryHashes": [
-        "78571ac9b904"
+        "78571ac9b904",
+        "edcd8f72452f"
       ],
       "recallDays": [
-        "2026-05-07"
+        "2026-05-07",
+        "2026-05-09"
       ],
       "conceptTags": [
         "backup",
@@ -906,18 +908,20 @@
       "endLine": 47,
       "source": "memory",
       "snippet": "# Session Notes - April 5, 2026 ## Chris - Trading Bot Project ### Context Chris is building a DEX trading bot (DexScreener scanner + GMGN signal tracker + auto buyer). Previous workspace was wiped due to gateway failure. Rebuilt everything from scratch today. ### Current Systems Running - **DexScreener Scanner** - Monitors Solana DEX pairs, finds tokens with volume/price spikes - **GMGN Monitor** - Watches @gmgnsignals channel via Telegram session - **Trading Simulator** - Paper trades on signals, learning ### Trading Simulator - Started with 1.0 SOL - Current: 1.7177 SOL (+71.77%) - Record: 6 trades / 0 losses - Rules: TP1 +50% (sell 50%), TP2 +100% (sell remaining), SL -30% - All wins",
-      "recallCount": 1,
+      "recallCount": 2,
       "dailyCount": 0,
       "groundedCount": 0,
-      "totalScore": 1,
+      "totalScore": 2,
       "maxScore": 1,
       "firstRecalledAt": "2026-05-07T03:36:44.299Z",
-      "lastRecalledAt": "2026-05-07T03:36:44.299Z",
+      "lastRecalledAt": "2026-05-09T04:00:52.579Z",
       "queryHashes": [
-        "78571ac9b904"
+        "78571ac9b904",
+        "edcd8f72452f"
       ],
       "recallDays": [
-        "2026-05-07"
+        "2026-05-07",
+        "2026-05-09"
       ],
       "conceptTags": [
         "gateway",
@@ -937,18 +941,20 @@
       "endLine": 78,
       "source": "memory",
       "snippet": "- Trades file reset to empty - Blacklist cleared - Balance: 1.0 SOL - Record: 0W/0L - Open: 0 positions ### NEW EXIT STRATEGY (TP5) | Level | Trigger | Sell % | Stop | |-------|---------|--------|------| | TP1 | +50% | 10% | -25% | | TP2 | +100% | 15% | -25% | | TP3 | +200% | 20% | -20% | | TP4 | +400% | 25% | -15% | | TP5 | +1000% | 30% | EXIT ALL | | COMPOUND | After TP5 | REMAINING 10% | 20% trailing | ### COMPOUND MODE - Only activates when position hits TP5 (+1000%) - Remaining 10% monitored with 20% trailing stop - Goal: let winners run 2-5x additional - Exit when price drops 20% from peak ### Key Changes from Previous - New constants in trading_constants.py - Updated HEARTBEAT.md w",
-      "recallCount": 1,
+      "recallCount": 2,
       "dailyCount": 0,
       "groundedCount": 0,
-      "totalScore": 1,
+      "totalScore": 2,
       "maxScore": 1,
       "firstRecalledAt": "2026-05-07T03:36:44.299Z",
-      "lastRecalledAt": "2026-05-07T03:36:44.299Z",
+      "lastRecalledAt": "2026-05-09T04:00:52.579Z",
       "queryHashes": [
-        "78571ac9b904"
+        "78571ac9b904",
+        "edcd8f72452f"
       ],
       "recallDays": [
-        "2026-05-07"
+        "2026-05-07",
+        "2026-05-09"
       ],
       "conceptTags": [
         "1.0",
@@ -968,18 +974,20 @@
       "endLine": 133,
       "source": "memory",
       "snippet": "- Re-verify ALL path criteria at each stage - Check if momentum is still increasing - Verify volume hasn't collapsed **Impact**: Buying tokens that peaked during 90s recovery window ### NEW FILTERS DEPLOYED TODAY 1. **Dying Token Filter** (20:00 UTC): Reject if chg1 < -5% OR chg5 < 0% 2. **Fallen Giant Filter** (20:25 UTC): Reject if mcap < 20% of ATH 3. **Time Stop Filter** (20:42 UTC): Sell if held >15 min AND pnl < 0% ### v1 System Commands (ONLY ONES TO USE) - Start: `cd /root/Dex-trading-bot && bash start_v1.sh` - Stop: `cd /root/Dex-trading-bot && bash stop_v1.sh` - Restart: `cd /root/Dex-trading-bot && bash restart_v1.sh` - Status: `cd /root/Dex-trading-bot && bash status_v1.sh` #",
-      "recallCount": 1,
+      "recallCount": 2,
       "dailyCount": 0,
       "groundedCount": 0,
-      "totalScore": 1,
+      "totalScore": 2,
       "maxScore": 1,
       "firstRecalledAt": "2026-05-07T03:36:44.299Z",
-      "lastRecalledAt": "2026-05-07T03:36:44.299Z",
+      "lastRecalledAt": "2026-05-09T04:00:52.579Z",
       "queryHashes": [
-        "78571ac9b904"
+        "78571ac9b904",
+        "edcd8f72452f"
       ],
       "recallDays": [
-        "2026-05-07"
+        "2026-05-07",
+        "2026-05-09"
       ],
       "conceptTags": [
         "re-verify",
@@ -999,18 +1007,20 @@
       "endLine": 192,
       "source": "memory",
       "snippet": "- Scanner: /root/Dex-trading-bot/gmgn_scanner.py - Monitor: /root/Dex-trading-bot/position_monitor.py - Constants: /root/Dex-trading-bot/trading_constants.py - Trades: /root/Dex-trading-bot/trades/sim_trades.jsonl - Workspace: /root/.openclaw/workspace/ - Memory: /root/.openclaw/workspace/memory/2026-04-15.md ### GIT COMMITS (today) - 8e48881 - Skills, scanner fixes, heartbeat updates - 4a3c286 - Added GMGN throttle counts to get_scanner_status - 5164d73 - STOP: No more DexScreener failed alerts - 178f0d5 - STOP: Remove GMGN stale data alert - 001e68d - FIX: Only process urgent cooldowns (≤20s expiry) - c8bdc72 - Scanner stable - cooldown processing fixed ### USER.md UPDATED TO v7.4 - TP",
-      "recallCount": 1,
+      "recallCount": 2,
       "dailyCount": 0,
       "groundedCount": 0,
-      "totalScore": 1,
+      "totalScore": 2,
       "maxScore": 1,
       "firstRecalledAt": "2026-05-07T03:36:44.299Z",
-      "lastRecalledAt": "2026-05-07T03:36:44.299Z",
+      "lastRecalledAt": "2026-05-09T04:00:52.579Z",
       "queryHashes": [
-        "78571ac9b904"
+        "78571ac9b904",
+        "edcd8f72452f"
       ],
       "recallDays": [
-        "2026-05-07"
+        "2026-05-07",
+        "2026-05-09"
       ],
       "conceptTags": [
         "openclaw/workspace",
@@ -1208,6 +1218,130 @@
         "utc",
         "wallet",
         "monitor"
+      ]
+    },
+    "memory:memory/2026-05-04.md:27:70": {
+      "key": "memory:memory/2026-05-04.md:27:70",
+      "path": "memory/2026-05-04.md",
+      "startLine": 27,
+      "endLine": 70,
+      "source": "memory",
+      "snippet": "- This gives WRONG results when supply changes - Fixed to use GMGN data directly: `price * supply` - **Lesson:** Never calculate what API provides directly ### v1.0 Simplified System **Scanner:** - 4 sources: GMGN trending, trenches x2, DexScreener - Filters: mcap $5K-$20K, holders ≥15, volume ≥$5K, pump.fun/raydium - PUMP path: h1>+100%, chg5>+5%, chg1>+5% - BOUNCE path: h1>+75%, chg5>-5%, chg1>+5% - Age filter: REMOVED (was blocking too many tokens) - H1 min filter: REMOVED (only PUMP/BOUNCE minimums matter) **Monitor:** - GMGN data only (price, ath_price, supply) - Local peak tracking per position - TP1-5 with progressive selling - Trail stops from local peak - TP5: hold until",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 1,
+      "maxScore": 1,
+      "firstRecalledAt": "2026-05-09T04:00:52.557Z",
+      "lastRecalledAt": "2026-05-09T04:00:52.557Z",
+      "queryHashes": [
+        "5d65c1a57f9f"
+      ],
+      "recallDays": [
+        "2026-05-09"
+      ],
+      "conceptTags": [
+        "v1.0",
+        "pump.fun/raydium",
+        "pump/bounce",
+        "ath-price",
+        "tp1-5",
+        "gives",
+        "wrong",
+        "results"
+      ]
+    },
+    "memory:memory/2026-04-29.md:115:148": {
+      "key": "memory:memory/2026-04-29.md:115:148",
+      "path": "memory/2026-04-29.md",
+      "startLine": 115,
+      "endLine": 148,
+      "source": "memory",
+      "snippet": "### Updated Paths (all 7 buy blocks now call verify_buy_conditions): | Path | Line | What it re-checks | |------|------|-------------------| | PUMP_VERIFY | ~1217 | age + ALL filters + pump conditions | | CHG1_VERIFY | ~1257 | age + ALL filters + h1>25/chg5>-10 | | YOUNG_COOLDOWN | ~1319 | age + ALL filters + h1>25/chg5>-10 | | OLDER_COOLDOWN | ~1385 | age + ALL filters + h1>25/chg5>-10 | | COOLDOWN_WAIT | ~1451 | age + ALL filters + h1>25/chg5>-10 | | COOLDOWN_VERIFY | ~1536 | age + ALL filters + h1>25/chg5>-10 | | BASE_WAIT | ~1580 | age + ALL filters | ### Test & Deploy Rules Followed 1. ✅ Backup: gmgn_scanner.py.bak.20260429_1747 2. ✅ Syntax check: python -m py_compile passed 3. ✅ Scann",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 1,
+      "maxScore": 1,
+      "firstRecalledAt": "2026-05-09T04:00:52.557Z",
+      "lastRecalledAt": "2026-05-09T04:00:52.557Z",
+      "queryHashes": [
+        "5d65c1a57f9f"
+      ],
+      "recallDays": [
+        "2026-05-09"
+      ],
+      "conceptTags": [
+        "backup",
+        "verify-buy-conditions",
+        "re-checks",
+        "pump-verify",
+        "chg1-verify",
+        "25/chg5",
+        "young-cooldown",
+        "older-cooldown"
+      ]
+    },
+    "memory:memory/2026-04-10.md:1:64": {
+      "key": "memory:memory/2026-04-10.md:1:64",
+      "path": "memory/2026-04-10.md",
+      "startLine": 1,
+      "endLine": 64,
+      "source": "memory",
+      "snippet": "- 18:33 UTC: Wallet monitor run - CyaE1Vxv whale: 564.68 → 563.76 SOL (-0.92 SOL, still idle) ## Strategy v1.7 (18:58 UTC) - TP3 removed (exit at TP2 only) - Stop: -30% - Dip: 10-50% - Fresh reset at 1.0 SOL - Reset timestamp: 2026-04-10T19:00:00.000000 ### Backup: - Dex: db36b27 - Workspace: 5bf1a44 ## Strategy v1.8 (19:11 UTC) - Dip: 15-50% (raised from 10-50%) - TP3: +500% restored (sell remaining 25%) - Stop: -30% - Reset: 1.0 SOL at 19:09 ### Backup: - Dex: fc545b9 - Workspace: 0fe17a7 ## Strategy v1.9 (19:59 UTC) - Cooldown: 60s new (was 45s), 120s older (was 90s) - Dip: 15-50% - TP3: +500% - Stop: -30% - Reset: 1.0 SOL at 19:58 ### Backup: - Dex: 4a4de2b - Workspace: ab2a8fc ##",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 1,
+      "maxScore": 1,
+      "firstRecalledAt": "2026-05-09T04:00:52.557Z",
+      "lastRecalledAt": "2026-05-09T04:00:52.557Z",
+      "queryHashes": [
+        "5d65c1a57f9f"
+      ],
+      "recallDays": [
+        "2026-05-09"
+      ],
+      "conceptTags": [
+        "backup",
+        "564.68",
+        "563.76",
+        "0.92",
+        "v1.7",
+        "10-50",
+        "1.0",
+        "2026-04-10t19"
+      ]
+    },
+    "memory:memory/2026-04-10.md:50:109": {
+      "key": "memory:memory/2026-04-10.md:50:109",
+      "path": "memory/2026-04-10.md",
+      "startLine": 50,
+      "endLine": 109,
+      "source": "memory",
+      "snippet": "- TP4: +300% sell 20%, trail 15% - TP5: +1000% sell remaining 10%, trail 15% - Peak: 60s new, 120s older - Stop: -30% - Fresh reset at 1.0 SOL (21:04) ### Backup: - Dex: 0c1a2e3 - Workspace: 2ff1c4d ## Memory Flush - 21:20 UTC ### Strategy v2.0 (fully implemented) - TP1: +50% sell 30%, trail 15% - TP2: +100% sell 20%, trail 15% - TP3: +200% sell 20%, trail 15% - TP4: +300% sell 20%, trail 15% - TP5: +1000% sell remaining 10%, trail 15% - Peak windows: 60s (<5min), 120s (>5min) - Stop: -30% - Balance reset to 1.0 SOL at 21:04 UTC ### Key fixes (v2.0 session) 1. IRONCLAD: Token exists in trade file EVER = reject (no re-buys ever) 2. Dip check fixed to use DIP_MIN=15 constant 3. Cooldown",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 1,
+      "maxScore": 1,
+      "firstRecalledAt": "2026-05-09T04:00:52.557Z",
+      "lastRecalledAt": "2026-05-09T04:00:52.557Z",
+      "queryHashes": [
+        "5d65c1a57f9f"
+      ],
+      "recallDays": [
+        "2026-05-09"
+      ],
+      "conceptTags": [
+        "backup",
+        "1.0",
+        "v2.0",
+        "re-buys",
+        "dip-min",
+        "tp4",
+        "sell",
+        "trail"
       ]
     }
   }
