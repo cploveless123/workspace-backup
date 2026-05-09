@@ -1,7 +1,7 @@
 # MEMORY.md - Long-Term Memory
 
 ## V1 SYSTEM - THE ONLY ALLOWED TRADING SYSTEM
-- Scanner: `scanner_v1.py` (v1.6 - WHALE + ESTABLISHED + SNIPER + PUMP paths)
+- Scanner: `scanner_v1.py` (v1.7 - WHALE + SNIPER + PHOENIX + FRESH_RIDE + MOMENTUM_RIDE + KOL + DIP paths)
 - Monitor: `monitor_v1.py` (v1.1 - TP1-5 + TIME STOP)
 - **NO OTHER scanner/monitor files should ever run**
 
@@ -87,8 +87,18 @@ Active system: scanner_v1.py + monitor_v1.py
 | STOP | -40% | ALL | EXIT |
 | TIME STOP | >15min + pnl<0% | ALL | EXIT |
 
-### Current Status (2026-05-07)
-- Scanner: v1.6 running (PID 1209829)
-- Monitor: v1.1 running (PID 1473861)
-- System Guard: running (PID 1503986)
-- Old files: moved to archive/
+### DIP PATH Added (2026-05-09 04:45 UTC)
+**DIP PATH: Buy tokens that were hot but dipped - second chance entry**
+- Mcap: $8K-$20K
+- H1: > +100% (was hot)
+- Dip: -5% to -15% from ATH
+- chg1: > 0% (recovering)
+- Volume: > $5K
+- Entry: 45s + 30s + 15s verification stages
+- Recovery check if conditions fail at any stage
+
+### Current Status (2026-05-09)
+- Scanner: v1.7 running (DIP path added)
+- Monitor: v1.1 running
+- System Guard: running
+- Backup: scanner_v1.py.bak.pre_dip.20260509_0436
