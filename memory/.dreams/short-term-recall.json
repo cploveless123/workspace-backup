@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-05-09T04:00:52.579Z",
+  "updatedAt": "2026-05-09T14:28:31.188Z",
   "entries": {
     "memory:memory/2026-04-15.md:209:236": {
       "key": "memory:memory/2026-04-15.md:209:236",
@@ -875,16 +875,17 @@
       "endLine": 161,
       "source": "memory",
       "snippet": "- Pump path: chg1 >= 20% → 45s wait → verify chg1 still >= 20% → BUY or recovery ### REMAINING ISSUE - USER.md/HEARTBEAT.md still show OLD exit plan (TP1 sell 10%, etc.) - Actual working plan is in position_monitor.py (TP1 HOLD, TP2 40%, etc.) - Need to update USER.md/HEARTBEAT.md to match current exit plan ## FULL BACKUP (18:33 UTC) ### SYSTEMS STATUS - Scanner: PID 1306403 (gmgn_scanner.py v7.4) - Monitor: PID 1274648 (position_monitor.py v7.4) - Alert Sender: PID 1255636 (alert_sender.py) - Balance: 1.0 SOL | 0W/0L | 0 open ### ALL FIXES APPLIED TODAY 1. ✅ PUMP_CHG1_THRESHOLD (was chg5, now chg1) - all 4 pump path checks 2. ✅ ALLOWED_EXCHANGES = ['raydium', 'pump', 'pumpswap'] 3. ✅ pa",
-      "recallCount": 2,
+      "recallCount": 3,
       "dailyCount": 0,
       "groundedCount": 0,
-      "totalScore": 2,
+      "totalScore": 3,
       "maxScore": 1,
       "firstRecalledAt": "2026-05-07T03:36:44.299Z",
-      "lastRecalledAt": "2026-05-09T04:00:52.579Z",
+      "lastRecalledAt": "2026-05-09T14:28:31.188Z",
       "queryHashes": [
         "78571ac9b904",
-        "edcd8f72452f"
+        "edcd8f72452f",
+        "4c66cf8e1382"
       ],
       "recallDays": [
         "2026-05-07",
@@ -908,16 +909,17 @@
       "endLine": 47,
       "source": "memory",
       "snippet": "# Session Notes - April 5, 2026 ## Chris - Trading Bot Project ### Context Chris is building a DEX trading bot (DexScreener scanner + GMGN signal tracker + auto buyer). Previous workspace was wiped due to gateway failure. Rebuilt everything from scratch today. ### Current Systems Running - **DexScreener Scanner** - Monitors Solana DEX pairs, finds tokens with volume/price spikes - **GMGN Monitor** - Watches @gmgnsignals channel via Telegram session - **Trading Simulator** - Paper trades on signals, learning ### Trading Simulator - Started with 1.0 SOL - Current: 1.7177 SOL (+71.77%) - Record: 6 trades / 0 losses - Rules: TP1 +50% (sell 50%), TP2 +100% (sell remaining), SL -30% - All wins",
-      "recallCount": 2,
+      "recallCount": 3,
       "dailyCount": 0,
       "groundedCount": 0,
-      "totalScore": 2,
+      "totalScore": 3,
       "maxScore": 1,
       "firstRecalledAt": "2026-05-07T03:36:44.299Z",
-      "lastRecalledAt": "2026-05-09T04:00:52.579Z",
+      "lastRecalledAt": "2026-05-09T14:28:31.188Z",
       "queryHashes": [
         "78571ac9b904",
-        "edcd8f72452f"
+        "edcd8f72452f",
+        "4c66cf8e1382"
       ],
       "recallDays": [
         "2026-05-07",
@@ -974,16 +976,17 @@
       "endLine": 133,
       "source": "memory",
       "snippet": "- Re-verify ALL path criteria at each stage - Check if momentum is still increasing - Verify volume hasn't collapsed **Impact**: Buying tokens that peaked during 90s recovery window ### NEW FILTERS DEPLOYED TODAY 1. **Dying Token Filter** (20:00 UTC): Reject if chg1 < -5% OR chg5 < 0% 2. **Fallen Giant Filter** (20:25 UTC): Reject if mcap < 20% of ATH 3. **Time Stop Filter** (20:42 UTC): Sell if held >15 min AND pnl < 0% ### v1 System Commands (ONLY ONES TO USE) - Start: `cd /root/Dex-trading-bot && bash start_v1.sh` - Stop: `cd /root/Dex-trading-bot && bash stop_v1.sh` - Restart: `cd /root/Dex-trading-bot && bash restart_v1.sh` - Status: `cd /root/Dex-trading-bot && bash status_v1.sh` #",
-      "recallCount": 2,
+      "recallCount": 3,
       "dailyCount": 0,
       "groundedCount": 0,
-      "totalScore": 2,
+      "totalScore": 3,
       "maxScore": 1,
       "firstRecalledAt": "2026-05-07T03:36:44.299Z",
-      "lastRecalledAt": "2026-05-09T04:00:52.579Z",
+      "lastRecalledAt": "2026-05-09T14:28:31.188Z",
       "queryHashes": [
         "78571ac9b904",
-        "edcd8f72452f"
+        "edcd8f72452f",
+        "4c66cf8e1382"
       ],
       "recallDays": [
         "2026-05-07",
@@ -1007,16 +1010,17 @@
       "endLine": 192,
       "source": "memory",
       "snippet": "- Scanner: /root/Dex-trading-bot/gmgn_scanner.py - Monitor: /root/Dex-trading-bot/position_monitor.py - Constants: /root/Dex-trading-bot/trading_constants.py - Trades: /root/Dex-trading-bot/trades/sim_trades.jsonl - Workspace: /root/.openclaw/workspace/ - Memory: /root/.openclaw/workspace/memory/2026-04-15.md ### GIT COMMITS (today) - 8e48881 - Skills, scanner fixes, heartbeat updates - 4a3c286 - Added GMGN throttle counts to get_scanner_status - 5164d73 - STOP: No more DexScreener failed alerts - 178f0d5 - STOP: Remove GMGN stale data alert - 001e68d - FIX: Only process urgent cooldowns (≤20s expiry) - c8bdc72 - Scanner stable - cooldown processing fixed ### USER.md UPDATED TO v7.4 - TP",
-      "recallCount": 2,
+      "recallCount": 3,
       "dailyCount": 0,
       "groundedCount": 0,
-      "totalScore": 2,
+      "totalScore": 3,
       "maxScore": 1,
       "firstRecalledAt": "2026-05-07T03:36:44.299Z",
-      "lastRecalledAt": "2026-05-09T04:00:52.579Z",
+      "lastRecalledAt": "2026-05-09T14:28:31.188Z",
       "queryHashes": [
         "78571ac9b904",
-        "edcd8f72452f"
+        "edcd8f72452f",
+        "4c66cf8e1382"
       ],
       "recallDays": [
         "2026-05-07",
@@ -1342,6 +1346,37 @@
         "tp4",
         "sell",
         "trail"
+      ]
+    },
+    "memory:memory/2026-04-30.md:33:51": {
+      "key": "memory:memory/2026-04-30.md:33:51",
+      "path": "memory/2026-04-30.md",
+      "startLine": 33,
+      "endLine": 51,
+      "source": "memory",
+      "snippet": "- Accept GMGN token info when it has valid mcap (even without h1/chg5) - Accept DexScreener when it has mcap (even without h1) - These are brand new token fallbacks that currently never trigger due to wrong conditions ## Current Scanner Status - Scanner PID: 2164354 (started 20:32) - Monitor PID: 2097835 (started 18:50) - Balance: ~-6 SOL (open positions down, closed FARM +203%, DD +246%) - Disabled failing cron jobs: `hourly-bot-backup`, `scan-report-30min`, `OpenClaw Auto Update` ## Next Actions - [ ] Fix GMGN token info fallback condition (accept when valid mcap available) - [ ] Fix DexScreener fallback (accept when mcap available, even without h1) - [ ] Test with brand new token to ver",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 1,
+      "maxScore": 1,
+      "firstRecalledAt": "2026-05-09T14:28:31.188Z",
+      "lastRecalledAt": "2026-05-09T14:28:31.188Z",
+      "queryHashes": [
+        "4c66cf8e1382"
+      ],
+      "recallDays": [
+        "2026-05-09"
+      ],
+      "conceptTags": [
+        "backup",
+        "h1/chg5",
+        "hourly-bot-backup",
+        "scan-report-30min",
+        "accept",
+        "gmgn",
+        "token",
+        "info"
       ]
     }
   }
