@@ -1,7 +1,7 @@
 # MEMORY.md - Long-Term Memory
 
 ## V1 SYSTEM - THE ONLY ALLOWED TRADING SYSTEM
-- Scanner: `scanner_v1.py` (v1.7 - WHALE + SNIPER + PHOENIX + FRESH_RIDE + MOMENTUM_RIDE + KOL + DIP paths)
+- Scanner: `scanner_v1.py` (v1.8 - WHALE + SNIPER_HEAVY + KOL + PHOENIX + DIP + SMART_DEGEN + PROVEN paths)
 - Monitor: `monitor_v1.py` (v1.1 - TP1-5 + TIME STOP)
 - **NO OTHER scanner/monitor files should ever run**
 
@@ -56,49 +56,81 @@ Chris confirmed 75% WR during 06:00-10:00 UTC. I BROKE it after VPN switch. REST
 
 ### DO NOT CHANGE THESE SETTINGS
 
-## Current Strategy: TP5 COMPOUND (v1.6)
+## Current Strategy: TP5 COMPOUND (v1.8)
 Active system: scanner_v1.py + monitor_v1.py
 
-### Scanner v1.6 Entry Paths:
-- WHALE PATH: whale ≥ 5 + h1 > +100% + vol > $15K
-- ESTABLISHED PATH: age > 600s + h1 > +100%
-- SNIPER PATH: snipers ≥ 1 + h1 > +100% + vol > $10K
-- PUMP PATH: h1 > +50% + chg5 > +10% + chg1 > +5%
+### Scanner v1.8 Entry Paths (in priority order):
+1. **SMART_DEGEN PATH**: Smart Degen > 0 + H1 200-500% + MCAP $10K-$20K + Age 90-3600s
+   - Data: 192 trades, 53.1% WR, +3.80 SOL
+2. **PROVEN PATH**: Age > 600s + H1 200-500% + MCAP $10K-$20K + (KOL Vol $200+ OR Snipers >= 1)
+   - Data: Expected 60-65% WR (combined from profitable subsets)
+3. **KOL PATH**: KOL Vol >= $200 + H1 > 30% + MCAP $5K-$50K + Age 90-3600s
+   - Data: 54.5% WR at $200+ vol (changed from $50 on 2026-05-10 15:42 UTC)
+4. **WHALE PATH**: Whale >= 3 + H1 > 75% + Vol > $10K
+   - Data: 54.9% WR, +0.69 SOL
+5. **SNIPER_HEAVY PATH**: Snipers >= 2 + H1 > 50% + chg1 > 5% + Vol > $10K
+   - Data: 42.6% WR, +1.63 SOL
+6. **PHOENIX PATH**: MCAP $3K-$8K + chg5 20-50% + chg1 < 20% + Vol > $5K + vol/mcap > 0.3
+   - Dead token revival
+7. **DIP PATH**: MCAP $8K-$20K + H1 > 100% + dipped -5% to -15% from ATH + chg1 recovering + Vol > $5K
+   - Second chance entry
+
+### DISABLED PATHS:
+- PUMP path (was 34.7% WR, -36.18 SOL)
+- UNKNOWN path (was 36.5% WR, -31.13 SOL)
+- Signal score filtering (BACKWARD - filters OUT winners)
+
+### Exit Plan (monitor_v1.py v1.1):
+| Level | Trigger | Sell % | Trail |
+|-------|---------|--------|-------|
+| TP1 | +30% | HOLD | 45% from peak |
+| TP2 | +100% | 40% | 45% from peak |
+| TP3 | +200% | 30% | 40% from peak |
+| TP4 | +300% | 20% | 35% from peak |
+| TP5 | +1000% | HOLD | 25% from peak |
+| STOP | -45% | ALL | EXIT |
+| TIME STOP | >15min + pnl<0% | ALL | EXIT |
+
+### Key Data from 5,790 Trades:
+- Overall WR: 36.4%
+- Overall PnL: -66.74 SOL
+- Stop losses: 93% of all losses
+- Winners are 25% OLDER than losers (194s vs 156s)
+- Winners have 88% MORE snipers (2.2 vs 1.2)
+- Winners have 10% LOWER chg1 (78.6% vs 87.4%) - cooler entry
 
 ### Filters:
 - DYING TOKEN: chg1 < -5% OR chg5 < 0% → REJECT
 - FALLEN GIANT: mcap < 20% of ATH → REJECT
 
 ### Entry Settings:
-- Mcap: $5K-$20K
+- Mcap: $3K-$20K (varies by path)
 - Holders: ≥15
-- H1: >+50% (pump) or >+100% (whale/established/sniper)
-- Max open: 9 positions
+- Age: 90-3600s
 - Position size: 0.1 SOL
+- Max open: 9 positions
 
-### Exit Plan (monitor_v1.py v1.1):
-| Level | Trigger | Sell % | Trail |
-|-------|---------|--------|-------|
-| TP1 | +30% | HOLD | 40% from peak |
-| TP2 | +100% | 40% | 35% from peak |
-| TP3 | +200% | 30% | 30% from peak |
-| TP4 | +300% | 20% | 30% from peak |
-| TP5 | +1000% | ALL | 15% from peak |
-| STOP | -40% | ALL | EXIT |
-| TIME STOP | >15min + pnl<0% | ALL | EXIT |
+### IRONCLAD Rules:
+- PERM_BLACKLIST: never buy again
+- Fresh data only (GMGN primary, DexScreener backup)
+- Alert dedup: 5 min
 
-### DIP PATH Added (2026-05-09 04:45 UTC)
-**DIP PATH: Buy tokens that were hot but dipped - second chance entry**
-- Mcap: $8K-$20K
-- H1: > +100% (was hot)
-- Dip: -5% to -15% from ATH
-- chg1: > 0% (recovering)
-- Volume: > $5K
-- Entry: 45s + 30s + 15s verification stages
-- Recovery check if conditions fail at any stage
+## Current Status (2026-05-10 16:25 UTC)
+- Scanner: v1.8 running (PID 3217632)
+- Monitor: v1.1 running (PID 1946476)
+- Balance: -13.39 SOL
+- Open: 1 position (LifeLog, -30% PnL)
+- KOL volume filter: $200+ (active since 15:42 UTC)
+- New paths: SMART_DEGEN + PROVEN (added 16:10 UTC)
 
-### Current Status (2026-05-09)
-- Scanner: v1.7 running (DIP path added)
-- Monitor: v1.1 running
-- System Guard: running
-- Backup: scanner_v1.py.bak.pre_dip.20260509_0436
+## Git Commit History:
+- 2026-05-10 16:25: Scanner v1.8 - Add SMART_DEGEN + PROVEN paths, KOL vol $200+ filter
+
+## CRITICAL REMINDERS:
+- NEVER make code changes without Chris's explicit approval
+- ALWAYS follow SAFE_CHANGES.md exactly
+- Backup first, test after, report before deploying
+- Verify before speaking - check logs, code, data
+- Show work with exact commands and outputs
+- Double check all calculations and formulas
+- No assumptions, no shortcuts, no lies
