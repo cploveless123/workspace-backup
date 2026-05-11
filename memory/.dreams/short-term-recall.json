@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-05-11T15:02:49.155Z",
+  "updatedAt": "2026-05-11T15:07:57.872Z",
   "entries": {
     "memory:memory/2026-04-15.md:209:236": {
       "key": "memory:memory/2026-04-15.md:209:236",
@@ -76,20 +76,22 @@
       "endLine": 211,
       "source": "memory",
       "snippet": "- Scanner: PID 1398802 (gmgn_scanner.py v7.4/v7.5) - Monitor: PID 1379918 (position_monitor.py) - Alert Sender: PID 1381544 (alert_sender.py) - Balance: 1.0 SOL | 0W/0L | 0 open ### PUMP PATH BUG FIXED (20:23 UTC) - **Bug:** Tokens in PUMP_WAIT_1 with chg1 >= 5.001% were being EXPIRED and removed when fresh data fetch failed at cooldown expiry - **Fix:** When fresh data fetch fails at expiry, now uses cached chg1_prev for BUY check instead of expiring the token - **Also:** chg1_check variable introduced to track which chg1 value (fresh or cached) to use for buy decisions - **Commit:** 08f4a50 - \"FIX: Pump path - use cached chg1_prev if fresh data fetch fails at expiry\" - Scanner restarted w",
-      "recallCount": 2,
+      "recallCount": 3,
       "dailyCount": 0,
       "groundedCount": 0,
-      "totalScore": 2,
+      "totalScore": 3,
       "maxScore": 1,
       "firstRecalledAt": "2026-04-30T14:59:50.452Z",
-      "lastRecalledAt": "2026-05-03T00:22:04.693Z",
+      "lastRecalledAt": "2026-05-11T15:07:57.872Z",
       "queryHashes": [
         "d8698a368a54",
-        "1803c2fb84b5"
+        "1803c2fb84b5",
+        "3448958c367a"
       ],
       "recallDays": [
         "2026-04-30",
-        "2026-05-03"
+        "2026-05-03",
+        "2026-05-11"
       ],
       "conceptTags": [
         "gmgn-scanner.py",
@@ -365,18 +367,20 @@
       "endLine": 64,
       "source": "memory",
       "snippet": "2. **OpenClaw startup**: `node openclaw.mjs` starts INTERACTIVE mode. Need `node openclaw.mjs gateway` for gateway mode 3. **Old gateway blocking**: Need to kill old PID before starting fresh 4. **Auto-recovery**: It DID recover on its own after ~4.5 hours (like the 04:00 UTC incident) ### Status at 01:03 UTC: - Balance: 3.476899 SOL - Scanner: running (BL:3535) - GMGN: 0/0/0 fails - Exec now WORKING ✓ - Gateway running (PID ~2003) ### To properly restart OpenClaw gateway: ```bash # Kill old gateway first kill -9 2003 # Start fresh (in gateway mode, not interactive) cd /opt/node22/lib/node_modules/openclaw && node openclaw.mjs gateway ``` ### Scanner status at 01:03 UTC: - 0 scanner proc",
-      "recallCount": 1,
+      "recallCount": 2,
       "dailyCount": 0,
       "groundedCount": 0,
-      "totalScore": 1,
+      "totalScore": 2,
       "maxScore": 1,
       "firstRecalledAt": "2026-05-03T00:22:04.693Z",
-      "lastRecalledAt": "2026-05-03T00:22:04.693Z",
+      "lastRecalledAt": "2026-05-11T15:07:57.872Z",
       "queryHashes": [
-        "1803c2fb84b5"
+        "1803c2fb84b5",
+        "3448958c367a"
       ],
       "recallDays": [
-        "2026-05-03"
+        "2026-05-03",
+        "2026-05-11"
       ],
       "conceptTags": [
         "gateway",
@@ -525,18 +529,20 @@
       "endLine": 61,
       "source": "memory",
       "snippet": "- gmgn_scanner.py v7.7 with PUMP_CHG1_THRESHOLD=5% restored - position_monitor.py with ATH fix applied - Backup pushed to both repos at 17:04 UTC ## 18:16-18:55 UTC - Session Events ### entry_mcap FIX applied (commit 939ae179) - Scanner (`gmgn_scanner.py`) now calculates `entry_mcap = int(gmgn_price * gmgn_supply)` using GMGN data only — consistent with `entry_price` - Position monitor (`position_monitor.py`) uses `live_mcap` (from GMGN) for display when available; `entry_mcap` only as fallback - WHEELSHIB trade bought at 18:16:02 (OLD code) has DexScreener entry_mcap=$13,949 — new buys will use correct GMGN entry_mcap ### Scanner restart at 18:25 - Old scanner (started ~18:16) killed and",
-      "recallCount": 1,
+      "recallCount": 2,
       "dailyCount": 0,
       "groundedCount": 0,
-      "totalScore": 1,
+      "totalScore": 2,
       "maxScore": 1,
       "firstRecalledAt": "2026-05-04T15:42:33.867Z",
-      "lastRecalledAt": "2026-05-04T15:42:33.867Z",
+      "lastRecalledAt": "2026-05-11T15:07:57.872Z",
       "queryHashes": [
-        "45672317eb82"
+        "45672317eb82",
+        "3448958c367a"
       ],
       "recallDays": [
-        "2026-05-04"
+        "2026-05-04",
+        "2026-05-11"
       ],
       "conceptTags": [
         "backup",
@@ -1031,21 +1037,23 @@
       "endLine": 192,
       "source": "memory",
       "snippet": "- Scanner: /root/Dex-trading-bot/gmgn_scanner.py - Monitor: /root/Dex-trading-bot/position_monitor.py - Constants: /root/Dex-trading-bot/trading_constants.py - Trades: /root/Dex-trading-bot/trades/sim_trades.jsonl - Workspace: /root/.openclaw/workspace/ - Memory: /root/.openclaw/workspace/memory/2026-04-15.md ### GIT COMMITS (today) - 8e48881 - Skills, scanner fixes, heartbeat updates - 4a3c286 - Added GMGN throttle counts to get_scanner_status - 5164d73 - STOP: No more DexScreener failed alerts - 178f0d5 - STOP: Remove GMGN stale data alert - 001e68d - FIX: Only process urgent cooldowns (≤20s expiry) - c8bdc72 - Scanner stable - cooldown processing fixed ### USER.md UPDATED TO v7.4 - TP",
-      "recallCount": 3,
+      "recallCount": 4,
       "dailyCount": 0,
       "groundedCount": 0,
-      "totalScore": 3,
+      "totalScore": 4,
       "maxScore": 1,
       "firstRecalledAt": "2026-05-07T03:36:44.299Z",
-      "lastRecalledAt": "2026-05-09T14:28:31.188Z",
+      "lastRecalledAt": "2026-05-11T15:07:57.872Z",
       "queryHashes": [
         "78571ac9b904",
         "edcd8f72452f",
-        "4c66cf8e1382"
+        "4c66cf8e1382",
+        "3448958c367a"
       ],
       "recallDays": [
         "2026-05-07",
-        "2026-05-09"
+        "2026-05-09",
+        "2026-05-11"
       ],
       "conceptTags": [
         "openclaw/workspace",
@@ -1601,15 +1609,16 @@
       "endLine": 162,
       "source": "memory",
       "snippet": "### CURRENT SYSTEM STATE - **Scanner:** v1.6 — WHALE + ESTABLISHED + SNIPER + PUMP - **Monitor:** v1.1 with TIME STOP - **Guard:** system_guard.sh running ### PERFORMANCE DATA (from analysis) - **Wins:** 508 | **Losses:** 610 | **WR:** 45.4% - **Total PnL:** -5.76 SOL - **Problem:** 68 stop losses (-3.65 SOL) vs 54 wins (+2.59 SOL) - **Insight:** TP2+ wins are profitable, but stop losses happen too often ### CHRIS'S DIRECTIVE - **NO CODE CHANGES without explicit approval** - Current focus: Analyze winners vs losers, find edge - Age filter adjustment pending Chris's decision on values ### BACKUP FILES CREATED TODAY - scanner_v1.py.bak.20260506_1357 (BOUNCE removal) - scanner_v1.py.bak.2026",
-      "recallCount": 1,
+      "recallCount": 2,
       "dailyCount": 0,
       "groundedCount": 0,
-      "totalScore": 1,
+      "totalScore": 2,
       "maxScore": 1,
       "firstRecalledAt": "2026-05-11T15:02:49.155Z",
-      "lastRecalledAt": "2026-05-11T15:02:49.155Z",
+      "lastRecalledAt": "2026-05-11T15:07:57.872Z",
       "queryHashes": [
-        "bec011c25921"
+        "bec011c25921",
+        "3448958c367a"
       ],
       "recallDays": [
         "2026-05-11"
