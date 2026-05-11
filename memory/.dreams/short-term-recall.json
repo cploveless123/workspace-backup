@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-05-11T04:12:25.091Z",
+  "updatedAt": "2026-05-11T15:02:49.155Z",
   "entries": {
     "memory:memory/2026-04-15.md:209:236": {
       "key": "memory:memory/2026-04-15.md:209:236",
@@ -237,18 +237,20 @@
       "endLine": 120,
       "source": "memory",
       "snippet": "- Scanner v7.8 ChrisSpec running - PUMP_MIN_AGE: 120s (Chris confirmed) - H1_MOMENTUM_MIN: 75% - FALLEN_GIANT_H1: 800% - PUMP_ENTRY_CHG5: 10% - PUMP_WAIT_1: 45s | PUMP_WAIT_2: 10s | PUMP_VERIFY_DELAY: 10s - Monitor restarted with sell_token fix and TP3/TP4 independent checks - Age check still needs fix (using stored timestamp, not fresh) ### Scanner Still Not Fixed JRE and Hoppy both bought with entry_age_sec: 45 despite PUMP_MIN_AGE: 120s. Chris demanding fresh data verification before any buy. Scanner needs fix to re-check age with fresh GMGN data at PUMP_VERIFY time. ## 17:55 UTC - FRESH DATA VERIFICATION REBUILT (v7.8 FIX #2) ### The Problem All 7 buy paths used STORED result values (",
-      "recallCount": 1,
+      "recallCount": 2,
       "dailyCount": 0,
       "groundedCount": 0,
-      "totalScore": 1,
+      "totalScore": 2,
       "maxScore": 1,
       "firstRecalledAt": "2026-05-03T00:22:04.693Z",
-      "lastRecalledAt": "2026-05-03T00:22:04.693Z",
+      "lastRecalledAt": "2026-05-11T14:55:04.092Z",
       "queryHashes": [
-        "1803c2fb84b5"
+        "1803c2fb84b5",
+        "27fba562587a"
       ],
       "recallDays": [
-        "2026-05-03"
+        "2026-05-03",
+        "2026-05-11"
       ],
       "conceptTags": [
         "v7.8",
@@ -330,18 +332,20 @@
       "endLine": 70,
       "source": "memory",
       "snippet": "Lost 1.73 SOL total. Devastating losses. ### Root Cause Unknown Cannot find why age checks fail. Scanner log insufficient. All paths show age checks in code but they bypass at runtime. ### Current Settings (2026-04-29 03:37 UTC) - PUMP_MIN_AGE: 240s - MIN_MCAP: $3,500 - MAX_MCAP: $20,000 - PUMP_CHG1: 10% - Scanner PID: 433518 ### Chris is Extremely Upset He's lost significant money and has every right to be. I've been unable to find the root cause of the age check bug. ### OpenRouter Discussion Chris wants to switch from MiniMax to OpenRouter. API key not yet provided. ### Key Files - Scanner: /root/Dex-trading-bot/gmgn_scanner.py - Monitor: /root/Dex-trading-bot/position_monitor.py - T",
-      "recallCount": 1,
+      "recallCount": 2,
       "dailyCount": 0,
       "groundedCount": 0,
-      "totalScore": 1,
+      "totalScore": 2,
       "maxScore": 1,
       "firstRecalledAt": "2026-05-03T00:22:04.693Z",
-      "lastRecalledAt": "2026-05-03T00:22:04.693Z",
+      "lastRecalledAt": "2026-05-11T14:55:04.092Z",
       "queryHashes": [
-        "1803c2fb84b5"
+        "1803c2fb84b5",
+        "27fba562587a"
       ],
       "recallDays": [
-        "2026-05-03"
+        "2026-05-03",
+        "2026-05-11"
       ],
       "conceptTags": [
         "router",
@@ -552,18 +556,20 @@
       "endLine": 6,
       "source": "memory",
       "snippet": "# April 13, 2026 — Wallet Monitor Log ## 04:39 UTC - **suqh5sHt...**: -0.48 SOL (1.18 → 0.70) | ACCUMULATING | Reducing positions - **CyaE1...**: +179 SOL (898.74 → 1077.79) | IDLE | Large SOL whale",
-      "recallCount": 1,
+      "recallCount": 2,
       "dailyCount": 0,
       "groundedCount": 0,
-      "totalScore": 1,
+      "totalScore": 2,
       "maxScore": 1,
       "firstRecalledAt": "2026-05-04T19:12:51.975Z",
-      "lastRecalledAt": "2026-05-04T19:12:51.975Z",
+      "lastRecalledAt": "2026-05-11T15:02:22.621Z",
       "queryHashes": [
-        "204dda97d4df"
+        "204dda97d4df",
+        "a2b8564490d2"
       ],
       "recallDays": [
-        "2026-05-04"
+        "2026-05-04",
+        "2026-05-11"
       ],
       "conceptTags": [
         "0.48",
@@ -583,18 +589,20 @@
       "endLine": 5,
       "source": "memory",
       "snippet": "## April 11, 2026 ### Wallet Monitor (9:19 PM UTC) - **suqh5sHt...**: 2.18 → 2.74 SOL (+0.56 SOL) | ACCUMULATING - reducing positions, taking profits, very active trader - **CyaE1VxvB...**: 811.04 SOL | IDLE - large SOL whale, relatively inactive",
-      "recallCount": 1,
+      "recallCount": 2,
       "dailyCount": 0,
       "groundedCount": 0,
-      "totalScore": 1,
+      "totalScore": 2,
       "maxScore": 1,
       "firstRecalledAt": "2026-05-04T19:12:51.975Z",
-      "lastRecalledAt": "2026-05-04T19:12:51.975Z",
+      "lastRecalledAt": "2026-05-11T15:02:22.621Z",
       "queryHashes": [
-        "204dda97d4df"
+        "204dda97d4df",
+        "a2b8564490d2"
       ],
       "recallDays": [
-        "2026-05-04"
+        "2026-05-04",
+        "2026-05-11"
       ],
       "conceptTags": [
         "2.18",
@@ -614,18 +622,20 @@
       "endLine": 58,
       "source": "memory",
       "snippet": "- Balance: -2.09 SOL | 116W/216L | 0 open ## 08:00 UTC Heartbeat - Systems running: gmgn_scanner + position_monitor - CHUDJAK open: entry $14,645, peak $21,793 (+48.8%) - approaching TP1 (+50%) - Balance: -2.25 SOL | 116W/220L | 1 open - Recent losses: Simscat (-0.030), LUNA (-0.060), NO (-0.031) Wallet monitor check done - no significant changes ## 13:08 UTC - Strategy Revert - Reverted to April 16 strategy (commit 7de4369c) - produced 75% WR during 06:00-10:00 UTC - Key changes: H1 +25% (was +100%), no chg5 pre-filter, BUY_NOW/BASE immediate path, 30s Young/Older cooldowns - Scanner v7.4 April 16 strategy running - Position monitor running ## 19:54 UTC - End of Day Memory Flush ### Tod",
-      "recallCount": 1,
+      "recallCount": 2,
       "dailyCount": 0,
       "groundedCount": 0,
-      "totalScore": 1,
+      "totalScore": 2,
       "maxScore": 1,
       "firstRecalledAt": "2026-05-04T19:12:51.975Z",
-      "lastRecalledAt": "2026-05-04T19:12:51.975Z",
+      "lastRecalledAt": "2026-05-11T15:02:22.621Z",
       "queryHashes": [
-        "204dda97d4df"
+        "204dda97d4df",
+        "a2b8564490d2"
       ],
       "recallDays": [
-        "2026-05-04"
+        "2026-05-04",
+        "2026-05-11"
       ],
       "conceptTags": [
         "2.09",
@@ -645,18 +655,20 @@
       "endLine": 25,
       "source": "memory",
       "snippet": "# April 7, 2026 ## Wallet Monitor Results (7:58 PM UTC) **suqh5sHtr8HyJ7q8scBimULPkPpA557prMG47xCHQfK** - Status: ACCUMULATING - Balance: 13.33 → 13.47 SOL (+0.14 SOL) - Pattern: Reducing positions, taking profits - Recent token: 7kr5sdADJUzYWDgXPnHMTFaRQm3zTm **CyaE1VxvBrahnPWkqm5VsdCvyS2QmNht2UFrKJHga54o** - Status: IDLE - Balance: 122.84 SOL - Whale wallet ## Trading Session (7:53 PM UTC) **Criteria loosened:** mcap $5K-$100K, vol $5K+, pump.fun only **Exit plan fixed:** +25%→sell 50%, +100%→sell 50%, no TP3 **Error fixed:** auto_scanner.py had broken condition `if v < MIN_VOLUME: continue` → fixed to allow pump.fun 0 liquidity **Open positions:** FPC, Ikizama, Tooker, MOLTMPP, Bow-",
-      "recallCount": 1,
+      "recallCount": 2,
       "dailyCount": 0,
       "groundedCount": 0,
-      "totalScore": 1,
+      "totalScore": 2,
       "maxScore": 1,
       "firstRecalledAt": "2026-05-04T19:12:51.975Z",
-      "lastRecalledAt": "2026-05-04T19:12:51.975Z",
+      "lastRecalledAt": "2026-05-11T15:02:22.621Z",
       "queryHashes": [
-        "204dda97d4df"
+        "204dda97d4df",
+        "a2b8564490d2"
       ],
       "recallDays": [
-        "2026-05-04"
+        "2026-05-04",
+        "2026-05-11"
       ],
       "conceptTags": [
         "13.33",
@@ -1209,18 +1221,20 @@
       "endLine": 46,
       "source": "memory",
       "snippet": "# 2026-04-29 ## 02:34 UTC - Wallet Monitor - CyaE1Vxv: 1725.87 → 1732.91 SOL (+7.04 SOL) - suqh5sHtr: 6.24 SOL (accumulating +4.14 total) - Both wallets ACCUMULATING ## Recent TXs - 3uLpUSV68bxyTPrXf5xaPQhoFCCG7cfAESj3EdH4gwisbW8RK8TLZy2KdSLCXXFKdykdznYvwQNMbqnyr9Uw4NNK - 9KtBkLcdyn6yqUKdWwhoLiwZon8ofKcMvFD2L8J1tc2VDZjZpbLuYAHZLGNh5eCj1fMCVWzxe5iSTpP7ZHHhnR3 # 2026-04-29 ## 02:34 UTC - Wallet Monitor - CyaE1Vxv: 1725.87 → 1732.91 SOL (+7.04 SOL) - suqh5sHtr: 6.24 SOL (accumulating +4.14 total) - Both wallets ACCUMULATING ## Recent TXs - 3uLpUSV68bxyTPrXf5xaPQhoFCCG7cfAESj3EdH4gwisbW8RK8TLZy2KdSLCXXFKdykdznYvwQNMbqnyr9Uw4NNK - 9KtBkLcdyn6yqUKdWwhoLiwZon8ofKcMvFD2L8J1tc2VDZjZpbLuYAHZLGNh5e",
-      "recallCount": 1,
+      "recallCount": 2,
       "dailyCount": 0,
       "groundedCount": 0,
-      "totalScore": 1,
+      "totalScore": 2,
       "maxScore": 1,
       "firstRecalledAt": "2026-05-07T04:27:32.527Z",
-      "lastRecalledAt": "2026-05-07T04:27:32.527Z",
+      "lastRecalledAt": "2026-05-11T14:55:04.092Z",
       "queryHashes": [
-        "7ea54eeed800"
+        "7ea54eeed800",
+        "27fba562587a"
       ],
       "recallDays": [
-        "2026-05-07"
+        "2026-05-07",
+        "2026-05-11"
       ],
       "conceptTags": [
         "1725.87",
@@ -1271,18 +1285,20 @@
       "endLine": 148,
       "source": "memory",
       "snippet": "### Updated Paths (all 7 buy blocks now call verify_buy_conditions): | Path | Line | What it re-checks | |------|------|-------------------| | PUMP_VERIFY | ~1217 | age + ALL filters + pump conditions | | CHG1_VERIFY | ~1257 | age + ALL filters + h1>25/chg5>-10 | | YOUNG_COOLDOWN | ~1319 | age + ALL filters + h1>25/chg5>-10 | | OLDER_COOLDOWN | ~1385 | age + ALL filters + h1>25/chg5>-10 | | COOLDOWN_WAIT | ~1451 | age + ALL filters + h1>25/chg5>-10 | | COOLDOWN_VERIFY | ~1536 | age + ALL filters + h1>25/chg5>-10 | | BASE_WAIT | ~1580 | age + ALL filters | ### Test & Deploy Rules Followed 1. ✅ Backup: gmgn_scanner.py.bak.20260429_1747 2. ✅ Syntax check: python -m py_compile passed 3. ✅ Scann",
-      "recallCount": 1,
+      "recallCount": 2,
       "dailyCount": 0,
       "groundedCount": 0,
-      "totalScore": 1,
+      "totalScore": 2,
       "maxScore": 1,
       "firstRecalledAt": "2026-05-09T04:00:52.557Z",
-      "lastRecalledAt": "2026-05-09T04:00:52.557Z",
+      "lastRecalledAt": "2026-05-11T14:55:04.092Z",
       "queryHashes": [
-        "5d65c1a57f9f"
+        "5d65c1a57f9f",
+        "27fba562587a"
       ],
       "recallDays": [
-        "2026-05-09"
+        "2026-05-09",
+        "2026-05-11"
       ],
       "conceptTags": [
         "backup",
@@ -1514,6 +1530,192 @@
         "momentum-ride",
         "90-3600s",
         "buy-pressure"
+      ]
+    },
+    "memory:memory/2026-05-07.md:1:52": {
+      "key": "memory:memory/2026-05-07.md:1:52",
+      "path": "memory/2026-05-07.md",
+      "startLine": 1,
+      "endLine": 52,
+      "source": "memory",
+      "snippet": "## 2026-05-07 21:40 UTC - Age Filter Fix VERIFIED ### The Problem (FINALLY FIXED PERMANENTLY) DexScreener tokens showed age=0s because DexScreener API doesn't provide age or creation_timestamp. All DexScreener tokens were rejected by MIN_AGE filter. ### Root Cause The age check in `process_token()` happened BEFORE `get_token_data()` fetched fresh GMGN data: - DexScreener initial data: age=0 - Filter check: FAIL (age < 90) - GMGN data fetch: NEVER REACHED ### The Fix (VERIFIED WORKING) Moved GMGN data fetch to BEFORE age check: 1. Fetch GMGN data FIRST 2. Calculate age from GMGN creation_timestamp 3. Apply filters with proper age ### Code Change Location File: `/root/Dex-trading-bot/scan",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 1,
+      "maxScore": 1,
+      "firstRecalledAt": "2026-05-11T14:55:04.092Z",
+      "lastRecalledAt": "2026-05-11T14:55:04.092Z",
+      "queryHashes": [
+        "27fba562587a"
+      ],
+      "recallDays": [
+        "2026-05-11"
+      ],
+      "conceptTags": [
+        "creation-timestamp",
+        "min-age",
+        "process-token",
+        "get-token-data",
+        "root/dex-trading-bot/scan",
+        "utc",
+        "age",
+        "filter"
+      ]
+    },
+    "memory:memory/2026-05-06.md:152:178": {
+      "key": "memory:memory/2026-05-06.md:152:178",
+      "path": "memory/2026-05-06.md",
+      "startLine": 152,
+      "endLine": 178,
+      "source": "memory",
+      "snippet": "- Need to find the sweet spot between entry aggression and stop frequency --- ## AGE FILTER RECOMMENDATION - 2026-05-06 16:14 UTC **Current values:** MIN_AGE=60s, MAX_AGE=3600s **Recommended values (pending Chris approval):** - **MIN_AGE: 300s (5 minutes)** — Filters out just-launched tokens that immediately dump - **MAX_AGE: 1800s (30 minutes)** — Avoids buying tokens that already pumped and are reversing **Rationale:** - 60s too young: tokens need 2-5 min to show real momentum vs fake pump - 3600s too old: most pump.fun tokens peak within 30 minutes - Focus on the 5-30 minute window where real momentum builds - ESTABLISHED path already requires 600s, so this mainly affects PUMP/WHALE",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 1,
+      "maxScore": 1,
+      "firstRecalledAt": "2026-05-11T14:55:04.092Z",
+      "lastRecalledAt": "2026-05-11T14:55:04.092Z",
+      "queryHashes": [
+        "27fba562587a"
+      ],
+      "recallDays": [
+        "2026-05-11"
+      ],
+      "conceptTags": [
+        "min-age",
+        "max-age",
+        "just-launched",
+        "2-5",
+        "pump.fun",
+        "5-30",
+        "pump/whale",
+        "need"
+      ]
+    },
+    "memory:memory/2026-05-06.md:121:162": {
+      "key": "memory:memory/2026-05-06.md:121:162",
+      "path": "memory/2026-05-06.md",
+      "startLine": 121,
+      "endLine": 162,
+      "source": "memory",
+      "snippet": "### CURRENT SYSTEM STATE - **Scanner:** v1.6 — WHALE + ESTABLISHED + SNIPER + PUMP - **Monitor:** v1.1 with TIME STOP - **Guard:** system_guard.sh running ### PERFORMANCE DATA (from analysis) - **Wins:** 508 | **Losses:** 610 | **WR:** 45.4% - **Total PnL:** -5.76 SOL - **Problem:** 68 stop losses (-3.65 SOL) vs 54 wins (+2.59 SOL) - **Insight:** TP2+ wins are profitable, but stop losses happen too often ### CHRIS'S DIRECTIVE - **NO CODE CHANGES without explicit approval** - Current focus: Analyze winners vs losers, find edge - Age filter adjustment pending Chris's decision on values ### BACKUP FILES CREATED TODAY - scanner_v1.py.bak.20260506_1357 (BOUNCE removal) - scanner_v1.py.bak.2026",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 1,
+      "maxScore": 1,
+      "firstRecalledAt": "2026-05-11T15:02:49.155Z",
+      "lastRecalledAt": "2026-05-11T15:02:49.155Z",
+      "queryHashes": [
+        "bec011c25921"
+      ],
+      "recallDays": [
+        "2026-05-11"
+      ],
+      "conceptTags": [
+        "backup",
+        "v1.6",
+        "v1.1",
+        "system-guard.sh",
+        "45.4",
+        "5.76",
+        "3.65",
+        "2.59"
+      ]
+    },
+    "memory:memory/2026-04-14.md:153:190": {
+      "key": "memory:memory/2026-04-14.md:153:190",
+      "path": "memory/2026-04-14.md",
+      "startLine": 153,
+      "endLine": 190,
+      "source": "memory",
+      "snippet": "- Open positions mcap >$70K: liquidity monitoring — sell if liq <$1K ### Files Updated: - trading_constants.py: Full v6.4 - gmgn_scanner.py: v6.4 cooldown logic (3-stage: cooldown→trigger→verify→buy) - position_monitor.py: Added liquidity monitoring for >$70K positions ### Status: Ready to launch (waiting 60s per Chris's instruction) ## 10:43 UTC - Wallet Monitor Check ### Watchlist Status: - suqh5sHtr8HyJ7q8scBimULPkPpA557prMG47xCHQfK: 2.09 SOL (accumulating) - CyaE1VxvBrahnPWkqm5VsdCvyS2QmNht2UFrKJHga54o: 293.47 SOL (idle) ### Bot Status: - sim_wallet: 1.0 SOL | 0 trades/W/L - Last reset: 06:22 UTC (v6.4 ready, not restarted) ## Trading Day Notes ### Bug Fixes Made Today - Fixed `ch",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 1,
+      "maxScore": 1,
+      "firstRecalledAt": "2026-05-11T15:02:49.155Z",
+      "lastRecalledAt": "2026-05-11T15:02:49.155Z",
+      "queryHashes": [
+        "bec011c25921"
+      ],
+      "recallDays": [
+        "2026-05-11"
+      ],
+      "conceptTags": [
+        "trading-constants.py",
+        "v6.4",
+        "gmgn-scanner.py",
+        "3-stage",
+        "position-monitor.py",
+        "2.09",
+        "293.47",
+        "sim-wallet"
+      ]
+    },
+    "memory:memory/2026-04-13.md:111:169": {
+      "key": "memory:memory/2026-04-13.md:111:169",
+      "path": "memory/2026-04-13.md",
+      "startLine": 111,
+      "endLine": 169,
+      "source": "memory",
+      "snippet": "- gmgn_scanner.py (PID 832743) - position_monitor.py (PID 831764) - alert_sender.py (PID 831765) ## 7:51 PM - Full Sync ### Exit Plan v8.1 (Final) | Target | Gain | Sell % | Trail | |--------|------|--------|-------| | TP1 | +50% | HOLD | 35% | | TP2 | +100% | 40% | 30% | | TP3 | +200% | 30% | 30% | | TP4 | +300% | 20% | 30% | | TP5 | +1000% | 10% | 20% | | Stop | -25% | All | — | ### Scanner Fixes Today - MIN_AGE: 4min → 7min - H1 parabolic reject: 500% → 833% - MIN_CHG1: 3.0% required - 50% chg1 deterioration reject - Alert sender: catches closed buys - TP1 HOLD now enables trailing stop ### Systems Running (19:51 UTC) - gmgn_scanner.py (PID 843149) - position_monitor.py (PID 844122) -",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 1,
+      "maxScore": 1,
+      "firstRecalledAt": "2026-05-11T15:02:49.155Z",
+      "lastRecalledAt": "2026-05-11T15:02:49.155Z",
+      "queryHashes": [
+        "bec011c25921"
+      ],
+      "recallDays": [
+        "2026-05-11"
+      ],
+      "conceptTags": [
+        "gmgn-scanner.py",
+        "position-monitor.py",
+        "alert-sender.py",
+        "v8.1",
+        "min-age",
+        "min-chg1",
+        "3.0",
+        "pid"
+      ]
+    },
+    "memory:memory/2026-04-28.md:111:149": {
+      "key": "memory:memory/2026-04-28.md:111:149",
+      "path": "memory/2026-04-28.md",
+      "startLine": 111,
+      "endLine": 149,
+      "source": "memory",
+      "snippet": "- This needs investigation - why does compaction happen so often? - Possible cause: multiple code changes and restarts today stressed the system ## Post-Recovery Trading Session (01:00 - 21:18 UTC) ### Balance trajectory: - At 01:03 UTC: 3.476899 SOL (pre-crash high) - At 20:04 UTC: 2.0125 SOL (recovered slightly) - At 21:04 UTC: 1.6232 SOL (significant drop) - **Lost ~1.85 SOL since restart despite best efforts** ### Signal Scorer Update (Approved & Deployed at ~20:15 UTC): - File: signal_scorer.py - Backup: signal_scorer.py.bak.20260428_2024 - Change: CR good (0.30-0.50): 2→3 pts | CR optimal (>=0.50): 3→4 pts - Deployed with TWO-VERIFY rule followed - Test passed: scanner log growing,",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 1,
+      "maxScore": 1,
+      "firstRecalledAt": "2026-05-11T15:02:49.155Z",
+      "lastRecalledAt": "2026-05-11T15:02:49.155Z",
+      "queryHashes": [
+        "bec011c25921"
+      ],
+      "recallDays": [
+        "2026-05-11"
+      ],
+      "conceptTags": [
+        "backup",
+        "post-recovery",
+        "3.476899",
+        "pre-crash",
+        "2.0125",
+        "1.6232",
+        "1.85",
+        "signal-scorer.py"
       ]
     }
   }
