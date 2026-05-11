@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-05-10T19:06:42.648Z",
+  "updatedAt": "2026-05-11T04:12:25.091Z",
   "entries": {
     "memory:memory/2026-04-15.md:209:236": {
       "key": "memory:memory/2026-04-15.md:209:236",
@@ -40,20 +40,23 @@
       "endLine": 88,
       "source": "memory",
       "snippet": "- DexScreener links for every signal and trade - Format example: 🏐 WILSON BUY ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 💰 Solana Swap (SOS) 📊 VOL 6.4x 💎 FDV: $430K | Liq: $215K 📈 Price: $0.00043010 | Age: 810329m 🎯 TP1: +50% | TP2: +100% | Stop: -20% 🔗 https://dexscreener.com/solana/... ### Known Issues - GMGN symbol parsing sometimes shows \"NEW\" instead of actual token name - Need to fix regex for extracting token symbols from GMGN messages ### Next Steps 1. Continue monitoring and trading 2. Set up GitHub remote and push 3. Fix symbol parsing 4. Test DexScreener-only signals vs GMGN signals 5. When P&L is good enough, Chris will let bot trade with real funds ## Trade Lea",
-      "recallCount": 2,
+      "recallCount": 4,
       "dailyCount": 0,
       "groundedCount": 0,
-      "totalScore": 2,
+      "totalScore": 4,
       "maxScore": 1,
       "firstRecalledAt": "2026-04-28T19:26:26.468Z",
-      "lastRecalledAt": "2026-05-07T22:24:25.194Z",
+      "lastRecalledAt": "2026-05-11T04:12:25.091Z",
       "queryHashes": [
         "9d7ae2188a53",
-        "7e73fa846a9b"
+        "7e73fa846a9b",
+        "4e026303b602",
+        "1070c51185a1"
       ],
       "recallDays": [
         "2026-04-28",
-        "2026-05-07"
+        "2026-05-07",
+        "2026-05-11"
       ],
       "conceptTags": [
         "6.4x",
@@ -1383,6 +1386,134 @@
         "gmgn",
         "token",
         "info"
+      ]
+    },
+    "memory:memory/2026-04-08.md:165:195": {
+      "key": "memory:memory/2026-04-08.md:165:195",
+      "path": "memory/2026-04-08.md",
+      "startLine": 165,
+      "endLine": 195,
+      "source": "memory",
+      "snippet": "- KOL_BUY signal: 100% WR in history → prioritize, double size - TRAILING_STOP: 100% WR → let winners run - STOP_AUTO: 99 trades, -1.80 SOL total → tighten to -20% saves ~0.005 SOL/trade ### Expected Impact: - ~15 bad trades filtered historically - ~90 stop-loss trades: each loses 0.01 SOL less = ~+0.45 SOL saved - KOL_BUY wins doubled = +0.016 SOL per signal ### Files Updated: - trading_constants.py: new MIN/MAX MCAP, STOP_LOSS, KOL_BUY_POSITION_SIZE - gmgn_buyer.py: KOL_BUY gets 0.10 SOL, others 0.05 SOL - position_monitor.py: uses new STOP_LOSS_PERCENT - position_peak_cache.json: live peak tracking for all positions - All send_alert.py, reports: will show updated exit plan ## Session",
+      "recallCount": 2,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 2,
+      "maxScore": 1,
+      "firstRecalledAt": "2026-05-11T04:12:20.411Z",
+      "lastRecalledAt": "2026-05-11T04:12:25.091Z",
+      "queryHashes": [
+        "4e026303b602",
+        "1070c51185a1"
+      ],
+      "recallDays": [
+        "2026-05-11"
+      ],
+      "conceptTags": [
+        "kol-buy",
+        "trailing-stop",
+        "stop-auto",
+        "1.80",
+        "0.005",
+        "sol/trade",
+        "stop-loss",
+        "0.01"
+      ]
+    },
+    "memory:memory/2026-05-10.md:1:36": {
+      "key": "memory:memory/2026-05-10.md:1:36",
+      "path": "memory/2026-05-10.md",
+      "startLine": 1,
+      "endLine": 36,
+      "source": "memory",
+      "snippet": "# 2026-05-10 04:03 UTC — 4H Strategy Review ## Scanner Audit - scanner_v1.py v1.7 running (PID 3217632) — WHALE + SNIPER_HEAVY + KOL + PHOENIX + DIP paths - monitor_v1.py v1.1 running (PID 1946476) - NO rogue processes ## Settings Drift (CRITICAL) | Setting | Current | Target (USER.md) | Delta | |---------|---------|------------------|-------| | MIN_MCAP | $3,000 | $8,000 | TOO LOW | | STOP_PCT | -45% | -35% | TOO WIDE | | TP1_PCT | +30% | +50% | TOO EARLY | | TP1_TRAIL | 45% | 15% | TOO LOOSE | | TP2_SELL | 40% | 20% | TOO MUCH | | TP2_TRAIL | 45% | 12% | TOO LOOSE | ## KOL Path Bleeding Last 6 KOL entries ALL hit STOP loss: - send: -4.8% | 73/42: -7.3% | cobson: (TIME_STOP) | PSYOP: -5.",
+      "recallCount": 2,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 2,
+      "maxScore": 1,
+      "firstRecalledAt": "2026-05-11T04:12:20.411Z",
+      "lastRecalledAt": "2026-05-11T04:12:25.091Z",
+      "queryHashes": [
+        "4e026303b602",
+        "1070c51185a1"
+      ],
+      "recallDays": [
+        "2026-05-11"
+      ],
+      "conceptTags": [
+        "scanner-v1.py",
+        "v1.7",
+        "sniper-heavy",
+        "monitor-v1.py",
+        "v1.1",
+        "user.md",
+        "min-mcap",
+        "stop-pct"
+      ]
+    },
+    "memory:memory/2026-05-08.md:61:71": {
+      "key": "memory:memory/2026-05-08.md:61:71",
+      "path": "memory/2026-05-08.md",
+      "startLine": 61,
+      "endLine": 71,
+      "source": "memory",
+      "snippet": "### DATA COLLECTION IN PROGRESS: - Buy pressure data: capturing from GMGN (buys/sells ratio) - KOL data: tracking KOL names and performance - Dev data: recording dev addresses for good dev database - Need 20-30 trades with this data to optimize thresholds ### CRITICAL RULES REINFORCED: - NEVER buy same token twice (now enforced in is_already_open) - Follow SAFE_CHANGES.md for all modifications - Backup before changes, test after, report before deploying",
+      "recallCount": 2,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 2,
+      "maxScore": 1,
+      "firstRecalledAt": "2026-05-11T04:12:20.411Z",
+      "lastRecalledAt": "2026-05-11T04:12:25.091Z",
+      "queryHashes": [
+        "4e026303b602",
+        "1070c51185a1"
+      ],
+      "recallDays": [
+        "2026-05-11"
+      ],
+      "conceptTags": [
+        "backup",
+        "buys/sells",
+        "20-30",
+        "is-already-open",
+        "safe-changes.md",
+        "data",
+        "collection",
+        "progress"
+      ]
+    },
+    "memory:memory/2026-05-08.md:33:68": {
+      "key": "memory:memory/2026-05-08.md:33:68",
+      "path": "memory/2026-05-08.md",
+      "startLine": 33,
+      "endLine": 68,
+      "source": "memory",
+      "snippet": "11. **Added auto-populate dev database** - builds good dev list automatically 12. **Lowered GOOD_DEV criteria** - 30% GR, 2 tokens (was 50%/3) ### CURRENT SYSTEM STATE: - **Scanner v1.6** running (PID 422962) - **Monitor v1.1** running (PID 3045072) - **Active paths:** FRESH_RIDE, MOMENTUM_RIDE, WHALE, SNIPER, KOL, PHOENIX - **Special paths:** GOOD_DEV (bypasses filters) - **Filters:** mcap $5K-$55K, holders >=15, age 90-3600s, dying token, fallen giant, buy_pressure >= 0.1 ### TP5 TRAIL STOP ISSUE IDENTIFIED: - Salvador hit +2261%, sold at +1320% via HARD TIME STOP - **Problem:** TP5 trail uses peak-at-TP5-time, not ATH - TP5 peak was ~$68K-$91K, ATH was $102K - Trail threshold (25% from",
+      "recallCount": 2,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 2,
+      "maxScore": 1,
+      "firstRecalledAt": "2026-05-11T04:12:20.411Z",
+      "lastRecalledAt": "2026-05-11T04:12:25.091Z",
+      "queryHashes": [
+        "4e026303b602",
+        "1070c51185a1"
+      ],
+      "recallDays": [
+        "2026-05-11"
+      ],
+      "conceptTags": [
+        "auto-populate",
+        "good-dev",
+        "v1.6",
+        "v1.1",
+        "fresh-ride",
+        "momentum-ride",
+        "90-3600s",
+        "buy-pressure"
       ]
     }
   }

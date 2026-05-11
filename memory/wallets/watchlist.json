@@ -3,17 +3,17 @@
     {
       "address": "suqh5sHtr8HyJ7q8scBimULPkPpA557prMG47xCHQfK",
       "added": "2026-04-06T16:38:00Z",
-      "balance_sol": 1.507752475,
+      "balance_sol": 2.830719606,
       "prev_balance_sol": 4.36,
       "status": "ACCUMULATING",
       "recent_tokens": [],
       "pattern": "Active accumulation",
       "notes": "Balance dropped from 4.36 \u2192 3.35 SOL (-1.01 SOL). Now at 4.82 SOL \u2014 recovering, still accumulating.",
       "recent_activity": [
-        "iweSvaacfwZHzZyPPQRK8C3yhp8tCUP2Rc9fDJtfq4KTHDiai2n2JaakBAL41gi9Lz6Job8uVFAZSCFEgUmZdTp",
-        "5BvJ9bE19YUKpr8bgSW5M2xNfPLWncpfwNKqpX4LmRsZsvzW7NiRNhzAJKMB6vQRFWSCBnUJv8HmRBUa4biYeYFa"
+        "2nPtYToehDgUc7UkdxFNcbwYHZo2nvhA5RG2iaVzDidxT7Scofv83Zop3otayUm5mXrARNL2HQySFnHHrGxPY3XW",
+        "iZHGr1pXdMsjrtDe6VHmotVKcduVJe3nPsteZq4LwkZR9RnHRLovjb1KvubKUQu6MzZMH3Q1trMApbZA6QwWCwx"
       ],
-      "last_check": 1778472008.547843
+      "last_check": 1778473235.1471167
     },
     {
       "address": "CyaE1VxvBrahnPWkqm5VsdCvyS2QmNht2UFrKJHga54o",
