@@ -9,10 +9,7 @@
       "recent_tokens": [],
       "pattern": "Heavy distribution",
       "notes": "Balance dropped 3.94 \u2192 2.06 SOL (-1.88 SOL). Down from 13.31 SOL peak. Selling/distributing pattern.",
-      "recent_activity": [
-        "2x3eWjG429XGtqE2hP33h8bzW1bTaNzj6JevMeWLGzcLwYewWcre3Dk9Arrwopen7ZKLrJFxAEKA89PAdVHYpoFc",
-        "jM2xfrgfE3wjT1XehhoobZ1fdBiC6AeunJewzdpWjYH2gXjLsq7L9VtP7b9tFLhaivUvWxCmHsmX3Cag5U1oRPV"
-      ],
+      "recent_activity": [],
       "last_check": 1778570300.689417
     },
     {
@@ -24,10 +21,7 @@
       "recent_tokens": [],
       "pattern": "Large SOL whale",
       "notes": "Strong accumulation: 216.81 -> 287.921476624 SOL (+71.11 SOL). Whale still buying.",
-      "recent_activity": [
-        "51fUpap3wuHw2ABarveHTuUNSxNeR7VRsPj9AsAsRsLsBL4c5X96YY6eS9eaJaDyHT6yZ2iPs7P3RX6h5n5eCJSk",
-        "uTdawWydPN9yVGfYFddYisum3UHRXz6qoy5zWEakxGNU6tRezgbG6KZvMeLoVPFw4mkJU63gSkp5JGw5qoV8RJv"
-      ],
+      "recent_activity": [],
       "last_check": 1778577310.3436835
     }
   ]
