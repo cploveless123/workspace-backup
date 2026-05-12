@@ -23,12 +23,12 @@
       "status": "ACCUMULATING",
       "recent_tokens": [],
       "pattern": "Large SOL whale",
-      "notes": "Strong accumulation: 216.81 \u2192 227.44 SOL (+10.63 SOL). Whale still buying.",
+      "notes": "Strong accumulation: 216.81 -> 287.921476624 SOL (+71.11 SOL). Whale still buying.",
       "recent_activity": [
         "51fUpap3wuHw2ABarveHTuUNSxNeR7VRsPj9AsAsRsLsBL4c5X96YY6eS9eaJaDyHT6yZ2iPs7P3RX6h5n5eCJSk",
         "uTdawWydPN9yVGfYFddYisum3UHRXz6qoy5zWEakxGNU6tRezgbG6KZvMeLoVPFw4mkJU63gSkp5JGw5qoV8RJv"
       ],
-      "last_check": 1778564548.799627
+      "last_check": 1778577310.3436835
     }
   ]
 }
