@@ -3,17 +3,17 @@
     {
       "address": "suqh5sHtr8HyJ7q8scBimULPkPpA557prMG47xCHQfK",
       "added": "2026-04-06T16:38:00Z",
-      "balance_sol": 2.360183331,
+      "balance_sol": 3.517111263,
       "prev_balance_sol": 3.94,
       "status": "DISTRIBUTING",
       "recent_tokens": [],
       "pattern": "Heavy distribution",
       "notes": "Balance dropped 3.94 \u2192 2.06 SOL (-1.88 SOL). Down from 13.31 SOL peak. Selling/distributing pattern.",
       "recent_activity": [
-        "2fcTAxFGsdQ35eK1QBdVRfJLXFznLtshqNn6rmQv6RfRVbQFN1DBUonwWBvpsvZQELgSqwgbgJR7Fc3sbA3N6zVS",
-        "5aXgHSm7nNpVQ1WqpHPZWU2qngDfUfsEaLhL5smCv1bP6ratXJGhsG553vPoEfRBkJuGZd967HRj5xWFwnvuXGex"
+        "2x3eWjG429XGtqE2hP33h8bzW1bTaNzj6JevMeWLGzcLwYewWcre3Dk9Arrwopen7ZKLrJFxAEKA89PAdVHYpoFc",
+        "jM2xfrgfE3wjT1XehhoobZ1fdBiC6AeunJewzdpWjYH2gXjLsq7L9VtP7b9tFLhaivUvWxCmHsmX3Cag5U1oRPV"
       ],
-      "last_check": 1778569115.8684378
+      "last_check": 1778570300.689417
     },
     {
       "address": "CyaE1VxvBrahnPWkqm5VsdCvyS2QmNht2UFrKJHga54o",
