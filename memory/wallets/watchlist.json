@@ -3,26 +3,32 @@
     {
       "address": "suqh5sHtr8HyJ7q8scBimULPkPpA557prMG47xCHQfK",
       "added": "2026-04-06T16:38:00Z",
-      "balance_sol": 3.517111263,
+      "balance_sol": 2.832479993,
       "prev_balance_sol": 3.94,
       "status": "DISTRIBUTING",
       "recent_tokens": [],
       "pattern": "Heavy distribution",
       "notes": "Balance dropped 3.94 \u2192 2.06 SOL (-1.88 SOL). Down from 13.31 SOL peak. Selling/distributing pattern.",
-      "recent_activity": [],
-      "last_check": 1778570300.689417
+      "recent_activity": [
+        "5xocnqees68JRsUw9ktK3YvwpFrN9ayGAVMmJfKrfGNChwMEF2auTrBe29SZSh1EWgqC3iUGqUmYnkSNGhbVQHCm",
+        "o1yBE8FdFeodaRV48GRwjm6YsYb5KSLfW2qdxy3Qrd3CFmNXJRhdSZkAcfheoS5QoLnAPCxduQHASzXb91y4qUr"
+      ],
+      "last_check": 1778630116.7569835
     },
     {
       "address": "CyaE1VxvBrahnPWkqm5VsdCvyS2QmNht2UFrKJHga54o",
       "added": "2026-04-06T16:45:00Z",
-      "balance_sol": 287.921476624,
+      "balance_sol": 449.599981293,
       "prev_balance_sol": 216.81,
       "status": "ACCUMULATING",
       "recent_tokens": [],
       "pattern": "Large SOL whale",
       "notes": "Strong accumulation: 216.81 -> 287.921476624 SOL (+71.11 SOL). Whale still buying.",
-      "recent_activity": [],
-      "last_check": 1778577310.3436835
+      "recent_activity": [
+        "5PvvX3Qxfg5q9gBVmW53yPvHSpocDR4mdpKXiqjZtsqxyVLRw6vTi8BuYVErUEFXF8qgjJBCcPfUzomQS2kp5kbW",
+        "ad7UfM1wqGbVZByA2fbszTeyFrgct4dcLejWfG8tJo38ERdUkHG3GAfHFbNMW34Nq2vo9TkZJQoqAoheC6E6DsJ"
+      ],
+      "last_check": 1778630116.9680035
     }
   ]
 }
