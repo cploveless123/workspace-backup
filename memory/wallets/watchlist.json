@@ -3,32 +3,32 @@
     {
       "address": "suqh5sHtr8HyJ7q8scBimULPkPpA557prMG47xCHQfK",
       "added": "2026-04-06T16:38:00Z",
-      "balance_sol": 0.044743262,
-      "prev_balance_sol": 3.94,
+      "balance_sol": 0.786840572,
+      "prev_balance_sol": 3.04,
       "status": "DISTRIBUTING",
       "recent_tokens": [],
       "pattern": "Heavy distribution",
-      "notes": "Balance dropped 3.94 \u2192 2.06 SOL (-1.88 SOL). Down from 13.31 SOL peak. Selling/distributing pattern.",
+      "notes": "Balance dropped 3.04 \u2192 0.89 SOL (-2.15 SOL). Down from 13.31 SOL peak. Selling heavily/distributing.",
       "recent_activity": [
-        "23xvuTsv8X5ReoN2bQfWWdFm4i7DU2BqNez8dbZmQHvaUWvLji4EECnzGjKYFUoQtkYGMmR57Q7SrSbMQF3jZffn",
-        "2qMNUFeKtGob5NtgoNK6mci5kUfeaa9YPUVwZ4Va8EkmDektWnqpvT3Q6DVHECtCQLh3gHJFn4cUKaEwDKyiKJ8s"
+        "bujSXQZ5LydYHvwEEEaspVYep4cLwwktLZHT57NE8ApezV2MRuZitkvHsBfxoG1UoahVeJpSu9XeefT3Xws4dTz",
+        "2WuV4wZxH5kGEo922yEVnQ7WFndye6hikgMcpFDBx4qmBpqS3fi1n477QCykWBJRcjjaTNqWvyWpJocJwq8sxqAb"
       ],
-      "last_check": 1778633575.8954747
+      "last_check": 1778637507.4537992
     },
     {
       "address": "CyaE1VxvBrahnPWkqm5VsdCvyS2QmNht2UFrKJHga54o",
       "added": "2026-04-06T16:45:00Z",
-      "balance_sol": 465.078135778,
-      "prev_balance_sol": 216.81,
+      "balance_sol": 477.320485875,
+      "prev_balance_sol": 473.61,
       "status": "ACCUMULATING",
       "recent_tokens": [],
       "pattern": "Large SOL whale",
-      "notes": "Strong accumulation: 216.81 -> 287.921476624 SOL (+71.11 SOL). Whale still buying.",
+      "notes": "Still accumulating: 473.61 \u2192 474.89 SOL (+1.28 SOL). Large SOL whale.",
       "recent_activity": [
-        "fCQuEg9krpWmoLCkULhxV5r8YYQDfdURxbWwhZMycaLxgTvRRBzYixC5UNfk69UCedYqd2974Qp2wr9dchkTq8r",
-        "4M6EoU55kaYqWkGf9f3WhZcXWzvZPeVhKeiLJoed24mKdvUE1V3J4q59EigNCQQVcvQPiMvK4KoMRgFrvEyy3omD"
+        "xEQWvKJhjbeNZSbfZzSSZLSn9YqtktLC9a5EWjseMQrfQqgmeVsKJ3FabPgYCjfQkGX5UpqTBCbs1NFx12G8t4D",
+        "2NUJNKFkPDR7LwAndpwET4tyAEvA49tEEXayMK7zioA66Ymam2VCu4zaQFS8qUoGWnKbuZJq8bKiYFmx1aLHevaw"
       ],
-      "last_check": 1778633878.5907323
+      "last_check": 1778636325.0602486
     }
   ]
 }
