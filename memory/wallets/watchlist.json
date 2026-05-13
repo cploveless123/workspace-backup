@@ -3,32 +3,34 @@
     {
       "address": "suqh5sHtr8HyJ7q8scBimULPkPpA557prMG47xCHQfK",
       "added": "2026-04-06T16:38:00Z",
-      "balance_sol": 4.18031583,
-      "prev_balance_sol": 3.529998749,
+      "prev_balance_sol": 1.27,
+      "balance_sol": 2.249777396,
+      "change_sol": 0.667815266,
       "status": "DISTRIBUTING",
       "recent_tokens": [],
       "pattern": "Heavy distribution",
       "notes": "Balance dropped 3.04 \u2192 0.89 SOL (-2.15 SOL). Down from 13.31 SOL peak. Selling heavily/distributing.",
       "recent_activity": [
-        "5ZbTWVK2Su5YdWosNNux1yT19efHGAp2Fn4vJwsUoXHwPAYF6V7E6dqHF1Gopy6DTj9nB9ee24CMoB3sL6Z8x6oW",
-        "4byYv5NqSDm8kofe2LmP6uB4a15Nc3SRxNriuhLceNRTcvHe6ffEVFYndojPqPDSFhjPfh6bTCQZMgNfAmcssUJL"
+        "56wq7Gy2LUATXrHfikEuE3kctSguffGxcVTkK2UBUDV4Qd1bvhu4nDzEH8ijwjhLJgDnpUXVfrMjRJt2hNq4Rp22",
+        "3sRKSAMHiazkZJvayTj5syAx8eHZnyo1jgvg5RhjUDU24N4CVMbDgDSLBD6GbX94CPV7Pdq2Umd2hzcrxgyX9d3f"
       ],
-      "last_check": 1778698708.6869605
+      "last_check": 1778702092.369537
     },
     {
       "address": "CyaE1VxvBrahnPWkqm5VsdCvyS2QmNht2UFrKJHga54o",
       "added": "2026-04-06T16:45:00Z",
-      "balance_sol": 555.081915671,
-      "prev_balance_sol": 478.776352011,
+      "prev_balance_sol": 569.8,
+      "balance_sol": 568.797899762,
+      "change_sol": 2.992277821,
       "status": "ACCUMULATING",
       "recent_tokens": [],
       "pattern": "Large SOL whale",
       "notes": "Still accumulating: 473.61 \u2192 474.89 SOL (+1.28 SOL). Large SOL whale.",
       "recent_activity": [
-        "4ygPGeyXdFFSAPeYdwZHk8Kxj1M4zAvZ8YLBcnQ5yxda1NyjYnPNSNEdSXmWfPRwdPuKbXtkBZReYyMLb3w9L5Mt",
-        "4wmrniSrJC7RmXkWFHM52WxFJme3si2oCT4pPX1BViYUySmiqk3Eg79brHtxmduoZJMd4mesXEju1Xbq9c2fVivZ"
+        "2zHRYNkrQsgwwpcbXwHYuLjC1fbswvjcFmn6PM9ZFntthRiQ4qtMUpZUKakXiMVESvmsS63rE2196bN65sS9nWwB",
+        "373EU4HmTKjMvjo39TBxXhLHeEVKNXwUkmhkfZKi8918zws8PMs7HdFb76ygaoutQfbGrQoQ7FKat3JrZPXLaGUr"
       ],
-      "last_check": 1778698708.868845
+      "last_check": 1778702092.563081
     }
   ]
 }
