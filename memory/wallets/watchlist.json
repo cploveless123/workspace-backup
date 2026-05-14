@@ -4,33 +4,33 @@
       "address": "suqh5sHtr8HyJ7q8scBimULPkPpA557prMG47xCHQfK",
       "added": "2026-04-06T16:38:00Z",
       "prev_balance_sol": 1.27,
-      "balance_sol": 3.821142097,
+      "balance_sol": 0.641536815,
       "change_sol": 0.667815266,
       "status": "DISTRIBUTING",
       "recent_tokens": [],
       "pattern": "Heavy distribution",
       "notes": "Balance dropped 3.04 \u2192 0.89 SOL (-2.15 SOL). Down from 13.31 SOL peak. Selling heavily/distributing.",
       "recent_activity": [
-        "ZqK5SYUmBsQpfHgCCNYPCUnxQfthbZfEZxkPJNZ99esStQERyWAGcYx7RtYieXA8VYAucLcFMzZ8CEbvrtLGEvD",
-        "3Z5fpAC2LK8LYFSKK64T5BkygfdwjU6KCJzgc2dNB6vVnMmXbT577E9rq4MPKHtJ4j1S7oZFhNCyEeAF469tPVz"
+        "3dhm9weCkBKVhtot9bdeoNgmCt7DT4JTCKzCL866sR6P49c3TYtsaHYftaZsvT3SE1dt6LkktPbpCPwjwRm2F67z",
+        "51VwgZowYzqnhY1x2zuz72AdrKNbfPm4Xf5DqQpCaS6ub78x1nVi6AW9dGeAZeEWDgjgEKj6aRrHvBa5tXdTPWs9"
       ],
-      "last_check": 1778777993.5801558
+      "last_check": 1778781573.6674266
     },
     {
       "address": "CyaE1VxvBrahnPWkqm5VsdCvyS2QmNht2UFrKJHga54o",
       "added": "2026-04-06T16:45:00Z",
       "prev_balance_sol": 515.680960382,
-      "balance_sol": 574.112187596,
+      "balance_sol": 621.669410662,
       "change_sol": -0.0,
       "status": "ACCUMULATING",
       "recent_tokens": [],
       "pattern": "Large SOL whale",
       "notes": "Still accumulating: 473.61 \u2192 474.89 SOL (+1.28 SOL). Large SOL whale.",
       "recent_activity": [
-        "3CoE43uvT8DNKP3ncs44WZfV2G1oT5W99zAzmGetiH38DurzgLgusPDFsyfU5nBTLYgT1VsgBZHLFpQL6WfRyWn2",
-        "5BT7iWQBuUTC6gs6fWBu8uuPBgnWWuhH8kSn3Kjdki5fwfECmjLN6PURWv4NEZYBeLCuYqRCAiLrbYRdMW28iPPu"
+        "2Py2rHTzRgtJHYRfWdzWx6QaUDzJG1SSeQ6dQdoVV7oMx1kE5jxSscEiphaFuFziNA5YZuaCGiJsyE5trYK8Q45s",
+        "42HxzKRLdZfpTDwhQe9nomCxGqFQo6C1qnQaGTy66yBiKLytoDripF3U3W9RSfk7ku8bghNA9E7mwZL4mYnGSb7e"
       ],
-      "last_check": 1778777993.758809
+      "last_check": 1778781573.8960447
     }
   ]
 }
