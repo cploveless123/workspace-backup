@@ -64,8 +64,9 @@ Active system: scanner_v1.py + monitor_v1.py
    - Data: 192 trades, 53.1% WR, +3.80 SOL
 2. **PROVEN PATH**: Age > 600s + H1 200-500% + MCAP $10K-$20K + (KOL Vol $200+ OR Snipers >= 1)
    - Data: Expected 60-65% WR (combined from profitable subsets)
-3. **KOL PATH**: KOL Vol >= $200 + H1 > 30% + MCAP $5K-$50K + Age 90-3600s
-   - Data: 54.5% WR at $200+ vol (changed from $50 on 2026-05-10 15:42 UTC)
+3. **KOL PATH**: KOL count >= 1 + KOL Vol >= $1,500 + H1 >= 500% + Age 90-3600s (MCAP filter removed)
+   - Data: Updated 2026-05-14 04:16 UTC - filters tightened based on performance data
+   - Previous: $200 vol / 30% h1 (54.5% WR but recent losses suggest too loose)
 4. **WHALE PATH**: Whale >= 3 + H1 > 75% + Vol > $10K
    - Data: 54.9% WR, +0.69 SOL
 5. **SNIPER_HEAVY PATH**: Snipers >= 2 + H1 > 50% + chg1 > 5% + Vol > $10K
@@ -115,13 +116,13 @@ Active system: scanner_v1.py + monitor_v1.py
 - Fresh data only (GMGN primary, DexScreener backup)
 - Alert dedup: 5 min
 
-## Current Status (2026-05-10 16:25 UTC)
-- Scanner: v1.8 running (PID 3217632)
-- Monitor: v1.1 running (PID 1946476)
-- Balance: -13.39 SOL
-- Open: 1 position (LifeLog, -30% PnL)
-- KOL volume filter: $200+ (active since 15:42 UTC)
-- New paths: SMART_DEGEN + PROVEN (added 16:10 UTC)
+## Current Status (2026-05-14 04:16 UTC)
+- Scanner: v1.8 running (PID 3559166)
+- Monitor: v1.1 running (PID 3559264) - BUG FIX DEPLOYED
+- Balance: Check sim_wallet.json for live data
+- Open: Check monitor logs for live data
+- KOL PATH filters tightened: Vol >= $1,500, H1 >= 500% (2026-05-14)
+- sell_token() bug fixed: partial sells no longer close full position
 
 ## Git Commit History:
 - 2026-05-10 16:25: Scanner v1.8 - Add SMART_DEGEN + PROVEN paths, KOL vol $200+ filter

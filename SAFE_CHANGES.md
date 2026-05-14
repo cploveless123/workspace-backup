@@ -83,12 +83,29 @@ tail -20 scanner_v1.log
   ```
   **Must show:** Recent activity, no crashes
 
-### STEP 7: REPORT TO CHRIS (MANDATORY)
+### STEP 7: UPDATE MEMORY (MANDATORY)
+After ANY code change, update memory files with timestamp:
+
+```bash
+# Update daily memory with timestamped entry
+echo "## $(date -u '+%Y-%m-%d %H:%M UTC') - CODE CHANGE" >> /root/.openclaw/workspace/memory/$(date -u +%Y-%m-%d).md
+echo "" >> /root/.openclaw/workspace/memory/$(date -u +%Y-%m-%d).md
+echo "**File:** scanner_v1.py or monitor_v1.py" >> /root/.openclaw/workspace/memory/$(date -u +%Y-%m-%d).md
+echo "**Backup:** scanner_v1.py.bak.YYYYMMDD_HHMM" >> /root/.openclaw/workspace/memory/$(date -u +%Y-%m-%d).md
+echo "**Lines:** X-Y" >> /root/.openclaw/workspace/memory/$(date -u +%Y-%m-%d).md
+echo "**Change:** Description of what changed and why" >> /root/.openclaw/workspace/memory/$(date -u +%Y-%m-%d).md
+echo "" >> /root/.openclaw/workspace/memory/$(date -u +%Y-%m-%d).md
+```
+
+**Also update MEMORY.md** with the current state of filters/paths if changed.
+
+### STEP 8: REPORT TO CHRIS (MANDATORY)
 Before considering it done, tell Chris:
 1. Backup filename
 2. Exact lines changed (line numbers)
 3. Test result (pass/fail)
 4. Log growing confirmation (yes/no)
+5. Memory updated (yes/no)
 
 ### IF ANY STEP FAILS
 1. STOP
@@ -106,6 +123,7 @@ Before considering it done, tell Chris:
 - Skip backup
 - Skip test cycle
 - Skip log verification
+- **Skip memory update**
 - Make "quick" changes
 - Change multiple things at once
 - **Answer from memory without checking live data first**
