@@ -245,6 +245,38 @@
 - **High profit but inactive** = May be waiting for better setups
 - **Focus on:** Wallets that are BOTH profitable AND active now
 
+## 🔄 CONTINUOUS DISCOVERY PROCESS
+
+### Daily Scans (08:00 & 20:00 UTC):
+- **Cron Job:** `daily_smart_wallet_discovery`
+- **Command:** `gmgn-cli track smartmoney --chain sol --limit 500`
+- **Purpose:** Find new wallets not in our tracked list
+
+### Discovery Criteria:
+1. **Tags:** smart_degen, padre, axiom, or gmgn
+2. **Activity:** 2+ trades in scan
+3. **Buy activity:** At least 1 buy
+4. **Trade size:** Average >$50
+5. **Not already tracked:** Skip existing Tier 1/2/3
+6. **Not blacklisted:** Skip known bad wallets
+
+### Validation Process (Stage 2):
+- **Duration:** 3-7 days
+- **Check:** Daily PnL, WR, token count
+- **Graduate to Tier 3 if:** PnL >$100, WR >40%, 3+ tokens
+
+### Current Candidates (Stage 2):
+| Wallet | Tags | Initial PnL | Start Date | End Date | Status |
+|--------|------|-------------|------------|----------|--------|
+| Bg8S899R... | padre, smart_degen, axiom | +$451 | 2026-05-15 | 2026-05-18 | 🔍 Validating |
+
+### Discovery History:
+| Date | Wallets Scanned | Candidates Found | Added to Stage 2 | Graduated |
+|------|----------------|------------------|------------------|------------|
+| 2026-05-15 | 200 | 1 | 1 | 0 |
+
+---
+
 ## 🎯 NEXT ANALYSIS (Pending)
 
 1. Track all wallets over 24h for consistency
