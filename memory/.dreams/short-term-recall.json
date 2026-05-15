@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-05-11T15:07:57.872Z",
+  "updatedAt": "2026-05-15T07:41:12.959Z",
   "entries": {
     "memory:memory/2026-04-15.md:209:236": {
       "key": "memory:memory/2026-04-15.md:209:236",
@@ -1451,19 +1451,21 @@
       "endLine": 36,
       "source": "memory",
       "snippet": "# 2026-05-10 04:03 UTC — 4H Strategy Review ## Scanner Audit - scanner_v1.py v1.7 running (PID 3217632) — WHALE + SNIPER_HEAVY + KOL + PHOENIX + DIP paths - monitor_v1.py v1.1 running (PID 1946476) - NO rogue processes ## Settings Drift (CRITICAL) | Setting | Current | Target (USER.md) | Delta | |---------|---------|------------------|-------| | MIN_MCAP | $3,000 | $8,000 | TOO LOW | | STOP_PCT | -45% | -35% | TOO WIDE | | TP1_PCT | +30% | +50% | TOO EARLY | | TP1_TRAIL | 45% | 15% | TOO LOOSE | | TP2_SELL | 40% | 20% | TOO MUCH | | TP2_TRAIL | 45% | 12% | TOO LOOSE | ## KOL Path Bleeding Last 6 KOL entries ALL hit STOP loss: - send: -4.8% | 73/42: -7.3% | cobson: (TIME_STOP) | PSYOP: -5.",
-      "recallCount": 2,
+      "recallCount": 3,
       "dailyCount": 0,
       "groundedCount": 0,
-      "totalScore": 2,
+      "totalScore": 3,
       "maxScore": 1,
       "firstRecalledAt": "2026-05-11T04:12:20.411Z",
-      "lastRecalledAt": "2026-05-11T04:12:25.091Z",
+      "lastRecalledAt": "2026-05-15T07:41:12.959Z",
       "queryHashes": [
         "4e026303b602",
-        "1070c51185a1"
+        "1070c51185a1",
+        "63e7bc8fa111"
       ],
       "recallDays": [
-        "2026-05-11"
+        "2026-05-11",
+        "2026-05-15"
       ],
       "conceptTags": [
         "scanner-v1.py",
@@ -1725,6 +1727,68 @@
         "1.6232",
         "1.85",
         "signal-scorer.py"
+      ]
+    },
+    "memory:memory/2026-05-09.md:1:39": {
+      "key": "memory:memory/2026-05-09.md:1:39",
+      "path": "memory/2026-05-09.md",
+      "startLine": 1,
+      "endLine": 39,
+      "source": "memory",
+      "snippet": "# 2026-05-09 04:02 UTC — Strategy Review Findings ## Scanner Settings DRIFT DETECTED - **MIN_MCAP**: $3,000 (should be $8,000 per April 16 BABA strategy) - **STOP_PCT**: -40% (should be -35%) - **TP1_PCT**: +30% (should be +50%) - **TP2_SELL**: 40% (should be 20%) - **TP3_SELL**: 30% (should be 15%) - **Trail stops**: 40%/35%/30%/30%/15% (should be 15%/12%/12%/12%) ## Monitor v1.1 Does NOT Match v7.4 Spec The monitor TP settings are significantly different from what USER.md specifies: - Current: TP1 +30% HOLD, TP2 +100% 40%, TP3 +200% 30%, TP4 +300% 20%, TP5 +1000% 10% - Spec: TP1 +50% HOLD, TP2 +100% 20%, TP3 +200% 15%, TP4 +300% 10%, TP5 +1000% ALL ## Market Snapshot - Top trending: D",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 1,
+      "maxScore": 1,
+      "firstRecalledAt": "2026-05-15T07:41:12.959Z",
+      "lastRecalledAt": "2026-05-15T07:41:12.959Z",
+      "queryHashes": [
+        "63e7bc8fa111"
+      ],
+      "recallDays": [
+        "2026-05-15"
+      ],
+      "conceptTags": [
+        "min-mcap",
+        "stop-pct",
+        "tp1-pct",
+        "tp2-sell",
+        "tp3-sell",
+        "v1.1",
+        "v7.4",
+        "user.md"
+      ]
+    },
+    "memory:memory/2026-04-27.md:1:31": {
+      "key": "memory:memory/2026-04-27.md:1:31",
+      "path": "memory/2026-04-27.md",
+      "startLine": 1,
+      "endLine": 31,
+      "source": "memory",
+      "snippet": "# Memory - 2026-04-27 ## Exec Compaction Issue (04:15 - 05:29 UTC) - Exec tool was compacted for ~1.5 hours - all commands returned empty/no output - Scanner was RUNNING FINE the entire time (Chris received Telegram buy/sell alerts) - Chris restarted VPS at ~05:09 to try to fix - openclaw-gateway running (PID 2380354, started 05:09) - Chris couldn't figure out how to restart openclaw from console (systemctl not found) - Still trying to fully recover exec at 05:29 ## WR Discrepancy Discussion - Chris skeptical of my \"zombie processes\" explanation for 47% vs 27% WR - Chris believes 47% was real - held steady until a real losing streak - Chris's memory: things felt fine until a losing streak",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 1,
+      "maxScore": 1,
+      "firstRecalledAt": "2026-05-15T07:41:12.959Z",
+      "lastRecalledAt": "2026-05-15T07:41:12.959Z",
+      "queryHashes": [
+        "63e7bc8fa111"
+      ],
+      "recallDays": [
+        "2026-05-15"
+      ],
+      "conceptTags": [
+        "gateway",
+        "1.5",
+        "empty/no",
+        "buy/sell",
+        "openclaw-gateway",
+        "exec",
+        "compaction",
+        "issue"
       ]
     }
   }
