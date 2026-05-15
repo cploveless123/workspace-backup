@@ -269,11 +269,16 @@
 | Wallet | Tags | Initial PnL | Start Date | End Date | Status |
 |--------|------|-------------|------------|----------|--------|
 | Bg8S899R... | padre, smart_degen, axiom | +$451 | 2026-05-15 | 2026-05-18 | 🔍 Validating |
+| DPwH9a... | axiom, padre, smart_degen | +$462 | 2026-05-15 | 2026-05-22 | 🔍 Validating |
+| DNhTNc... | smart_degen, axiom | +$194 | 2026-05-15 | 2026-05-22 | 🔍 Validating |
+| 7q15WZ... | axiom, smart_degen | +$268 | 2026-05-15 | 2026-05-22 | 🔍 Validating |
+| Bapcdw... | smart_degen, axiom | +$734 | 2026-05-15 | 2026-05-22 | 🔍 Validating |
+| 9LxMdv... | smart_degen, axiom | +$926 | 2026-05-15 | 2026-05-22 | 🔍 Validating |
 
 ### Discovery History:
 | Date | Wallets Scanned | Candidates Found | Added to Stage 2 | Graduated |
 |------|----------------|------------------|------------------|------------|
-| 2026-05-15 | 200 | 1 | 1 | 0 |
+| 2026-05-15 | 200 | 6 | 6 | 0 |
 
 ---
 
