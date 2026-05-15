@@ -1,0 +1,10 @@
+{
+  "tracked_wallets": [
+    "6EDaVsS6enYgJ81tmhEkiKFcb4HuzPUVFZeom6PHUqN3",
+    "65kmABTfVidnwPzs5bfeyptpM2ewkkNewnJK6QwUSKXE",
+    "3jSHyFJjkWnz73niuzRnjsxSEA6MV3kwKu4ZAFEXGN6f"
+  ],
+  "last_check": "2026-05-15T08:39:00Z",
+  "last_alerted_txs": [],
+  "alert_cooldown_minutes": 5
+}
