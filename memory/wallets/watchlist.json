@@ -4,33 +4,33 @@
       "address": "suqh5sHtr8HyJ7q8scBimULPkPpA557prMG47xCHQfK",
       "added": "2026-04-06T16:38:00Z",
       "prev_balance_sol": 1.27,
-      "balance_sol": 7.812143011,
+      "balance_sol": 9.155050978,
       "change_sol": 0.667815266,
       "status": "DISTRIBUTING",
       "recent_tokens": [],
       "pattern": "Heavy distribution",
       "notes": "Balance dropped 3.04 \u2192 0.89 SOL (-2.15 SOL). Down from 13.31 SOL peak. Selling heavily/distributing.",
       "recent_activity": [
-        "2oXbEo9eAhjsZ5jjmhWp6ttGc56pT623trCDU1CMHEZfzDDhNUW6S5KpkQdmE9BiAu6XhBCTHRSeDQ4ohasJexc8",
-        "21pJW1jeE31ZvRN4jNwh7jXqmQirnu9ygWX79fRReLLZAR7a1KWVNHhpr3NwSjsQQT9HqM445FzKpX6vVK4it8r5"
+        "4RfrFXaaJFavFHUgK8Ge1F8WUxNbUax6HZKCwgRMsvkW4mydfYwWsFUSiNgySZU6NV2bpX6UyzaBzQWjBr9oMNJ2",
+        "2V4KCE918F93teCwed5Pw4mUAmBqz4CVTWqau8X6NMjBZ7TNc6Z9Lw1Gp7x3hYBen3AS6TW8Fy5oNjPHQQbHMvc2"
       ],
-      "last_check": 1778859197.3860066
+      "last_check": 1778864173.130024
     },
     {
       "address": "CyaE1VxvBrahnPWkqm5VsdCvyS2QmNht2UFrKJHga54o",
       "added": "2026-04-06T16:45:00Z",
-      "prev_balance_sol": 515.680960382,
-      "balance_sol": 728.690549683,
-      "change_sol": -0.0,
-      "status": "ACCUMULATING",
+      "prev_balance_sol": 728.690549683,
+      "balance_sol": 712.451000159,
+      "change_sol": -1.390549683,
+      "status": "DISTRIBUTING",
       "recent_tokens": [],
       "pattern": "Large SOL whale",
-      "notes": "Still accumulating: 473.61 \u2192 474.89 SOL (+1.28 SOL). Large SOL whale.",
+      "notes": "Distribution: 728.69 \u2192 727.30 SOL (-1.39 SOL). Dropping SOL, may be selling.",
       "recent_activity": [
-        "7oXkFrer2SV89qU8AY6uU92RGYbzXAfrHZU5zS1rCvfdyS7zaGSK1cEedLJtuhitPSvRaNgWucZsC34NyjNnJaK",
-        "5q3HDW5BcbDjfHTqxCMuHrZLVk9uj7BnAk8vWsYdNPr96Ckbcv2hbnb9eRvBQBgLAGmhdng5YVXNXEKhvx9drZj"
+        "5aue6aHW7fuvCVavsht9aodaaVYScKTAU3WdDv3CgnPPQgd262h6yveBCjw4tqqcuXatYGWrGsptuazshbNM97zi",
+        "35KjK1kz23wNhKzsmYBk5d6tePm4vfuSCPDqZWBLBFM84fv5UK3UTJCUK6ccGXq1VFvaeBCtqq2KbHUT8JmZsGX9"
       ],
-      "last_check": 1778861014.780966
+      "last_check": 1778864689.9515367
     }
   ]
 }
