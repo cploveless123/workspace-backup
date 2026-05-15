@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-05-15T08:40:03.354Z",
+  "updatedAt": "2026-05-15T09:15:18.283Z",
   "entries": {
     "memory:memory/2026-04-15.md:209:236": {
       "key": "memory:memory/2026-04-15.md:209:236",
@@ -40,23 +40,25 @@
       "endLine": 88,
       "source": "memory",
       "snippet": "- DexScreener links for every signal and trade - Format example: 🏐 WILSON BUY ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 💰 Solana Swap (SOS) 📊 VOL 6.4x 💎 FDV: $430K | Liq: $215K 📈 Price: $0.00043010 | Age: 810329m 🎯 TP1: +50% | TP2: +100% | Stop: -20% 🔗 https://dexscreener.com/solana/... ### Known Issues - GMGN symbol parsing sometimes shows \"NEW\" instead of actual token name - Need to fix regex for extracting token symbols from GMGN messages ### Next Steps 1. Continue monitoring and trading 2. Set up GitHub remote and push 3. Fix symbol parsing 4. Test DexScreener-only signals vs GMGN signals 5. When P&L is good enough, Chris will let bot trade with real funds ## Trade Lea",
-      "recallCount": 4,
+      "recallCount": 5,
       "dailyCount": 0,
       "groundedCount": 0,
-      "totalScore": 4,
+      "totalScore": 5,
       "maxScore": 1,
       "firstRecalledAt": "2026-04-28T19:26:26.468Z",
-      "lastRecalledAt": "2026-05-11T04:12:25.091Z",
+      "lastRecalledAt": "2026-05-15T09:15:18.283Z",
       "queryHashes": [
         "9d7ae2188a53",
         "7e73fa846a9b",
         "4e026303b602",
-        "1070c51185a1"
+        "1070c51185a1",
+        "1d936fd04237"
       ],
       "recallDays": [
         "2026-04-28",
         "2026-05-07",
-        "2026-05-11"
+        "2026-05-11",
+        "2026-05-15"
       ],
       "conceptTags": [
         "6.4x",
@@ -976,20 +978,22 @@
       "endLine": 78,
       "source": "memory",
       "snippet": "- Trades file reset to empty - Blacklist cleared - Balance: 1.0 SOL - Record: 0W/0L - Open: 0 positions ### NEW EXIT STRATEGY (TP5) | Level | Trigger | Sell % | Stop | |-------|---------|--------|------| | TP1 | +50% | 10% | -25% | | TP2 | +100% | 15% | -25% | | TP3 | +200% | 20% | -20% | | TP4 | +400% | 25% | -15% | | TP5 | +1000% | 30% | EXIT ALL | | COMPOUND | After TP5 | REMAINING 10% | 20% trailing | ### COMPOUND MODE - Only activates when position hits TP5 (+1000%) - Remaining 10% monitored with 20% trailing stop - Goal: let winners run 2-5x additional - Exit when price drops 20% from peak ### Key Changes from Previous - New constants in trading_constants.py - Updated HEARTBEAT.md w",
-      "recallCount": 2,
+      "recallCount": 3,
       "dailyCount": 0,
       "groundedCount": 0,
-      "totalScore": 2,
+      "totalScore": 3,
       "maxScore": 1,
       "firstRecalledAt": "2026-05-07T03:36:44.299Z",
-      "lastRecalledAt": "2026-05-09T04:00:52.579Z",
+      "lastRecalledAt": "2026-05-15T09:15:18.283Z",
       "queryHashes": [
         "78571ac9b904",
-        "edcd8f72452f"
+        "edcd8f72452f",
+        "1d936fd04237"
       ],
       "recallDays": [
         "2026-05-07",
-        "2026-05-09"
+        "2026-05-09",
+        "2026-05-15"
       ],
       "conceptTags": [
         "1.0",
@@ -1457,17 +1461,18 @@
       "endLine": 36,
       "source": "memory",
       "snippet": "# 2026-05-10 04:03 UTC — 4H Strategy Review ## Scanner Audit - scanner_v1.py v1.7 running (PID 3217632) — WHALE + SNIPER_HEAVY + KOL + PHOENIX + DIP paths - monitor_v1.py v1.1 running (PID 1946476) - NO rogue processes ## Settings Drift (CRITICAL) | Setting | Current | Target (USER.md) | Delta | |---------|---------|------------------|-------| | MIN_MCAP | $3,000 | $8,000 | TOO LOW | | STOP_PCT | -45% | -35% | TOO WIDE | | TP1_PCT | +30% | +50% | TOO EARLY | | TP1_TRAIL | 45% | 15% | TOO LOOSE | | TP2_SELL | 40% | 20% | TOO MUCH | | TP2_TRAIL | 45% | 12% | TOO LOOSE | ## KOL Path Bleeding Last 6 KOL entries ALL hit STOP loss: - send: -4.8% | 73/42: -7.3% | cobson: (TIME_STOP) | PSYOP: -5.",
-      "recallCount": 3,
+      "recallCount": 4,
       "dailyCount": 0,
       "groundedCount": 0,
-      "totalScore": 3,
+      "totalScore": 4,
       "maxScore": 1,
       "firstRecalledAt": "2026-05-11T04:12:20.411Z",
-      "lastRecalledAt": "2026-05-15T07:41:12.959Z",
+      "lastRecalledAt": "2026-05-15T09:15:18.283Z",
       "queryHashes": [
         "4e026303b602",
         "1070c51185a1",
-        "63e7bc8fa111"
+        "63e7bc8fa111",
+        "1d936fd04237"
       ],
       "recallDays": [
         "2026-05-11",
@@ -1742,15 +1747,16 @@
       "endLine": 39,
       "source": "memory",
       "snippet": "# 2026-05-09 04:02 UTC — Strategy Review Findings ## Scanner Settings DRIFT DETECTED - **MIN_MCAP**: $3,000 (should be $8,000 per April 16 BABA strategy) - **STOP_PCT**: -40% (should be -35%) - **TP1_PCT**: +30% (should be +50%) - **TP2_SELL**: 40% (should be 20%) - **TP3_SELL**: 30% (should be 15%) - **Trail stops**: 40%/35%/30%/30%/15% (should be 15%/12%/12%/12%) ## Monitor v1.1 Does NOT Match v7.4 Spec The monitor TP settings are significantly different from what USER.md specifies: - Current: TP1 +30% HOLD, TP2 +100% 40%, TP3 +200% 30%, TP4 +300% 20%, TP5 +1000% 10% - Spec: TP1 +50% HOLD, TP2 +100% 20%, TP3 +200% 15%, TP4 +300% 10%, TP5 +1000% ALL ## Market Snapshot - Top trending: D",
-      "recallCount": 1,
+      "recallCount": 2,
       "dailyCount": 0,
       "groundedCount": 0,
-      "totalScore": 1,
+      "totalScore": 2,
       "maxScore": 1,
       "firstRecalledAt": "2026-05-15T07:41:12.959Z",
-      "lastRecalledAt": "2026-05-15T07:41:12.959Z",
+      "lastRecalledAt": "2026-05-15T09:15:18.283Z",
       "queryHashes": [
-        "63e7bc8fa111"
+        "63e7bc8fa111",
+        "1d936fd04237"
       ],
       "recallDays": [
         "2026-05-15"
@@ -1773,15 +1779,16 @@
       "endLine": 31,
       "source": "memory",
       "snippet": "# Memory - 2026-04-27 ## Exec Compaction Issue (04:15 - 05:29 UTC) - Exec tool was compacted for ~1.5 hours - all commands returned empty/no output - Scanner was RUNNING FINE the entire time (Chris received Telegram buy/sell alerts) - Chris restarted VPS at ~05:09 to try to fix - openclaw-gateway running (PID 2380354, started 05:09) - Chris couldn't figure out how to restart openclaw from console (systemctl not found) - Still trying to fully recover exec at 05:29 ## WR Discrepancy Discussion - Chris skeptical of my \"zombie processes\" explanation for 47% vs 27% WR - Chris believes 47% was real - held steady until a real losing streak - Chris's memory: things felt fine until a losing streak",
-      "recallCount": 1,
+      "recallCount": 2,
       "dailyCount": 0,
       "groundedCount": 0,
-      "totalScore": 1,
+      "totalScore": 2,
       "maxScore": 1,
       "firstRecalledAt": "2026-05-15T07:41:12.959Z",
-      "lastRecalledAt": "2026-05-15T07:41:12.959Z",
+      "lastRecalledAt": "2026-05-15T09:15:18.283Z",
       "queryHashes": [
-        "63e7bc8fa111"
+        "63e7bc8fa111",
+        "1d936fd04237"
       ],
       "recallDays": [
         "2026-05-15"
@@ -1857,6 +1864,37 @@
         "post-mortem",
         "0.074",
         "get-fresh-token-data"
+      ]
+    },
+    "memory:memory/2026-05-05.md:1:36": {
+      "key": "memory:memory/2026-05-05.md:1:36",
+      "path": "memory/2026-05-05.md",
+      "startLine": 1,
+      "endLine": 36,
+      "source": "memory",
+      "snippet": "## 2026-05-05 19:11 UTC — v1.3 Multi-Path System Deployed ### MAJOR SYSTEM UPGRADE: Scanner v1.3 **5 Entry Paths Implemented:** 1. **SURGE**: h1>200% + chg5>50% + chg1>10% (rockets) 2. **WHALE**: whale_score≥5 + h1>100% + volume>$15K (smart money) 3. **ESTABLISHED**: age>600s + h1>100% (survived initial dump) 4. **SNIPER**: snipers≥1 + h1>100% + volume>$10K (early interest) 5. **PUMP**: h1>75% + chg5>10% + chg1>5% (fast entry, 65s recovery) **BOUNCE PATH: DISABLED** — Data shows 6.7% WR, -0.0423 avg (death) ### GMGN API Fix - **Problem**: API returning 0 tokens, all fields zeroed - **Root cause**: `--raw` flag returns empty `tokens` array; without `--raw` data is in `data['rank']` with",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 1,
+      "maxScore": 1,
+      "firstRecalledAt": "2026-05-15T09:15:18.283Z",
+      "lastRecalledAt": "2026-05-15T09:15:18.283Z",
+      "queryHashes": [
+        "1d936fd04237"
+      ],
+      "recallDays": [
+        "2026-05-15"
+      ],
+      "conceptTags": [
+        "v1.3",
+        "multi-path",
+        "whale-score",
+        "6.7",
+        "0.0423",
+        "utc",
+        "multi",
+        "path"
       ]
     }
   }
