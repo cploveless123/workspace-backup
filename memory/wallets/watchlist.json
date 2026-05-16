@@ -10,10 +10,7 @@
       "recent_tokens": [],
       "pattern": "SOL accumulator",
       "notes": "Holding steady around 7.5 SOL",
-      "recent_activity": [
-        "NwmEeNX22RgLsbRR68VLF1G257GG3jkuiv6k3hXZn5Tc4thSYVdLsvostJFFgaSNN4pmsmtxwmeDYHT2fcait3N",
-        "56RSr7XHhkrNMmzjcMv3fRRDczgZXS34DqzJ3N2UhT2nzMqsZLULDQC11M7gsHscaij9fe5s4UKkuLe9nJ6EQZQG"
-      ],
+      "recent_activity": [],
       "last_check": 1778910735.4166505
     },
     {
@@ -26,10 +23,7 @@
       "recent_tokens": [],
       "pattern": "Large SOL whale",
       "notes": "Balance 820.07 \u2192 815.49 SOL (-4.58). Distribution/sell detected.",
-      "recent_activity": [
-        "2jj89BfGoHH8hVKeR9aHDsBB8jT7Z2qZnGZ2Zk7pdWcuomDUDZeDTobGtLRWxkW7Ff8TFsnKNnSyKH4x6GKyniKZ",
-        "JcDAtq9RgnrGhQgW5HXaoSndg64YRLiZBNE8PUPngSdes8FHorkW7fc5Hn6NEeK4ZS3Dr6bjE943v57XaY8qZm2"
-      ],
+      "recent_activity": [],
       "last_check": 1778908129.3835328
     }
   ]
