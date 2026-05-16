@@ -1,6 +1,6 @@
 # Smart Money Tracking - 2026-05-16
 
-## Daily Discovery Report - 08:00 UTC
+## Daily Discovery Report - 20:00 UTC
 
 ### CURRENT TRACKED WALLETS (Tier 3)
 - 6EDaVsS6enYgJ81tmhEkiKFcb4HuzPUVFZeom6PHUqN3
@@ -30,37 +30,40 @@
 
 ---
 
-## NEW CANDIDATES FOUND: 3
+## NEW CANDIDATES FOUND: 0
 
 ### PASSED ALL CRITERIA (Adding to Stage 2)
+NONE - All new candidates failed win rate or PnL criteria.
 
-| Wallet | Tags | 7d PnL | Win Rate | Tokens | Status |
-|--------|------|--------|----------|--------|--------|
-| 8p8zJrGP41CbPSB5cS6s8stZkJEkjQVw86KgzgQGfHYT | smart_degen, axiom | $1,384 | 67.4% | 184 | STAGE 2 |
-| XppYcY1RZyDTLayChp87oyJtAE9azfTyfJTvv3YK45f | smart_degen, axiom | $898 | 64.8% | 167 | STAGE 2 |
-| BQVz7fQ1WsQmSTMY3umdPEPPTm1sdcBcX9sP7o6kPRmB | kol, bullx, launchpad_smart, axiom | $4,016 | 40.9% | 172 | STAGE 2 (KOL) |
-
-### REJECTED CANDIDATES
+### SMART MONEY CANDIDATES - REJECTED
 
 | Wallet | Tags | 7d PnL | Win Rate | Tokens | Reason |
 |--------|------|--------|----------|--------|--------|
-| GoonY5hPo63xAPCwkyWuFmQ57HWq8wj5Bevj2D222U4u | smart_degen, axiom | $1,353 | 51.2% | 125 | Win rate < 50% (borderline) |
-| 3Nomfu3wAh11ozJsDg8PXWCyHUPtfTQrwRQvGFCBymdB | smart_degen, axiom | $2,796 | 38.7% | 145 | Win rate < 50% |
-| Bb7dKbhUVkCFdTRx9HXqvBzGo9GvmpYXQh8Hzktpbw7x | fresh_wallet, axiom | $7,087 | 41.1% | 660 | Win rate < 50% |
-| H3xPKDgA8HFNv4DaZ5yPfigCzjnfnDzcP8f42icrS1y8 | axiom | N/A | N/A | N/A | Low trade count (4) |
-| BzNNTsonCsicfQHTKdyjyPQ2AxBTbfYBTBnMntAwsiz5 | gmgn, smart_degen, axiom | N/A | N/A | N/A | Low trade count (3) |
-| HeiJNa6wQyGjTt5AUkwKoDEALPrxbLXePnAM719RUKGX | smart_degen, axiom | N/A | N/A | N/A | Low trade count (3) |
-| 7dt9V3DfKkhzmk8eyCyBFFjaAo2oRpR9w13JLAAs7j5u | bluechip_owner, smart_degen | N/A | N/A | N/A | Low trade count (2) |
-| FRfG5nMXphNWrCzSJzr3WT62EuitqpGfqSztLaXrcLq6 | smart_degen, photon | N/A | N/A | N/A | Low trade count (2) |
-| PCX1b8exeasEaE8kK5S5XyUC2PXJyqZRCN6pRWxaTdV | axiom, smart_degen | N/A | N/A | N/A | Low trade count (2) |
-| GhWUQ5rXARkt42JwgY3YbPCRUhNM3facuyHPsqPTSpgH | padre, kol, app_smart_money, axiom, gmgn | -$1,238 | 32.1% | 86 | Negative PnL, low WR |
-| 5XVKfruE4Zzeoz3aqBQfFMb5aSscY5nSyc6VwtQwNiid | photon, kol, gmgn, axiom | -$4,260 | 62.5% | 28 | Negative PnL |
-| AeLaMjzxErZt4drbWVWvcxpVyo8p94xu5vrg41eZPFe3 | top_renamed, kol, padre, gmgn, axiom | -$1,691 | 29.6% | 119 | Negative PnL, low WR |
-| DxM1hfY8FQ8dNGrucuJzhJcF8KRbjk8WBwrgKvQ9spPv | kol, fomo | N/A | N/A | N/A | Low trade count (5) |
-| 97K6nsFhBWDKwQf6heDDhDtsCRC4779LPHSFZkc2zqK4 | kol, gmgn | N/A | N/A | N/A | Low trade count (4) |
-| GQva3CGJNAiBxzPYjNaamHeyQ2shnCmPpwp2bbiRW9K | gmgn, kol, app_smart_money, axiom | N/A | N/A | N/A | Low trade count (4) |
-| C5K9uXTb6aqnZyUQc39JRYBKMfTJ4BUHHrw33wYyu99 | gmgn, kol | N/A | N/A | N/A | Low trade count (4) |
-| 9A4h17UgLGaVws6T1mBxzH5gkG35CUSrTfNgNK5Uj4Rp | photon, axiom, kol, gmgn | N/A | N/A | N/A | Low trade count (4) |
+| zephyrni115ZD4MvotSF8Xi92yennkdpT5nJkAjGdSU | padre, smart_degen | $3,575 | 47.1% | 138 | Win rate < 50% |
+| CXVJewdc79TYR55sz4SGLSWUPz3r4LBJ9Mn93bZ8ZyAz | bullx, gmgn, padre, smart_degen, axiom | $5,618 | 39.7% | 485 | Win rate < 50% |
+| 5kTMRBxmE9TmBjwehaZt1eF3wqx8Qv2GNyjKfdajqtBN | smart_degen, axiom | $3,968 | 63.8% | 187 | ALREADY IN STAGE 2 |
+| g5HcBNwSo2GyeKwdsgLzCrmqeB3KeihLd87nS79kDaG | smart_degen | $1,501 | 51.1% | 399 | ALREADY IN STAGE 2 |
+| 2fNPNJKE3ny6b5Vo1wdfa7J7KqYNjeyBM3PbGGSJ398r | padre, smart_degen | $4,306 | 69.8% | 155 | ALREADY IN STAGE 2 |
+| HB2JociLHezRx73MJZwVZNCLXzk9DNaNbrqX2oy88aDW | fresh_wallet, smart_degen, axiom | $1,848 | 33.6% | 238 | Win rate < 50% |
+| HZyJNKiMYYgpvd7xK36tGkdG1xf9SkNQjNy8koSDcGyA | smart_degen, padre | $1,972 | 49.2% | 134 | Win rate < 50% (borderline) |
+| Bg8S899R2r5g7qy3zdoyFnZqvBCDt338qP8mbGNZXVxB | padre, smart_degen, axiom | $4,254 | 47.4% | 505 | Win rate < 50% |
+| 4a7WtQ7dPCyoa6dU2E7apLiUFSYFYhPW4M831DNTxPLt | smart_degen | $1,522 | 51.0% | 107 | ALREADY IN STAGE 2 |
+| 7dt9V3DfKkhzmk8eyCyBFFjaAo2oRpR9w13JLAAs7j5u | bluechip_owner, smart_degen | $1,906 | 77.0% | 523 | ALREADY IN STAGE 2 |
+| BL9mJiRQkfB9i9tMGZX2tSRFqbZVyXdPRKLyiYxkZbGM | padre, smart_degen, axiom | $2,300 | 43.6% | 252 | Win rate < 50% |
+| CRzpBtFwjGkYKjwPSBzC4mn8qF2eb7XpjfPemubT4dgE | padre, smart_degen, axiom | $3,003 | 48.8% | 302 | Win rate < 50% |
+| 4BfWVLy15vLYfCbZ3MJk1vSkVBZaKZZPUKWLgwMqZpZh | smart_degen, axiom | $4,655 | 39.6% | 623 | Win rate < 50% |
+| 9ok9qD6oGii6UBVMfuWYJ29QYezp1fodSB7dNcC5ZRte | smart_degen, axiom | $3,926 | 35.5% | 126 | Win rate < 50% |
+
+### KOL CANDIDATES - REJECTED
+
+| Wallet | Twitter | Tags | Reason |
+|--------|---------|------|--------|
+| 4vw54BmAogeRV3vPKWyFet5yf8DTLcREzdSzx4rw9Ud9 | @notdecu | kol, photon, padre, axiom | Need stats check |
+| suqh5sHtr8HyJ7q8scBimULPkPpA557prMG47xCHQfK | @Cupseyy | kol, photon, axiom | Need stats check |
+| FAicXNV5FVqtfbpn4Zccs71XcfGeyxBSGbqLDyDJZjke | @radiancebrr | kol, launchpad_smart, padre, axiom | Need stats check |
+| 719sfKUjiMThumTt2u39VMGn612BZyCcwbM5Pe8SqFYz | @FASHRCrypto | kol, app_smart_money, bullx, padre, axiom | Need stats check |
+| 4NtyFqqRzvHWsTmJZoT26H9xtL7asWGTxpcpCxiKax9a | @insidecalls | kol, gmgn, app_smart_money, photon, axiom | Low trade count |
+| 98T65wcMEjoNLDTJszBHGZEX75QRe8QaANXokv4yw3Mp | @LeckSol | kol, bullx, axiom, padre | Low trade count |
 
 ---
 
@@ -78,10 +81,10 @@
 ---
 
 ## NOTES
-- Discovery run at 08:00 UTC on 2026-05-16
-- 3 new candidates passed all criteria and added to Stage 2
-- 2 smart_degen wallets with strong win rates (67.4%, 64.8%)
-- 1 KOL wallet (Limfork.eth) added despite lower WR (40.9%) due to high volume and Twitter following
-- Most rejected due to win rate < 50% or negative PnL
-- Next review: 2026-05-16 20:00 UTC
+- Discovery run at 20:00 UTC on 2026-05-16
+- 0 new candidates passed all criteria
+- Multiple wallets already in Stage 2 from previous discovery
+- Most rejected due to win rate < 50% (many borderline 47-49%)
+- Notable: 7dt9V3DfKkhzmk8eyCyBFFjaAo2oRpR9w13JLAAs7j5u has 77% WR but only 2 trades in scan (already tracked)
+- Next review: 2026-05-17 08:00 UTC
 
