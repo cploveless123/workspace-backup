@@ -1,32 +1,29 @@
-# Smart Money Tracker - 2026-05-16 06:53 UTC
+# Smart Money Tracker — 2026-05-16 18:58 UTC
 
-## Scan Results: 5 Unique Buys from Tracked Wallets
-**HIGH-CONVICTION SIGNALS: 0 of 5 PASSED ALL FILTERS**
+## Scan Results
+- 100 smart money transactions analyzed
+- 4 unique buys from tracked wallets found
+- **0 high-conviction signals passed all filters**
 
-### Key Finding
-All tracked wallet buys were >30 min old. Smart money is NOT buying fresh launches right now - they're either averaging into existing positions or the real entries happened earlier.
+## Tracked Wallet Activity
+| Wallet | Token | Amount | Full? | Result |
+|--------|-------|--------|-------|--------|
+| T2-W3 | LEOPOLD (5J52...) | $85.77 | ✅ | SKIP: Ancient token, 2 holders |
+| T1-W10 | SA (HhxH...) | $127.42 | ✅ | SKIP: 7.4 days old, 49% bot rate |
+| T1-W10 | LEOPOLD (Bsum...) | $127.46 | ✅ | SKIP: Ancient token, 85 holders |
+| Stigman | Leopold (2tMq...) | $131.80 | ✅ | SKIP: 59% bot rate, 58% buy ratio |
 
-### Buy Details
+## Filter Failures
+- Too old (>30 min): 3 tokens
+- Low holders (<100): 2 tokens
+- Low volume (<$5K): 1 token
+- High bot rate (>40%): 2 tokens
+- Distribution phase (buy ratio <60%): 1 token
 
-| Token | Wallet | Tier | Amount | Age | Vol 5m | vs 1h High | Buy Ratio | Holders | Pass |
-|-------|--------|------|--------|-----|--------|------------|-----------|---------|------|
-| Pickle | 3jSHyFJj | T1 | $349.87 | 135m | $17.9K | 129% | 57% | 177 | 4/6 |
-| RoyalPop | 43QmFc2Q | T2 | $57.59 | 7,648m | $58.8K | 139% | 50% | 3,513 | 4/6 |
-| Odyssey | Stigman | T1 | $214.50 | 3,790m | $2.9K | 130% | 47% | 293 | 3/6 |
-| TOGI | Stigman | T1 | $130.39 | 401,009m | $415 | 163% | 83% | 120 | 4/6 |
-| Twerk | 43QmFc2Q | T2 | $52.51 | 347m | $24.2K | 26% | 62% | 1,865 | 4/6 |
+## Notable Pattern
+LEOPOLD cluster detected — 3 different wallets buying 3 different LEOPOLD-named tokens:
+- 2 are ancient (2025 creation, likely unrelated)
+- 1 is fresh (~5 min old) but heavily botted (59.4%)
 
-### Filter Failures
-- Too old: 5/5
-- Low volume: 2/5 (Odyssey, TOGI)
-- Dumping: 1/5 (Twerk at 26% of 1h high)
-- Distribution phase: 3/5 (buy ratio <60%)
-
-### Notable Observations
-- Stigman (T1) bought Odyssey FULL position ($214) but token is 3,790 min old and low volume
-- Stigman also bought TOGI FULL ($130) but it's on meteora_virtual_curve (not pump.fun) and extremely old
-- Twerk is DUMPING hard - down to 26% of 1h high, avoid
-- No cluster signals (multiple wallets buying same token)
-
-### Action: NO TRADES RECOMMENDED
-Wait for fresh launches with multiple T1 wallet cluster buys.
+## Conclusion
+No actionable high-conviction signals. All buys failed strict filters.

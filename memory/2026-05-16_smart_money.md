@@ -1,37 +1,33 @@
-# Smart Money Tracker - 2026-05-16 02:37 UTC
+# Smart Money Tracker - 2026-05-16 18:28 UTC
 
 ## Scan Results
-- **Total smart money trades:** 100
-- **Unique BUY transactions:** 49
-- **HIGH-CONVICTION PASSES (7/7 filters):** 0
 
-## Top Signal
-**SHOWFEET** - 6/7 filters passed
-- Age: 4.2 min ✅
-- Vol 5m: $15,262 ✅
-- Vol trend: 338% ✅
-- Price vs 1h high: 424% ✅
-- Holders: 157 ✅
-- Bot rate: 0.5% ✅
-- Buy ratio: 56% ❌ (needs 60%)
-- Wallet: 92cwTJoG... (smart_degen/axiom)
-- Amount: $623.70 (FULL POSITION)
+**Total Tracked Buys Analyzed:** 5
+**High-Conviction Passes:** 0
+**Filtered Out:** 5
 
-## Key Insights
-1. No tokens passed ALL 7 filters
-2. 98% of buys failed age filter (>30 min old)
-3. Smart money trading older tokens, not fresh launches
-4. SHOWFEET is closest - only fails buy ratio by 4%
-5. EVENT had cluster signal (3+ wallets) but 4,814 min old
+### Filtered Out Breakdown:
+- Too old (>30 min): 5
+- Low volume (<$5K 5m): 5
+- Volume collapsed (<20% of 1h): 5
+- Dumping (<70% of 1h high): 5
+- Distribution (buy ratio <0.6): 5
+- Low holders (<100): 2
 
-## Filter Failures Breakdown
-- Too old: 48 buys
-- Distribution (buy ratio <60%): 35 buys
-- Low volume: 10 buys
-- Volume collapsed: 8 buys
-- Dumping: 3 buys
-- Low holders: 3 buys
-- High bot rate: 0 buys
+### Tracked Wallets with Activity:
+1. **3wccdTM5Ty6ZZC8rpc2GrKUHEScHZmr3iTKjRA6sH2rz** (TIER2) - BUY YOLO $17.15 [PARTIAL]
+2. **3wccdTM5Ty6ZZC8rpc2GrKUHEScHZmr3iTKjRA6sH2rz** (TIER2) - BUY SUICIDAL $128.50 [FULL]
+3. **8fsKLLtvKNanL4ginCaiRS6UfeemY11rSf8U8fN1dJw4** (TIER1 - Stigman) - BUY HANTA $620.27 [FULL]
+4. **1aC2FgH1tujX87Bv9yMVbda2sPiRDNCsjMJoJjw3n6C** (TIER1) - BUY MEN $106.04 [FULL]
+5. **CXVJewdc79TYR55sz4SGLSWUPz3r4LBJ9Mn93bZ8ZyAz** (TIER2) - BUY Mario $96.87 [FULL]
 
-## Recommendation
-No immediate buys. Continue monitoring SHOWFEET for buy ratio improvement.
+### Why All Failed:
+All tokens were >30 minutes old (ranging from ~40 min to several hours). The strict age filter (<30 min) eliminated everything. Volume was also low on most.
+
+### Notable Observations:
+- **Stigman (TIER1)** bought HANTA for $620 - large amount but token too old
+- **CXVJewdc79TYR55sz4SGLSWUPz3r4LBJ9Mn93bZ8ZyAz** bought Mario for $96.87 - fresh-ish but still >30 min
+- Most activity was on established tokens rather than fresh launches
+
+### Conclusion:
+No high-conviction signals this cycle. Smart money is trading older tokens or the fresh launches didn't meet volume/community thresholds. Next scan in ~30 min.
