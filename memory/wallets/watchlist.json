@@ -4,17 +4,17 @@
       "address": "suqh5sHtr8HyJ7q8scBimULPkPpA557prMG47xCHQfK",
       "added": "2026-04-06T16:38:00Z",
       "prev_balance_sol": 7.545053329,
-      "balance_sol": 0.352588679,
+      "balance_sol": 4.633005802,
       "change_sol": 0,
       "status": "STEADY",
       "recent_tokens": [],
       "pattern": "SOL accumulator",
       "notes": "Holding steady around 7.5 SOL",
       "recent_activity": [
-        "2WmmhfNb4WTDiqwie9ZEgYXWzeS4jE3YgQDCUJgqYuGgPg6hGEh87dSpcCZATmCWNg2iiHAMsBMTL43g4DoDYYi",
-        "38ngL4pr5zmJMGnqzsQ8rk2yadSScVsaTJLwo8DXzyAdvQtXpDutgWoHqaoAo1JKurTj4AZvd2vJUo4tFMkvgDzn"
+        "5tFXU6zHY7SzQ1b6UZ86gpjUoN6swVrb8TXfrU4zx148CaQczmyiVgKHsnUKURug5isy7WhB3WPCM6Bof3e7AunT",
+        "pQD9YeU3PctQpFVw5f2Ws5kjsMw3Q4wWeEgEntbC4vkLBHZPdFjysN5zKdYFMGr9zQ2xPx7S1QKEYBPQi2CxfER"
       ],
-      "last_check": 1778908129.1288402
+      "last_check": 1778910735.4166505
     },
     {
       "address": "CyaE1VxvBrahnPWkqm5VsdCvyS2QmNht2UFrKJHga54o",
