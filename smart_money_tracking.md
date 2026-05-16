@@ -1,6 +1,6 @@
-# Smart Money Tracking - 2026-05-15
+# Smart Money Tracking - 2026-05-16
 
-## Daily Discovery Report - 20:00 UTC
+## Daily Discovery Report - 08:00 UTC
 
 ### CURRENT TRACKED WALLETS (Tier 3)
 - 6EDaVsS6enYgJ81tmhEkiKFcb4HuzPUVFZeom6PHUqN3
@@ -36,31 +36,31 @@
 
 | Wallet | Tags | 7d PnL | Win Rate | Tokens | Status |
 |--------|------|--------|----------|--------|--------|
-| 5yz7Q9VAt1Qjrs82YgXyzHYAEiQTMpgJtSmUkAsapLhH | smart_degen, axiom | $3,773 | 69.1% | 85 | STAGE 2 |
-| HZyJNKiMYYgpvd7xK36tGkdG1xf9SkNQjNy8koSDcGyA | smart_degen, padre | $2,514 | 53.3% | 156 | STAGE 2 |
-| B9kJYdzb4gB9AC3aFChReDhJ2D5YDCaR4UrEoen2NcyC | gmgn, padre, smart_degen, axiom | $12,922 | 52.1% | 245 | STAGE 2 |
+| 8p8zJrGP41CbPSB5cS6s8stZkJEkjQVw86KgzgQGfHYT | smart_degen, axiom | $1,384 | 67.4% | 184 | STAGE 2 |
+| XppYcY1RZyDTLayChp87oyJtAE9azfTyfJTvv3YK45f | smart_degen, axiom | $898 | 64.8% | 167 | STAGE 2 |
+| BQVz7fQ1WsQmSTMY3umdPEPPTm1sdcBcX9sP7o6kPRmB | kol, bullx, launchpad_smart, axiom | $4,016 | 40.9% | 172 | STAGE 2 (KOL) |
 
 ### REJECTED CANDIDATES
 
 | Wallet | Tags | 7d PnL | Win Rate | Tokens | Reason |
 |--------|------|--------|----------|--------|--------|
-| 27fUFoLBd81AHtvqYLdeV8bzNg4mwMU127Kc9VxJkv5n | gmgn, smart_degen | $1,015 | 35.9% | 46 | Win rate < 50% |
-| 3Nomfu3wAh11ozJsDg8PXWCyHUPtfTQrwRQvGFCBymdB | smart_degen, axiom | $6,729 | 40.3% | 152 | Win rate < 50% |
-| 6bxvSqw7bzRHTPNf2ZRvywLRqJ9LFn47sHaq5sd6bk5o | photon, gmgn, smart_degen, axiom | $7,201 | 35.2% | 106 | Win rate < 50% |
-| 84k6bNa3WSEzifavuSnBRQRK9hJHEcZBLbihC6ZsYkSq | axiom, smart_degen | $1,158 | 44.4% | 234 | Win rate < 50% |
-| Bb7dKbhUVkCFdTRx9HXqvBzGo9GvmpYXQh8Hzktpbw7x | fresh_wallet, smart_degen, axiom | $6,519 | 39.0% | 566 | Win rate < 50% |
-| EHP4W8X5kwXK1EQHQwy3gGRZzbfYAbST2jJpxVELPUCB | photon, smart_degen, axiom | $1,799 | 75.0% | 21 | Tokens < 3 (actually 21, but low activity) |
-| T4Rr39DGzCHYHZBxWvoKcL2vmpjfjjHsThUMV7zpQMJ | smart_degen, axiom | $2,105 | 45.8% | 332 | Win rate < 50% |
-| tuyuNoNBoij3FTkHmjkiEa4d8Nus4bjaCHfKRGgfLEs | smart_degen, axiom | $28,111 | 43.8% | 213 | Win rate < 50% |
-| 5Q2DzmV4kuV7vAzDh18Ft47TPXR9NmaD4dmJLNdgdcVk | smart_degen, axiom | $732 | 47.3% | 110 | Win rate < 50% |
-| 4vw54BmAogeRV3vPKWyFet5yf8DTLcREzdSzx4rw9Ud9 | top_renamed, photon, kol, padre, axiom | $31,756 | 55.4% | 798 | KOL - High token count, already well-known |
-| sAdNbe1cKNMDqDsa4npB3TfL62T14uAo2MsUQfLvzLT | top_renamed, kol, app_smart_money, axiom, gmgn, padre | -$4,371 | 34.2% | 192 | Negative PnL |
-| suqh5sHtr8HyJ7q8scBimULPkPpA557prMG47xCHQfK | kol, photon, axiom | $20,092 | 45.2% | 1012 | Win rate < 50% |
-| FAicXNV5FVqtfbpn4Zccs71XcfGeyxBSGbqLDyDJZjke | top_renamed, kol, padre, axiom | $21,078 | 50.0% | 305 | KOL - Borderline, added to watch |
-| GM7Hrz2bDq33ezMtL6KGidSWZXMWgZ6qBuugkb5H8NvN | bullx, kol, padre, axiom | $7,610 | 37.6% | 104 | Win rate < 50% |
-| B6f55KyfEBmbc8PwV7M6oWSp3Z6A1WB5yLuJxSzZZsKR | axiom, photon, kol, gmgn | -$86 | 28.6% | 7 | Negative PnL, low tokens |
-| FSAmbD6jm6SZZQadSJeC1paX3oTtAiY9hTx1UYzVoXqj | kol, axiom, padre | -$1,592 | 44.7% | 50 | Negative PnL |
-| D1H83ueSw5Nxy5okxH7VBfV4jRnqAK5Mm1tm3JAj3m5t | kol, axiom, padre | -$1,124 | 44.4% | 16 | Negative PnL |
+| GoonY5hPo63xAPCwkyWuFmQ57HWq8wj5Bevj2D222U4u | smart_degen, axiom | $1,353 | 51.2% | 125 | Win rate < 50% (borderline) |
+| 3Nomfu3wAh11ozJsDg8PXWCyHUPtfTQrwRQvGFCBymdB | smart_degen, axiom | $2,796 | 38.7% | 145 | Win rate < 50% |
+| Bb7dKbhUVkCFdTRx9HXqvBzGo9GvmpYXQh8Hzktpbw7x | fresh_wallet, axiom | $7,087 | 41.1% | 660 | Win rate < 50% |
+| H3xPKDgA8HFNv4DaZ5yPfigCzjnfnDzcP8f42icrS1y8 | axiom | N/A | N/A | N/A | Low trade count (4) |
+| BzNNTsonCsicfQHTKdyjyPQ2AxBTbfYBTBnMntAwsiz5 | gmgn, smart_degen, axiom | N/A | N/A | N/A | Low trade count (3) |
+| HeiJNa6wQyGjTt5AUkwKoDEALPrxbLXePnAM719RUKGX | smart_degen, axiom | N/A | N/A | N/A | Low trade count (3) |
+| 7dt9V3DfKkhzmk8eyCyBFFjaAo2oRpR9w13JLAAs7j5u | bluechip_owner, smart_degen | N/A | N/A | N/A | Low trade count (2) |
+| FRfG5nMXphNWrCzSJzr3WT62EuitqpGfqSztLaXrcLq6 | smart_degen, photon | N/A | N/A | N/A | Low trade count (2) |
+| PCX1b8exeasEaE8kK5S5XyUC2PXJyqZRCN6pRWxaTdV | axiom, smart_degen | N/A | N/A | N/A | Low trade count (2) |
+| GhWUQ5rXARkt42JwgY3YbPCRUhNM3facuyHPsqPTSpgH | padre, kol, app_smart_money, axiom, gmgn | -$1,238 | 32.1% | 86 | Negative PnL, low WR |
+| 5XVKfruE4Zzeoz3aqBQfFMb5aSscY5nSyc6VwtQwNiid | photon, kol, gmgn, axiom | -$4,260 | 62.5% | 28 | Negative PnL |
+| AeLaMjzxErZt4drbWVWvcxpVyo8p94xu5vrg41eZPFe3 | top_renamed, kol, padre, gmgn, axiom | -$1,691 | 29.6% | 119 | Negative PnL, low WR |
+| DxM1hfY8FQ8dNGrucuJzhJcF8KRbjk8WBwrgKvQ9spPv | kol, fomo | N/A | N/A | N/A | Low trade count (5) |
+| 97K6nsFhBWDKwQf6heDDhDtsCRC4779LPHSFZkc2zqK4 | kol, gmgn | N/A | N/A | N/A | Low trade count (4) |
+| GQva3CGJNAiBxzPYjNaamHeyQ2shnCmPpwp2bbiRW9K | gmgn, kol, app_smart_money, axiom | N/A | N/A | N/A | Low trade count (4) |
+| C5K9uXTb6aqnZyUQc39JRYBKMfTJ4BUHHrw33wYyu99 | gmgn, kol | N/A | N/A | N/A | Low trade count (4) |
+| 9A4h17UgLGaVws6T1mBxzH5gkG35CUSrTfNgNK5Uj4Rp | photon, axiom, kol, gmgn | N/A | N/A | N/A | Low trade count (4) |
 
 ---
 
@@ -68,15 +68,20 @@
 
 | Wallet | Added | 7d PnL | Win Rate | Tokens | Days Left | Status |
 |--------|-------|--------|----------|--------|-----------|--------|
-| 5yz7Q9VAt1Qjrs82YgXyzHYAEiQTMpgJtSmUkAsapLhH | 2026-05-15 | $3,773 | 69.1% | 85 | 7 days | NEW |
-| HZyJNKiMYYgpvd7xK36tGkdG1xf9SkNQjNy8koSDcGyA | 2026-05-15 | $2,514 | 53.3% | 156 | 7 days | NEW |
-| B9kJYdzb4gB9AC3aFChReDhJ2D5YDCaR4UrEoen2NcyC | 2026-05-15 | $12,922 | 52.1% | 245 | 7 days | NEW |
+| 5yz7Q9VAt1Qjrs82YgXyzHYAEiQTMpgJtSmUkAsapLhH | 2026-05-15 | $3,773 | 69.1% | 85 | 6 days | MONITORING |
+| HZyJNKiMYYgpvd7xK36tGkdG1xf9SkNQjNy8koSDcGyA | 2026-05-15 | $2,514 | 53.3% | 156 | 6 days | MONITORING |
+| B9kJYdzb4gB9AC3aFChReDhJ2D5YDCaR4UrEoen2NcyC | 2026-05-15 | $12,922 | 52.1% | 245 | 6 days | MONITORING |
+| 8p8zJrGP41CbPSB5cS6s8stZkJEkjQVw86KgzgQGfHYT | 2026-05-16 | $1,384 | 67.4% | 184 | 7 days | NEW |
+| XppYcY1RZyDTLayChp87oyJtAE9azfTyfJTvv3YK45f | 2026-05-16 | $898 | 64.8% | 167 | 7 days | NEW |
+| BQVz7fQ1WsQmSTMY3umdPEPPTm1sdcBcX9sP7o6kPRmB | 2026-05-16 | $4,016 | 40.9% | 172 | 7 days | NEW (KOL) |
 
 ---
 
 ## NOTES
-- Discovery run at 20:00 UTC on 2026-05-15
+- Discovery run at 08:00 UTC on 2026-05-16
 - 3 new candidates passed all criteria and added to Stage 2
-- Most rejected due to win rate < 50% (common issue in current market)
-- KOL wallets generally have lower win rates but higher volume
-- Next review: 2026-05-16 08:00 UTC
+- 2 smart_degen wallets with strong win rates (67.4%, 64.8%)
+- 1 KOL wallet (Limfork.eth) added despite lower WR (40.9%) due to high volume and Twitter following
+- Most rejected due to win rate < 50% or negative PnL
+- Next review: 2026-05-16 20:00 UTC
+

@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-05-15T23:09:34.005Z",
+  "updatedAt": "2026-05-16T08:12:34.005Z",
   "entries": {
     "memory:memory/2026-04-15.md:209:236": {
       "key": "memory:memory/2026-04-15.md:209:236",
@@ -1107,20 +1107,22 @@
       "endLine": 288,
       "source": "memory",
       "snippet": "- 71375ca: Whale strategy: trailing stop 15%→30%, whale mcap range $10K-$75K ## NEW STRATEGY IMPLEMENTED (20:45 UTC) ### Goal: Turn 1 SOL to 100 SOL via compounding 2-5x wins ### Entry Filters (tighter for higher WR): - MIN_MCAP: $30K (was $15K) - cuts micro-cap rugs - MAX_MCAP: $75K - MIN_BS_RATIO: 2.0 (was 1.5) - stronger momentum - MIN_HOLDERS: 50 (was 15) - more distributed - TOP10_HOLDER_MAX: 40% - prevents honeypots - MAX_OPEN_POSITIONS: 2 (was unlimited) - VOL_MCAP_RATIO: 3.0x (was 1.5x) ### Exit Plan (hold for bigger wins): - TP1: +100% → sell 50% (was +45% sell 74%) - TP2: +200% → sell 25% - TP3: +500% → sell remaining 25% - Trailing: 30% from peak - Stop: -20% ### SIM RESET: -",
-      "recallCount": 2,
+      "recallCount": 3,
       "dailyCount": 0,
       "groundedCount": 0,
-      "totalScore": 2,
+      "totalScore": 3,
       "maxScore": 1,
       "firstRecalledAt": "2026-05-07T03:36:44.299Z",
-      "lastRecalledAt": "2026-05-15T20:46:29.853Z",
+      "lastRecalledAt": "2026-05-16T08:12:34.005Z",
       "queryHashes": [
         "78571ac9b904",
-        "dd85141e7ece"
+        "dd85141e7ece",
+        "660013992f08"
       ],
       "recallDays": [
         "2026-05-07",
-        "2026-05-15"
+        "2026-05-15",
+        "2026-05-16"
       ],
       "conceptTags": [
         "2-5x",
@@ -1490,23 +1492,25 @@
       "endLine": 36,
       "source": "memory",
       "snippet": "# 2026-05-10 04:03 UTC — 4H Strategy Review ## Scanner Audit - scanner_v1.py v1.7 running (PID 3217632) — WHALE + SNIPER_HEAVY + KOL + PHOENIX + DIP paths - monitor_v1.py v1.1 running (PID 1946476) - NO rogue processes ## Settings Drift (CRITICAL) | Setting | Current | Target (USER.md) | Delta | |---------|---------|------------------|-------| | MIN_MCAP | $3,000 | $8,000 | TOO LOW | | STOP_PCT | -45% | -35% | TOO WIDE | | TP1_PCT | +30% | +50% | TOO EARLY | | TP1_TRAIL | 45% | 15% | TOO LOOSE | | TP2_SELL | 40% | 20% | TOO MUCH | | TP2_TRAIL | 45% | 12% | TOO LOOSE | ## KOL Path Bleeding Last 6 KOL entries ALL hit STOP loss: - send: -4.8% | 73/42: -7.3% | cobson: (TIME_STOP) | PSYOP: -5.",
-      "recallCount": 5,
+      "recallCount": 6,
       "dailyCount": 0,
       "groundedCount": 0,
-      "totalScore": 5,
+      "totalScore": 6,
       "maxScore": 1,
       "firstRecalledAt": "2026-05-11T04:12:20.411Z",
-      "lastRecalledAt": "2026-05-15T14:48:01.427Z",
+      "lastRecalledAt": "2026-05-16T08:12:34.005Z",
       "queryHashes": [
         "4e026303b602",
         "1070c51185a1",
         "63e7bc8fa111",
         "1d936fd04237",
-        "cd5bf157b16c"
+        "cd5bf157b16c",
+        "660013992f08"
       ],
       "recallDays": [
         "2026-05-11",
-        "2026-05-15"
+        "2026-05-15",
+        "2026-05-16"
       ],
       "conceptTags": [
         "scanner-v1.py",
@@ -2180,6 +2184,99 @@
         "blocking",
         "new",
         "token"
+      ]
+    },
+    "memory:memory/2026-04-08.md:218:252": {
+      "key": "memory:memory/2026-04-08.md:218:252",
+      "path": "memory/2026-04-08.md",
+      "startLine": 218,
+      "endLine": 252,
+      "source": "memory",
+      "snippet": "- Whale 1 (99QbDV2): 69.4% WR, +28.47 SOL, lets winners run (avg win +0.19 SOL), 30% trailing stop - Whale 2 (AEqPi4RCD): 36.2% WR, +2667.52 SOL, fast cycle (1.3h avg), short-term take-profits - Trailing stop: 15% → 30% (whale 1's approach, more room for big runs) - MAX_MCAP: kept at $75K ## Session Update (19:08 UTC) ### Systems Running - auto_scanner.py, gmgn_buyer.py, position_monitor.py: all running (3/3) - Balance: ~1.20 SOL | Record: 11W/33L (22% WR) | PnL: -0.3540 SOL - Open: 1 full (TRUMPUMP) + 8 partial (all TP1 hit, trailing armed) ### Whale Trading Skill Created - Location: /root/.openclaw/.agents/skills/whale-trading/ - SKILL.md: Full whale analysis + strategy - whale_monitor.p",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 1,
+      "maxScore": 1,
+      "firstRecalledAt": "2026-05-16T08:12:34.005Z",
+      "lastRecalledAt": "2026-05-16T08:12:34.005Z",
+      "queryHashes": [
+        "660013992f08"
+      ],
+      "recallDays": [
+        "2026-05-16"
+      ],
+      "conceptTags": [
+        "69.4",
+        "28.47",
+        "0.19",
+        "36.2",
+        "2667.52",
+        "1.3h",
+        "short-term",
+        "take-profits"
+      ]
+    },
+    "memory:memory/2026-05-07.md:39:91": {
+      "key": "memory:memory/2026-05-07.md:39:91",
+      "path": "memory/2026-05-07.md",
+      "startLine": 39,
+      "endLine": 91,
+      "source": "memory",
+      "snippet": "- Age filter: WORKING with GMGN data ### THIS IS THE PERMANENT FIX Do not change this order ever again: 1. Fetch GMGN data 2. Calculate age 3. Apply filters --- ## 2026-05-07 23:49 UTC - Wallet Monitor Check ### Watchlist Status - **suqh5sHtr8HyJ7q8scBimULPkPpA557prMG47xCHQfK**: 4.054 SOL (was 4.36) - ACCUMULATING - Recent activity: 2 transactions - Pattern: Active accumulation - **CyaE1VxvBrahnPWkqm5VsdCvyS2QmNht2UFrKJHga54o**: 315.96 SOL (was 839.79) - ACCUMULATING - Recent activity: 2 transactions - Pattern: Large SOL whale ### Notes - Both wallets showing accumulation patterns - No new tokens detected in recent activity - Monitor running normally --- ## 2026-05-08 00:29",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 1,
+      "maxScore": 1,
+      "firstRecalledAt": "2026-05-16T08:12:34.005Z",
+      "lastRecalledAt": "2026-05-16T08:12:34.005Z",
+      "queryHashes": [
+        "660013992f08"
+      ],
+      "recallDays": [
+        "2026-05-16"
+      ],
+      "conceptTags": [
+        "4.054",
+        "4.36",
+        "315.96",
+        "839.79",
+        "age",
+        "filter",
+        "working",
+        "gmgn"
+      ]
+    },
+    "memory:memory/2026-05-05.md:28:73": {
+      "key": "memory:memory/2026-05-05.md:28:73",
+      "path": "memory/2026-05-05.md",
+      "startLine": 28,
+      "endLine": 73,
+      "source": "memory",
+      "snippet": "- `entry_bundler_rate`, `entry_top10_pct` (manipulation) - `entry_liquidity` (pool depth) ### Current Filters (Data-Backed) | Filter | Value | Reason | |--------|-------|--------| | MIN_MCAP | $8,000 | Filters low-quality | | MAX_MCAP | $20,000 | Avoids large caps | | MIN_VOLUME | $10,000 | $10K+ zone = +0.0064 avg | | H1_MIN | 100% | H1<100% = 21.7% WR | | SNIPER_MIN | 1 (in SNIPER path only) | 0 snipers = 24.6% WR, 1-2 = 50% | | MIN_AGE | 120s | <120s = 9-24% WR | | MIN_HOLDERS | 15 | Minimum community | ### Exit Plan (Verified: TP2+ = 98.9% WR) | Level | Trigger | Sell % | Trail | |-------|---------|--------|-------| | TP1 | +50% | HOLD | 40% from peak | | TP2 | +100% | 40% | 35% from p",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 1,
+      "maxScore": 1,
+      "firstRecalledAt": "2026-05-16T08:12:34.005Z",
+      "lastRecalledAt": "2026-05-16T08:12:34.005Z",
+      "queryHashes": [
+        "660013992f08"
+      ],
+      "recallDays": [
+        "2026-05-16"
+      ],
+      "conceptTags": [
+        "entry-bundler-rate",
+        "entry-top10-pct",
+        "entry-liquidity",
+        "data-backed",
+        "min-mcap",
+        "low-quality",
+        "max-mcap",
+        "min-volume"
       ]
     }
   }
