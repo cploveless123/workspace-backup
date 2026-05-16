@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-05-16T18:59:02.646Z",
+  "updatedAt": "2026-05-16T21:13:05.296Z",
   "entries": {
     "memory:memory/2026-04-15.md:209:236": {
       "key": "memory:memory/2026-04-15.md:209:236",
@@ -1041,21 +1041,23 @@
       "endLine": 133,
       "source": "memory",
       "snippet": "- Re-verify ALL path criteria at each stage - Check if momentum is still increasing - Verify volume hasn't collapsed **Impact**: Buying tokens that peaked during 90s recovery window ### NEW FILTERS DEPLOYED TODAY 1. **Dying Token Filter** (20:00 UTC): Reject if chg1 < -5% OR chg5 < 0% 2. **Fallen Giant Filter** (20:25 UTC): Reject if mcap < 20% of ATH 3. **Time Stop Filter** (20:42 UTC): Sell if held >15 min AND pnl < 0% ### v1 System Commands (ONLY ONES TO USE) - Start: `cd /root/Dex-trading-bot && bash start_v1.sh` - Stop: `cd /root/Dex-trading-bot && bash stop_v1.sh` - Restart: `cd /root/Dex-trading-bot && bash restart_v1.sh` - Status: `cd /root/Dex-trading-bot && bash status_v1.sh` #",
-      "recallCount": 3,
+      "recallCount": 4,
       "dailyCount": 0,
       "groundedCount": 0,
-      "totalScore": 3,
+      "totalScore": 4,
       "maxScore": 1,
       "firstRecalledAt": "2026-05-07T03:36:44.299Z",
-      "lastRecalledAt": "2026-05-09T14:28:31.188Z",
+      "lastRecalledAt": "2026-05-16T21:13:05.296Z",
       "queryHashes": [
         "78571ac9b904",
         "edcd8f72452f",
-        "4c66cf8e1382"
+        "4c66cf8e1382",
+        "3766f273d95a"
       ],
       "recallDays": [
         "2026-05-07",
-        "2026-05-09"
+        "2026-05-09",
+        "2026-05-16"
       ],
       "conceptTags": [
         "re-verify",
@@ -1435,18 +1437,20 @@
       "endLine": 51,
       "source": "memory",
       "snippet": "- Accept GMGN token info when it has valid mcap (even without h1/chg5) - Accept DexScreener when it has mcap (even without h1) - These are brand new token fallbacks that currently never trigger due to wrong conditions ## Current Scanner Status - Scanner PID: 2164354 (started 20:32) - Monitor PID: 2097835 (started 18:50) - Balance: ~-6 SOL (open positions down, closed FARM +203%, DD +246%) - Disabled failing cron jobs: `hourly-bot-backup`, `scan-report-30min`, `OpenClaw Auto Update` ## Next Actions - [ ] Fix GMGN token info fallback condition (accept when valid mcap available) - [ ] Fix DexScreener fallback (accept when mcap available, even without h1) - [ ] Test with brand new token to ver",
-      "recallCount": 1,
+      "recallCount": 2,
       "dailyCount": 0,
       "groundedCount": 0,
-      "totalScore": 1,
+      "totalScore": 2,
       "maxScore": 1,
       "firstRecalledAt": "2026-05-09T14:28:31.188Z",
-      "lastRecalledAt": "2026-05-09T14:28:31.188Z",
+      "lastRecalledAt": "2026-05-16T21:13:05.296Z",
       "queryHashes": [
-        "4c66cf8e1382"
+        "4c66cf8e1382",
+        "3766f273d95a"
       ],
       "recallDays": [
-        "2026-05-09"
+        "2026-05-09",
+        "2026-05-16"
       ],
       "conceptTags": [
         "backup",
@@ -1694,18 +1698,20 @@
       "endLine": 190,
       "source": "memory",
       "snippet": "- Open positions mcap >$70K: liquidity monitoring — sell if liq <$1K ### Files Updated: - trading_constants.py: Full v6.4 - gmgn_scanner.py: v6.4 cooldown logic (3-stage: cooldown→trigger→verify→buy) - position_monitor.py: Added liquidity monitoring for >$70K positions ### Status: Ready to launch (waiting 60s per Chris's instruction) ## 10:43 UTC - Wallet Monitor Check ### Watchlist Status: - suqh5sHtr8HyJ7q8scBimULPkPpA557prMG47xCHQfK: 2.09 SOL (accumulating) - CyaE1VxvBrahnPWkqm5VsdCvyS2QmNht2UFrKJHga54o: 293.47 SOL (idle) ### Bot Status: - sim_wallet: 1.0 SOL | 0 trades/W/L - Last reset: 06:22 UTC (v6.4 ready, not restarted) ## Trading Day Notes ### Bug Fixes Made Today - Fixed `ch",
-      "recallCount": 1,
+      "recallCount": 2,
       "dailyCount": 0,
       "groundedCount": 0,
-      "totalScore": 1,
+      "totalScore": 2,
       "maxScore": 1,
       "firstRecalledAt": "2026-05-11T15:02:49.155Z",
-      "lastRecalledAt": "2026-05-11T15:02:49.155Z",
+      "lastRecalledAt": "2026-05-16T21:13:05.296Z",
       "queryHashes": [
-        "bec011c25921"
+        "bec011c25921",
+        "3766f273d95a"
       ],
       "recallDays": [
-        "2026-05-11"
+        "2026-05-11",
+        "2026-05-16"
       ],
       "conceptTags": [
         "trading-constants.py",
@@ -2287,6 +2293,37 @@
         "low-quality",
         "max-mcap",
         "min-volume"
+      ]
+    },
+    "memory:memory/2026-05-08.md:1:40": {
+      "key": "memory:memory/2026-05-08.md:1:40",
+      "path": "memory/2026-05-08.md",
+      "startLine": 1,
+      "endLine": 40,
+      "source": "memory",
+      "snippet": "# 2026-05-08 ## Wallet Monitor (23:02 UTC) - **suqh5sHt...** | Balance: 4.82 → **6.32 SOL** (+1.5 SOL) | Status: ACCUMULATING - 2 recent transactions, pattern unchanged - **CyaE1Vxv...** | Balance: 421.6 SOL | Status: ACCUMULATING (was 839 SOL peak) ## TP5 Trading Status - Balance: 1.0 SOL (reset) - Record: 0W/0L (reset) - Open: 0 positions - Scanner: v7.4 CLEAN running with 15s cycle ## Notes - Friday night, low volatility expected - No trades executed today - Wallet watcher cron running normally ## 2026-05-08 - Trading System Changes Log ### MAJOR CHANGES TODAY: 1. **Removed CREATOR path** (0% WR) - unprofitable 2. **Removed ESTABLISHED path** (7.1% WR) - unprofitable 3. **Added",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 1,
+      "maxScore": 1,
+      "firstRecalledAt": "2026-05-16T21:13:05.296Z",
+      "lastRecalledAt": "2026-05-16T21:13:05.296Z",
+      "queryHashes": [
+        "3766f273d95a"
+      ],
+      "recallDays": [
+        "2026-05-16"
+      ],
+      "conceptTags": [
+        "4.82",
+        "6.32",
+        "1.5",
+        "421.6",
+        "1.0",
+        "0w/0l",
+        "v7.4",
+        "7.1"
       ]
     }
   }
