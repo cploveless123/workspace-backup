@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-05-15T22:24:25.482Z",
+  "updatedAt": "2026-05-15T23:09:34.005Z",
   "entries": {
     "memory:memory/2026-04-15.md:209:236": {
       "key": "memory:memory/2026-04-15.md:209:236",
@@ -405,19 +405,20 @@
       "endLine": 83,
       "source": "memory",
       "snippet": "- Plus Agentbot + SONE from auto_scanner - Total: 6 open positions, 0.3 SOL locked ### Alerts Format (verified correct) BUY: ✅ BUY EXECUTED | time | 💰 symbol | Entry MC | Amount | 🔗 Dex | 🥧 Pump | Exit Plan SELL: 🛑 STOP LOSS | time | 💰 symbol | Entry/Exit MC | Loss | Wallet | Reason | 🔗 ### gmgn_buyer Currently Broken - Has import error: `MIN_5MIN_VOLUME` not in trading_constants - Needs fix before next restart - Process killed (was PID 82357, restarted as 82851 then crashed) ## GMGN API Key (set up 06:03 UTC) - Key: `gmgn_316679140df01f0712907201654ee2a6` - Configured at: `~/.config/gmgn/.env` - CLI tool: `gmgn-cli` (installed globally via npm) - 6 skills installed: gmgn-token, gmg",
-      "recallCount": 7,
+      "recallCount": 8,
       "dailyCount": 0,
       "groundedCount": 0,
-      "totalScore": 7,
+      "totalScore": 8,
       "maxScore": 1,
       "firstRecalledAt": "2026-05-04T15:42:33.867Z",
-      "lastRecalledAt": "2026-05-15T22:24:25.482Z",
+      "lastRecalledAt": "2026-05-15T23:09:34.005Z",
       "queryHashes": [
         "45672317eb82",
         "748549bc7969",
         "fcba139f7f3e",
         "ade22a3b844d",
-        "4c565e7ddac3"
+        "4c565e7ddac3",
+        "89ed3772ed60"
       ],
       "recallDays": [
         "2026-05-04",
@@ -735,20 +736,21 @@
       "endLine": 93,
       "source": "memory",
       "snippet": "7. Fixed BUY alert dedup - now uses token address as key (not message prefix) 8. Fixed BUY alert to only fire if buy_token returns True 9. Added GMGN API key to ~/.gmgn-cli/config.json: gmgn_316679140df01f0712907201654ee2a6 10. Scanner throttle fix: trending→trenches→new pairs every 30s, 50 tokens each ### Current Scanner Settings (final): - MIN_MCAP: $6,700 - MAX_MCAP: $30,000 - H1_MAX: +200% ceiling (blocks parabolic tokens) - PUMP_MIN_AGE: 300s (5 min) - H1_MOMENTUM_MIN: +25% (pre-filter minimum) - MAX_OPEN_POSITIONS: 5 - POSITION_SIZE: 0.1 SOL ### Performance: - Started day at roughly -$2.50 SOL - Ended day around -$3.54 SOL - H1 filter, mcap adjustments, and throttle issues caused rou",
-      "recallCount": 8,
+      "recallCount": 9,
       "dailyCount": 0,
       "groundedCount": 0,
-      "totalScore": 8,
+      "totalScore": 9,
       "maxScore": 1,
       "firstRecalledAt": "2026-05-04T22:11:16.979Z",
-      "lastRecalledAt": "2026-05-15T22:24:25.482Z",
+      "lastRecalledAt": "2026-05-15T23:09:34.005Z",
       "queryHashes": [
         "21e8d02ecbb5",
         "7ea54eeed800",
         "748549bc7969",
         "fcba139f7f3e",
         "ade22a3b844d",
-        "4c565e7ddac3"
+        "4c565e7ddac3",
+        "89ed3772ed60"
       ],
       "recallDays": [
         "2026-05-04",
@@ -773,19 +775,20 @@
       "endLine": 141,
       "source": "memory",
       "snippet": "- GMGN_VOL_MCAP_MAX: 8.0 -> 15.0 ## Finding Winners Earlier (TODO) - Monitor pumpswap new listings (not just pumpfun) - GMGN signals show tokens BEFORE they pump big - Look for vol spike + holder spike combo - KOL wallet tracking: when smart money accumulates, price follows - Tokens with 100+ holders + extreme vol/mcap = likely pump incoming ## Mid-Session Update (14:44 UTC) ### Network Outage - Root Cause + Fix - **Symptom:** All outbound APIs blocked (Telegram 403, DexScreener 403, Solana RPC blocked) - **Root Cause:** Scanners hit APIs too aggressively during debugging → IP rate-limited by Cloudflare/WAF - **Duration:** ~20 minutes (14:20-14:40 UTC) - **Fix:** Added CircuitBreaker class",
-      "recallCount": 7,
+      "recallCount": 8,
       "dailyCount": 0,
       "groundedCount": 0,
-      "totalScore": 7,
+      "totalScore": 8,
       "maxScore": 1,
       "firstRecalledAt": "2026-05-04T22:11:16.979Z",
-      "lastRecalledAt": "2026-05-15T22:24:25.482Z",
+      "lastRecalledAt": "2026-05-15T23:09:34.005Z",
       "queryHashes": [
         "21e8d02ecbb5",
         "748549bc7969",
         "fcba139f7f3e",
         "ade22a3b844d",
-        "4c565e7ddac3"
+        "4c565e7ddac3",
+        "89ed3772ed60"
       ],
       "recallDays": [
         "2026-05-04",
@@ -958,18 +961,19 @@
       "endLine": 47,
       "source": "memory",
       "snippet": "# Session Notes - April 5, 2026 ## Chris - Trading Bot Project ### Context Chris is building a DEX trading bot (DexScreener scanner + GMGN signal tracker + auto buyer). Previous workspace was wiped due to gateway failure. Rebuilt everything from scratch today. ### Current Systems Running - **DexScreener Scanner** - Monitors Solana DEX pairs, finds tokens with volume/price spikes - **GMGN Monitor** - Watches @gmgnsignals channel via Telegram session - **Trading Simulator** - Paper trades on signals, learning ### Trading Simulator - Started with 1.0 SOL - Current: 1.7177 SOL (+71.77%) - Record: 6 trades / 0 losses - Rules: TP1 +50% (sell 50%), TP2 +100% (sell remaining), SL -30% - All wins",
-      "recallCount": 4,
+      "recallCount": 5,
       "dailyCount": 0,
       "groundedCount": 0,
-      "totalScore": 4,
+      "totalScore": 5,
       "maxScore": 1,
       "firstRecalledAt": "2026-05-07T03:36:44.299Z",
-      "lastRecalledAt": "2026-05-15T10:24:38.610Z",
+      "lastRecalledAt": "2026-05-15T23:09:34.005Z",
       "queryHashes": [
         "78571ac9b904",
         "edcd8f72452f",
         "4c66cf8e1382",
-        "fcba139f7f3e"
+        "fcba139f7f3e",
+        "89ed3772ed60"
       ],
       "recallDays": [
         "2026-05-07",
@@ -1839,18 +1843,19 @@
       "endLine": 31,
       "source": "memory",
       "snippet": "# Memory - 2026-04-19 ## System Issues Resolved - VPS crashed/rebooted multiple times - needed hard reset via Vultr control panel - gmgn-cli binary: `/usr/local/bin/gmgn-cli` (symlink to /opt/node/lib/node_modules/gmgn-cli) - Scanner kept dying: subprocess couldn't find gmgn-cli even with symlink in /usr/local/bin/ - Fix: hardcode /usr/local/bin/gmgn-cli path in subprocess calls, or run scanner foreground (no &) which works ## Scanner Config (Current) - Pump path: h1 > +100% AND chg5 >= +10% AND chg1 > -20% - Recovery: 600s (10 min) after failed pump checks - PUMP_WAIT_1: 30s | PUMP_WAIT_2: 15s | PUMP_VERIFY: 15s - Scanner instances running: PIDs 4182, 4341, 4723 (all fine, duplicates don'",
-      "recallCount": 6,
+      "recallCount": 7,
       "dailyCount": 0,
       "groundedCount": 0,
-      "totalScore": 6,
+      "totalScore": 7,
       "maxScore": 1,
       "firstRecalledAt": "2026-05-15T08:25:02.962Z",
-      "lastRecalledAt": "2026-05-15T22:24:25.482Z",
+      "lastRecalledAt": "2026-05-15T23:09:34.005Z",
       "queryHashes": [
         "748549bc7969",
         "fcba139f7f3e",
         "ade22a3b844d",
-        "4c565e7ddac3"
+        "4c565e7ddac3",
+        "89ed3772ed60"
       ],
       "recallDays": [
         "2026-05-15"

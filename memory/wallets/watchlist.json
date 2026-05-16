@@ -3,34 +3,34 @@
     {
       "address": "suqh5sHtr8HyJ7q8scBimULPkPpA557prMG47xCHQfK",
       "added": "2026-04-06T16:38:00Z",
-      "prev_balance_sol": 1.27,
-      "balance_sol": 6.284316479,
-      "change_sol": 0.667815266,
-      "status": "DISTRIBUTING",
+      "prev_balance_sol": 6.17,
+      "balance_sol": 7.793957138,
+      "change_sol": 1.655231954,
+      "status": "ACCUMULATING",
       "recent_tokens": [],
       "pattern": "Heavy distribution",
-      "notes": "Balance dropped 3.04 \u2192 0.89 SOL (-2.15 SOL). Down from 13.31 SOL peak. Selling heavily/distributing.",
+      "notes": "Balance up 6.17 \u2192 7.83 SOL (+1.66). Now accumulating SOL.",
       "recent_activity": [
-        "aKMUJjuRDS1sAkxcGZCh4D5LFev7qpkFLKTnsdjKD1TKL63z9pZ5EtNXUnyuY7nmowDzhb4y67Qr7aRBrfD9mkP",
-        "4k727Z8vZkLWjboZJtmrYUkEGiS3pwAptufxm5NPoR9GtJo1bkTNsQk5ikxkWKktdUqCCSCW6fywsTFtdPYAw5xV"
+        "3Lm8rPBYiCkE3iRrKwBocmvD7ap9B65nm8cNMyfFAHTRk2gkskm3tFegrVu3xXKwEhJaxZ4cyewd3jECywtwXNHA",
+        "4XneMCSMmLYULAw1EXt6o54R1mgQmbi6qpeFRpmc9u5r79oQdv9x1ZupGckjxoRzndMTvXuUYNHwXUDrmxhQXzrG"
       ],
-      "last_check": 1778885316.0358775
+      "last_check": 1778888750.0911355
     },
     {
       "address": "CyaE1VxvBrahnPWkqm5VsdCvyS2QmNht2UFrKJHga54o",
       "added": "2026-04-06T16:45:00Z",
-      "prev_balance_sol": 728.690549683,
-      "balance_sol": 755.073955065,
-      "change_sol": -1.390549683,
-      "status": "DISTRIBUTING",
+      "prev_balance_sol": 744.62,
+      "balance_sol": 771.168765023,
+      "change_sol": 11.107690152,
+      "status": "ACCUMULATING",
       "recent_tokens": [],
       "pattern": "Large SOL whale",
-      "notes": "Distribution: 728.69 \u2192 727.30 SOL (-1.39 SOL). Dropping SOL, may be selling.",
+      "notes": "Balance up 744.62 \u2192 755.73 SOL (+11.11). Large accumulation.",
       "recent_activity": [
-        "U8wETwrcdqu3TtGVxiuexYfj16AXad2tGQjaFS3t6sAQXbdiAnrBNFbG5q2p6596UY4AAwT7rtX8wJt82FaHoeX",
-        "2pYd9apeo3ZW5G37HNueFcFdRwU2E2tktsNRTrRzE2tJjhSEi9TuDUD2Qp2nQTMvuAc98nBT2u6t7LH4qBjmyeGh"
+        "ug8HZvpEHyF9bPoimrCUypyeU9NXRKpNQifqizaGeda35wVnNKisPydUW43VvLJNBUgGKRrQnLYem6iUyuh8bHD",
+        "4GFGEeLJo89dxCEPVFMfyT886oRNo2F5K4pySR59mmdHwTFKPcyz9o1TUHDx9WSgopSVDHANZ7ZtZUjX8qFzVgQk"
       ],
-      "last_check": 1778885626.5063176
+      "last_check": 1778889051.4788299
     }
   ]
 }
