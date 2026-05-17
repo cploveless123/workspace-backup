@@ -1,5 +1,5 @@
 # SMART WALLET PnL TRACKING SYSTEM
-# Updated: 2026-05-16 20:28 UTC
+# Updated: 2026-05-17 20:07 UTC
 # Purpose: Track live PnL and performance of all tracked wallets
 
 ## 📊 CURRENT WALLET PERFORMANCE (Live Data)
@@ -8,74 +8,79 @@
 
 | # | Wallet | Initial PnL | Live PnL | Change | WR | Status |
 |---|--------|-------------|----------|--------|-----|--------|
-| 1 | Cowboy🔶BNB | +$15,312 | **+$19,787** | +$4,475 ✅ | 53.8% | PROFITABLE |
-| 2 | 65kmABTf | +$5,138 | **+$1,996** | -$3,142 🚨 | 55.7% | ALERT - Demotion Risk |
-| 3 | 3jSHy | +$6,225 | **+$557** | -$5,668 🚨 | 55.1% | ALERT - Demotion Risk |
-| 4 | H2KAvWyc | +$5,791 | **+$5,518** | -$273 ⚠️ | 46.9% | WATCH |
-| 5 | Stigman | +$7,701 | **+$5,467** | -$2,234 🚨 | 42.0% | ALERT - Demotion Risk |
-| 6 | 7BWy2m | +$4,886 | **+$4,156** | -$730 ⚠️ | 67.3% | WATCH |
-| 7 | Meskxy | +$3,249 | **+$3,262** | +$13 | 71.1% | STABLE |
-| 8 | FdwVhb | +$4,989 | **+$5,679** | +$690 ✅ | 46.1% | PROFITABLE |
-| 9 | tCPHCK | +$4,273 | **+$5,048** | +$775 ✅ | 44.6% | PROFITABLE |
-| 10 | 1aC2Fg | +$4,578 | **+$5,235** | +$657 ✅ | 44.1% | PROFITABLE |
-| 11 | Ab2iXB | +$3,960 | **+$3,687** | -$273 ⚠️ | 66.7% | WATCH |
-| 12 | Bkqxrg | +$1,771 | **+$1,323** | -$448 ⚠️ | 52.6% | WATCH |
+| 1 | Cowboy🔶BNB | +$19,787 | **+$17,488** | -$2,299 ⚠️ | 51.9% | WATCH |
+| 2 | 65kmABTf | +$1,996 | **+$4,076** | +$2,080 📈 | 57.0% | PROFITABLE |
+| 3 | 3jSHy | +$557 | **+$1,465** | +$908 📈 | 55.1% | PROFITABLE |
+| 4 | H2KAvWyc | +$5,518 | **+$1,445** | -$4,073 🚨 | 46.2% | ALERT - Demotion Risk |
+| 5 | Stigman | +$5,467 | **+$5,209** | -$258 ⚠️ | 42.4% | WATCH |
+| 6 | 7BWy2m | +$4,156 | **+$3,174** | -$982 🚨 | 65.7% | ALERT - Demotion Risk |
+| 7 | Meskxy | +$3,262 | **+$2,299** | -$963 🚨 | 68.4% | ALERT - Demotion Risk |
+| 8 | FdwVhb | +$5,679 | **+$2,533** | -$3,146 🚨 | 47.3% | ALERT - Demotion Risk |
+| 9 | tCPHCK | +$5,048 | **+$2,297** | -$2,751 🚨 | 43.9% | ALERT - Demotion Risk |
+| 10 | 1aC2Fg | +$5,235 | **+$4,408** | -$827 ⚠️ | 43.2% | WATCH |
+| 11 | Ab2iXB | +$3,687 | **+$1,957** | -$1,730 🚨 | 63.6% | ALERT - Demotion Risk |
+| 12 | Bkqxrg | +$1,323 | **+$943** | -$380 ⚠️ | 52.6% | WATCH |
 
-**Tier 1 Total Live PnL: +$60,168** (vs +$67,883 yesterday) | **Change: -$7,715**
+**Tier 1 Total Live PnL: +$52,324** (vs +$60,168 yesterday) | **Change: -$7,844**
 
 ### 🎯 TIER 2 WALLETS — LIVE PnL
 
 | # | Wallet | Initial PnL | Live PnL | Change | WR | Status |
 |---|--------|-------------|----------|--------|-----|--------|
-| 1 | CNDX | +$508 | **+$1,356** | +$848 📈 | 42.7% | PROMOTE CANDIDATE |
-| 2 | 43QmFc | +$895 | **+$424** | -$471 ⚠️ | 61.7% | WATCH |
-| 3 | 3wccdTM | +$6,266 | **+$5,837** | -$429 ⚠️ | 47.1% | WATCH |
-| 4 | 9cxLzx | +$4,860 | **+$5,239** | +$379 ✅ | 51.4% | PROFITABLE |
-| 5 | FhaYN5 | +$3,065 | **+$2,798** | -$267 ⚠️ | 33.3% | WATCH - WR Low |
-| 6 | DphoNs | +$4,329 | **+$3,970** | -$359 ⚠️ | 40.9% | WATCH |
+| 1 | CNDX | +$1,356 | **+$4,041** | +$2,685 📈 | 48.9% | PROMOTE CANDIDATE |
+| 2 | 43QmFc | +$424 | **-$64** | -$488 ⚠️ | 60.4% | WATCH - Negative PnL |
+| 3 | 3wccdTM | +$5,837 | **+$6,805** | +$968 📈 | 48.2% | PROFITABLE |
+| 4 | 9cxLzx | +$5,239 | **+$4,286** | -$953 ⚠️ | 49.3% | WATCH |
+| 5 | FhaYN5 | +$2,798 | **+$3,742** | +$944 📈 | 32.1% | PROFITABLE - WR Low |
+| 6 | DphoNs | +$3,970 | **+$3,833** | -$137 ⚠️ | 41.2% | WATCH |
 
-**Tier 2 Total Live PnL: +$19,624** (vs +$19,923 yesterday) | **Change: -$299**
+**Tier 2 Total Live PnL: +$22,653** (vs +$19,624 yesterday) | **Change: +$3,029**
 
 ### 👀 TIER 3 WALLETS — LIVE PnL
 
 | # | Wallet | Initial PnL | Live PnL | Change | WR | Status |
 |---|--------|-------------|----------|--------|--------|
-| 1 | S2CR7k | +$970 | **+$787** | -$183 ⚠️ | 44.4% | WATCH |
-| 2 | 5kvMnk | +$768 | **+$460** | -$308 ⚠️ | 37.0% | WATCH - WR Low |
-| 3 | C2mWdS | +$863 | **+$651** | -$212 ⚠️ | 40.7% | WATCH |
+| 1 | S2CR7k | +$787 | **+$146** | -$641 ⚠️ | 36.4% | WATCH |
+| 2 | 5kvMnk | +$460 | **-$34** | -$494 ⚠️ | 31.8% | WATCH - Negative PnL |
+| 3 | C2mWdS | +$651 | **+$61** | -$590 ⚠️ | 36.4% | WATCH |
 
-**Tier 3 Total Live PnL: +$1,898** (vs +$2,601 yesterday) | **Change: -$703**
+**Tier 3 Total Live PnL: +$173** (vs +$1,898 yesterday) | **Change: -$1,725**
 
 ---
 
-## 📈 PnL CHANGE DETECTION (2026-05-16)
+## 📈 PnL CHANGE DETECTION (2026-05-17)
 
 ### 🚨 ALERTS (PnL Drop > $500)
 
 | Wallet | Previous | Current | Change | Direction | Action |
 |--------|----------|---------|--------|-----------|--------|
-| 65kmABTf | +$5,138 | +$1,996 | -$3,142 | 🔻 DOWN | **DEMOTE TO TIER 2** |
-| 3jSHy | +$6,225 | +$557 | -$5,668 | 🔻 DOWN | **DEMOTE TO TIER 2** |
-| Stigman | +$7,701 | +$5,467 | -$2,234 | 🔻 DOWN | **DEMOTE TO TIER 2** |
-| 7BWy2m | +$4,886 | +$4,156 | -$730 | 🔻 DOWN | **WATCH - Monitor** |
-| Bkqxrg | +$1,771 | +$1,323 | -$448 | 🔻 DOWN | **WATCH - Near threshold** |
+| H2KAvWyc | +$5,518 | +$1,445 | -$4,073 | 🔻 DOWN | **DEMOTE TO TIER 2** |
+| FdwVhb | +$5,679 | +$2,533 | -$3,146 | 🔻 DOWN | **DEMOTE TO TIER 2** |
+| tCPHCK | +$5,048 | +$2,297 | -$2,751 | 🔻 DOWN | **DEMOTE TO TIER 2** |
+| 7BWy2m | +$4,156 | +$3,174 | -$982 | 🔻 DOWN | **WATCH - Monitor** |
+| Meskxy | +$3,262 | +$2,299 | -$963 | 🔻 DOWN | **WATCH - Monitor** |
+| 1aC2Fg | +$5,235 | +$4,408 | -$827 | 🔻 DOWN | **WATCH - Monitor** |
+| Ab2iXB | +$3,687 | +$1,957 | -$1,730 | 🔻 DOWN | **DEMOTE TO TIER 2** |
+| Cowboy🔶BNB | +$19,787 | +$17,488 | -$2,299 | 🔻 DOWN | **WATCH - Still top performer** |
 
 ### 📈 PROMOTE CANDIDATES (PnL Gain > $500)
 
 | Wallet | Previous | Current | Change | Direction | Action |
 |--------|----------|---------|--------|-----------|--------|
-| Cowboy🔶BNB | +$15,312 | +$19,787 | +$4,475 | 📈 UP | **TOP PERFORMER** |
-| FdwVhb | +$4,989 | +$5,679 | +$690 | 📈 UP | **STABLE PROFITABLE** |
-| tCPHCK | +$4,273 | +$5,048 | +$775 | 📈 UP | **STABLE PROFITABLE** |
-| 1aC2Fg | +$4,578 | +$5,235 | +$657 | 📈 UP | **STABLE PROFITABLE** |
-| CNDX | +$508 | +$1,356 | +$848 | 📈 UP | **PROMOTE TO TIER 1** |
+| CNDX | +$1,356 | +$4,041 | +$2,685 | 📈 UP | **PROMOTE TO TIER 1** |
+| 65kmABTf | +$1,996 | +$4,076 | +$2,080 | 📈 UP | **PROMOTE TO TIER 1** |
+| 3jSHy | +$557 | +$1,465 | +$908 | 📈 UP | **PROMOTE TO TIER 1** |
+| 3wccdTM | +$5,837 | +$6,805 | +$968 | 📈 UP | **STABLE PROFITABLE** |
+| FhaYN5 | +$2,798 | +$3,742 | +$944 | 📈 UP | **STABLE PROFITABLE** |
 
 ### ⚠️ WR DROPS > 5%
 
 | Wallet | Previous WR | Current WR | Change | Status |
 |--------|-------------|------------|--------|--------|
-| FhaYN5 | 34.7% | 33.3% | -1.4% | Still low |
-| 5kvMnk | 34.5% | 37.0% | +2.5% | Improving |
+| Cowboy🔶BNB | 53.8% | 51.9% | -1.9% | Slight decline |
+| Stigman | 42.0% | 42.4% | +0.4% | Stable |
+| FhaYN5 | 33.3% | 32.1% | -1.2% | Still low |
+| 5kvMnk | 37.0% | 31.8% | -5.2% | ⚠️ Dropped below 35% |
 
 ---
 
@@ -127,29 +132,32 @@
 |--------|-------|--------|--------|
 | Total Tracked Wallets | 21 | 20-30 | ✅ Good |
 | Tier 1 Wallets | 12 | 8-15 | ✅ Good |
-| Avg Tier 1 WR | 52.6% | >50% | ✅ Good |
-| Avg Tier 1 PnL | +$5,014 | >$2K | ✅ Good |
-| Total Live PnL | +$81,690 | Growing | ⚠️ Declined |
+| Avg Tier 1 WR | 50.4% | >50% | ✅ Good |
+| Avg Tier 1 PnL | +$4,360 | >$2K | ✅ Good |
+| Total Live PnL | +$75,150 | Growing | ⚠️ Declined |
 
 ### Risk Indicators:
 | Indicator | Value | Threshold | Status |
 |-----------|-------|-----------|--------|
-| Wallets losing PnL | 5 | <3 | 🚨 HIGH |
+| Wallets losing PnL | 8 | <3 | 🚨 HIGH |
 | Wallets inactive | 0 | <5 | ✅ Safe |
 | Avg WR declining | Yes | No | 🚨 HIGH |
-| Wallets with WR <40% | 2 | <3 | ⚠️ Watch |
+| Wallets with WR <40% | 3 | <3 | ⚠️ Watch |
 
 ---
 
 ## 🎯 NEXT ACTIONS
 
 ### Immediate:
-- [x] Daily PnL check completed (2026-05-16 20:28 UTC)
-- [ ] **DEMOTE** 65kmABTf to Tier 2 (-$3,142 loss)
-- [ ] **DEMOTE** 3jSHy to Tier 2 (-$5,668 loss)
-- [ ] **DEMOTE** Stigman to Tier 2 (-$2,234 loss)
-- [ ] **PROMOTE** CNDX to Tier 1 (+$848 gain)
-- [ ] Review all Tier 1 wallets for consistency
+- [x] Daily PnL check completed (2026-05-17 20:07 UTC)
+- [ ] **DEMOTE** H2KAvWyc to Tier 2 (-$4,073 loss)
+- [ ] **DEMOTE** FdwVhb to Tier 2 (-$3,146 loss)
+- [ ] **DEMOTE** tCPHCK to Tier 2 (-$2,751 loss)
+- [ ] **DEMOTE** Ab2iXB to Tier 2 (-$1,730 loss)
+- [ ] **PROMOTE** CNDX to Tier 1 (+$2,685 gain)
+- [ ] **PROMOTE** 65kmABTf to Tier 1 (+$2,080 gain)
+- [ ] **PROMOTE** 3jSHy to Tier 1 (+$908 gain)
+- [ ] **BLACKLIST** 5kvMnk (negative PnL, WR 31.8%)
 
 ### This Week:
 - [ ] First weekly performance review (Sunday)
@@ -166,22 +174,28 @@
 
 ## 📋 NOTES
 
-**Last Updated:** 2026-05-16 20:28 UTC
-**Next Update:** 2026-05-17 20:00 UTC (daily check)
+**Last Updated:** 2026-05-17 20:07 UTC
+**Next Update:** 2026-05-18 20:00 UTC (daily check)
 **Next Review:** 2026-05-18 (weekly)
 
 **Key Insights:**
-1. **MAJOR DRAWDOWN:** Total portfolio dropped -$8,717 (-9.6%) since yesterday
-2. **Tier 1 Hit Hard:** 5 of 12 Tier 1 wallets lost PnL, total -$7,715
-3. **65kmABTf CRASH:** Dropped from +$5,138 to +$1,996 (-61% PnL loss)
-4. **3jSHy CRASH:** Dropped from +$6,225 to +$557 (-91% PnL loss)
-5. **Cowboy🔶BNB:** Only major gainer, +$4,475 — now top performer at +$19,787
-6. **All wallets active** — no inactive wallets detected.
+1. **MAJOR DRAWDOWN CONTINUES:** Total portfolio dropped -$6,540 (-8.0%) since yesterday
+2. **Tier 1 Hit Hard:** 8 of 12 Tier 1 wallets lost PnL, total -$7,844
+3. **H2KAvWyc CRASH:** Dropped from +$5,518 to +$1,445 (-74% PnL loss) — DEV WALLET, created 120 tokens
+4. **FdwVhb CRASH:** Dropped from +$5,679 to +$2,533 (-55% PnL loss)
+5. **tCPHCK CRASH:** Dropped from +$5,048 to +$2,297 (-54% PnL loss)
+6. **CNDX SURGE:** Jumped from +$1,356 to +$4,041 (+198% PnL gain) — PROMOTE
+7. **65kmABTf RECOVERY:** Jumped from +$1,996 to +$4,076 (+104% PnL gain) — PROMOTE
+8. **3jSHy RECOVERY:** Jumped from +$557 to +$1,465 (+163% PnL gain) — PROMOTE
+9. **Tier 2 Gainers:** CNDX, 65kmABTf, 3wccdTM, FhaYN5 all gained significantly
+10. **Tier 3 COLLAPSE:** All 3 wallets near breakeven or negative, total +$173
+11. **5kvMnk NEGATIVE:** First wallet to go negative (-$34), WR 31.8% — BLACKLIST
 
-**Recommendation:** 
-- **URGENT:** Demote 65kmABTf, 3jSHy, and Stigman to Tier 2 immediately
-- **PROMOTE:** CNDX to Tier 1 (+$848 gain, active trading)
+**Recommendation:**
+- **URGENT:** Demote 4 Tier 1 wallets to Tier 2 immediately
+- **PROMOTE:** CNDX, 65kmABTf, 3jSHy to Tier 1
+- **BLACKLIST:** 5kvMnk (negative PnL, low WR)
 - **MONITOR:** Market-wide drawdown affecting most wallets
-- **HOLD:** Cowboy🔶BNB as anchor performer
+- **HOLD:** Cowboy🔶BNB still top performer despite -$2,299 drop
 
-**Risk Level:** 🚨 HIGH — 5 wallets with significant PnL drops, market-wide decline
+**Risk Level:** 🚨 HIGH — 8 wallets with significant PnL drops, market-wide decline, 1 wallet negative
