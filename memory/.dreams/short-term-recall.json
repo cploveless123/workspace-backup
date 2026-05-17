@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-05-17T10:24:19.404Z",
+  "updatedAt": "2026-05-17T20:34:45.992Z",
   "entries": {
     "memory:memory/2026-04-15.md:209:236": {
       "key": "memory:memory/2026-04-15.md:209:236",
@@ -405,13 +405,13 @@
       "endLine": 83,
       "source": "memory",
       "snippet": "- Plus Agentbot + SONE from auto_scanner - Total: 6 open positions, 0.3 SOL locked ### Alerts Format (verified correct) BUY: ✅ BUY EXECUTED | time | 💰 symbol | Entry MC | Amount | 🔗 Dex | 🥧 Pump | Exit Plan SELL: 🛑 STOP LOSS | time | 💰 symbol | Entry/Exit MC | Loss | Wallet | Reason | 🔗 ### gmgn_buyer Currently Broken - Has import error: `MIN_5MIN_VOLUME` not in trading_constants - Needs fix before next restart - Process killed (was PID 82357, restarted as 82851 then crashed) ## GMGN API Key (set up 06:03 UTC) - Key: `gmgn_316679140df01f0712907201654ee2a6` - Configured at: `~/.config/gmgn/.env` - CLI tool: `gmgn-cli` (installed globally via npm) - 6 skills installed: gmgn-token, gmg",
-      "recallCount": 13,
+      "recallCount": 14,
       "dailyCount": 0,
       "groundedCount": 0,
-      "totalScore": 13,
+      "totalScore": 14,
       "maxScore": 1,
       "firstRecalledAt": "2026-05-04T15:42:33.867Z",
-      "lastRecalledAt": "2026-05-17T10:24:19.404Z",
+      "lastRecalledAt": "2026-05-17T20:34:45.992Z",
       "queryHashes": [
         "45672317eb82",
         "748549bc7969",
@@ -420,7 +420,8 @@
         "4c565e7ddac3",
         "89ed3772ed60",
         "f3dfacddc9da",
-        "e2f6039b76f3"
+        "e2f6039b76f3",
+        "ff2ca4d7f085"
       ],
       "recallDays": [
         "2026-05-04",
@@ -446,20 +447,22 @@
       "endLine": 41,
       "source": "memory",
       "snippet": "- **Result:** Alert formula `current_mcap = current_price × entry_mcap / entry_price` uses mismatched supplies → wrong mcap - **Example:** ARI alert showed \"Current: $7,956\" but real GMGN mcap is $11,528 - **Fix needed:** `entry_mcap` should be `GMGN_price × GMGN_circulating_supply` (calculated from GMGN fields, not DexScreener) - **Scanner location:** where `entry_mcap` is set from DexScreener data - **Impact:** All position monitor alerts show wrong mcap figures ### Bug 3: Alert gain % uses `ath_price` in TRUE_PEAK (PENDING FIX) - **Problem:** `TRUE_PEAK` (line ~307) uses `ath_price` in max() → alerts show inflated peak mcap - **PokéCoin example:** Alert showed Peak: $21,653 → derived fro",
-      "recallCount": 2,
+      "recallCount": 3,
       "dailyCount": 0,
       "groundedCount": 0,
-      "totalScore": 2,
+      "totalScore": 3,
       "maxScore": 1,
       "firstRecalledAt": "2026-05-04T15:42:33.867Z",
-      "lastRecalledAt": "2026-05-07T04:04:05.752Z",
+      "lastRecalledAt": "2026-05-17T20:34:45.992Z",
       "queryHashes": [
         "45672317eb82",
-        "6e094a11a8d4"
+        "6e094a11a8d4",
+        "ff2ca4d7f085"
       ],
       "recallDays": [
         "2026-05-04",
-        "2026-05-07"
+        "2026-05-07",
+        "2026-05-17"
       ],
       "conceptTags": [
         "current-mcap",
@@ -544,20 +547,22 @@
       "endLine": 61,
       "source": "memory",
       "snippet": "- gmgn_scanner.py v7.7 with PUMP_CHG1_THRESHOLD=5% restored - position_monitor.py with ATH fix applied - Backup pushed to both repos at 17:04 UTC ## 18:16-18:55 UTC - Session Events ### entry_mcap FIX applied (commit 939ae179) - Scanner (`gmgn_scanner.py`) now calculates `entry_mcap = int(gmgn_price * gmgn_supply)` using GMGN data only — consistent with `entry_price` - Position monitor (`position_monitor.py`) uses `live_mcap` (from GMGN) for display when available; `entry_mcap` only as fallback - WHEELSHIB trade bought at 18:16:02 (OLD code) has DexScreener entry_mcap=$13,949 — new buys will use correct GMGN entry_mcap ### Scanner restart at 18:25 - Old scanner (started ~18:16) killed and",
-      "recallCount": 2,
+      "recallCount": 3,
       "dailyCount": 0,
       "groundedCount": 0,
-      "totalScore": 2,
+      "totalScore": 3,
       "maxScore": 1,
       "firstRecalledAt": "2026-05-04T15:42:33.867Z",
-      "lastRecalledAt": "2026-05-11T15:07:57.872Z",
+      "lastRecalledAt": "2026-05-17T20:34:45.992Z",
       "queryHashes": [
         "45672317eb82",
-        "3448958c367a"
+        "3448958c367a",
+        "ff2ca4d7f085"
       ],
       "recallDays": [
         "2026-05-04",
-        "2026-05-11"
+        "2026-05-11",
+        "2026-05-17"
       ],
       "conceptTags": [
         "backup",
@@ -740,13 +745,13 @@
       "endLine": 93,
       "source": "memory",
       "snippet": "7. Fixed BUY alert dedup - now uses token address as key (not message prefix) 8. Fixed BUY alert to only fire if buy_token returns True 9. Added GMGN API key to ~/.gmgn-cli/config.json: gmgn_316679140df01f0712907201654ee2a6 10. Scanner throttle fix: trending→trenches→new pairs every 30s, 50 tokens each ### Current Scanner Settings (final): - MIN_MCAP: $6,700 - MAX_MCAP: $30,000 - H1_MAX: +200% ceiling (blocks parabolic tokens) - PUMP_MIN_AGE: 300s (5 min) - H1_MOMENTUM_MIN: +25% (pre-filter minimum) - MAX_OPEN_POSITIONS: 5 - POSITION_SIZE: 0.1 SOL ### Performance: - Started day at roughly -$2.50 SOL - Ended day around -$3.54 SOL - H1 filter, mcap adjustments, and throttle issues caused rou",
-      "recallCount": 14,
+      "recallCount": 15,
       "dailyCount": 0,
       "groundedCount": 0,
-      "totalScore": 14,
+      "totalScore": 15,
       "maxScore": 1,
       "firstRecalledAt": "2026-05-04T22:11:16.979Z",
-      "lastRecalledAt": "2026-05-17T10:24:19.404Z",
+      "lastRecalledAt": "2026-05-17T20:34:45.992Z",
       "queryHashes": [
         "21e8d02ecbb5",
         "7ea54eeed800",
@@ -756,7 +761,8 @@
         "4c565e7ddac3",
         "89ed3772ed60",
         "f3dfacddc9da",
-        "e2f6039b76f3"
+        "e2f6039b76f3",
+        "ff2ca4d7f085"
       ],
       "recallDays": [
         "2026-05-04",
@@ -783,13 +789,13 @@
       "endLine": 141,
       "source": "memory",
       "snippet": "- GMGN_VOL_MCAP_MAX: 8.0 -> 15.0 ## Finding Winners Earlier (TODO) - Monitor pumpswap new listings (not just pumpfun) - GMGN signals show tokens BEFORE they pump big - Look for vol spike + holder spike combo - KOL wallet tracking: when smart money accumulates, price follows - Tokens with 100+ holders + extreme vol/mcap = likely pump incoming ## Mid-Session Update (14:44 UTC) ### Network Outage - Root Cause + Fix - **Symptom:** All outbound APIs blocked (Telegram 403, DexScreener 403, Solana RPC blocked) - **Root Cause:** Scanners hit APIs too aggressively during debugging → IP rate-limited by Cloudflare/WAF - **Duration:** ~20 minutes (14:20-14:40 UTC) - **Fix:** Added CircuitBreaker class",
-      "recallCount": 13,
+      "recallCount": 14,
       "dailyCount": 0,
       "groundedCount": 0,
-      "totalScore": 13,
+      "totalScore": 14,
       "maxScore": 1,
       "firstRecalledAt": "2026-05-04T22:11:16.979Z",
-      "lastRecalledAt": "2026-05-17T10:24:19.404Z",
+      "lastRecalledAt": "2026-05-17T20:34:45.992Z",
       "queryHashes": [
         "21e8d02ecbb5",
         "748549bc7969",
@@ -798,7 +804,8 @@
         "4c565e7ddac3",
         "89ed3772ed60",
         "f3dfacddc9da",
-        "e2f6039b76f3"
+        "e2f6039b76f3",
+        "ff2ca4d7f085"
       ],
       "recallDays": [
         "2026-05-04",
@@ -1610,18 +1617,20 @@
       "endLine": 52,
       "source": "memory",
       "snippet": "## 2026-05-07 21:40 UTC - Age Filter Fix VERIFIED ### The Problem (FINALLY FIXED PERMANENTLY) DexScreener tokens showed age=0s because DexScreener API doesn't provide age or creation_timestamp. All DexScreener tokens were rejected by MIN_AGE filter. ### Root Cause The age check in `process_token()` happened BEFORE `get_token_data()` fetched fresh GMGN data: - DexScreener initial data: age=0 - Filter check: FAIL (age < 90) - GMGN data fetch: NEVER REACHED ### The Fix (VERIFIED WORKING) Moved GMGN data fetch to BEFORE age check: 1. Fetch GMGN data FIRST 2. Calculate age from GMGN creation_timestamp 3. Apply filters with proper age ### Code Change Location File: `/root/Dex-trading-bot/scan",
-      "recallCount": 1,
+      "recallCount": 2,
       "dailyCount": 0,
       "groundedCount": 0,
-      "totalScore": 1,
+      "totalScore": 2,
       "maxScore": 1,
       "firstRecalledAt": "2026-05-11T14:55:04.092Z",
-      "lastRecalledAt": "2026-05-11T14:55:04.092Z",
+      "lastRecalledAt": "2026-05-17T20:34:45.992Z",
       "queryHashes": [
-        "27fba562587a"
+        "27fba562587a",
+        "ff2ca4d7f085"
       ],
       "recallDays": [
-        "2026-05-11"
+        "2026-05-11",
+        "2026-05-17"
       ],
       "conceptTags": [
         "creation-timestamp",
