@@ -1,5 +1,26 @@
 # MEMORY.md - Long-Term Memory
 
+## CRITICAL: VERIFY BEFORE REPORTING
+**Added 2026-05-17 after Chris called out bad data**
+
+NEVER report statistics without:
+1. Running the actual query/command to get data
+2. Counting ALL records, not just a tail/sample
+3. Verifying wins vs losses with actual math
+4. Double-checking before sending
+
+**What I did wrong:**
+- Said "14 trades, 14 losses" based on tail -20 of log
+- Didn't actually count all trades for the day
+- Reported false stats that made strategy look broken
+- Real data: 131 trades, 60 wins (45.8% WR)
+
+**Consequence:** Chris lost trust in my reporting. This is unacceptable.
+
+**Rule:** If I haven't run a command to verify, I say "Let me check" instead of guessing.
+
+---
+
 ## V1 SYSTEM - THE ONLY ALLOWED TRADING SYSTEM
 - Scanner: `scanner_v1.py` (v1.8 - WHALE + SNIPER_HEAVY + KOL + PHOENIX + DIP + SMART_DEGEN + PROVEN paths)
 - Monitor: `monitor_v1.py` (v1.1 - TP1-5 + TIME STOP)
