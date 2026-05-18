@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-05-17T20:34:45.992Z",
+  "updatedAt": "2026-05-18T11:26:17.693Z",
   "entries": {
     "memory:memory/2026-04-15.md:209:236": {
       "key": "memory:memory/2026-04-15.md:209:236",
@@ -944,23 +944,25 @@
       "endLine": 161,
       "source": "memory",
       "snippet": "- Pump path: chg1 >= 20% → 45s wait → verify chg1 still >= 20% → BUY or recovery ### REMAINING ISSUE - USER.md/HEARTBEAT.md still show OLD exit plan (TP1 sell 10%, etc.) - Actual working plan is in position_monitor.py (TP1 HOLD, TP2 40%, etc.) - Need to update USER.md/HEARTBEAT.md to match current exit plan ## FULL BACKUP (18:33 UTC) ### SYSTEMS STATUS - Scanner: PID 1306403 (gmgn_scanner.py v7.4) - Monitor: PID 1274648 (position_monitor.py v7.4) - Alert Sender: PID 1255636 (alert_sender.py) - Balance: 1.0 SOL | 0W/0L | 0 open ### ALL FIXES APPLIED TODAY 1. ✅ PUMP_CHG1_THRESHOLD (was chg5, now chg1) - all 4 pump path checks 2. ✅ ALLOWED_EXCHANGES = ['raydium', 'pump', 'pumpswap'] 3. ✅ pa",
-      "recallCount": 4,
+      "recallCount": 5,
       "dailyCount": 0,
       "groundedCount": 0,
-      "totalScore": 4,
+      "totalScore": 5,
       "maxScore": 1,
       "firstRecalledAt": "2026-05-07T03:36:44.299Z",
-      "lastRecalledAt": "2026-05-15T20:46:29.853Z",
+      "lastRecalledAt": "2026-05-18T11:26:17.693Z",
       "queryHashes": [
         "78571ac9b904",
         "edcd8f72452f",
         "4c66cf8e1382",
-        "dd85141e7ece"
+        "dd85141e7ece",
+        "d43809d67213"
       ],
       "recallDays": [
         "2026-05-07",
         "2026-05-09",
-        "2026-05-15"
+        "2026-05-15",
+        "2026-05-18"
       ],
       "conceptTags": [
         "backup",
@@ -1017,24 +1019,26 @@
       "endLine": 78,
       "source": "memory",
       "snippet": "- Trades file reset to empty - Blacklist cleared - Balance: 1.0 SOL - Record: 0W/0L - Open: 0 positions ### NEW EXIT STRATEGY (TP5) | Level | Trigger | Sell % | Stop | |-------|---------|--------|------| | TP1 | +50% | 10% | -25% | | TP2 | +100% | 15% | -25% | | TP3 | +200% | 20% | -20% | | TP4 | +400% | 25% | -15% | | TP5 | +1000% | 30% | EXIT ALL | | COMPOUND | After TP5 | REMAINING 10% | 20% trailing | ### COMPOUND MODE - Only activates when position hits TP5 (+1000%) - Remaining 10% monitored with 20% trailing stop - Goal: let winners run 2-5x additional - Exit when price drops 20% from peak ### Key Changes from Previous - New constants in trading_constants.py - Updated HEARTBEAT.md w",
-      "recallCount": 5,
+      "recallCount": 6,
       "dailyCount": 0,
       "groundedCount": 0,
-      "totalScore": 5,
+      "totalScore": 6,
       "maxScore": 1,
       "firstRecalledAt": "2026-05-07T03:36:44.299Z",
-      "lastRecalledAt": "2026-05-15T20:46:29.853Z",
+      "lastRecalledAt": "2026-05-18T11:26:17.693Z",
       "queryHashes": [
         "78571ac9b904",
         "edcd8f72452f",
         "1d936fd04237",
         "cd5bf157b16c",
-        "dd85141e7ece"
+        "dd85141e7ece",
+        "d43809d67213"
       ],
       "recallDays": [
         "2026-05-07",
         "2026-05-09",
-        "2026-05-15"
+        "2026-05-15",
+        "2026-05-18"
       ],
       "conceptTags": [
         "1.0",
@@ -1090,25 +1094,27 @@
       "endLine": 192,
       "source": "memory",
       "snippet": "- Scanner: /root/Dex-trading-bot/gmgn_scanner.py - Monitor: /root/Dex-trading-bot/position_monitor.py - Constants: /root/Dex-trading-bot/trading_constants.py - Trades: /root/Dex-trading-bot/trades/sim_trades.jsonl - Workspace: /root/.openclaw/workspace/ - Memory: /root/.openclaw/workspace/memory/2026-04-15.md ### GIT COMMITS (today) - 8e48881 - Skills, scanner fixes, heartbeat updates - 4a3c286 - Added GMGN throttle counts to get_scanner_status - 5164d73 - STOP: No more DexScreener failed alerts - 178f0d5 - STOP: Remove GMGN stale data alert - 001e68d - FIX: Only process urgent cooldowns (≤20s expiry) - c8bdc72 - Scanner stable - cooldown processing fixed ### USER.md UPDATED TO v7.4 - TP",
-      "recallCount": 5,
+      "recallCount": 6,
       "dailyCount": 0,
       "groundedCount": 0,
-      "totalScore": 5,
+      "totalScore": 6,
       "maxScore": 1,
       "firstRecalledAt": "2026-05-07T03:36:44.299Z",
-      "lastRecalledAt": "2026-05-15T20:46:29.853Z",
+      "lastRecalledAt": "2026-05-18T11:26:17.693Z",
       "queryHashes": [
         "78571ac9b904",
         "edcd8f72452f",
         "4c66cf8e1382",
         "3448958c367a",
-        "dd85141e7ece"
+        "dd85141e7ece",
+        "d43809d67213"
       ],
       "recallDays": [
         "2026-05-07",
         "2026-05-09",
         "2026-05-11",
-        "2026-05-15"
+        "2026-05-15",
+        "2026-05-18"
       ],
       "conceptTags": [
         "openclaw/workspace",
@@ -1128,22 +1134,24 @@
       "endLine": 288,
       "source": "memory",
       "snippet": "- 71375ca: Whale strategy: trailing stop 15%→30%, whale mcap range $10K-$75K ## NEW STRATEGY IMPLEMENTED (20:45 UTC) ### Goal: Turn 1 SOL to 100 SOL via compounding 2-5x wins ### Entry Filters (tighter for higher WR): - MIN_MCAP: $30K (was $15K) - cuts micro-cap rugs - MAX_MCAP: $75K - MIN_BS_RATIO: 2.0 (was 1.5) - stronger momentum - MIN_HOLDERS: 50 (was 15) - more distributed - TOP10_HOLDER_MAX: 40% - prevents honeypots - MAX_OPEN_POSITIONS: 2 (was unlimited) - VOL_MCAP_RATIO: 3.0x (was 1.5x) ### Exit Plan (hold for bigger wins): - TP1: +100% → sell 50% (was +45% sell 74%) - TP2: +200% → sell 25% - TP3: +500% → sell remaining 25% - Trailing: 30% from peak - Stop: -20% ### SIM RESET: -",
-      "recallCount": 3,
+      "recallCount": 4,
       "dailyCount": 0,
       "groundedCount": 0,
-      "totalScore": 3,
+      "totalScore": 4,
       "maxScore": 1,
       "firstRecalledAt": "2026-05-07T03:36:44.299Z",
-      "lastRecalledAt": "2026-05-16T08:12:34.005Z",
+      "lastRecalledAt": "2026-05-18T11:26:17.693Z",
       "queryHashes": [
         "78571ac9b904",
         "dd85141e7ece",
-        "660013992f08"
+        "660013992f08",
+        "d43809d67213"
       ],
       "recallDays": [
         "2026-05-07",
         "2026-05-15",
-        "2026-05-16"
+        "2026-05-16",
+        "2026-05-18"
       ],
       "conceptTags": [
         "2-5x",
@@ -2166,18 +2174,20 @@
       "endLine": 33,
       "source": "memory",
       "snippet": "## 04:00 UTC Heartbeat - Systems: gmgn_scanner + position_monitor running (2 processes) - Scanner: v7.4 CLEAN, no throttling, 286 blacklist, 0 temp rejections - Recent buys: Pepu ($15K mcap), STEPUNC ($11K mcap), ASTEROID ($17K mcap) - Recent sell: HOMO STOP_LOSS (-0.0538 SOL) - Recent session: 16W/16L, +0.49 SOL (last ~50 trades) - Overall: 113W/211L, -2.98 SOL (lifetime from 608 trades) - Balance appears stuck at 1.0 SOL in wallet (wallet not updating with positions?) ## 04:30 UTC Heartbeat - Systems: 2 running (gmgn_scanner + position_monitor) ✓ - Scanner: no throttling, 288 blacklist, 0 fails - Recent sells: STEPUNC TP2 (+0.037 SOL WIN), GAVEL/Pepu/ASTROID STOP_LOSS - Open: STEPUNC (par",
-      "recallCount": 1,
+      "recallCount": 2,
       "dailyCount": 0,
       "groundedCount": 0,
-      "totalScore": 1,
+      "totalScore": 2,
       "maxScore": 1,
       "firstRecalledAt": "2026-05-15T20:46:29.853Z",
-      "lastRecalledAt": "2026-05-15T20:46:29.853Z",
+      "lastRecalledAt": "2026-05-18T11:26:17.693Z",
       "queryHashes": [
-        "dd85141e7ece"
+        "dd85141e7ece",
+        "d43809d67213"
       ],
       "recallDays": [
-        "2026-05-15"
+        "2026-05-15",
+        "2026-05-18"
       ],
       "conceptTags": [
         "gmgn-scanner",
@@ -2197,18 +2207,20 @@
       "endLine": 134,
       "source": "memory",
       "snippet": "- Stale tokens blocking new token processing - Fix: Only process urgent cooldowns (timers expiring within 20s) - Timeout: stop processing after 8s to allow new token evaluation ### COOLDOWN SYSTEM (WORKING) - Scanner adds candidates to cooldown on scan_token() pass - Only processes tokens with remaining <= 20s - 8s processing timeout prevents blocking - New scan cycle runs every 15s ### CURRENT EXIT PLAN (per position_monitor.py v7.4) | Level | Trigger | Sell % | Trail | |-------|---------|--------|-------| | TP1 | +50% | HOLD | 40% | | TP2 | +100% | 40% | 30% | | TP3 | +200% | 30% | 30% | | TP4 | +300% | 20% | 30% | | TP5 | +1000% | ALL | 20% | | Stop | -30% | ALL | - | ### GIT",
-      "recallCount": 1,
+      "recallCount": 2,
       "dailyCount": 0,
       "groundedCount": 0,
-      "totalScore": 1,
+      "totalScore": 2,
       "maxScore": 1,
       "firstRecalledAt": "2026-05-15T20:46:29.853Z",
-      "lastRecalledAt": "2026-05-15T20:46:29.853Z",
+      "lastRecalledAt": "2026-05-18T11:26:17.693Z",
       "queryHashes": [
-        "dd85141e7ece"
+        "dd85141e7ece",
+        "d43809d67213"
       ],
       "recallDays": [
-        "2026-05-15"
+        "2026-05-15",
+        "2026-05-18"
       ],
       "conceptTags": [
         "scan-token",
