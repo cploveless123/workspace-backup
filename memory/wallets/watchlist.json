@@ -4,16 +4,16 @@
       "address": "suqh5sHtr8HyJ7q8scBimULPkPpA557prMG47xCHQfK",
       "added": "2026-04-06T16:38:00Z",
       "prev_balance_sol": 0.1,
-      "balance_sol": 5.84563098,
+      "balance_sol": 4.142396215,
       "change_sol": 1.6,
       "status": "ACCUMULATING",
       "recent_tokens": [],
       "pattern": "SOL accumulator",
       "notes": "Gaining SOL - +1.60 SOL influx",
-      "last_check": 1779087891.2935073,
+      "last_check": 1779116277.8832028,
       "recent_activity": [
-        "2eXw8dkRccpqdnEQYsUVCEsJxGkLpyBtMwpWZTpAfvmjLG48MJ4w3uas4C7t2Ad3SVo5MivkJ24CxrPWDwY5m3Wp",
-        "TFvq58Znsa8UhLnpHiteS9w8Rqxqowf87M4AQqaM38U4qpxxGJebrVQSrbNt1GT5w8bdsooixZRtUgCzhuQm3sN"
+        "3LfCMkgNnSAUbrr3KvvqX2pNSXWw798rWpSyLTfrQWAuZPwehJ2nv7xP5hEkEwntWwysXWVt1AEhE87YGggzpBmb",
+        "39wQjXnMGnQw5WDEYJZsnSDtho3dPmGhRkKyt9qeuYZZHjn5yD8JhYoW5NkvFZk1hRLGVo46KMibvwtqW1kiXHmi"
       ]
     },
     {
